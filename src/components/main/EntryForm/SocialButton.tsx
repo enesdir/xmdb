@@ -1,0 +1,42 @@
+import type { IconType } from 'react-icons'
+import { BsDiscord, BsFacebook } from 'react-icons/bs'
+import { FcGoogle } from 'react-icons/fc'
+import { twMerge } from 'tailwind-merge'
+
+type Variant = 'discord' | 'facebook' | 'google'
+
+const variants: Record<Variant, string> = {
+	discord: 'bg-[#7289d9]',
+	facebook: 'bg-[#1877f2]',
+	google: 'border bg-white text-black',
+}
+
+const icons: Record<Variant, IconType> = {
+	discord: BsDiscord,
+	facebook: BsFacebook,
+	google: FcGoogle,
+}
+
+type SocialButtonProps = Readonly<{
+	variant: Variant
+	text: string
+	onClick: () => void
+}>
+
+export const SocialButton = ({ variant, text, onClick }: SocialButtonProps) => {
+	const Icon = icons[variant]
+
+	return (
+		<button
+			type='button'
+			onClick={onClick}
+			className={twMerge(
+				'flex h-9 w-full items-center justify-center gap-x-2 rounded-lg font-medium text-white',
+				variants[variant]
+			)}
+		>
+			<Icon className='text-lg' />
+			{text}
+		</button>
+	)
+}

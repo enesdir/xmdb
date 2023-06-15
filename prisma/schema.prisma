@@ -1,0 +1,162 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Necessary for next-auth
+model Account {
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+  @@map("account")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  username      String?   @unique
+  email         String?   @unique
+  password      String?   @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  biography     String?
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  accounts  Account[]
+  follower  UsersFollows[] @relation("following")
+  following UsersFollows[] @relation("follower")
+  post      Post[]
+  Session   Session[]
+
+  @@map("user")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_token")
+}
+
+model UsersFollows {
+  followerId  String   @map("follower_id")
+  followingId String   @map("following_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  follower    User     @relation("follower", fields: [followerId], references: [id], onDelete: Cascade)
+  following   User     @relation("following", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@id([followerId, followingId])
+  @@map("users_follows")
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  description String
+  userId      String   @map("user_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  title              String
+  original_title     String?
+  overview           String?           @db.Text
+  original_language  ORIGINAL_LANGUAGE @default(ENGLISH)
+  media_type         MEDIA_TYPE        @default(movie)
+  status             String?
+  tagline            String?
+  budget             Int?
+  homepage           String?
+  imdb_id            String?
+  release_date       DateTime?
+  first_air_date     DateTime?
+  last_air_date      DateTime?
+  number_of_seasons  Int?
+  number_of_episodes Int?
+  revenue            Int?
+  runtime            Int?
+  trailer            String?
+  adult              Boolean           @default(false)
+  director           String?
+  cast               String[]
+
+  user  User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  image Image[]
+
+  @@map("post")
+}
+
+model Image {
+  id     Int    @id @default(autoincrement())
+  url    String @unique
+  postId Int    @map("post_id")
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("image")
+}
+
+enum MEDIA_TYPE {
+  movie
+  tv
+}
+
+enum ORIGINAL_LANGUAGE {
+  BAHASA_INDONESIA
+  BAHASA_MELAYU
+  DANSK
+  DEUTSCH
+  ENGLISH
+  ESPANOL
+  FILIPINO
+  FRANCAIS
+  HRVATSKI
+  ITALIANO
+  HINDI
+  BANGLA
+  MAGYAR
+  NEDERLANDS
+  NORSK_BOKMAL
+  POLSKI
+  PORTUGUES
+  ROMANA
+  SUOMI
+  SVENSKA
+  TIENG_VIET
+  TURKCE
+  CESTINA
+  ELLINIKA
+  KOREAN
+  RUSSIAN
+  JAPANESE
+  ARABIC
+}
