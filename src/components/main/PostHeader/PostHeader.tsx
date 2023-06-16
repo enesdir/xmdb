@@ -10,8 +10,8 @@ type PostHeaderProps = Readonly<{
 
 export const PostHeader = ({ post }: PostHeaderProps) => (
 	<div className='mb-4 border-b pb-4'>
-		<header className='mx-auto flex w-full max-w-xl flex-col items-center justify-between gap-y-5 sm:flex-row sm:items-start'>
-			<div className={'relative h-60 w-60 shrink-0 overflow-hidden rounded-full'}>
+		<header className='mx-auto flex w-full flex-col items-center justify-between gap-y-4  sm:flex-row sm:items-start'>
+			<div className='relative h-60 w-60 shrink-0 overflow-hidden rounded-full'>
 				<Image src={post.images[0]} alt={post.title} className='object-cover' fill />
 			</div>
 			<section className='w-full space-y-4 sm:max-w-xs'>

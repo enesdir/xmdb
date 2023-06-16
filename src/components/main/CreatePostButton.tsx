@@ -24,9 +24,11 @@ export const CreatePostButton = ({ user }: CreatePostButtonProps) => {
 				type='button'
 				onClick={openModal}
 				aria-label='Create a new post'
-				className='fixed bottom-3.5 left-1/2 -translate-x-1/2 rounded-full bg-blue-400 p-2 text-2xl text-white opacity-40 transition-opacity hover:opacity-100'
+				className='rounded-md bg-blue-400 p-2 text-lg text-white opacity-40 transition-opacity hover:opacity-100'
 			>
-				<IoAdd />
+				<span className='flex items-center gap-x-2'>
+					<IoAdd /> Add New Show
+				</span>
 			</button>
 			<CreatePostModal isOpen={isOpen} onClose={closeModal} />
 		</>

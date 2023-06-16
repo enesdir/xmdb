@@ -46,7 +46,6 @@ export default async function UserPage({ params: { slug }, searchParams }: UserP
 		<>
 			<UserHeader user={user} />
 			<UserPosts user={user} />
-			<CreatePostButton user={user} />
 			<UserPostModal post={post} />
 		</>
 	)

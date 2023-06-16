@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { PostHeader } from '@/components/main/PostHeader/PostHeader'
+import { ShowCastList } from '@/components/main/ShowCast/ShowCastList'
 import { env } from '@/env.mjs'
 import { PROJECT_NAME } from '@/lib/constants'
 import { getPostById } from '@/lib/post'
@@ -29,6 +30,7 @@ export default async function ShowPage({ params: { slug } }: ShowPageProps) {
 	return (
 		<>
 			<PostHeader post={post} />
+			<ShowCastList />
 		</>
 	)
 }

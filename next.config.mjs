@@ -34,7 +34,7 @@ const nextConfig = {
 				hostname: 'res.cloudinary.com',
 			},
 		],
-		domains: ['via.placeholder.com', 'unsplash.com'],
+		domains: ['via.placeholder.com', 'images.unsplash.com', 'unsplash.com'],
 	},
 	// i18n: {
 	//   locales: ['en'],
