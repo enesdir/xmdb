@@ -1,10 +1,6 @@
-import Image from 'next/image'
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import type { Post } from '@/server/modules/posts/postsSchemas'
-import { AccessControl } from '../AccessControl'
-import { DeletePostButton } from '../DeletePostButton'
-import { PostCta } from './PostCta'
-import { PostDetails } from './PostDetails'
-import { PostStatistics } from './PostStatistics'
+import { Button } from '../../../components/ui/Button/Button'
 
 type PostHeaderProps = Readonly<{
 	post: Post
@@ -12,22 +8,71 @@ type PostHeaderProps = Readonly<{
 
 export const PostHeader = ({ post }: PostHeaderProps) => {
 	return (
-		<div className='mb-4 border-b pb-4'>
-			<header className='mx-auto flex w-full flex-col items-center sm:flex-row sm:items-start'>
-				<div className='relative h-60 w-60 shrink-0 grow-0 overflow-hidden rounded-full'>
-					<Image src={post.images[0]} alt={post.title} className='object-cover' fill />
+		<div className='flex justify-between py-2'>
+			<div className='flex flex-col items-center justify-center'>
+				<div className='flex flex-col items-center justify-center'>
+					<span className='text-sm uppercase text-gray-400'>{post.title}</span>
+					<div className='flex flex-row items-center justify-center text-lg'>
+						<Button icon={<AiFillStar />} variant='text' className='bg-transparent hover:bg-blue-400'>
+							<div className='flex items-center justify-end'>
+								<p className=' inline-block whitespace-nowrap rounded-xl font-semibold leading-tight'>
+									<span className='text-lg'>9.0</span>
+									<span className='text-sm opacity-50'>
+										{'/'}
+										{'10'}
+									</span>
+								</p>
+							</div>
+						</Button>
+					</div>
 				</div>
-				<section className='grow space-y-4 '>
-					<PostCta post={post} />
-					<PostStatistics post={post} />
-					<PostDetails post={post} />
-				</section>
-				<section className='grow-0 space-y-4 sm:max-w-xs'>
-					<AccessControl createdID={post.author.id}>
-						<DeletePostButton post={post} />
-					</AccessControl>
-				</section>
-			</header>
+			</div>
+			<div className='flex flex-row items-center space-x-1'>
+				<div className='flex flex-col items-center justify-center'>
+					<span className='text-sm uppercase text-gray-400'>Rating</span>
+					<div className='flex flex-row items-center justify-center text-lg'>
+						<Button icon={<AiFillStar />} variant='text' className='bg-transparent hover:bg-blue-400'>
+							<div className='flex items-center justify-end'>
+								<p className=' inline-block whitespace-nowrap rounded-xl font-semibold leading-tight'>
+									<span className='text-lg'>9.0</span>
+									<span className='text-sm opacity-50'>
+										{'/'}
+										{'10'}
+									</span>
+								</p>
+							</div>
+						</Button>
+					</div>
+				</div>
+				<div className='flex flex-col items-center justify-center'>
+					<span className='text-sm uppercase text-gray-400'>Your Rating</span>
+					<div className='flex flex-row items-center justify-center text-lg'>
+						<Button icon={<AiOutlineStar />} variant='text' className='bg-transparent hover:bg-blue-400'>
+							<div className='flex items-center justify-end'>
+								<p className=' inline-block whitespace-nowrap rounded-xl font-semibold leading-tight'>
+									<span className='text-lg'>Rate</span>
+								</p>
+							</div>
+						</Button>
+					</div>
+				</div>
+				<div className='flex flex-col items-center justify-center'>
+					<span className='text-sm uppercase text-gray-400'>Popularity</span>
+					<div className='flex flex-row items-center justify-center text-lg'>
+						<Button icon={<AiFillStar />} variant='text' className='bg-transparent hover:bg-blue-400'>
+							<div className='flex items-center justify-end'>
+								<p className=' inline-block whitespace-nowrap rounded-xl font-semibold leading-tight'>
+									<span className='text-lg'>9.0</span>
+									<span className='text-sm opacity-50'>
+										{'/'}
+										{'10'}
+									</span>
+								</p>
+							</div>
+						</Button>
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }
