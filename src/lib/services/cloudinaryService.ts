@@ -1,7 +1,7 @@
 import { makeApi, Zodios } from '@zodios/core'
 import { z } from 'zod'
 import { env } from '@/env.mjs'
-import { createSignature } from '../utils/cloudinary'
+import { createSignature } from '@/lib/utils/cloudinary'
 
 const api = makeApi([
 	{

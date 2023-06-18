@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { createAvatar } from '@/lib/services/avatars.service'
+import { createAvatar } from '@/lib/services/avatarsService'
 
 export const useCreateUserAvatar = () => {
 	const { mutateAsync, isLoading } = useMutation({ mutationFn: createAvatar })

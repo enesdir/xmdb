@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server'
 import crypto from 'node:crypto'
-import { mapPrismaPostToPost } from '~/src/server/modules/posts/postsMapper'
-import { createPost } from '~/src/server/modules/posts/postsService'
 import { POST_DESCRIPTION_MAX_LENGTH } from '@/lib/constants'
-import { createImage } from '@/lib/services/cloudinary.service'
+import { createImage } from '@/lib/services/cloudinaryService'
 import { createJsonResponse, protectRoute } from '@/lib/utils/route'
+import { mapPrismaPostToPost } from '@/server/modules/posts/postsMapper'
+import { createPost } from '@/server/modules/posts/postsService'
 
 const validateImages = (data: unknown): data is File[] =>
 	Array.isArray(data) && data.length > 0 && data.every((item) => item instanceof Blob)

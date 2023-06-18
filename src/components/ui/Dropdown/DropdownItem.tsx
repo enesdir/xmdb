@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { Menu } from '@headlessui/react'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/lib/utils/cn'
 
 type DropdownItemProps<T> = Readonly<
 	| {
@@ -19,9 +19,9 @@ type DropdownItemProps<T> = Readonly<
 export const DropdownItem = <T,>({ onClick, icon, href, children }: DropdownItemProps<T>) => (
 	<Menu.Item>
 		{({ active }) => {
-			const styles = twMerge(
+			const styles = cn(
 				'duration-250 flex w-full items-center gap-x-1.5 whitespace-nowrap rounded-md px-3.5 py-2.5 text-sm transition-colors',
-				active && 'bg-primary-400 text-white'
+				active && 'bg-blue-400 text-white'
 			)
 
 			return href ? (

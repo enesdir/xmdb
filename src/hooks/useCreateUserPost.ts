@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { createPost } from '@/lib/services/posts.service'
+import { createPost } from '@/lib/services/postsService'
 
 export const useCreateUserPost = () => {
 	const { mutateAsync, isLoading } = useMutation({ mutationFn: createPost })

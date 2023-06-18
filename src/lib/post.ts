@@ -13,7 +13,7 @@ export const getPostByIdUser = async ({ id, username }: { id: number; username: 
 	const caller = appRouter.createCaller({ session: null })
 
 	try {
-		return await caller.posts.getById({ id, username })
+		return await caller.posts.getByIdUser({ id, username })
 	} catch (err) {
 		if (err instanceof TRPCError && err.code === 'NOT_FOUND') {
 			throw notFound()
