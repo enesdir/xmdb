@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server'
-import { isPrismaError, prismaErrors } from '@/lib/utils/prisma-errors'
+import { isPrismaError, prismaErrors } from '@/lib/utils/prismaErrors'
 import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
 import { mapPrismaUserToUser } from './usersMapper'
 import type { CreateUserInput, GetUserByUsernameInput, UpdateUserInput } from './usersSchemas'

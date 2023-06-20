@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth'
-import { authOptions } from '~/src/server/authOptions'
+import { authOptions } from '@/server/authOptions'
 
 export const createJsonResponse = (body: Record<string, unknown> | undefined, status: number) =>
 	new Response(JSON.stringify(body), {

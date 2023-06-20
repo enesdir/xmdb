@@ -1,8 +1,8 @@
-import type { Post } from '@/server/modules/posts/postsSchemas'
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type TrailerProps = Readonly<{
-	post: Post
+	show: Show
 }>
-export const Trailer = ({ post }: TrailerProps) => {
+export const Trailer = ({ show }: TrailerProps) => {
 	return <div>Trailer</div>
 }

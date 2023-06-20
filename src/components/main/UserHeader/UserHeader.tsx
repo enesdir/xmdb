@@ -1,6 +1,6 @@
 import { UserAvatar } from '@/components/common/UserAvatar'
 import type { User } from '@/server/modules/users/usersSchemas'
-import { CreatePostButton } from '../CreatePostButton'
+import { CreateShowButton } from '../CreateShowButton'
 import { UserCta } from './UserCta'
 import { UserDetails } from './UserDetails'
 import { UserEditorPanel } from './UserEditorPanel'
@@ -23,7 +23,7 @@ export const UserHeader = ({ user }: UserHeaderProps) => (
 				<UserDetails user={user} />
 			</section>
 			<section className='space-y-4 sm:max-w-xs'>
-				<CreatePostButton user={user} />
+				<CreateShowButton user={user} />
 			</section>
 		</div>
 	</div>

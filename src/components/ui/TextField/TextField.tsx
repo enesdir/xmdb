@@ -1,4 +1,4 @@
-import type { ChangeEventHandler, FocusEventHandler, ReactNode } from 'react'
+import type { ChangeEventHandler, FocusEventHandler, HTMLInputTypeAttribute, ReactNode } from 'react'
 import { forwardRef, useId } from 'react'
 import { cn } from '@/lib/utils/cn'
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage'
@@ -15,7 +15,7 @@ type TextFieldProps = Readonly<{
 	icon?: ReactNode
 	onChange?: ChangeEventHandler<HTMLInputElement>
 	onBlur?: FocusEventHandler<HTMLInputElement>
-	type: 'email' | 'number' | 'password' | 'text'
+	type: HTMLInputTypeAttribute
 	placeholder: string
 }>
 

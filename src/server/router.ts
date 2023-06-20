@@ -1,6 +1,7 @@
 import { createTRPCRouter } from '@/server/trpc'
 import { followsRouter } from './modules/follows/followsRouter'
-import { postsRouter } from './modules/posts/postsRouter'
+import { likesRouter } from './modules/likes/likesRouter'
+import { showsRouter } from './modules/shows/showsRouter'
 import { usersRouter } from './modules/users/usersRouter'
 
 /**
@@ -11,7 +12,8 @@ import { usersRouter } from './modules/users/usersRouter'
 export const appRouter = createTRPCRouter({
 	users: usersRouter,
 	follows: followsRouter,
-	posts: postsRouter,
+	shows: showsRouter,
+	likes: likesRouter,
 })
 
 // Export type definition of API

@@ -1,5 +1,5 @@
-import type { ProtectedContext, TRPCContext } from '~/src/server/createTRPCContext'
-import { mapPrismaUserToUser } from '../users/usersMapper'
+import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
+import { mapPrismaUserToUser } from '@/server/modules/users/usersMapper'
 import type { CreateFollowInput, DeleteFollowInput, GetFollowsInput } from './followsSchemas'
 import { createFollow, deleteFollow, getFollows } from './followsService'
 

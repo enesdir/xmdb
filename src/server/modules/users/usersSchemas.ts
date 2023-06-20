@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import type { TypeOf } from 'zod'
+import { z } from 'zod'
 import {
 	BIOGRAPHY_REGEX,
 	EMAIL_MAX_LENGTH,
@@ -18,7 +18,7 @@ export const userSchema = z.object({
 	biography: z.string().nullable(),
 	follow: z.boolean().optional(),
 	statistics: z.object({
-		posts: z.number(),
+		shows: z.number(),
 		followers: z.number(),
 		following: z.number(),
 	}),

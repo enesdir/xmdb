@@ -1,26 +1,26 @@
-import type { Post } from '@/server/modules/posts/postsSchemas'
+import type { Show } from '~/src/server/modules/shows/showsSchemas'
 import { AccessControl } from '../AccessControl'
-import { DeletePostButton } from '../DeletePostButton'
-import { PostCta } from './PostCta'
-import { PostDetails } from './PostDetails'
-import { PostStatistics } from './PostStatistics'
+import { DeleteShowButton } from '../DeleteShowButton'
+import { ShowCta } from './ShowCta'
+import { ShowDetails } from './ShowDetails'
+import { ShowStatistics } from './ShowStatistics'
 
-type PostBodyProps = Readonly<{
-	post: Post
+type ShowBodyProps = Readonly<{
+	show: Show
 }>
 
-export const PostBody = ({ post }: PostBodyProps) => {
+export const ShowBody = ({ show }: ShowBodyProps) => {
 	return (
 		<div className='mb-4 border-b pb-4'>
 			<div className='mx-auto flex w-full flex-col items-center sm:flex-row sm:items-start'>
 				<section className='grow space-y-4 '>
-					<PostCta post={post} />
-					<PostStatistics post={post} />
-					<PostDetails post={post} />
+					<ShowCta show={show} />
+					<ShowStatistics show={show} />
+					<ShowDetails show={show} />
 				</section>
 				<section className='grow-0 space-y-4 sm:max-w-xs'>
-					<AccessControl createdID={post.author.id}>
-						<DeletePostButton post={post} />
+					<AccessControl createdID={show.author.id}>
+						<DeleteShowButton show={show} />
 					</AccessControl>
 				</section>
 			</div>

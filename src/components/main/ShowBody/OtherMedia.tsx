@@ -1,9 +1,9 @@
-import type { Post } from '@/server/modules/posts/postsSchemas'
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type OtherMediaProps = Readonly<{
-	post: Post
+	show: Show
 }>
-export const OtherMedia = ({ post }: OtherMediaProps) => {
+export const OtherMedia = ({ show }: OtherMediaProps) => {
 	return (
 		<div className='flex  h-full w-full flex-row lg:flex-col'>
 			<div className='grow bg-teal-100 '>35 videos</div>

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { TRPCError } from '@trpc/server'
-import { createTRPCContext } from '~/src/server/createTRPCContext'
+import { createTRPCContext } from '@/server/createTRPCContext'
 import { appRouter } from '@/server/router'
 
 export const getUserByUsername = async (username: string) => {

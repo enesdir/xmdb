@@ -11,7 +11,7 @@ export const EMAIL_MAX_LENGTH_ERROR_MESSAGE = 'Email can be up to 320 characters
 export const EMAIL_MAX_LENGTH = 320
 export const PASSWORD_MIN_LENGTH = 6
 export const PASSWORD_MAX_LENGTH = 30
-export const POST_DESCRIPTION_MAX_LENGTH = 300
+export const SHOW_DESCRIPTION_MAX_LENGTH = 300
 
 export const USERNAME_REGEX = /^[a-z0-9_.-]{1,20}$/
 export const NAME_REGEX = /^[^\s\d_][\p{L}'-]+$/u

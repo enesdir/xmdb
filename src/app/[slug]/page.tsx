@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
-import { CreatePostButton } from '@/components/main/CreatePostButton'
 import { UserHeader } from '@/components/main/UserHeader/UserHeader'
-import { UserPostModal } from '@/components/main/UserPostModal/UserPostModal'
-import { UserPosts } from '@/components/main/UserPosts/UserPosts'
+import { UserShowModal } from '@/components/main/UserShowModal/UserShowModal'
+import { UserShows } from '@/components/main/UserShows/UserShows'
 import { env } from '@/env.mjs'
 import { DEFAULT_PROFILE_BIOGRAPHY, PROJECT_NAME } from '@/lib/constants'
-import { getPostByIdUser, parsePostQuery } from '@/lib/post'
+import { getShowByIdUser, parseShowQuery } from '@/lib/show'
 import { getUserByUsername } from '@/lib/user'
 
 export const generateMetadata = async ({ params: { slug } }: UserPageProps): Promise<Metadata> => {
@@ -35,18 +34,18 @@ type UserPageProps = Readonly<{
 }>
 
 export default async function UserPage({ params: { slug }, searchParams }: UserPageProps) {
-	const postId = parsePostQuery(searchParams.post)
+	const showId = parseShowQuery(searchParams.post)
 
-	const [user, post] = await Promise.all([
+	const [user, show] = await Promise.all([
 		getUserByUsername(slug),
-		postId ? getPostByIdUser({ id: postId, username: slug }) : null,
+		showId ? getShowByIdUser({ id: showId, username: slug }) : null,
 	])
 
 	return (
 		<>
 			<UserHeader user={user} />
-			<UserPosts user={user} />
-			<UserPostModal post={post} />
+			<UserShows user={user} />
+			<UserShowModal show={show} />
 		</>
 	)
 }

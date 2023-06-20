@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
+import { ShowList } from '@/components/main/UserShows/ShowList/ShowList'
 import { env } from '@/env.mjs'
 import { PROJECT_NAME } from '@/lib/constants'
-import { getAllPosts } from '@/lib/post'
-import { PostList } from '../../components/main/UserPosts/PostList/PostList'
+import { getAllShows } from '@/lib/show'
 
 export const generateMetadata = async (): Promise<Metadata> => {
 	return {
@@ -17,11 +17,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
 }
 
 export default async function ShowsPage() {
-	const posts = await getAllPosts()
+	const shows = await getAllShows()
 
 	return (
 		<>
-			<PostList posts={posts} />
+			<ShowList shows={shows} />
 		</>
 	)
 }

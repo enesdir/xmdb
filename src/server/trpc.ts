@@ -1,7 +1,7 @@
 import { initTRPC, TRPCError } from '@trpc/server'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
-import { isPrismaError } from '@/lib/utils/prisma-errors'
+import { isPrismaError } from '@/lib/utils/prismaErrors'
 import type { TRPCContext } from './createTRPCContext'
 
 const t = initTRPC.context<TRPCContext>().create({
