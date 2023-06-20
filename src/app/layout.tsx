@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Footer } from '@/components/main/Footer'
 import { Header } from '@/components/main/Header/Header'
 import { Container } from '@/components/ui/Container/Container'
 import { cn } from '@/lib/utils/cn'
@@ -11,9 +12,9 @@ const fontInter = Inter({
 	variable: '--font-inter',
 	subsets: ['latin', 'latin-ext'],
 })
-const title = 'Document Management for Modern Validation Teams'
+const title = 'YourMDB'
 const description =
-	'DocStore is an open-source document management tool for modern validation teams to create, track, and review documents.'
+	"YourMDb is the world's most popular and authoritative source for movie, TV and celebrity content. Find ratings and reviews for the newest movie and TV shows. Get personalized recommendations, and learn where to watch across hundreds of streaming providers."
 
 export const metadata: Metadata = {
 	title: {
@@ -66,6 +67,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 					<Container as='main' className='px-2 py-9'>
 						{children}
 					</Container>
+					<Footer />
 				</AppProviders>
 			</body>
 		</html>

@@ -6,7 +6,12 @@ import { SHOW_DESCRIPTION_MAX_LENGTH } from '@/lib/constants'
 export const showSchema = z.object({
 	id: z.number(),
 	description: z.string(),
+	createdAt: z.string(),
 	images: z.array(z.string()),
+	like: z.boolean(),
+	statistics: z.object({
+		likes: z.number(),
+	}),
 	author: z.object({
 		id: z.string(),
 		username: z.string().nullable(),
@@ -14,13 +19,13 @@ export const showSchema = z.object({
 		image: z.string().nullable(),
 	}),
 	title: z.string(),
-	original_title: z.string().optional().nullable(),
-	overview: z.string().optional().nullable(),
+	original_title: z.string().nullish(),
+	overview: z.string().nullish(),
 	original_language: z.nativeEnum(ORIGINAL_LANGUAGE),
 	media_type: z.nativeEnum(MEDIA_TYPE),
-	trailer: z.string().optional().nullable(),
+	trailer: z.string().url().nullish(),
 	adult: z.boolean().default(false),
-	director: z.string().optional().nullable(),
+	director: z.string().nullish(),
 	cast: z.array(z.string()).nullable(),
 })
 export const createShowSchema = z.object({
@@ -31,11 +36,20 @@ export const createShowSchema = z.object({
 	overview: z.string().optional().nullable(),
 	original_language: z.nativeEnum(ORIGINAL_LANGUAGE),
 	media_type: z.nativeEnum(MEDIA_TYPE),
-	trailer: z.string().or(z.null()),
+	trailer: z.string().url().or(z.null()),
 	adult: z.boolean().default(false),
 	director: z.string().or(z.null()),
 })
+export const allShowsSchema = z.array(showSchema)
+export const getAllLatestShowsSchema = z.object({
+	limit: z.number().min(1).max(100).optional().default(3),
+	cursor: z.number().optional(),
+})
 export const getAllShowsSchema = z.object({})
+export const latestShowsSchema = z.object({
+	items: z.array(showSchema),
+	nextCursor: z.number().nullable(),
+})
 export const getShowsByUserSchema = z.object({
 	username: z.string(),
 })
@@ -52,6 +66,7 @@ export const deleteShowByIdSchema = z.object({
 
 export type Show = TypeOf<typeof showSchema>
 export type GetAllShowsInput = TypeOf<typeof getAllShowsSchema>
+export type GetAllLatestShowsInput = TypeOf<typeof getAllLatestShowsSchema>
 export type GetShowsByUserInput = TypeOf<typeof getShowsByUserSchema>
 export type GetShowByIdUserInput = TypeOf<typeof getShowByIdUserSchema>
 export type GetShowByIdInput = TypeOf<typeof getShowByIdSchema>

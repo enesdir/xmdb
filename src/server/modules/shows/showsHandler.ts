@@ -4,14 +4,34 @@ import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
 import { mapPrismaShowToShow } from './showsMapper'
 import type {
 	DeleteShowByIdInput,
+	GetAllLatestShowsInput,
 	GetAllShowsInput,
 	GetShowByIdInput,
 	GetShowByIdUserInput,
 	GetShowsByUserInput,
 } from './showsSchemas'
-import { deleteShowById, getAllShows, getShowById, getShowByIdUser, getShowsByUsername } from './showsService'
+import {
+	deleteShowById,
+	getAllLatestShows,
+	getAllShows,
+	getShowById,
+	getShowByIdUser,
+	getShowsByUsername,
+} from './showsService'
 import { getFileNameFromUrl } from './showsUtils'
 
+export const getAllLatestShowsHandler = async (
+	{ session }: TRPCContext,
+	{ limit, cursor }: GetAllLatestShowsInput
+) => {
+	const shows = await getAllLatestShows({ limit, cursor })
+	const nextCursor = shows.length < limit ? null : shows.at(-1)?.id
+
+	return {
+		nextCursor: nextCursor || null,
+		items: shows.map(mapPrismaShowToShow),
+	}
+}
 export const getAllShowsHandler = async ({}: GetAllShowsInput) => {
 	const shows = await getAllShows()
 

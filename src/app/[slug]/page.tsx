@@ -6,6 +6,7 @@ import { env } from '@/env.mjs'
 import { DEFAULT_PROFILE_BIOGRAPHY, PROJECT_NAME } from '@/lib/constants'
 import { getShowByIdUser, parseShowQuery } from '@/lib/show'
 import { getUserByUsername } from '@/lib/user'
+import { PageParams } from '@/types/pageParams'
 
 export const generateMetadata = async ({ params: { slug } }: UserPageProps): Promise<Metadata> => {
 	const { username, name, image, biography } = await getUserByUsername(slug)
@@ -29,7 +30,7 @@ export const generateMetadata = async ({ params: { slug } }: UserPageProps): Pro
 }
 
 type UserPageProps = Readonly<{
-	params: { slug: string }
+	params: PageParams<'slug'>
 	searchParams: { post?: string | string[] }
 }>
 

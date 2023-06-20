@@ -1,29 +1,36 @@
-import { z } from 'zod'
 import { createTRPCRouter, protectedProcedure, publicProcedure } from '@/server/trpc'
 import {
 	deleteShowByIdHandler,
+	getAllLatestShowsHandler,
 	getAllShowsHandler,
 	getShowByIdHandler,
 	getShowByIdUserHandler,
 	getShowsByUserHandler,
 } from './showsHandler'
 import {
+	allShowsSchema,
 	deleteShowByIdSchema,
+	getAllLatestShowsSchema,
 	getAllShowsSchema,
 	getShowByIdSchema,
 	getShowByIdUserSchema,
 	getShowsByUserSchema,
+	latestShowsSchema,
 	showSchema,
 } from './showsSchemas'
 
 export const showsRouter = createTRPCRouter({
 	getAll: publicProcedure
 		.input(getAllShowsSchema)
-		.output(z.array(showSchema))
+		.output(allShowsSchema)
 		.query(({ input }) => getAllShowsHandler(input)),
+	getAllLatest: publicProcedure
+		.input(getAllLatestShowsSchema)
+		.output(latestShowsSchema)
+		.query(({ ctx, input }) => getAllLatestShowsHandler(ctx, input)),
 	getShowsByUser: publicProcedure
 		.input(getShowsByUserSchema)
-		.output(z.array(showSchema))
+		.output(allShowsSchema)
 		.query(({ input }) => getShowsByUserHandler(input)),
 	getById: publicProcedure
 		.input(getShowByIdSchema)

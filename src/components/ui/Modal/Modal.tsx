@@ -1,17 +1,19 @@
-import { Fragment } from 'react'
 import type { ReactNode } from 'react'
+import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { IoCloseSharp } from 'react-icons/io5'
-import { IconButton } from '../IconButton/IconButton'
+import { IconButton } from '@/components/ui/IconButton/IconButton'
+import { cn } from '@/lib/utils/cn'
 import { ModalTitle } from './ModalTitle'
 
 type ModalProps = Readonly<{
 	isOpen: boolean
 	onClose: () => void
+	large?: boolean
 	children?: ReactNode
 }>
 
-export const Modal = ({ isOpen, onClose, children }: ModalProps) => (
+export const Modal = ({ isOpen, onClose, large, children }: ModalProps) => (
 	<Transition as={Fragment} show={isOpen} appear>
 		<Dialog onClose={onClose}>
 			<Transition.Child
@@ -34,7 +36,12 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => (
 							leaveFrom='opacity-100 translate-y-0'
 							leaveTo='opacity-0 translate-y-8'
 						>
-							<Dialog.Panel className='relative w-full max-w-xl rounded-2xl bg-white p-3 shadow-sm sm:p-6'>
+							<Dialog.Panel
+								className={cn(
+									'relative w-full max-w-xl rounded-2xl bg-white p-3 shadow-sm sm:p-6',
+									large && 'max-w-6xl'
+								)}
+							>
 								<div className='absolute right-2.5 top-2.5'>
 									<IconButton label='Close modal' icon={<IoCloseSharp />} onClick={onClose} />
 								</div>

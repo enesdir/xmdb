@@ -8,9 +8,10 @@ import { ShowHeader } from '@/components/main/ShowHeader/ShowHeader'
 import { env } from '@/env.mjs'
 import { PROJECT_NAME } from '@/lib/constants'
 import { getShowById } from '@/lib/show'
+import { PageParams } from '@/types/pageParams'
 
 export const generateMetadata = async ({ params: { slug } }: ShowPageProps): Promise<Metadata> => {
-	const { id, title, description, author } = await getShowById({ id: Number(slug) })
+	const { id, title, description, author } = await getShowById(Number(slug))
 
 	return {
 		title: title,
@@ -25,11 +26,11 @@ export const generateMetadata = async ({ params: { slug } }: ShowPageProps): Pro
 }
 
 type ShowPageProps = Readonly<{
-	params: { slug: string }
+	params: PageParams<'slug'>
 }>
 
-export default async function ShowPage({ params: { slug } }: ShowPageProps) {
-	const show = await getShowById({ id: Number(slug) })
+export default async function ShowPage({ params }: ShowPageProps) {
+	const show = await getShowById(Number(params.slug))
 
 	return (
 		<>

@@ -36,7 +36,7 @@ export const getAllShows = async () => {
 		throw err
 	}
 }
-export const getShowById = async ({ id }: { id: number }) => {
+export const getShowById = async (id: number) => {
 	const caller = appRouter.createCaller(await createTRPCContext())
 
 	try {

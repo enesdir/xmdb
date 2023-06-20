@@ -115,7 +115,7 @@ model Show {
   image Image[]
   like  Like[]
 
-  @@map("post")
+  @@map("show")
 }
 
 model Like {
@@ -132,7 +132,7 @@ model Image {
   id     Int    @id @default(autoincrement())
   url    String @unique
   showId Int    @map("show_id")
-  post   Show   @relation(fields: [showId], references: [id], onDelete: Cascade)
+  show   Show   @relation(fields: [showId], references: [id], onDelete: Cascade)
 
   @@map("image")
 }

@@ -8,7 +8,7 @@ type SingleShowProps = Readonly<{
 }>
 
 export const SingleShow = ({ show: { description, images, title, id } }: SingleShowProps) => (
-	<>
+	<Link href={`/show/${id}`}>
 		<article className='group relative mx-auto flex w-full max-w-sm overflow-hidden rounded-lg'>
 			<div className='relative overflow-hidden rounded-xl text-white shadow-lg transition duration-500 ease-in-out hover:-translate-y-2 hover:shadow-2xl'>
 				<div className='absolute inset-0 z-10 bg-gradient-to-t from-black via-gray-900 to-transparent transition duration-300 ease-in-out'></div>
@@ -59,5 +59,5 @@ export const SingleShow = ({ show: { description, images, title, id } }: SingleS
 				</div>
 			</div>
 		</article>
-	</>
+	</Link>
 )

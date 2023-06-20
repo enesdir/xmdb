@@ -18,7 +18,6 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 export default async function ShowsPage() {
 	const shows = await getAllShows()
-
 	return (
 		<>
 			<ShowList shows={shows} />

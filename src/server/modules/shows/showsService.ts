@@ -7,7 +7,14 @@ export const getAllShows = () =>
 		orderBy: { createdAt: 'desc' },
 		select: createShowSelect(),
 	})
-
+export const getAllLatestShows = ({ limit, cursor }: { limit: number; cursor?: number }) =>
+	prisma.show.findMany({
+		orderBy: { createdAt: 'desc' },
+		select: createShowSelect(),
+		take: limit,
+		skip: cursor ? 1 : 0,
+		...(cursor && { cursor: { id: cursor } }),
+	})
 export const getShowsByUsername = (username: string) =>
 	prisma.show.findMany({
 		where: { user: { username } },

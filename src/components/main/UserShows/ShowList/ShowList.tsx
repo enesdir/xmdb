@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Fragment } from 'react'
 import type { Show } from '@/server/modules/shows/showsSchemas'
 import { EmptyShowsAlert } from './EmptyShowsAlert'
 import { SingleShow } from './SingleShow/SingleShow'
@@ -15,9 +15,9 @@ export const ShowList = ({ shows }: ShowListProps) => {
 	return (
 		<ol className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
 			{shows.map((show) => (
-				<Link key={show.id} href={`/${show.author.username}?show=${show.id}`}>
+				<Fragment key={show.id}>
 					<SingleShow show={show} />
-				</Link>
+				</Fragment>
 			))}
 		</ol>
 	)
