@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 import { useSession } from 'next-auth/react'
 import { AiOutlineEdit } from 'react-icons/ai'
 import { UpdateUserModal } from '@/components/main/UpdateUserModal/UpdateUserModal'
-import { useModal } from '@/hooks/useModal'
+import { useBoolean } from '@/hooks/useBoolean'
 import type { User } from '@/server/modules/users/usersSchemas'
 
 type UserEditorPanelProps = Readonly<{
@@ -14,7 +14,7 @@ type UserEditorPanelProps = Readonly<{
 
 export const UserEditorPanel = ({ user, children }: UserEditorPanelProps) => {
 	const { data } = useSession()
-	const { isOpen, openModal, closeModal } = useModal()
+	const { value, setTrue, setFalse } = useBoolean(false)
 
 	if (data?.user.id !== user.id) {
 		return <>{children}</>
@@ -22,7 +22,7 @@ export const UserEditorPanel = ({ user, children }: UserEditorPanelProps) => {
 
 	return (
 		<>
-			<div onClick={openModal} className='group relative h-fit w-fit'>
+			<div onClick={setTrue} className='group relative h-fit w-fit'>
 				{children}
 				<button
 					type='button'
@@ -31,7 +31,7 @@ export const UserEditorPanel = ({ user, children }: UserEditorPanelProps) => {
 					<AiOutlineEdit />
 				</button>
 			</div>
-			<UpdateUserModal user={user} isOpen={isOpen} onClose={closeModal} />
+			<UpdateUserModal user={user} isOpen={value} onClose={setFalse} />
 		</>
 	)
 }

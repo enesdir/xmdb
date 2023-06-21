@@ -3,8 +3,8 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Modal } from '@/components/ui/Modal/Modal'
+import { useBoolean } from '@/hooks/useBoolean'
 import { useCacheValue } from '@/hooks/useCacheValue'
-import { useModal } from '@/hooks/useModal'
 import type { Show } from '@/server/modules/shows/showsSchemas'
 import { UserShowDetails } from './UserShowDetails'
 
@@ -13,22 +13,22 @@ type UserShowModalProps = Readonly<{
 }>
 
 export const UserShowModal = ({ show }: UserShowModalProps) => {
-	const { isOpen, openModal, closeModal } = useModal(false)
+	const { value: modalValue, setTrue, setFalse } = useBoolean(false)
 	const { value, setCache } = useCacheValue<Show>()
 	const { replace } = useRouter()
 
 	useEffect(() => {
 		if (show) {
 			setCache(show)
-			openModal()
+			setTrue()
 		} else {
-			closeModal()
+			setFalse()
 		}
-	}, [show, setCache, openModal, closeModal])
+	}, [show, setCache, setTrue, setFalse])
 
 	return (
 		<Modal
-			isOpen={isOpen}
+			isOpen={modalValue}
 			onClose={() => {
 				replace(`/${value?.author.username}`)
 			}}

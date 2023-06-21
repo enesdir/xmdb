@@ -1,12 +1,13 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import type { PropsWithChildren } from 'react'
 import { useSession } from 'next-auth/react'
 
-type PrivateElementProps = Readonly<{
-	loggedIn?: boolean
-	children: ReactNode
-}>
+type PrivateElementProps = Readonly<
+	{
+		loggedIn?: boolean
+	} & PropsWithChildren
+>
 
 export const PrivateElement = ({ loggedIn = true, children }: PrivateElementProps) => {
 	const { data } = useSession()

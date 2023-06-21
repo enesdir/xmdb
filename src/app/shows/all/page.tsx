@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { LatestShows } from '@/components/main/LatestShows/LatestShows'
+import { ShowList } from '@/components/main/ShowList/ShowList'
 import { env } from '@/env.mjs'
 import { PROJECT_NAME } from '@/lib/constants'
+import { getAllShows } from '@/lib/show'
 
 export const generateMetadata = async (): Promise<Metadata> => {
 	return {
@@ -15,11 +16,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
 	}
 }
 
-export default async function LatestShowsPage() {
+export default async function AllShowPage() {
+	const shows = await getAllShows()
 	return (
 		<>
-			<h1 className='text-3xl font-semibold'>Latest Shows</h1>
-			<LatestShows />
+			<ShowList shows={shows} />
 		</>
 	)
 }

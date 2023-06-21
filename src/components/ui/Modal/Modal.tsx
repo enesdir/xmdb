@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { PropsWithChildren } from 'react'
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { IoCloseSharp } from 'react-icons/io5'
@@ -6,12 +6,13 @@ import { IconButton } from '@/components/ui/IconButton/IconButton'
 import { cn } from '@/lib/utils/cn'
 import { ModalTitle } from './ModalTitle'
 
-type ModalProps = Readonly<{
-	isOpen: boolean
-	onClose: () => void
-	large?: boolean
-	children?: ReactNode
-}>
+type ModalProps = Readonly<
+	{
+		isOpen: boolean
+		onClose: () => void
+		large?: boolean
+	} & PropsWithChildren
+>
 
 export const Modal = ({ isOpen, onClose, large, children }: ModalProps) => (
 	<Transition as={Fragment} show={isOpen} appear>

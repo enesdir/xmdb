@@ -6,6 +6,7 @@ import {
 	getShowByIdHandler,
 	getShowByIdUserHandler,
 	getShowsByUserHandler,
+	searchShowsHandler,
 } from './showsHandler'
 import {
 	allShowsSchema,
@@ -16,6 +17,7 @@ import {
 	getShowByIdUserSchema,
 	getShowsByUserSchema,
 	latestShowsSchema,
+	searchShowsSchema,
 	showSchema,
 } from './showsSchemas'
 
@@ -44,4 +46,8 @@ export const showsRouter = createTRPCRouter({
 		.input(deleteShowByIdSchema)
 		.output(showSchema)
 		.mutation(({ ctx, input }) => deleteShowByIdHandler(ctx, input)),
+	search: publicProcedure
+		.input(searchShowsSchema)
+		.output(allShowsSchema)
+		.query(({ ctx, input }) => searchShowsHandler(ctx, input)),
 })

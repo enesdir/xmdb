@@ -11,7 +11,6 @@ type SinglePostModalProps = Readonly<{
 
 export const SingleShowModal = ({ show }: SinglePostModalProps) => {
 	const { back, refresh } = useRouter()
-
 	return (
 		<Modal
 			onClose={() => {

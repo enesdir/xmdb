@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { UserAvatar } from '@/components/common/UserAvatar'
+import { ImagesSlider } from '@/components/main/ImagesSlider'
 import { formatFromNow } from '@/lib/utils/date'
 import { formatNumber, pluralize } from '@/lib/utils/intl'
 import type { Show } from '@/server/modules/shows/showsSchemas'
-import { ImagesSlider } from '../ImagesSlider'
 import { LikeButton } from './LikeButton'
 
 type SinglePostProps = Readonly<{

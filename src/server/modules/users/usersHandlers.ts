@@ -2,8 +2,13 @@ import { TRPCError } from '@trpc/server'
 import { isPrismaError, prismaErrors } from '@/lib/utils/prismaErrors'
 import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
 import { mapPrismaUserToUser } from './usersMapper'
-import type { CreateUserInput, GetUserByUsernameInput, UpdateUserInput } from './usersSchemas'
-import { createUser, getUserByUsername, updateUser } from './usersService'
+import type {
+	CreateUserInput,
+	GetUserByUsernameInput,
+	SearchUsersInput,
+	UpdateUserInput,
+} from './usersSchemas'
+import { createUser, getUserByUsername, searchUsers, updateUser } from './usersService'
 
 export const createUserHandler = async ({ username, name, email, password }: CreateUserInput) => {
 	try {
@@ -62,4 +67,9 @@ export const getUserByUsernameHandler = async (
 	}
 
 	return mapPrismaUserToUser(user, { self: session?.user.id === user.id })
+}
+export const searchUsersHandler = async ({ session }: TRPCContext, { search }: SearchUsersInput) => {
+	const users = await searchUsers(search, session?.user.id)
+
+	return users.map((user) => mapPrismaUserToUser(user))
 }

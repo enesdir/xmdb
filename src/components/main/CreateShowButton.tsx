@@ -2,8 +2,8 @@
 
 import { IoAdd } from 'react-icons/io5'
 import { Button } from '@/components/ui/Button/Button'
-import { useModal } from '@/hooks/useModal'
 import type { User } from '@/server/modules/users/usersSchemas'
+import { useBoolean } from '../../hooks/useBoolean'
 import { CreateShowModal } from './CreateShowModal/CreateShowModal'
 
 type CreateShowButtonProps = Readonly<{
@@ -11,20 +11,20 @@ type CreateShowButtonProps = Readonly<{
 }>
 
 export const CreateShowButton = ({ user }: CreateShowButtonProps) => {
-	const { isOpen, openModal, closeModal } = useModal()
+	const { value, setTrue, setFalse } = useBoolean()
 
 	return (
 		<>
 			<Button
 				type='button'
 				variant='primary'
-				onClick={openModal}
+				onClick={setTrue}
 				icon={<IoAdd />}
 				aria-label='Create a new show'
 			>
 				Add New Show
 			</Button>
-			<CreateShowModal isOpen={isOpen} onClose={closeModal} />
+			<CreateShowModal isOpen={value} onClose={setFalse} />
 		</>
 	)
 }

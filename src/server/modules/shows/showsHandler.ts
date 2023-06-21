@@ -17,6 +17,7 @@ import {
 	getShowById,
 	getShowByIdUser,
 	getShowsByUsername,
+	searchShows,
 } from './showsService'
 import { getFileNameFromUrl } from './showsUtils'
 
@@ -86,4 +87,10 @@ export const getShowByIdUserHandler = async (
 	}
 
 	return mapPrismaShowToShow(show)
+}
+
+export const searchShowsHandler = async ({ session }: TRPCContext, { search }: SearchShowsInput) => {
+	const shows = await searchShows(search, session?.user.id)
+
+	return shows.map((show) => mapPrismaShowToShow(show))
 }

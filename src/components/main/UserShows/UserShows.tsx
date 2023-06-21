@@ -3,7 +3,7 @@
 import { LoadingContent } from '@/components/common/LoadingContent'
 import { useGetUserShows } from '@/hooks/useGetUserShows'
 import type { User } from '@/server/modules/users/usersSchemas'
-import { ShowList } from './ShowList/ShowList'
+import { UserShowList } from './UserShowList/UserShowList'
 
 type UserShowsProps = Readonly<{
 	user: User
@@ -14,7 +14,7 @@ export const UserShows = ({ user: { username } }: UserShowsProps) => {
 
 	return (
 		<LoadingContent isLoading={isLoading}>
-			<ShowList shows={shows} />
+			<UserShowList shows={shows} />
 		</LoadingContent>
 	)
 }

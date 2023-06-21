@@ -1,7 +1,7 @@
 'use client'
 
-import type { User } from '~/src/server/modules/users/usersSchemas'
-import { useModal } from '@/hooks/useModal'
+import { useBoolean } from '@/hooks/useBoolean'
+import type { User } from '@/server/modules/users/usersSchemas'
 import { StatisticItem } from './StatisticItem'
 import { UserFollowersModal } from './UserFollowersModal/UserFollowersModal'
 import { UserFollowingModal } from './UserFollowingModal/UserFollowingModal'
@@ -13,25 +13,25 @@ type UserStatisticsProps = Readonly<{
 export const UserStatistics = ({
 	user: {
 		id,
-		statistics: { posts, followers, following },
+		statistics: { shows, followers, following },
 	},
 }: UserStatisticsProps) => {
 	const {
-		isOpen: isUserFollowersOpen,
-		openModal: openUserFollowersModal,
-		closeModal: closeUserFollowersModal,
-	} = useModal()
+		value: isUserFollowersOpen,
+		setTrue: openUserFollowersModal,
+		setFalse: closeUserFollowersModal,
+	} = useBoolean(false)
 
 	const {
-		isOpen: isUserFollowingOpen,
-		openModal: openUserFollowingModal,
-		closeModal: closeUserFollowingModal,
-	} = useModal()
+		value: isUserFollowingOpen,
+		setTrue: openUserFollowingModal,
+		setFalse: closeUserFollowingModal,
+	} = useBoolean(false)
 
 	return (
 		<>
 			<ul className='flex justify-between'>
-				<StatisticItem name='Posts' value={posts} />
+				<StatisticItem name='Shows' value={shows} />
 				<StatisticItem name='Followers' value={followers} onClick={openUserFollowersModal} />
 				<StatisticItem name='Following' value={following} onClick={openUserFollowingModal} />
 			</ul>

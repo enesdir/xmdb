@@ -1,18 +1,15 @@
-import type { ReactNode } from 'react'
+import type { PropsWithChildren } from 'react'
 import { Spinner } from '../ui/Spinner/Spinner'
 
-type LoadingContentProps = Readonly<{
-	isLoading: boolean
-	children: ReactNode
-}>
+type LoadingContentProps = Readonly<
+	{
+		isLoading: boolean
+	} & PropsWithChildren
+>
 
 export const LoadingContent = ({ isLoading, children }: LoadingContentProps) => {
 	if (isLoading) {
-		return (
-			<div className='flex justify-center'>
-				<Spinner />
-			</div>
-		)
+		return <Spinner center />
 	}
 
 	return <>{children}</>

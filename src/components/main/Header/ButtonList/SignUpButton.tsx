@@ -1,20 +1,19 @@
 'use client'
 
+import { SignUpModal } from '@/components/main/SignUpModal/SignUpModal'
 import { Button } from '@/components/ui/Button/Button'
-import { useModal } from '@/hooks/useModal'
+import { useBoolean } from '@/hooks/useBoolean'
 import { useQueryError } from '@/hooks/useQueryError'
-import { SignUpModal } from '../../SignUpModal/SignUpModal'
 
 export const SignUpButton = () => {
 	const { isError, error } = useQueryError()
-	const { isOpen, openModal, closeModal } = useModal(isError)
-
+	const { value, setTrue, setFalse } = useBoolean(false || isError)
 	return (
 		<>
-			<Button variant='primary' onClick={openModal}>
+			<Button variant='primary' onClick={setTrue}>
 				Sign up
 			</Button>
-			<SignUpModal error={error} isOpen={isOpen} onClose={closeModal} />
+			<SignUpModal error={error} isOpen={value} onClose={setFalse} />
 		</>
 	)
 }

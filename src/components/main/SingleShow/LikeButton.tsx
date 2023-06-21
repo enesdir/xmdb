@@ -1,27 +1,26 @@
-import { AiOutlineHeart } from 'react-icons/ai';
-
-import { IconButton } from '@/components/ui/IconButton/IconButton';
-import { useRequiredSession } from '@/hooks/useRequiredSession';
-import { useToggleLike } from '@/hooks/useToggleLike';
+import { AiOutlineHeart } from 'react-icons/ai'
+import { IconButton } from '@/components/ui/IconButton/IconButton'
+import { useRequiredSession } from '@/hooks/useRequiredSession'
+import { useToggleLike } from '@/hooks/useToggleLike'
 
 type LikeButtonProps = Readonly<{
-	postId: number;
-	isLike: boolean;
-	onClick?: () => void;
-}>;
+	postId: number
+	isLike: boolean
+	onClick?: () => void
+}>
 
 export const LikeButton = ({ postId, isLike, onClick }: LikeButtonProps) => {
-	const { toggleLike, isLoading } = useToggleLike(isLike);
+	const { toggleLike, isLoading } = useToggleLike(isLike)
 
-	const requiredSession = useRequiredSession();
+	const requiredSession = useRequiredSession()
 
 	const handleButtonClick = async () => {
-		await toggleLike(postId);
-		onClick?.();
-	};
+		await toggleLike(postId)
+		onClick?.()
+	}
 
 	return (
-		<div className="text-xl">
+		<div className='text-xl'>
 			<IconButton
 				icon={<AiOutlineHeart />}
 				label={`Like #${postId} post`}
@@ -30,5 +29,5 @@ export const LikeButton = ({ postId, isLike, onClick }: LikeButtonProps) => {
 				onClick={requiredSession(handleButtonClick)}
 			/>
 		</div>
-	);
-};
+	)
+}

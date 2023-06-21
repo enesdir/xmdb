@@ -1,6 +1,18 @@
 import { createTRPCRouter, protectedProcedure, publicProcedure } from '@/server/trpc'
-import { createUserHandler, getUserByUsernameHandler, updateUserHandler } from './usersHandlers'
-import { createUserSchema, getUserByUsernameSchema, updateUserSchema, userSchema } from './usersSchemas'
+import {
+	createUserHandler,
+	getUserByUsernameHandler,
+	searchUsersHandler,
+	updateUserHandler,
+} from './usersHandlers'
+import {
+	allUsersSchema,
+	createUserSchema,
+	getUserByUsernameSchema,
+	searchUsersSchema,
+	updateUserSchema,
+	userSchema,
+} from './usersSchemas'
 
 export const usersRouter = createTRPCRouter({
 	create: publicProcedure
@@ -15,4 +27,8 @@ export const usersRouter = createTRPCRouter({
 		.input(getUserByUsernameSchema)
 		.output(userSchema)
 		.query(({ ctx, input }) => getUserByUsernameHandler(ctx, input)),
+	search: publicProcedure
+		.input(searchUsersSchema)
+		.output(allUsersSchema)
+		.query(({ ctx, input }) => searchUsersHandler(ctx, input)),
 })

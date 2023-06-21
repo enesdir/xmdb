@@ -38,6 +38,17 @@ export const getShowByIdUser = (
 		select: createShowSelect({ userId }),
 	})
 
+export const searchShows = (search: string) =>
+	prisma.show.findMany({
+		where: {
+			OR: [
+				{ title: { contains: search, mode: 'insensitive' } },
+				{ original_title: { contains: search, mode: 'insensitive' } },
+			],
+		},
+		take: 4,
+		select: createShowSelect(),
+	})
 export const createShow = ({
 	description,
 	userId,

@@ -1,18 +1,18 @@
 'use client'
 
+import { SignInModal } from '@/components/main/SignInModal/SignInModal'
 import { Button } from '@/components/ui/Button/Button'
-import { useModal } from '@/hooks/useModal'
-import { SignInModal } from '../../SignInModal/SignInModal'
+import { useBoolean } from '@/hooks/useBoolean'
 
 export const SignInButton = () => {
-	const { isOpen, openModal, closeModal } = useModal()
+	const { value, setTrue, setFalse } = useBoolean(false)
 
 	return (
 		<>
-			<Button variant='text' onClick={openModal}>
+			<Button variant='text' onClick={setTrue}>
 				Sign in
 			</Button>
-			<SignInModal isOpen={isOpen} onClose={closeModal} />
+			<SignInModal isOpen={value} onClose={setFalse} />
 		</>
 	)
 }

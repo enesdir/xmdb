@@ -13,7 +13,7 @@ export const UserList = ({ alertMessage, users }: UserListProps) => {
 	}
 
 	return (
-		<ul className='app-scrollbar max-h-96 divide-y overflow-auto'>
+		<ul className='no-scrollbar max-h-96 divide-y overflow-auto'>
 			{users.map((user) => (
 				<UserItem key={user.id} user={user} />
 			))}

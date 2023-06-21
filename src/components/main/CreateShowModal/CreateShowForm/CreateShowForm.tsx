@@ -27,7 +27,6 @@ export const CreateShowForm = ({ onSuccess }: CreateShowFormProps) => {
 		onSuccess,
 		onUnknownError: () => toast.error(DEFAULT_ERROR_MESSAGE),
 	})
-	console.log(errors)
 	return (
 		<div className='space-y-3.5'>
 			{images.length > 0 && <ImagesSlider images={images} />}
