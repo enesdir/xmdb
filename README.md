@@ -2,13 +2,24 @@
 
 ## Stacks
 
-to see in detail the technologies used in this project: [Next.js + Typescript](https://nextjs.org/)
+This repository is packed with:
 
 - **Framework**: [Next.js + Typescript](https://nextjs.org/)
 - **Database**: [PostgreSQL](https://www.postgresql.org/)
+- **Auth**: [next-auth](https://authjs.dev/)
+- **API**: [tRPC](https://github.com/trpc/trpc)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Styling**: [Tailwindcss](https://tailwindcss.com/)
-- **Data Validator**: [Zod](https://zod.dev/)
+- **Data Validator**: [Zod](https://zod.dev/) + [zodios](https://github.com/ecyrbe/zodios)
+
+Tooling & Test:
+
+- 🔥 Storybook — [Storybook](https://storybook.js.org/) with [storybook-addon-next](https://github.com/RyanClementsHax/storybook-addon-next)
+- 🃏 **Vitest** — [Vitest](https://github.com/vitest-dev/vitest) Configured for unit testing
+- 📈 Absolute Import and Path Alias — Import components using `@/` and `~/` prefix
+- 📏 ESLint — Find and fix problems in your code
+- 💖 Prettier — Format your code consistently also will **auto sort** your imports
+- 🤖 Conventional Commit Lint — Make sure you & your teammates follow conventional commit
 
 ## Getting Started
 
@@ -36,20 +47,44 @@ npm install
 
 3. Set environment variables. Create a `.env.local` file in the root directory of the project and add the following variables:
 
-4. Start the development database server
+```bash
+ cp .env.example .env.local
+```
+
+1. Start the development database server
 
 ```bash
 docker-compose up
 ```
 
-4. Start the development database server
+5. Start the development database server
 
 ```bash
 npm run db:migrate
 ```
 
-4. Start the development server by running
+6. Start the development server by running
 
 ```bash
 npm run dev
+```
+
+### Test & Storybook
+
+#### Run Storybook
+
+```bash
+npm run dev:storybook
+```
+
+#### Build Static Storybook
+
+```bash
+npm run build-storybook
+```
+
+#### Run test
+
+```bash
+npm run test
 ```
