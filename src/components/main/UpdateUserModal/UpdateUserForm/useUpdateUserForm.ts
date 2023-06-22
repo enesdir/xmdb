@@ -1,8 +1,9 @@
 import { useRouter } from 'next/navigation'
-import type { User } from '~/src/server/modules/users/usersSchemas'
 import { useUpdateUser } from '@/hooks/useUpdateUser'
 import { useZodForm } from '@/hooks/useZodForm'
-import { capitalize, isObjectKey } from '@/lib/utils/utils'
+import { isObjectKey } from '@/lib/utils/objectOperations'
+import { capitalize } from '@/lib/utils/stringOperations'
+import type { User } from '@/server/modules/users/usersSchemas'
 import { updateUserFormSchema } from './UpdateUserForm.schemas'
 
 interface Options {

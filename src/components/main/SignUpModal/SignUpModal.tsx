@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react'
 import { Alert } from '@/components/ui/Alert/Alert'
 import { Modal } from '@/components/ui/Modal/Modal'
-import { getSignInPageErrorMessage } from '@/lib/utils/auth-errors'
+import { getSignInPageErrorMessage } from '@/lib/utils/authErrors'
 import { SignUpForm } from './SignUpForm/SignUpForm'
 
 type SignUpModalProps = Readonly<{

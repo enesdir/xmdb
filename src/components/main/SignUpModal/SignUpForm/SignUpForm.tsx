@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
+import { EntryForm } from '@/components/main/EntryForm/EntryForm'
 import { Alert } from '@/components/ui/Alert/Alert'
 import { Checkbox } from '@/components/ui/Checkbox/Checkbox'
 import { PasswordField } from '@/components/ui/PasswordField/PasswordField'
 import { TextField } from '@/components/ui/TextField/TextField'
 import { DEFAULT_ERROR_MESSAGE } from '@/lib/constants'
-import { EntryForm } from '../../EntryForm/EntryForm'
 import { useSignUpForm } from './useSignUpForm'
 
 export const SignUpForm = () => {

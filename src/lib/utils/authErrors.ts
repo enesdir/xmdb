@@ -1,4 +1,4 @@
-import { DEFAULT_ERROR_MESSAGE } from '../constants'
+import { DEFAULT_ERROR_MESSAGE } from '@/lib/constants'
 
 const signInPageErrorMessages: Record<string, string> = {
 	OAuthAccountNotLinked: 'An account with the given e-mail address already exists!',
