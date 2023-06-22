@@ -7,10 +7,10 @@ export const getAllShows = () =>
 		orderBy: { createdAt: 'desc' },
 		select: createShowSelect(),
 	})
-export const getAllLatestShows = ({ limit, cursor }: { limit: number; cursor?: number }) =>
+export const getAllLatestShows = ({ limit, cursor }: { limit: number; cursor?: number }, userId?: string) =>
 	prisma.show.findMany({
 		orderBy: { createdAt: 'desc' },
-		select: createShowSelect(),
+		select: createShowSelect({ userId }),
 		take: limit,
 		skip: cursor ? 1 : 0,
 		...(cursor && { cursor: { id: cursor } }),
@@ -38,7 +38,7 @@ export const getShowByIdUser = (
 		select: createShowSelect({ userId }),
 	})
 
-export const searchShows = (search: string) =>
+export const searchShows = (search: string, userId?: string) =>
 	prisma.show.findMany({
 		where: {
 			OR: [
@@ -47,7 +47,7 @@ export const searchShows = (search: string) =>
 			],
 		},
 		take: 4,
-		select: createShowSelect(),
+		select: createShowSelect({ userId }),
 	})
 export const createShow = ({
 	description,

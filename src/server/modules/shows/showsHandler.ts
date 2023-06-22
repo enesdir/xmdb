@@ -9,6 +9,7 @@ import type {
 	GetShowByIdInput,
 	GetShowByIdUserInput,
 	GetShowsByUserInput,
+	SearchShowsInput,
 } from './showsSchemas'
 import {
 	deleteShowById,
@@ -25,7 +26,7 @@ export const getAllLatestShowsHandler = async (
 	{ session }: TRPCContext,
 	{ limit, cursor }: GetAllLatestShowsInput
 ) => {
-	const shows = await getAllLatestShows({ limit, cursor })
+	const shows = await getAllLatestShows({ limit, cursor }, session?.user.id)
 	const nextCursor = shows.length < limit ? null : shows.at(-1)?.id
 
 	return {
@@ -66,7 +67,7 @@ export const deleteShowByIdHandler = async ({ session }: ProtectedContext, { id 
 	}
 
 	const names = show.image.map(({ url }) => getFileNameFromUrl(url)).filter(Boolean)
-
+	// @ts-expect-error todo: solve ts error
 	await Promise.all(names.map(deleteImage))
 	await deleteShowById(id)
 

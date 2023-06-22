@@ -1,7 +1,7 @@
 import type { ChangeEventHandler, FocusEventHandler } from 'react'
 import { forwardRef } from 'react'
 import { FaCheck } from 'react-icons/fa'
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage'
+import { ErrorMessage } from '@/components/ui/ErrorMessage/ErrorMessage'
 
 type CheckboxProps = Readonly<{
 	error?: string
@@ -23,7 +23,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 					onBlur={onBlur}
 					className='peer hidden'
 				/>
-				<div className='peer-checked:bg-blue flex h-6 w-6 items-center justify-center rounded-md border text-xs text-white transition-colors duration-100 peer-checked:border-gray-400'>
+				<div className='flex h-6 w-6 items-center justify-center rounded-md border text-xs text-white transition-colors duration-100 peer-checked:border-[#1e40af] peer-checked:bg-[#1e40af]'>
 					<FaCheck />
 				</div>
 				{label}

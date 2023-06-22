@@ -11,7 +11,7 @@ import { getShowById } from '@/lib/show'
 import { PageParams } from '@/types/pageParams'
 
 export const generateMetadata = async ({ params }: ShowPageProps): Promise<Metadata> => {
-	const { id: pageID, title, description, author } = await getShowById(Number(params.id))
+	const { id: pageID, title, description } = await getShowById(Number(params.id))
 
 	return {
 		title: title,
