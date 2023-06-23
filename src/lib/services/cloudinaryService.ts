@@ -1,17 +1,20 @@
-import { makeApi, Zodios } from '@zodios/core'
+import { makeApi } from '@zodios/core'
 import { z } from 'zod'
 import { env } from '@/env.mjs'
 import { createSignature } from '@/lib/utils/cloudinary'
+import { createApiClient } from '../createApiClient'
 
-const api = makeApi([
+const endpoints = makeApi([
 	{
 		method: 'post',
 		path: '/image/upload',
 		alias: 'createImage',
+		description: 'Create image',
 		parameters: [
 			{
 				type: 'Body',
 				name: 'body',
+				description: 'Image',
 				schema: z.instanceof(FormData),
 			},
 		],
@@ -30,10 +33,12 @@ const api = makeApi([
 		method: 'post',
 		path: '/image/destroy',
 		alias: 'deleteImage',
+		description: 'Delete image',
 		parameters: [
 			{
 				name: 'body',
 				type: 'Body',
+				description: 'Image Info',
 				schema: z.object({
 					timestamp: z.string(),
 					public_id: z.string(),
@@ -48,8 +53,12 @@ const api = makeApi([
 	},
 ])
 
-const client = new Zodios(`https://api.cloudinary.com/v1_1/${env.CLOUDINARY_CLOUD_NAME}`, api)
-
+export function getApi() {
+	return createApiClient<typeof endpoints>(
+		`https://api.cloudinary.com/v1_1/${env.CLOUDINARY_CLOUD_NAME}`,
+		endpoints
+	)
+}
 export const createImage = (file: Blob, { publicId, eager }: { publicId: string; eager?: string[] }) => {
 	const timestamp = Date.now().toString()
 	const formData = new FormData()
@@ -72,14 +81,14 @@ export const createImage = (file: Blob, { publicId, eager }: { publicId: string;
 
 	eager && formData.append('eager', eager.join(','))
 
-	return client.createImage(formData)
+	return getApi().createImage(formData)
 }
 
 export const deleteImage = (id: string) => {
 	const timestamp = Date.now().toString()
 	const publicId = `${env.CLOUDINARY_ASSETS_FOLDER}/${id}`
 
-	return client.deleteImage({
+	return getApi().deleteImage({
 		timestamp,
 		public_id: publicId,
 		api_key: env.CLOUDINARY_API_KEY,

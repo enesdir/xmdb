@@ -1,11 +1,13 @@
-import { makeApi, Zodios } from '@zodios/core'
+import { makeApi } from '@zodios/core'
 import { z } from 'zod'
+import { createApiClient } from '../createApiClient'
 
-const api = makeApi([
+const endpoints = makeApi([
 	{
 		method: 'post',
 		path: '/',
 		alias: 'createAvatar',
+		description: 'Create Avatar',
 		parameters: [{ type: 'Body', name: 'body', schema: z.instanceof(FormData) }],
 		response: z.object({ url: z.string() }),
 	},
@@ -13,18 +15,22 @@ const api = makeApi([
 		method: 'delete',
 		path: '/',
 		alias: 'deleteAvatar',
+		description: 'Delete Avatar',
 		response: z.string(),
 	},
 ])
 
-const client = new Zodios('/api/avatars', api)
+// const client = new Zodios('/api/avatars', api)
+export function getApi() {
+	return createApiClient<typeof endpoints>('/api/avatars', endpoints)
+}
 
 export const createAvatar = (image: Blob) => {
 	const formData = new FormData()
 
 	formData.append('image', image)
 
-	return client.createAvatar(formData)
+	return getApi().createAvatar(formData)
 }
 
-export const deleteAvatar = () => client.deleteAvatar(undefined)
+export const deleteAvatar = () => getApi().deleteAvatar(undefined)

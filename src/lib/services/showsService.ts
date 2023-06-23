@@ -1,17 +1,20 @@
 import { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
-import { Zodios, makeApi } from '@zodios/core'
+import { makeApi } from '@zodios/core'
 import { z } from 'zod'
 import { showSchema } from '@/server/modules/shows/showsSchemas'
+import { createApiClient } from '../createApiClient'
 
-const api = makeApi([
+const endpoints = makeApi([
 	{
 		method: 'post',
 		path: '/',
 		alias: 'createShow',
+		description: 'Create Show',
 		parameters: [
 			{
 				type: 'Body',
 				name: 'body',
+				description: 'New Show Data',
 				schema: z.instanceof(FormData),
 			},
 		],
@@ -19,8 +22,9 @@ const api = makeApi([
 	},
 ])
 
-const client = new Zodios('/api/shows', api)
-
+export function getApi() {
+	return createApiClient<typeof endpoints>('/api/shows', endpoints)
+}
 export const createShow = ({
 	description,
 	images,
@@ -62,5 +66,5 @@ export const createShow = ({
 		formData.append('images', image)
 	})
 
-	return client.createShow(formData)
+	return getApi().createShow(formData)
 }

@@ -2,15 +2,10 @@
 
 import { IoAdd } from 'react-icons/io5'
 import { Button } from '@/components/ui/Button/Button'
-import type { User } from '@/server/modules/users/usersSchemas'
-import { useBoolean } from '../../hooks/useBoolean'
+import { useBoolean } from '@/hooks/useBoolean'
 import { CreateShowModal } from './CreateShowModal/CreateShowModal'
 
-type CreateShowButtonProps = Readonly<{
-	user: User
-}>
-
-export const CreateShowButton = ({ user }: CreateShowButtonProps) => {
+export const CreateShowButton = () => {
 	const { value, setTrue, setFalse } = useBoolean()
 
 	return (

@@ -1,5 +1,6 @@
 import { UserAvatar } from '@/components/common/UserAvatar'
 import type { User } from '@/server/modules/users/usersSchemas'
+import { AccessControl } from '../AccessControl'
 import { CreateShowButton } from '../CreateShowButton'
 import { UserCta } from './UserCta'
 import { UserDetails } from './UserDetails'
@@ -12,7 +13,7 @@ type UserHeaderProps = Readonly<{
 
 export const UserHeader = ({ user }: UserHeaderProps) => (
 	<div className='mb-4 border-b pb-4'>
-		<div className='mx-auto flex w-full flex-col items-center justify-between gap-y-4  sm:flex-row sm:items-start'>
+		<div className='relative mx-auto flex w-full flex-col items-center justify-start space-x-6 sm:flex-row sm:items-start'>
 			<UserEditorPanel user={user}>
 				<UserAvatar user={user} size='xl' />
 			</UserEditorPanel>
@@ -22,9 +23,12 @@ export const UserHeader = ({ user }: UserHeaderProps) => (
 				<UserStatistics user={user} />
 				<UserDetails user={user} />
 			</section>
-			<section className='space-y-4 sm:max-w-xs'>
-				<CreateShowButton user={user} />
-			</section>
+
+			<AccessControl createdID={user.id}>
+				<section className='absolute right-0 space-y-4 sm:max-w-xs'>
+					<CreateShowButton />
+				</section>
+			</AccessControl>
 		</div>
 	</div>
 )
