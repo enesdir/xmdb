@@ -3,7 +3,7 @@ import { AiOutlineSmile } from 'react-icons/ai'
 import { Button } from './Button'
 
 const meta = {
-	title: 'Button',
+	title: 'UI/Button',
 	component: Button,
 	args: {
 		children: 'Example',
@@ -33,7 +33,11 @@ export const Disabled: Story = {
 		disabled: true,
 	},
 }
-
+export const Loading: Story = {
+	args: {
+		isLoading: true,
+	},
+}
 export const Primary: Story = {
 	args: {
 		variant: 'primary',

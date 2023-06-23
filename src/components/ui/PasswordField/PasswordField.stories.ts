@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { PasswordField } from './PasswordField'
 
 const meta = {
-	title: 'PasswordField',
+	title: 'UI/PasswordField',
 	component: PasswordField,
 	args: {
 		placeholder: 'Example placeholder',

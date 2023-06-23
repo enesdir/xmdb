@@ -4,10 +4,11 @@ import { Button } from '../Button/Button'
 import { ConfirmModal } from './ConfirmModal'
 
 const meta = {
-	title: 'ConfirmModal',
+	title: 'UI/ConfirmModal',
 	component: ConfirmModal,
 	args: {
 		title: 'Example modal',
+		variant: 'primary',
 	},
 } satisfies Meta<typeof ConfirmModal>
 
@@ -24,6 +25,7 @@ const ExampleModal = () => {
 			<ConfirmModal
 				title='Example modal'
 				isOpen={isOpen}
+				variant='primary'
 				onClose={() => setIsOpen(false)}
 				onConfirm={() => console.log('Confirm!')}
 			/>

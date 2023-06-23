@@ -3,7 +3,7 @@ import { AiOutlineSmile } from 'react-icons/ai'
 import { IconButton } from './IconButton'
 
 const meta = {
-	title: 'IconButton',
+	title: 'UI/IconButton',
 	component: IconButton,
 	args: {
 		label: 'Click me!',

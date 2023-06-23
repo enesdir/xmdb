@@ -1,7 +1,7 @@
-import type { User } from '~/src/server/modules/users/usersSchemas'
-import { LoadingButton } from '@/components/ui/LoadingButton/LoadingButton'
+import { Button } from '@/components/ui/Button/Button'
 import { TextField } from '@/components/ui/TextField/TextField'
 import { Textarea } from '@/components/ui/Textarea/Textarea'
+import type { User } from '@/server/modules/users/usersSchemas'
 import { useUpdateUserForm } from './useUpdateUserForm'
 
 type UpdateUserFormProps = Readonly<{
@@ -50,9 +50,9 @@ export const UpdateUserForm = ({ user, onSuccess }: UpdateUserFormProps) => {
 				error={errors.biography?.message}
 				{...register('biography')}
 			/>
-			<LoadingButton type='submit' variant='primary' disabled={!isDirty} isLoading={isLoading} fill>
+			<Button type='submit' variant='primary' disabled={!isDirty} isLoading={isLoading} fill>
 				Update the account
-			</LoadingButton>
+			</Button>
 		</form>
 	)
 }

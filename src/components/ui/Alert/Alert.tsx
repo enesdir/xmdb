@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type { IconType } from 'react-icons'
 import { MdError, MdTaskAlt } from 'react-icons/md'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/lib/utils/cn'
 
 type Variant = 'error' | 'success'
 
@@ -24,10 +24,7 @@ export const Alert = ({ variant, children }: AlertProps) => {
 	const Icon = icons[variant]
 
 	return (
-		<div
-			role='alert'
-			className={twMerge('flex items-center gap-x-1.5 rounded-lg p-4 text-lg', colors[variant])}
-		>
+		<div role='alert' className={cn('flex items-center gap-x-1.5 rounded-lg p-4 text-lg', colors[variant])}>
 			<Icon />
 			<div className='text-sm font-medium'>{children}</div>
 		</div>

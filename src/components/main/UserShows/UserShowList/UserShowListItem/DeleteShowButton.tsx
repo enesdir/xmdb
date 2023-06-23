@@ -27,6 +27,7 @@ export const DeleteShowButton = ({ show: { id, author } }: DeleteShowButtonProps
 			<ConfirmModal
 				title='Do you want to delete this show?'
 				isOpen={value}
+				variant='danger'
 				isLoading={isLoading}
 				onClose={setFalse}
 				onConfirm={() => deleteUserShow(id)}

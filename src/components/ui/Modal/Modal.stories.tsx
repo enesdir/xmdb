@@ -4,7 +4,7 @@ import { Button } from '../Button/Button'
 import { Modal } from './Modal'
 
 const meta = {
-	title: 'Modal',
+	title: 'UI/Modal',
 	component: Modal,
 } satisfies Meta<typeof Modal>
 

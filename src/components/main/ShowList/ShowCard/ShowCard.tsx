@@ -3,25 +3,25 @@ import Link from 'next/link'
 import { BiCameraMovie } from 'react-icons/bi'
 import type { Show } from '@/server/modules/shows/showsSchemas'
 
-type SingleShowProps = Readonly<{
+type ShowCardProps = Readonly<{
 	show: Show
 }>
 
-export const SingleShow = ({ show: { description, images, title, id } }: SingleShowProps) => (
+export const ShowCard = ({ show: { description, images, title, id } }: ShowCardProps) => (
 	<>
 		<article className='group relative mx-auto flex w-full max-w-sm overflow-hidden rounded-lg'>
 			<div className='relative overflow-hidden rounded-xl text-white shadow-lg transition duration-500 ease-in-out hover:-translate-y-2 hover:shadow-2xl'>
 				<Link href={`/show/${id}`}>
 					<div className='absolute inset-0 z-10 bg-gradient-to-t from-black via-gray-900 to-transparent transition duration-300 ease-in-out'></div>
-					<div className='group relative z-10 cursor-pointer space-y-6 px-10 pt-10'>
+					<div className='group relative z-10 cursor-pointer space-y-6 px-6 pt-10'>
 						<div className='w-full'>
-							<div className='h-32'></div>
+							<div className='h-32 md:h-40'></div>
 							<div className='space-y-6'>
-								<div className='flex flex-col space-y-2'>
+								<div className='flex flex-col space-y-1'>
 									<h3 className='text-2xl font-bold text-white'>{title}</h3>
 									<div className='mb-0 text-lg text-gray-400'>Slogan</div>
 								</div>
-								<div className='flex flex-row justify-between'>
+								<div className='flex flex-row justify-between space-x-4'>
 									<div className='flex flex-col'>
 										<div id='popularity'>440.052</div>
 										<div className='text-sm text-gray-400'>Popularity:</div>

@@ -1,5 +1,5 @@
 import type { FormEventHandler, ReactNode } from 'react'
-import { LoadingButton } from '@/components/ui/LoadingButton/LoadingButton'
+import { Button } from '@/components/ui/Button/Button'
 import { signInWith } from '@/lib/auth'
 import { SocialButton } from './SocialButton'
 
@@ -14,9 +14,9 @@ export const EntryForm = ({ buttonText, isLoading, onSubmit, children }: EntryFo
 	<>
 		<form className='space-y-3.5' onSubmit={onSubmit}>
 			{children}
-			<LoadingButton type='submit' variant='primary' isLoading={isLoading} fill>
+			<Button type='submit' variant='primary' isLoading={isLoading} fill>
 				{buttonText}
-			</LoadingButton>
+			</Button>
 		</form>
 		<div className='my-6 flex items-center before:mr-8 before:block before:h-[1px] before:flex-1 before:bg-gray-200 after:ml-8 after:block after:h-[1px] after:flex-1 after:bg-gray-200'>
 			Or continue with

@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import type { User } from '~/src/server/modules/users/usersSchemas'
 import { UserAvatar } from '@/components/common/UserAvatar'
 import { Button } from '@/components/ui/Button/Button'
 import { FileButton } from '@/components/ui/FileButton/FileButton'
-import { LoadingButton } from '@/components/ui/LoadingButton/LoadingButton'
 import { createUrlFromFile } from '@/lib/utils/file'
+import type { User } from '@/server/modules/users/usersSchemas'
 import { useUpdateUserAvatarForm } from './useUpdateUserAvatarForm'
 
 type UpdateUserAvatarFormProps = Readonly<{
@@ -28,6 +27,7 @@ export const UpdateUserAvatarForm = ({
 	})
 
 	const handleFilesChange = (files: FileList) => {
+		// @ts-ignore: argument sent when has file
 		setImage(files.length > 0 ? createUrlFromFile(files[0]) : null)
 	}
 
@@ -49,7 +49,7 @@ export const UpdateUserAvatarForm = ({
 						Delete your avatar
 					</Button>
 				</div>
-				<LoadingButton
+				<Button
 					type='submit'
 					variant='primary'
 					disabled={image === userImage || isSubmitSuccessful}
@@ -57,7 +57,7 @@ export const UpdateUserAvatarForm = ({
 					fill
 				>
 					Update your avatar
-				</LoadingButton>
+				</Button>
 			</form>
 		</div>
 	)

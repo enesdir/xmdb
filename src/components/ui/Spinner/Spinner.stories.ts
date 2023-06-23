@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Spinner } from './Spinner'
 
 const meta = {
-	title: 'Spinner',
+	title: 'UI/Spinner',
 	component: Spinner,
 	args: {
 		size: 'md',

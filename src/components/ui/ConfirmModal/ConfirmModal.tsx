@@ -1,22 +1,23 @@
-import type { ComponentProps } from 'react'
-import { Button } from '../Button/Button'
-import { LoadingButton } from '../LoadingButton/LoadingButton'
-import { Modal } from '../Modal/Modal'
+import type { ComponentProps, ReactNode } from 'react'
+import { Button } from '@/components/ui/Button/Button'
+import { Modal } from '@/components/ui/Modal/Modal'
 
 type ConfirmModalProps = Readonly<{
 	title: string
 	isLoading?: boolean
+	variant: 'primary' | 'danger'
+	icon?: ReactNode
 	onConfirm?: () => void
 }> &
 	ComponentProps<typeof Modal>
 
-export const ConfirmModal = ({ title, isLoading, onConfirm, ...props }: ConfirmModalProps) => (
+export const ConfirmModal = ({ title, isLoading, onConfirm, variant, icon, ...props }: ConfirmModalProps) => (
 	<Modal {...props}>
 		<Modal.Title>{title}</Modal.Title>
 		<footer className='flex justify-end gap-x-2'>
-			<LoadingButton variant='primary' isLoading={Boolean(isLoading)} onClick={onConfirm}>
+			<Button variant={variant} isLoading={Boolean(isLoading)} onClick={onConfirm} icon={icon}>
 				Confirm
-			</LoadingButton>
+			</Button>
 			<Button onClick={props.onClose}>Cancel</Button>
 		</footer>
 	</Modal>

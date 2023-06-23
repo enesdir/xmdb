@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
 import { toast } from 'react-hot-toast'
 import { ImagesSlider } from '@/components/main/ImagesSlider'
+import { Button } from '@/components/ui/Button/Button'
 import { FileButton } from '@/components/ui/FileButton/FileButton'
-import { LoadingButton } from '@/components/ui/LoadingButton/LoadingButton'
 import { SelectInput } from '@/components/ui/SelectInput/SelectInput'
 import { TextField } from '@/components/ui/TextField/TextField'
 import { Textarea } from '@/components/ui/Textarea/Textarea'
@@ -133,7 +133,7 @@ export const CreateShowForm = ({ onSuccess }: CreateShowFormProps) => {
 				>
 					Upload images
 				</FileButton>
-				<LoadingButton
+				<Button
 					type='submit'
 					variant='primary'
 					isLoading={isLoading}
@@ -141,7 +141,7 @@ export const CreateShowForm = ({ onSuccess }: CreateShowFormProps) => {
 					fill
 				>
 					Create a new post
-				</LoadingButton>
+				</Button>
 			</form>
 		</div>
 	)

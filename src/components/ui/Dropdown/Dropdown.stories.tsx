@@ -3,7 +3,7 @@ import { AiOutlineSmile } from 'react-icons/ai'
 import { Dropdown } from './Dropdown'
 
 const meta = {
-	title: 'Dropdown',
+	title: 'UI/Dropdown',
 	component: Dropdown,
 } satisfies Meta<typeof Dropdown>
 

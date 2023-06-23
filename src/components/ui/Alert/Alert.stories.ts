@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Alert } from './Alert'
 
 const meta = {
-	title: 'Alert',
+	title: 'UI/Alert',
 	component: Alert,
 	args: {
 		children: 'Example alert!',

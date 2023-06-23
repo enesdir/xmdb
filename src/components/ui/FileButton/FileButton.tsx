@@ -1,8 +1,8 @@
 import type { ChangeEvent, ChangeEventHandler, FocusEventHandler, ReactNode } from 'react'
 import { forwardRef, useId } from 'react'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
+import { ButtonVariant } from '@/components/ui/Button/Button'
 import { cn } from '@/lib/utils/cn'
-import { ButtonVariant } from '../Button/Button'
 
 type FileButtonProps = Readonly<
 	| {
@@ -63,7 +63,7 @@ export const FileButton = forwardRef<HTMLInputElement, FileButtonProps>(
 						'cursor-pointer select-none',
 						fill ? 'w-full' : 'w-fit',
 						[
-							variant === 'primary' && ['bg-primary border-blue-400 text-white hover:bg-blue-400'],
+							variant === 'primary' && ['border-blue-400 bg-blue-500 text-white hover:bg-blue-400'],
 							variant === 'default' && ['dark:bg-gray bg-white text-black'],
 							variant === 'danger' && ['border-red-600 text-red-600 hover:bg-red-600/10'],
 							variant === 'text' && ['border-transparent text-black shadow-none hover:bg-gray-100'],

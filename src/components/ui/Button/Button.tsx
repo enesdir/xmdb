@@ -1,4 +1,5 @@
 import { forwardRef, type ComponentPropsWithRef, type ReactNode } from 'react'
+import { Spinner } from '@/components/ui/Spinner/Spinner'
 import { cn } from '@/lib/utils/cn'
 
 export enum ButtonVariant {
@@ -21,12 +22,12 @@ type ButtonProps = Readonly<
 >
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-	({ type = 'button', disabled, onClick, fill, variant = 'default', icon, children }, ref) => {
+	({ type = 'button', disabled, onClick, fill, variant = 'default', icon, isLoading, children }, ref) => {
 		return (
 			<button
 				ref={ref}
 				type={type}
-				disabled={disabled}
+				disabled={disabled || isLoading}
 				onClick={onClick}
 				className={cn(
 					'duration-250 flex items-center justify-center gap-x-1.5 rounded-lg border px-5 py-2.5 font-medium shadow-sm transition disabled:pointer-events-none disabled:opacity-75',
@@ -39,6 +40,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 					]
 				)}
 			>
+				{isLoading && (
+					<div className='text-sm'>
+						<Spinner size='xs' />
+					</div>
+				)}
 				{icon && <div className='text-sm'>{icon}</div>}
 				{children}
 			</button>

@@ -1,4 +1,4 @@
-import { useCreateUserShow } from '~/src/hooks/useCreateUserShow'
+import { useCreateUserShow } from '@/hooks/useCreateUserShow'
 import { useZodForm } from '@/hooks/useZodForm'
 import { createShowFormSchema } from './CreateShowFormSchema'
 

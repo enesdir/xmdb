@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { FileButton } from './FileButton'
 
 const meta = {
-	title: 'FileButton',
+	title: 'UI/FileButton',
 	component: FileButton,
 	args: {
 		children: 'Example',

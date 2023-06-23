@@ -3,7 +3,7 @@ import { AiOutlineEye } from 'react-icons/ai'
 import { TextField } from './TextField'
 
 const meta = {
-	title: 'TextField',
+	title: 'UI/TextField',
 	component: TextField,
 	args: {
 		type: 'text',

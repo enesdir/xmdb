@@ -1,7 +1,7 @@
 import { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
 import { Zodios, makeApi } from '@zodios/core'
 import { z } from 'zod'
-import { showSchema } from '~/src/server/modules/shows/showsSchemas'
+import { showSchema } from '@/server/modules/shows/showsSchemas'
 
 const api = makeApi([
 	{

@@ -13,12 +13,12 @@ export const createShowFormSchema = z.object({
 		.custom<FileList>((value) => value instanceof FileList)
 		.refine((files) => files.length > 0)
 		.transform((files) => Array.from(files)),
-	original_title: z.string().nullable(),
-	overview: z.string().nullable(),
+	original_title: z.string().or(z.null()).optional(),
+	overview: z.string().or(z.null()).optional(),
 	original_language: z.nativeEnum(ORIGINAL_LANGUAGE).default(ORIGINAL_LANGUAGE.ENGLISH),
 	media_type: z.nativeEnum(MEDIA_TYPE).default(MEDIA_TYPE.MOVIE),
 
-	trailer: z.string().or(z.null()).optional(),
+	trailer: z.string().url().or(z.null()).optional(),
 	adult: z.boolean().default(false),
-	director: z.string().nullable(),
+	director: z.string().or(z.null()).optional(),
 })

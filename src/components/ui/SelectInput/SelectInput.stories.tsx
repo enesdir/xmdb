@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { SelectInput } from './SelectInput'
 
 const meta = {
-	title: 'SelectInput',
+	title: 'UI/SelectInput',
 	component: SelectInput,
 	args: {
 		children: <option>Select value</option>,
