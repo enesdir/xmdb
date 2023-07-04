@@ -1,11 +1,40 @@
-version: '3.9'
+version: '3.8'
 
 services:
+  ### PostgreSQL ###########################################
   database:
     image: postgres:15.3-alpine
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: pgdb-data
+        target: '/var/lib/postgresql/data'
     ports:
       - '5432:5432'
+      - '3306:3306'
+      - '5433:5433'
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: yourflix
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  ### pgAdmin ##############################################
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: '1234'
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+      PGADMIN_LISTEN_PORT: 5433
+    volumes:
+      - pgAdmin-data:/var/lib/pgadmin
+      - pgAdmin-user-data:/user-data
+    restart: unless-stopped
+    network_mode: service:database
+
+volumes:
+  pgdb-data: {}
+  pgAdmin-data: {}
+  pgAdmin-user-data: {}
