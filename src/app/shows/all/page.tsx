@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { ShowList } from '@/components/main/ShowList/ShowList'
 import { env } from '@/env.mjs'
+import { ShowList } from '@/features/shows/'
 import { PROJECT_NAME } from '@/lib/constants'
 import { getAllShows } from '@/lib/show'
 

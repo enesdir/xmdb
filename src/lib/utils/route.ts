@@ -1,5 +1,4 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/server/authOptions'
+import { auth } from '@/server/auth'
 
 export const createJsonResponse = (body: Record<string, unknown> | undefined, status: number) =>
 	new Response(JSON.stringify(body), {
@@ -10,7 +9,7 @@ export const createJsonResponse = (body: Record<string, unknown> | undefined, st
 	})
 
 export const protectRoute = async () => {
-	const session = await getServerSession(authOptions)
+	const session = await auth()
 
 	if (session) {
 		return [null, session] as const

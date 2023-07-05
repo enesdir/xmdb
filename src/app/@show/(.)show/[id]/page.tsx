@@ -1,4 +1,4 @@
-import { SingleShowModal } from '@/components/main/SingleShowModal'
+import { SingleShowModal } from '@/features/show/components/SingleShowModal'
 import { getShowById } from '@/lib/show'
 import type { PageParams } from '@/types/pageParams'
 

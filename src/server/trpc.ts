@@ -1,7 +1,10 @@
+import { headers } from 'next/headers'
+import { experimental_createServerActionHandler } from '@trpc/next/app-dir/server'
 import { initTRPC, TRPCError } from '@trpc/server'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
 import { isPrismaError } from '@/lib/utils/prismaErrors'
+import { auth } from './auth'
 import type { TRPCContext } from './createTRPCContext'
 
 const t = initTRPC.context<TRPCContext>().create({
@@ -54,3 +57,17 @@ export const publicProcedure = t.procedure
  * @see https://trpc.io/docs/procedures
  */
 export const protectedProcedure = t.procedure.use(isAuthed)
+
+export const createTRPCAction = experimental_createServerActionHandler(t, {
+	async createContext() {
+		const session = await auth()
+
+		return {
+			session,
+			headers: {
+				// Pass the cookie header to the API
+				cookies: headers().get('cookie') ?? '',
+			},
+		}
+	},
+})

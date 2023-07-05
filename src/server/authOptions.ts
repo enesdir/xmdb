@@ -1,5 +1,5 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
-import { type AuthOptions } from 'next-auth'
+import { type NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { prisma } from '@/lib/prisma'
 import { userSchema } from '@/server/modules/users/usersSchemas'
@@ -10,7 +10,7 @@ import { getUserByCredentials, initCreatedUser } from '@/server/modules/users/us
  *
  * @see https://next-auth.js.org/configuration/options
  */
-export const authOptions: AuthOptions = {
+export const authOptions: NextAuthOptions = {
 	adapter: PrismaAdapter(prisma),
 	pages: {
 		signIn: '/',

@@ -1,6 +1,5 @@
 import { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/server/authOptions'
+import { auth } from './auth'
 
 /**
  * This is the actual context you will use in your router. It will be used to process every request that goes
@@ -10,10 +9,11 @@ import { authOptions } from '@/server/authOptions'
  */
 // eslint-disable-next-line unused-imports/no-unused-vars
 export const createTRPCContext = async (opts?: FetchCreateContextFnOptions) => {
-	const session = await getServerSession(authOptions)
+	const session = await auth()
 
 	return {
 		session,
+		headers: opts && Object.fromEntries(opts.req.headers),
 	}
 }
 

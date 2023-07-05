@@ -17,6 +17,10 @@ export const getBaseUrl = () => {
 	return `http://localhost:${process.env.PORT ?? 3000}`
 }
 
+export function getTRPCUrl() {
+	return getBaseUrl() + '/api/trpc'
+}
+
 export const isTRPCClientError = (cause: unknown): cause is TRPCClientError<AppRouter> =>
 	cause instanceof TRPCClientError
 

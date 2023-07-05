@@ -2,7 +2,7 @@
 
 import type { PropsWithChildren } from 'react'
 import { SessionProvider } from 'next-auth/react'
-import ToastWrapper from '@/components/ui/ToastWrapper'
+import { ToastWrapper } from '@/components/'
 import { TrpcProvider } from './TrpcProvider'
 
 export const AppProviders = ({ children }: Readonly<PropsWithChildren>) => (
