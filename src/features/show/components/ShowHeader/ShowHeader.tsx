@@ -1,4 +1,7 @@
+import Link from 'next/link'
+import { BsDot } from 'react-icons/bs'
 import type { Show } from '@/server/modules/shows/showsSchemas'
+import { formatMinutes } from '../../utils/formatMinutes'
 import { HeroRight } from './HeroRight'
 import { UserControls } from './UserControls'
 
@@ -10,15 +13,19 @@ export const ShowHeader = ({ show }: ShowHeaderProps) => {
 	return (
 		<div className='w-full'>
 			<UserControls show={show} />
-			<div className='flex w-full justify-between py-2'>
-				<div className='flex flex-col justify-start border-2 border-red-200'>
-					<span className='text-2xl uppercase text-gray-900'>{show.title}</span>
-					<div className='flex flex-row pt-2 text-lg'>
-						<p className='rounded-xl font-semibold'>
-							<span className='text-sm opacity-50'>{show.media_type}</span>
-							<span className='text-center text-lg'>.</span>
-							<span className='text-sm opacity-50'>{'pg'}</span>
-						</p>
+			<div className='flex w-full flex-col justify-between py-2 md:flex-row'>
+				<div className=''>
+					<span className='text-2xl uppercase text-gray-900 md:text-3xl'>{show.title}</span>
+					<div className='flex flex-row pt-2 text-center text-sm opacity-50'>
+						<Link href='#'>{show.media_type}</Link>
+						<span>
+							<BsDot className='text-xl' />
+						</span>
+						<Link href='#'>{'PG-13'}</Link>
+						<span>
+							<BsDot className='text-xl' />
+						</span>
+						<span>{formatMinutes(Math.floor(1 + Math.random() * 120))}</span>
 					</div>
 				</div>
 				<HeroRight />

@@ -1,5 +1,8 @@
 import type { Preview } from '@storybook/react'
 import '~/src/app/global.css'
+import { withSessionProvider } from './withSessionProvider'
+
+export const decorators = [withSessionProvider]
 
 const preview: Preview = {
 	parameters: {

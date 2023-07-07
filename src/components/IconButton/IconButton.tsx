@@ -16,7 +16,7 @@ export const IconButton = ({ variant = 'default', disabled, onClick, label, icon
 		disabled={disabled}
 		onClick={onClick}
 		className={cn(
-			'duration-250 rounded-md border border-transparent p-1 transition-colors disabled:pointer-events-none disabled:opacity-50',
+			'duration-250 flex rounded-md border border-transparent p-1 transition-colors disabled:pointer-events-none disabled:opacity-50',
 			variant === 'default' && 'text-gray-600 hover:bg-gray-100 hover:text-blue-500',
 			variant === 'danger' && 'text-red-600 hover:border-red-600 hover:bg-red-600/20'
 		)}

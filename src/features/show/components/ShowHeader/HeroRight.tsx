@@ -1,30 +1,39 @@
+import type { PropsWithChildren } from 'react'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { Button } from '@/components/'
-import { intToString } from '../../utils/intToString'
+import { intToString } from '@/features/show/utils/intToString'
 import { Popularity } from './Popularity'
 
-export const HeroRightContainer = ({ children, title }) => {
+type HeroRightContainerProps = PropsWithChildren & { title: string }
+export const HeroRightContainer = ({ children, title }: HeroRightContainerProps) => {
 	return (
 		<div className='inline-flex flex-col items-center justify-center p-0.5'>
-			<span className='mb-0.5 flex text-sm uppercase tracking-wider text-gray-400'>{title}</span>
-			<div className='items-center justify-center px-0.5 py-0 text-lg '>{children}</div>
+			<span className='mb-0.5 flex text-xs uppercase tracking-wider text-gray-600 dark:text-gray-400 md:text-lg'>
+				{title}
+			</span>
+			<div className='items-center justify-center px-0.5 py-0'>{children}</div>
 		</div>
 	)
 }
+type HeroRightProps = {
+	numberOfVoters: number
+	rate: number
+	popularity: { score: number; rating: number }
+}
 
-export const HeroRight = () => {
+export const HeroRight = ({ numberOfVoters, rate, popularity }) => {
 	return (
-		<div className='flex w-full flex-col items-start justify-start space-x-1 border-2 border-red-200 md:flex-row'>
+		<div className='flex items-start justify-between space-x-1'>
 			<HeroRightContainer title='RATING'>
 				<Button
-					icon={<AiFillStar color='#f5c518' size={30} />}
+					icon={<AiFillStar color='#f5c518' className='text-2xl md:text-3xl' />}
 					variant='text'
-					className='bg-transparent hover:bg-blue-400'
+					className='h-10 p-1'
 				>
 					<div className='inline-flex flex-col items-start'>
-						<div className='-mb-1 inline-block whitespace-nowrap rounded-xl  font-semibold tracking-wider'>
-							<span className='text-lg'>9.0</span>
-							<span className='text-sm opacity-50'>
+						<div className='-mb-1 inline-block whitespace-nowrap rounded-xl font-semibold tracking-wider'>
+							<span className='text-xs font-semibold md:text-lg'>9.0</span>
+							<span className='text-xs opacity-50 md:text-sm'>
 								{'/'}
 								{'10'}
 							</span>
@@ -37,15 +46,15 @@ export const HeroRight = () => {
 			</HeroRightContainer>
 			<HeroRightContainer title='YOUR RATING'>
 				<Button
-					icon={<AiOutlineStar color='#5799ef' size={30} />}
+					icon={<AiOutlineStar color='#5799ef' className='text-2xl md:text-3xl' />}
 					variant='text'
-					className=' bg-transparent hover:bg-blue-400'
+					className='h-10 p-1'
 				>
-					<span className='text-lg tracking-wider text-[#5799ef]'>Rate</span>
+					<span className='text-lg tracking-wider text-[#5799ef] md:text-xl'>Rate</span>
 				</Button>
 			</HeroRightContainer>
 			<HeroRightContainer title='Popularity'>
-				<Button variant='text' className='bg-transparent hover:bg-blue-400'>
+				<Button variant='text' className='h-10 p-1'>
 					<Popularity
 						score={Math.floor((1 + Math.random()) * 100)}
 						rating={Math.floor((1 + Math.random()) * 50)}

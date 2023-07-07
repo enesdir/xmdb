@@ -1,5 +1,15 @@
+/**
+ * Converts a number to a string representation with SI suffixes.
+ *
+ * @param {number} num - The number to convert.
+ * @returns {string} The converted string with SI suffixes.
+ */
 export const intToString = (num: number): string => {
+	if (Number.isNaN(num)) {
+		throw new Error('Invalid number')
+	}
 	num = num.toString().replace(/[^0-9.]/g, '')
+
 	if (num < 1000) {
 		return num.toString()
 	}
@@ -12,7 +22,7 @@ export const intToString = (num: number): string => {
 		{ v: 1e18, s: 'E' },
 	]
 	let index: number
-	for (index = si.length - 1; index > 0; index--) {
+	for (index = si.length - 1; index >= 0; index--) {
 		if (num >= si[index].v) {
 			break
 		}

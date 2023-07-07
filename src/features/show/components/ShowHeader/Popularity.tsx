@@ -9,35 +9,35 @@ import {
 
 const UpScoreComponent: React.FC<Omit<PopularityProps, 'rating'>> = ({ score }) => (
 	<>
-		<BsGraphUpArrow color='green' size={22} />
-		<span className='text-xl font-medium text-gray-800 dark:text-white'>{score}</span>
-		<BsArrowUpShort color='gray' size={22} />
+		<BsGraphUpArrow color='green' className='text-lg md:text-2xl' />
+		<span className='text-sm font-medium text-gray-800 dark:text-gray-600 md:text-xl'>{score}</span>
+		<BsArrowUpShort color='gray' className='text-sm md:text-2xl' />
 	</>
 )
 
 const DownScoreComponent: React.FC<Omit<PopularityProps, 'rating'>> = ({ score }) => (
 	<>
-		<BsGraphDownArrow color='red' size={22} />
-		<span>{score}</span>
-		<BsArrowDownShort color='gray' size={22} />
+		<BsGraphDownArrow color='red' className='text-lg md:text-2xl' />
+		<span className='text-sm font-medium text-gray-800 dark:text-gray-600 md:text-xl'>{score}</span>
+		<BsArrowDownShort color='gray' className='text-sm md:text-2xl' />
 	</>
 )
 
 const EqualScoreComponent: React.FC<Omit<PopularityProps, 'rating'>> = ({ score }) => (
 	<>
-		<BsGraphUp color='gray' size={22} />
-		<span className='text-sm tracking-wider opacity-50'>{score}</span>
-		<BsDot color='gray' size={22} />
+		<BsGraphUp color='gray' className='text-lg md:text-2xl' />
+		<span className='text-sm font-medium text-gray-800 dark:text-gray-600 md:text-xl'>{score}</span>
+		<BsDot color='gray' className='text-sm md:text-2xl' />
 	</>
 )
 type PopularityProps = { score: number; rating: number }
 export const Popularity = ({ score, rating }: PopularityProps) => {
 	return (
-		<div className='flex tracking-wider'>
+		<div className='flex text-center tracking-wider'>
 			{score > 100 && <UpScoreComponent score={score} />}
 			{score < 100 && <DownScoreComponent score={score} />}
 			{score === 100 && <EqualScoreComponent score={score} />}
-			<span className='text-sm opacity-50'>{rating}</span>
+			<span className='text-xs opacity-50 md:text-lg'>{rating}</span>
 		</div>
 	)
 }
