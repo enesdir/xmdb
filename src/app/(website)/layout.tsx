@@ -1,9 +1,10 @@
 import type { PropsWithChildren } from 'react'
+import { Container } from '@/components'
 
 export default function AppLayoutContainer({ children }: PropsWithChildren) {
 	return (
 		<>
-			<div>{children}</div>
+			<Container>{children}</Container>
 		</>
 	)
 }

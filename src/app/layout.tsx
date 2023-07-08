@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Container } from '@/components/'
 import { Footer, Header } from '@/features/layout'
 import { cn } from '@/lib/utils/cn'
 import { AppProviders } from '@/providers/AppProviders'
@@ -63,9 +62,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 			<body className={cn('min-h-screen scroll-smooth antialiased', fontInter.variable)}>
 				<AppProviders>
 					<Header />
-					<Container as='main' className='px-2 py-9'>
-						{children}
-					</Container>
+					{children}
 					<Footer />
 				</AppProviders>
 			</body>

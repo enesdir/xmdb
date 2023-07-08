@@ -46,7 +46,7 @@
 		"react-icons": "^4.10.1",
 		"sharp": "^0.32.1",
 		"superjson": "^1.12.4",
-		"swiper": "^10.0.3",
+		"swiper": "^10.0.4",
 		"tailwind-merge": "^1.13.2",
 		"tailwindcss-animate": "^1.0.6",
 		"zod": "^3.21.4"
@@ -65,7 +65,7 @@
 		"@storybook/testing-library": "^0.2.0",
 		"@trivago/prettier-plugin-sort-imports": "^4.1.1",
 		"@types/bcrypt": "^5.0.0",
-		"@types/eslint": "^8.40.2",
+		"@types/eslint": "^8.44.0",
 		"@types/node": "^18.16.19",
 		"@types/react": "^18.2.14",
 		"@vitejs/plugin-react": "^4.0.2",
