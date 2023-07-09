@@ -1,3 +1,5 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
 generator client {
   provider = "prisma-client-js"
 }
@@ -83,11 +85,16 @@ model UsersFollows {
 }
 
 model Show {
-  id          Int      @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())
   description String
-  userId      String   @map("user_id")
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
+  userId      String @map("user_id")
+
+  // To return `Date`s intact through the API we use transformers
+  // https://trpc.io/docs/data-transformers
+  // This is unique so it can be used for cursor-based pagination
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp
 
   title              String
   original_title     String?
@@ -115,14 +122,17 @@ model Show {
   image Image[]
   like  Like[]
 
+  @@index([deletedAt])
+  @@index([createdAt])
   @@map("show")
 }
 
 model Like {
-  showId Int    @map("show_id")
-  userId String @map("user_id")
-  show   Show   @relation(fields: [showId], references: [id], onDelete: Cascade)
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  showId    Int      @map("show_id")
+  userId    String   @map("user_id")
+  show      Show     @relation(fields: [showId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at")
 
   @@id([showId, userId])
   @@map("like")

@@ -88,3 +88,39 @@ npm run build-storybook
 ```bash
 npm run test
 ```
+
+# Useful notes
+
+## Commands
+
+```bash
+npm run build      # runs `prisma generate` + `prisma migrate` + `next build`
+npm run dev        # starts next.js
+npm run test  # runs normal Vitest unit tests
+
+```
+
+## Files of note
+
+<table>
+  <thead>
+    <tr>
+      <th>Path</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="./prisma/schema.prisma"><code>./prisma/schema.prisma</code></a></td>
+      <td>Prisma schema</td>
+    </tr>
+    <tr>
+      <td><a href="./src/app/api/trpc/[trpc].ts"><code>./src/app/api/trpc/[trpc].ts</code></a></td>
+      <td>tRPC response handler</td>
+    </tr>
+    <tr>
+      <td><a href="./src/server/router"><code>./src/server/router</code></a></td>
+      <td>Your app's different tRPC-routers</td>
+    </tr>
+  </tbody>
+</table>

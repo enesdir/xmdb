@@ -1,4 +1,4 @@
-export const PROJECT_NAME = 'YourFlix'
+export const PROJECT_NAME = 'XMDb'
 
 export const DEFAULT_ERROR_MESSAGE = 'An unexpected error occurred!'
 export const DEFAULT_PROFILE_BIOGRAPHY = 'No bio yet.'

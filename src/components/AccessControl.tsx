@@ -7,7 +7,7 @@ type AccessControlProps = Readonly<{
 	children: ReactNode
 	renderNoAccess?: () => ReactNode
 	accessCheck?: boolean
-	createdID: string
+	createdID: string | null
 }>
 
 export const AccessControl = ({ children, renderNoAccess, accessCheck, createdID }: AccessControlProps) => {

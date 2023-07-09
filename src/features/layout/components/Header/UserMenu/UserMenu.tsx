@@ -1,7 +1,7 @@
 'use client'
 
 import { useSession } from 'next-auth/react'
-import { Dropdown, PrivateElement } from '@/components/'
+import { AccessControl, Dropdown } from '@/components/'
 import { ProfileButton } from './ProfileButton'
 import { SignOutButton } from './SignOutButton'
 import { UserMenuButton } from './UserMenuButton'
@@ -10,7 +10,7 @@ export const UserMenu = () => {
 	const { data } = useSession()
 
 	return (
-		<PrivateElement>
+		<AccessControl createdID={data?.user.id}>
 			<Dropdown>
 				{data && <UserMenuButton user={data.user} />}
 				<Dropdown.Items>
@@ -18,6 +18,6 @@ export const UserMenu = () => {
 					<SignOutButton />
 				</Dropdown.Items>
 			</Dropdown>
-		</PrivateElement>
+		</AccessControl>
 	)
 }

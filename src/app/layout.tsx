@@ -59,11 +59,13 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 	return (
 		<html lang='en'>
 			<head />
-			<body className={cn('min-h-screen scroll-smooth antialiased', fontInter.variable)}>
+			<body className={cn('scroll-smooth tracking-tight antialiased', fontInter.variable)}>
 				<AppProviders>
-					<Header />
-					{children}
-					<Footer />
+					<div className='flex min-h-screen flex-col overflow-hidden'>
+						<Header />
+						{children}
+						<Footer />
+					</div>
 				</AppProviders>
 			</body>
 		</html>

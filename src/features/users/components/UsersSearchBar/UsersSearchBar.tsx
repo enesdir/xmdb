@@ -19,6 +19,7 @@ export const UsersSearchBar = () => {
 				placeholder='Enter username'
 				autoComplete={false}
 				spellCheck={false}
+				leftIcon={<AiOutlineSearch />}
 				icon={<AiOutlineSearch />}
 				value={value}
 				onChange={({ target }) => setValue(target.value)}

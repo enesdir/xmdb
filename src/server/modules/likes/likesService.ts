@@ -1,4 +1,4 @@
-import { prisma } from '@/lib/prisma'
+import { prisma } from '~/src/server/prisma'
 
 export const createLike = ({ showId, userId }: { showId: number; userId: string }) =>
 	prisma.like.create({ data: { showId, userId } })

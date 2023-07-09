@@ -13,9 +13,11 @@ type TextFieldProps = Readonly<{
 	error?: string
 	value?: string
 	icon?: ReactNode
+	leftIcon?: ReactNode
 	onChange?: ChangeEventHandler<HTMLInputElement>
 	onBlur?: FocusEventHandler<HTMLInputElement>
 	type: 'email' | 'number' | 'password' | 'text'
+	/** Input placeholder */
 	placeholder: string
 }>
 
@@ -29,6 +31,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 			label,
 			error,
 			value,
+			leftIcon,
 			icon,
 			onChange,
 			onBlur,
@@ -43,6 +46,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 			<div className='w-full space-y-1'>
 				{label && <FieldLabel htmlFor={id} label={label} required={required} />}
 				<div className='relative'>
+					{leftIcon && <TextFieldIcon icon={leftIcon} position='left' error={Boolean(error)} />}
 					<input
 						id={id}
 						name={name}
@@ -55,13 +59,14 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 						onBlur={onBlur}
 						className={cn(
 							'duration-250 focus:border-primary-400 w-full rounded-lg border bg-white p-2.5 shadow-sm transition-colors focus:outline-none',
+							leftIcon && 'pl-10',
 							error && 'border-red-600 text-red-600 focus:border-red-600',
 							icon && 'pr-9'
 						)}
 						{...(!autoComplete && { autoComplete: 'off' })}
 						{...(!spellCheck && { spellCheck })}
 					/>
-					{icon && <TextFieldIcon icon={icon} error={Boolean(error)} />}
+					{icon && <TextFieldIcon icon={icon} error={Boolean(error)} position='right' />}
 				</div>
 				{error && <ErrorMessage message={error} />}
 			</div>

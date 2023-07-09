@@ -4,6 +4,7 @@
 	"no-inline-html": {
 		"allowed_elements": [
 			"a",
+			"code",
 			"dl",
 			"dt",
 			"dd",

@@ -1,4 +1,4 @@
-import { prisma } from '@/lib/prisma'
+import { prisma } from '~/src/server/prisma'
 import { createUserSelect } from '@/server/modules/users/usersUtils'
 
 export const getFollows = (

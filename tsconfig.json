@@ -28,6 +28,8 @@
 		]
 	},
 	"include": [
+		".storybook/**/*.tsx",
+		".storybook/**/*.ts",
 		".eslintrc.cjs",
 		"next-env.d.ts",
 		"**/*.ts",

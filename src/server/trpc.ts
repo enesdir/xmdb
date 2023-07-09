@@ -1,3 +1,14 @@
+/**
+ * This is your entry point to setup the root configuration for tRPC on the server.
+ *
+ * - `initTRPC` should only be used once per app.
+ * - We export only the functionality that we use so we can enforce which base procedures should be used
+ *
+ * Learn how to create protected base procedures and other things below:
+ *
+ * @see https://trpc.io/docs/v10/router
+ * @see https://trpc.io/docs/v10/procedures
+ */
 import { headers } from 'next/headers'
 import { experimental_createServerActionHandler } from '@trpc/next/app-dir/server'
 import { initTRPC, TRPCError } from '@trpc/server'
@@ -8,7 +19,9 @@ import { auth } from './auth'
 import type { TRPCContext } from './createTRPCContext'
 
 const t = initTRPC.context<TRPCContext>().create({
+	/** @see https://trpc.io/docs/v10/data-transformers */
 	transformer: superjson,
+	/** @see https://trpc.io/docs/v10/error-formatting */
 	errorFormatter(opts) {
 		const { shape, error } = opts
 		return {
@@ -45,6 +58,8 @@ export const createTRPCRouter = t.router
  *
  * This is the base piece you use to build new queries and mutations on your tRPC API. It does not guarantee
  * that a user querying is authorized, but you can still access user session data if they are logged in.
+ *
+ * @see https://trpc.io/docs/v10/procedures
  */
 export const publicProcedure = t.procedure
 

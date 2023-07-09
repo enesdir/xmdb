@@ -1,6 +1,12 @@
 import type { Prisma } from '@prisma/client'
 import crypto from 'node:crypto'
 
+/**
+ * Default selector for User. It's important to always explicitly say which fields you want to return in order
+ * to not leak extra information
+ *
+ * @see https://github.com/prisma/prisma/issues/9353
+ */
 export const createUserSelect = ({ followerId }: { followerId?: string } = {}) =>
 	({
 		id: true,
