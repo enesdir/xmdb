@@ -23,7 +23,7 @@ export const UserHeader = ({ user }: UserHeaderProps) => (
 				<UserDetails user={user} />
 			</section>
 
-			<AccessControl createdID={user.id}>
+			<AccessControl createdID={user.id} permissions={['isLoggedIn', 'isOwner']}>
 				<section className='absolute right-0 space-y-4 sm:max-w-xs'>
 					<CreateShowButton />
 				</section>

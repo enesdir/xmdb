@@ -1,9 +1,8 @@
-import { PrivateElement } from '@/components/'
 import { SignInButton } from './SignInButton'
 import { SignUpButton } from './SignUpButton'
 
-export const ButtonList = () => (
-	<PrivateElement loggedIn={false}>
+export const AuthButtons = () => (
+	<>
 		<ul className='flex gap-x-2'>
 			<li>
 				<SignInButton />
@@ -12,5 +11,5 @@ export const ButtonList = () => (
 				<SignUpButton />
 			</li>
 		</ul>
-	</PrivateElement>
+	</>
 )

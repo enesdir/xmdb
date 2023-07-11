@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { Container } from '@/components/'
+import { AccessControl, Container } from '@/components/'
 import { UsersSearchBar } from '@/features/users/components/UsersSearchBar/UsersSearchBar'
 import { PROJECT_NAME } from '@/lib/constants'
-import { ButtonList } from './ButtonList/ButtonList'
+import { AuthButtons } from './AuthButtons/AuthButtons'
 import { UserMenu } from './UserMenu/UserMenu'
 
 export const Header = () => (
@@ -14,8 +14,10 @@ export const Header = () => (
 				</Link>
 			</div>
 			<UsersSearchBar />
-			<ButtonList />
-			<UserMenu />
+
+			<AccessControl renderNoAccess={<AuthButtons />} permissions={['isLoggedIn']}>
+				<UserMenu />
+			</AccessControl>
 		</Container>
 	</header>
 )
