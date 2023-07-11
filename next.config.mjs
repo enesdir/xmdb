@@ -1,4 +1,5 @@
 import configureBundleAnalyzer from '@next/bundle-analyzer'
+import { env } from './src/env.mjs'
 
 /**
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful for
@@ -10,6 +11,73 @@ const withBundleAnalyzer = configureBundleAnalyzer({
 	enabled: process.env.ANALYZE === 'true',
 })
 
+// https://securityheaders.com
+const ContentSecurityPolicy = `
+  default-src 'none';
+  base-uri 'self';
+  font-src 'self' https: data:;
+  form-action 'self';
+  frame-ancestors 'self';
+  frame-src 'self';
+  manifest-src 'self';
+  object-src 'none';
+  script-src 'self' ${env.NODE_ENV === 'development' ? "'unsafe-eval' 'unsafe-inline'" : ''};
+  style-src 'self' https: 'unsafe-inline';
+  img-src * blob: data:;
+  connect-src 'self' https://vitals.vercel-insights.com/v1/vitals;
+  worker-src 'self' blob:;
+  upgrade-insecure-requests
+`
+const securityHeaders = [
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+	{
+		key: 'Content-Security-Policy',
+		value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy
+	{
+		key: 'Cross-Origin-Opener-Policy',
+		value: 'same-origin',
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy
+	{
+		key: 'Cross-Origin-Resource-Policy',
+		value: 'same-origin',
+	},
+	// https://web.dev/origin-agent-cluster/
+	{
+		key: 'Origin-Agent-Cluster',
+		value: '?1',
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+	{
+		key: 'Referrer-Policy',
+		value: 'strict-origin-when-cross-origin',
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
+	{
+		key: 'X-Content-Type-Options',
+		value: 'nosniff',
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+	{
+		key: 'X-Frame-Options',
+		value: 'SAMEORIGIN',
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
+	{
+		key: 'X-DNS-Prefetch-Control',
+		value: 'on',
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
+	// Opt-out of Google FLoC: https://amifloced.org/
+	{
+		key: 'Permissions-Policy',
+		value: 'self',
+	},
+]
+
+/** @link https://nextjs.org/docs/api-reference/next.config.js/introduction */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	eslint: {
@@ -35,6 +103,8 @@ const nextConfig = {
 			},
 		],
 		domains: ['via.placeholder.com', 'images.unsplash.com', 'unsplash.com'],
+		dangerouslyAllowSVG: true,
+		contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
 	},
 	// i18n: {
 	//   locales: ['en'],
@@ -49,6 +119,11 @@ const nextConfig = {
 	async headers() {
 		return [
 			{
+				source: '/(.*)',
+				headers: securityHeaders,
+			},
+			// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+			{
 				source: '/favicon/:all*',
 				headers: [
 					{
@@ -57,6 +132,7 @@ const nextConfig = {
 					},
 				],
 			},
+			// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
 			{
 				source: '/images/:all*',
 				headers: [
@@ -66,6 +142,7 @@ const nextConfig = {
 					},
 				],
 			},
+			// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
 			{
 				source: '/login',
 				headers: [
@@ -75,25 +152,13 @@ const nextConfig = {
 					},
 				],
 			},
+			// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
 			{
 				source: '/register',
 				headers: [
 					{
 						key: 'X-Frame-Options',
 						value: 'DENY',
-					},
-				],
-			},
-			{
-				source: '/:path*',
-				headers: [
-					{
-						key: 'Referrer-Policy',
-						value: 'no-referrer-when-downgrade',
-					},
-					{
-						key: 'X-DNS-Prefetch-Control',
-						value: 'on',
 					},
 				],
 			},
