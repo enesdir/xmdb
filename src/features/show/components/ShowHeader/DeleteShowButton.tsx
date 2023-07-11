@@ -1,7 +1,8 @@
 'use client'
 
 import { AiOutlineDelete } from 'react-icons/ai'
-import { Button, ConfirmModal } from '@/components/'
+import { Button } from '@/components/'
+import { ConfirmModal } from '@/components/ConfirmModal/ConfirmModal'
 import { useDeleteUserShow } from '@/features/show/hooks/useDeleteUserShow'
 import { useBoolean } from '@/hooks/useBoolean'
 import type { Show } from '@/server/modules/shows/showsSchemas'

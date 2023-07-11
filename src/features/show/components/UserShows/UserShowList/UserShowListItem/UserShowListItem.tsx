@@ -16,12 +16,13 @@ export const UserShowListItem = ({ show }: UserShowListItemProps) => {
 		images,
 		title,
 		statistics: { likes },
+		author: { username },
 	} = show
 
 	return (
 		<li className='group relative aspect-square overflow-hidden rounded-md'>
 			<DeleteShowButton show={show} />
-			<Link href={`/show/${String(id)}`}>
+			<Link href={`${String(username)}/show/${String(id)}`}>
 				{/* @ts-expect-error: todo fail case  */}
 				<Image src={images[0]} alt={title} className='object-cover' fill />
 				{images.length > 1 && <TbLayersSubtract className='absolute right-3 top-2.5 text-xl text-white' />}

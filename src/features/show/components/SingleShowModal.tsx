@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { Modal } from '@/components/'
+import { Modal } from '@/components/Modal/Modal'
 import type { Show } from '@/server/modules/shows/showsSchemas'
 import { SingleShow } from './SingleShow'
 

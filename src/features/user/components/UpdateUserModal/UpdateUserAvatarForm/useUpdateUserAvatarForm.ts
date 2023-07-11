@@ -3,7 +3,7 @@ import { useCreateUserAvatar } from '@/features/user/hooks/useCreateUserAvatar'
 import { useDeleteUserAvatar } from '@/features/user/hooks/useDeleteUserAvatar'
 import { useUpdateUser } from '@/features/user/hooks/useUpdateUser'
 import { useZodForm } from '@/hooks/useZodForm'
-import { updateUserAvatarFormSchema } from './UpdateUserAvatarForm.schemas'
+import { updateUserAvatarFormSchema } from './UpdateUserAvatarFormSchemas'
 
 interface Options {
 	readonly onSuccess?: () => void

@@ -1,5 +1,6 @@
 import type { ComponentProps } from 'react'
-import { Alert, Modal } from '@/components/'
+import { Alert } from '@/components/'
+import { Modal } from '@/components/Modal/Modal'
 import { getSignInPageErrorMessage } from '@/lib/utils/authErrors'
 import { SignUpForm } from './SignUpForm/SignUpForm'
 

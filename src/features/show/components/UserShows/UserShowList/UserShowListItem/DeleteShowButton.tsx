@@ -1,6 +1,7 @@
 import { useSession } from 'next-auth/react'
 import { AiOutlineDelete } from 'react-icons/ai'
-import { ConfirmModal, IconButton } from '@/components/'
+import { IconButton } from '@/components/'
+import { ConfirmModal } from '@/components/ConfirmModal/ConfirmModal'
 import { useDeleteUserShow } from '@/features/show/hooks/useDeleteUserShow'
 import { useBoolean } from '@/hooks/useBoolean'
 import type { Show } from '@/server/modules/shows/showsSchemas'
