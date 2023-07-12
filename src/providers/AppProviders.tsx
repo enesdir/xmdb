@@ -3,12 +3,13 @@
 import type { PropsWithChildren } from 'react'
 import { SessionProvider } from 'next-auth/react'
 import { ToastWrapper } from '@/components/'
+import { SearchBarProvider } from './SearchBarProvider'
 import { TrpcProvider } from './TrpcProvider'
 
 export const AppProviders = ({ children }: Readonly<PropsWithChildren>) => (
 	<SessionProvider>
 		<TrpcProvider>
-			{children}
+			<SearchBarProvider>{children}</SearchBarProvider>
 			<ToastWrapper />
 		</TrpcProvider>
 	</SessionProvider>

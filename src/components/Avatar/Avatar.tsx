@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { cn } from '@/lib/utils/cn'
 
 const sizes = {
-	'2xs': 'h-5 w-5',
+	'2xs': 'h-6 w-6',
 	xs: 'h-8 w-8',
 	sm: 'h-11 w-11',
 	md: 'h-16 w-16',

@@ -3,7 +3,7 @@ import { SignUpButton } from './SignUpButton'
 
 export const AuthButtons = () => (
 	<>
-		<ul className='flex gap-x-2'>
+		<ul className='order-4 flex gap-x-2'>
 			<li>
 				<SignInButton />
 			</li>

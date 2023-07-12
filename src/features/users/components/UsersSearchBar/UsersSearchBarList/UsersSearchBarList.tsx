@@ -8,7 +8,7 @@ type UsersSearchBarListProps = Readonly<{
 
 export const UsersSearchBarList = ({ onItemClick, users }: UsersSearchBarListProps) => {
 	if (users.length === 0) {
-		return <p className='my-2.5 text-center font-medium'>Users not found :c</p>
+		return <p className='my-2.5 text-center font-medium text-white'>Users not found</p>
 	}
 
 	return (

@@ -17,7 +17,7 @@ type DropdownItemProps<T> = Readonly<
 
 export const DropdownItem = <T,>({ onClick, icon, href, children }: DropdownItemProps<T>) => {
 	const styles = cn(
-		'flex w-full items-center gap-x-1.5 whitespace-nowrap px-3.5 py-2.5  text-sm capitalize text-gray-300 transition-colors hover:bg-gray-700'
+		'flex w-full items-center gap-x-1.5 whitespace-nowrap px-3.5 py-2.5 text-sm capitalize text-gray-300 transition-colors hover:bg-white/5 hover:text-white active:bg-white/30'
 	)
 
 	return (
@@ -28,7 +28,7 @@ export const DropdownItem = <T,>({ onClick, icon, href, children }: DropdownItem
 					{children}
 				</Link>
 			) : (
-				<button onClick={onClick} className={styles}>
+				<button onClick={onClick} className={styles} type='button'>
 					{icon}
 					{children}
 				</button>

@@ -9,7 +9,7 @@ type CallbackEvent = MouseEvent | PointerEvent
  * @param ref Reference to DOM element to detect if click happens outside of the element
  * @param callback Callback function when click outside is detected
  */
-export default function useOnClickOutside<TRef extends HTMLElement>(
+export function useOnClickOutside<TRef extends HTMLElement>(
 	ref: RefObject<TRef>,
 	callback: (event: CallbackEvent) => void
 ) {
