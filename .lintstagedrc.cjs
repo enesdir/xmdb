@@ -4,7 +4,7 @@
  */
 
 /* eslint-disable import/no-unused-modules */
-const runPrettier = 'prettier --cache --cache-strategy metadata --write'
+const runPrettier = 'prettier . --write --cache --cache-strategy metadata'
 const runEslint = 'eslint --cache --fix --max-warnings=-1'
 
 /** @type {import('lint-staged').Config} */
