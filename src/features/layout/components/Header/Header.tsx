@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { AccessControl, Button, Container } from '@/components/'
 import { PROJECT_NAME } from '@/lib/constants'
+import { LanguageMenu } from '../LanguageMenu/LanguageMenu'
 import { AuthButtons } from './AuthButtons/AuthButtons'
 import { SearchBar } from './SearchBar'
 import { UserMenu } from './UserMenu/UserMenu'
@@ -30,6 +31,7 @@ export const Header = () => (
 					<UserMenu />
 				</AccessControl>
 			</div>
+			<LanguageMenu />
 		</Container>
 	</header>
 )

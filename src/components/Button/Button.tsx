@@ -1,5 +1,5 @@
 import { forwardRef, type ComponentPropsWithRef, type ReactNode } from 'react'
-import { Spinner } from '@/components/'
+import { Spinner } from '@/components/Spinner'
 import { cn } from '@/lib/utils/cn'
 
 export enum ButtonVariant {
@@ -8,7 +8,7 @@ export enum ButtonVariant {
 	'danger',
 	'text',
 }
-type ButtonProps = Readonly<
+export type ButtonProps = Readonly<
 	{
 		type?: 'button' | 'submit' | 'reset'
 		isLoading?: boolean

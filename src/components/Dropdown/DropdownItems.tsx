@@ -1,23 +1,35 @@
-import { Fragment } from 'react'
-import type { ReactNode } from 'react'
-import { Menu, Transition } from '@headlessui/react'
+import type { ComponentPropsWithoutRef } from 'react'
+import { cn } from '@/lib/utils/cn'
 
-type DropdownItemsProps = Readonly<{
-	children: ReactNode
-}>
+const sizes = {
+	xs: 'w-8',
+	sm: 'w-12',
+	md: 'w-16',
+	lg: 'w-32',
+	xl: 'w-56',
+} as const
 
-export const DropdownItems = ({ children }: DropdownItemsProps) => (
-	<Transition
-		as={Fragment}
-		enter='transition duration-250'
-		enterFrom='opacity-0 scale-95'
-		enterTo='opacity-100 scale-100'
-		leave='transition duration-250'
-		leaveFrom='opacity-100 scale-100'
-		leaveTo='opacity-0 scale-95'
-	>
-		<Menu.Items className='absolute right-0 top-full z-50 rounded-lg border bg-white p-1 shadow-sm'>
+export type DropdownItemsProps = Readonly<
+	{ size?: keyof typeof sizes } & ({ isHidden: boolean } & ComponentPropsWithoutRef<'div'>)
+>
+export const DropdownItems = ({
+	isHidden,
+	size = 'sm',
+	className,
+	children,
+	...rest
+}: DropdownItemsProps) => {
+	return (
+		<div
+			className={cn(
+				'absolute z-20 mt-10 w-32 overflow-hidden rounded-md bg-[#1f1f1f] py-2 shadow-xl',
+				sizes[size],
+				isHidden && 'hidden',
+				className
+			)}
+			{...rest}
+		>
 			{children}
-		</Menu.Items>
-	</Transition>
-)
+		</div>
+	)
+}

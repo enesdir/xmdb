@@ -1,9 +1,8 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { Menu } from '@headlessui/react'
 import { cn } from '@/lib/utils/cn'
 
-type DropdownItemProps<T> = Readonly<
+export type DropdownItemProps<T> = Readonly<
 	| {
 			icon?: ReactNode
 			children: ReactNode
@@ -16,25 +15,24 @@ type DropdownItemProps<T> = Readonly<
 	  )
 >
 
-export const DropdownItem = <T,>({ onClick, icon, href, children }: DropdownItemProps<T>) => (
-	<Menu.Item>
-		{({ active }) => {
-			const styles = cn(
-				'duration-250 flex w-full items-center gap-x-1.5 whitespace-nowrap rounded-md px-3.5 py-2.5 text-sm transition-colors',
-				active && 'bg-blue-400 text-white'
-			)
+export const DropdownItem = <T,>({ onClick, icon, href, children }: DropdownItemProps<T>) => {
+	const styles = cn(
+		'flex w-full items-center gap-x-1.5 whitespace-nowrap px-3.5 py-2.5 text-sm capitalize text-gray-300 transition-colors hover:bg-white/5 hover:text-white active:bg-white/30'
+	)
 
-			return href ? (
+	return (
+		<>
+			{href ? (
 				<Link href={href} className={styles}>
 					{icon}
 					{children}
 				</Link>
 			) : (
-				<button onClick={onClick} className={styles}>
+				<button onClick={onClick} className={styles} type='button'>
 					{icon}
 					{children}
 				</button>
-			)
-		}}
-	</Menu.Item>
-)
+			)}
+		</>
+	)
+}
