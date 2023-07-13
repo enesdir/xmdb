@@ -17,7 +17,7 @@ export interface DropdownProps extends Omit<ButtonProps, 'children' | 'iconPosit
 	overlaySize: DropdownItemsProps['size']
 }
 
-export const Dropdown = ({
+const Dropdown = ({
 	className,
 	children,
 	style,
@@ -45,7 +45,7 @@ export const Dropdown = ({
 			>
 				{buttonChildren}
 			</DropdownButton>
-			<DropdownItems isHidden={!value} className='left-0 mt-10' size={overlaySize}>
+			<DropdownItems isHidden={!value} className='right-0 mt-10' size={overlaySize}>
 				{Children.toArray(children)
 					.filter(isDropdownItem)
 					.map((child) => child as ReactElement<DropdownItemProps>)
@@ -62,5 +62,5 @@ export const Dropdown = ({
 		</div>
 	)
 }
-
+export default Dropdown
 Dropdown.Item = DropdownItem

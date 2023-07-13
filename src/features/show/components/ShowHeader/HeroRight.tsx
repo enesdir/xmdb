@@ -32,7 +32,7 @@ export const HeroRight = ({ numberOfVoters, rate, popularity }) => {
 				>
 					<div className='inline-flex flex-col items-start'>
 						<div className='-mb-1 inline-block whitespace-nowrap rounded-xl font-semibold tracking-wider'>
-							<span className='text-xs font-semibold md:text-lg'>9.0</span>
+							<span className='text-xs font-semibold md:text-lg'>{rate}</span>
 							<span className='text-xs opacity-50 md:text-sm'>
 								{'/'}
 								{'10'}

@@ -10,7 +10,7 @@ import {
 const UpScoreComponent: React.FC<Omit<PopularityProps, 'rating'>> = ({ score }) => (
 	<>
 		<BsGraphUpArrow color='green' className='text-lg md:text-2xl' />
-		<span className='text-sm font-medium text-gray-800 dark:text-gray-600 md:text-xl'>{score}</span>
+		<span className='text-sm font-medium text-gray-50 md:text-2xl'>{score}</span>
 		<BsArrowUpShort color='gray' className='text-sm md:text-2xl' />
 	</>
 )
@@ -33,7 +33,7 @@ const EqualScoreComponent: React.FC<Omit<PopularityProps, 'rating'>> = ({ score 
 type PopularityProps = { score: number; rating: number }
 export const Popularity = ({ score, rating }: PopularityProps) => {
 	return (
-		<div className='flex text-center tracking-wider'>
+		<div className='flex truncate text-center tracking-wider'>
 			{score > 100 && <UpScoreComponent score={score} />}
 			{score < 100 && <DownScoreComponent score={score} />}
 			{score === 100 && <EqualScoreComponent score={score} />}

@@ -6,6 +6,7 @@ export type DropdownItemProps<T> = Readonly<
 	| {
 			icon?: ReactNode
 			children: ReactNode
+			className?: string
 	  } & (
 			| {
 					href?: __next_route_internal_types__.RouteImpl<T>
@@ -15,9 +16,10 @@ export type DropdownItemProps<T> = Readonly<
 	  )
 >
 
-export const DropdownItem = <T,>({ onClick, icon, href, children }: DropdownItemProps<T>) => {
+export const DropdownItem = <T,>({ onClick, icon, href, className, children }: DropdownItemProps<T>) => {
 	const styles = cn(
-		'flex w-full items-center gap-x-1.5 whitespace-nowrap px-3.5 py-2.5 text-sm capitalize text-gray-300 transition-colors hover:bg-white/5 hover:text-white active:bg-white/30'
+		'flex w-full items-center gap-x-1.5 whitespace-nowrap px-3.5 py-2.5 text-sm capitalize text-gray-300 transition-colors hover:bg-white/5 hover:text-white active:bg-white/30',
+		className
 	)
 
 	return (

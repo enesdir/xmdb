@@ -2,7 +2,7 @@
 
 import { BiHelpCircle } from 'react-icons/bi'
 import { GrRadial, GrRadialSelected } from 'react-icons/gr'
-import { Dropdown } from '@/components/Dropdown/Dropdown'
+import Dropdown from '@/components/Dropdown/Dropdown'
 // TODO: grommet icons can not style
 // https://github.com/react-icons/react-icons/issues/404
 import './languagemenu.module.css'
@@ -17,7 +17,7 @@ export const LanguageMenu = () => {
 	return (
 		<div className='order-5 flex justify-center '>
 			<Dropdown buttonChildren={buttonElements()} overlaySize='xl'>
-				<Dropdown.Item onClick={() => console.log('language')}>
+				<Dropdown.Item onClick={() => console.log('language')} className='border-b border-gray-700'>
 					<span className='capitalize'>Fully supported</span>
 				</Dropdown.Item>
 				<hr className='border-gray-700' />
@@ -27,11 +27,11 @@ export const LanguageMenu = () => {
 				>
 					English (United States)
 				</Dropdown.Item>
-				<Dropdown.Item onClick={() => console.log('language')}>
+				<Dropdown.Item onClick={() => console.log('language')} className='border-b border-gray-700'>
 					<span className='capitalize'>Partially supported</span>
 					<BiHelpCircle className='text-gray-400' />
 				</Dropdown.Item>
-				<hr className='border-gray-700' />
+
 				<Dropdown.Item icon={<GrRadial className='text-white' />} onClick={() => console.log('language')}>
 					Français (Canada)
 				</Dropdown.Item>
