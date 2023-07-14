@@ -23,7 +23,7 @@ const meta: Meta<typeof ShowHero> = {
 				likes: 2,
 			},
 			author: {
-				id: 'user1',
+				id: '1',
 				username: 'user1',
 				name: 'User',
 				image: '',

@@ -1,5 +1,5 @@
+import { useRefreshUserShows } from '@/features/shows/hooks/useRefreshUserShows'
 import { trpc } from '@/lib/utils/trpc'
-import { useRefreshUserShows } from '../../../hooks/useRefreshUserShows'
 
 export const useDeleteUserShow = () => {
 	const { mutateAsync, isLoading } = trpc.shows.deleteById.useMutation()

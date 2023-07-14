@@ -7,9 +7,11 @@ type PosterProps = Readonly<{
 
 export const Poster = ({ show }: PosterProps) => {
 	return (
-		<div className='relative h-60 w-60 shrink-0 grow-0 overflow-hidden'>
-			{/* @ts-expect-error */}
-			<Image src={show.images[0]} alt={show.title} className='object-cover' fill />
+		<div className='relative inline-flex w-full shrink-0 grow-0 overflow-hidden'>
+			<div className='relative inline-flex h-36 w-32 overflow-hidden sm:h-60 sm:w-60'>
+				{/* @ts-expect-error */}
+				<Image src={show.images[0]} alt={show.title} className='object-cover' fill />
+			</div>
 		</div>
 	)
 }
