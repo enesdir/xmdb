@@ -1,11 +1,12 @@
 import { makeApi } from '@zodios/core'
 import { z } from 'zod'
-import { createApiClient } from '../createApiClient'
+import { createApiClient } from '@/lib/createApiClient'
+import { getBaseUrl } from '@/lib/utils/getBaseUrl'
 
 const endpoints = makeApi([
 	{
 		method: 'post',
-		path: '/',
+		path: '/api/avatars',
 		alias: 'createAvatar',
 		description: 'Create Avatar',
 		parameters: [{ type: 'Body', name: 'body', schema: z.instanceof(FormData) }],
@@ -13,7 +14,7 @@ const endpoints = makeApi([
 	},
 	{
 		method: 'delete',
-		path: '/',
+		path: '/api/avatars',
 		alias: 'deleteAvatar',
 		description: 'Delete Avatar',
 		response: z.string(),
@@ -22,7 +23,7 @@ const endpoints = makeApi([
 
 // const client = new Zodios('/api/avatars', api)
 export function getApi() {
-	return createApiClient<typeof endpoints>('/api/avatars', endpoints)
+	return createApiClient<typeof endpoints>(getBaseUrl(true), endpoints)
 }
 
 export const createAvatar = (image: Blob) => {

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { createImage, deleteImage } from '@/lib/services/cloudinaryService'
+import { createImage, deleteImage } from '@/lib/cloudinary/cloudinaryService'
 import { createJsonResponse, protectRoute } from '@/lib/utils/route'
 
 export const POST = async (request: Request) => {

@@ -6,11 +6,11 @@ import { useSession } from 'next-auth/react'
 import { BiHelpCircle, BiLogOut, BiSlider } from 'react-icons/bi'
 import { UserAvatar } from '@/components'
 import { DropdownItem, DropdownItems } from '@/components/Dropdown'
+import { DropdownButton } from '@/components/Dropdown/DropdownButton'
 import { useBoolean } from '@/hooks/useBoolean'
 import { useOnClickOutside } from '@/hooks/useOnClickOutside'
 import { signOutUser } from '@/lib/auth'
 import { getFirstLetter } from '@/lib/utils/stringOperations'
-import { DropdownButton } from '../../../../../components/Dropdown/DropdownButton'
 
 export const UserMenu = () => {
 	const {

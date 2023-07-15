@@ -1,8 +1,8 @@
 import { makeApi } from '@zodios/core'
 import { z } from 'zod'
 import { env } from '@/env.mjs'
-import { createSignature } from '@/lib/utils/cloudinary'
-import { createApiClient } from '../createApiClient'
+import { createSignature } from '@/lib/cloudinary/cloudinary'
+import { createApiClient } from '@/lib/createApiClient'
 
 const endpoints = makeApi([
 	{

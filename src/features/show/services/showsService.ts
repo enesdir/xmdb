@@ -1,13 +1,14 @@
 import { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
 import { makeApi } from '@zodios/core'
 import { z } from 'zod'
+import { createApiClient } from '@/lib/createApiClient'
+import { getBaseUrl } from '@/lib/utils/getBaseUrl'
 import { showSchema } from '@/server/modules/shows/showsSchemas'
-import { createApiClient } from '../createApiClient'
 
 const endpoints = makeApi([
 	{
 		method: 'post',
-		path: '/',
+		path: '/api/shows',
 		alias: 'createShow',
 		description: 'Create Show',
 		parameters: [
@@ -23,7 +24,7 @@ const endpoints = makeApi([
 ])
 
 export function getApi() {
-	return createApiClient<typeof endpoints>('/api/shows', endpoints)
+	return createApiClient<typeof endpoints>(getBaseUrl(true), endpoints)
 }
 export const createShow = ({
 	description,

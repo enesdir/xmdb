@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server'
-import { deleteImage } from '@/lib/services/cloudinaryService'
+import { deleteImage } from '@/lib/cloudinary/cloudinaryService'
 import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
 import { mapPrismaShowToShow } from './showsMapper'
 import type {

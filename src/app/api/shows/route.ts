@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import crypto from 'node:crypto'
-import { createImage } from '@/lib/services/cloudinaryService'
+import { createImage } from '~/src/lib/cloudinary/cloudinaryService'
 import { createJsonResponse, protectRoute } from '@/lib/utils/route'
 import { mapPrismaShowToShow } from '@/server/modules/shows/showsMapper'
 import { createShowSchema } from '@/server/modules/shows/showsSchemas'

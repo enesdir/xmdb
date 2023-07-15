@@ -1,7 +1,7 @@
 import type { IconType } from 'react-icons'
 import { BsDiscord, BsFacebook } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/lib/utils/cn'
 
 type Variant = 'discord' | 'facebook' | 'google'
 
@@ -30,7 +30,7 @@ export const SocialButton = ({ variant, text, onClick }: SocialButtonProps) => {
 		<button
 			type='button'
 			onClick={onClick}
-			className={twMerge(
+			className={cn(
 				'flex h-9 w-full items-center justify-center gap-x-2 rounded-lg font-medium text-white',
 				variants[variant]
 			)}

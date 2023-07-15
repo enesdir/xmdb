@@ -1,6 +1,6 @@
 import { useSession } from 'next-auth/react'
-import type { User } from '~/src/server/modules/users/usersSchemas'
 import { isTRPCClientError, trpc } from '@/lib/utils/trpc'
+import type { User } from '@/server/modules/users/usersSchemas'
 
 interface UserPayload {
 	readonly username?: string

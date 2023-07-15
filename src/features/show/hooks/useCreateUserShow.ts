@@ -1,7 +1,7 @@
 import { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
 import { useMutation } from '@tanstack/react-query'
-import { createShow } from '@/lib/services/showsService'
-import { useRefreshUserShows } from '../../shows/hooks/useRefreshUserShows'
+import { createShow } from '@/features/show/services/showsService'
+import { useRefreshUserShows } from '@/features/shows/hooks/useRefreshUserShows'
 
 export const useCreateUserShow = () => {
 	const { mutateAsync, isLoading } = useMutation({ mutationFn: createShow })
