@@ -1,4 +1,3 @@
-import type { AnchorHTMLAttributes } from 'react'
 import type { IconType } from 'react-icons'
 import {
 	BsFacebook,
@@ -11,13 +10,13 @@ import {
 	BsTwitter,
 	BsYoutube,
 } from 'react-icons/bs'
-import { cn } from '../lib/utils/cn'
+import { cn } from '@/lib/utils/cn'
+import { BaseLink, type BaseLinkProps } from './BaseLink'
 
 type SocialLinkProps = Readonly<
 	{
-		className?: string
-		href: string
-	} & AnchorHTMLAttributes<HTMLAnchorElement> & { platform?: Platform }
+		platform?: Platform
+	} & Omit<BaseLinkProps, 'label'>
 >
 
 export type Platform =
@@ -105,22 +104,14 @@ export const SocialLink = ({ href, platform, className, ...props }: SocialLinkPr
 	}
 
 	return (
-		<a
-			role='button'
-			target='_blank'
-			rel='nofollow noopener'
-			tabIndex={0}
+		<BaseLink
 			href={href}
-			className={cn(
-				'text relative m-0 inline-block cursor-pointer rounded-full border-none bg-black p-3 no-underline hover:bg-white/10',
-				className
-			)}
+			className={cn('rounded-full bg-black p-3 hover:bg-white/10', className)}
 			{...props}
 			aria-disabled='false'
-			title={media.label}
-			aria-label={media.label}
+			label={media.label}
 		>
 			<media.icon className='h-5 w-5 text-white/95 transition' />
-		</a>
+		</BaseLink>
 	)
 }
