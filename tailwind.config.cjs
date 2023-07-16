@@ -5,7 +5,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				default: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+				default: ['var(--font-roboto)', 'system-ui', 'sans-serif'],
 			},
 			container: {
 				center: true,

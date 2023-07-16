@@ -1,13 +1,14 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Roboto_Flex as Roboto } from 'next/font/google'
 import { Footer, Header } from '@/features/layout'
 import { cn } from '@/lib/utils/cn'
 import { AppProviders } from '@/providers/AppProviders'
+import { MainWrapper } from '../features/layout/components/MainWrapper'
 import './global.css'
 
-const fontInter = Inter({
-	variable: '--font-inter',
+const fontRoboto = Roboto({
+	variable: '--font-roboto',
 	subsets: ['latin', 'latin-ext'],
 })
 const title = 'YourMDB'
@@ -59,11 +60,17 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 	return (
 		<html lang='en'>
 			<head />
-			<body className={cn('scroll-smooth tracking-tight antialiased', fontInter.variable)}>
+			<body
+				className={cn(
+					'overflow-clip scroll-smooth leading-none antialiased',
+					fontRoboto.variable
+					// 'm-2 xs:m-6 md:m-6 lg:m-4 xl:m-6'
+				)}
+			>
 				<AppProviders>
 					<div className='flex min-h-screen flex-col overflow-hidden'>
 						<Header />
-						{children}
+						<MainWrapper>{children}</MainWrapper>
 						<Footer />
 					</div>
 				</AppProviders>
