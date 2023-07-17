@@ -18,7 +18,7 @@ export const BaseLink = ({ children, className, label, href, ...props }: BaseLin
 			tabIndex={0}
 			href={href}
 			className={cn(
-				'relative m-0 inline-block cursor-pointer border-none no-underline hover:bg-white/10',
+				'relative m-0 inline-block cursor-pointer border-none text-center no-underline',
 				className
 			)}
 			{...props}

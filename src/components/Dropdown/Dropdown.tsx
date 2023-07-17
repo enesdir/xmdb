@@ -36,13 +36,7 @@ const Dropdown = ({
 
 	return (
 		<div className='relative flex h-full' style={style} ref={dropdownRef}>
-			<DropdownButton
-				{...props}
-				isOpen={value}
-				type='button'
-				onClick={() => toggle()}
-				className={buttonClassname}
-			>
+			<DropdownButton {...props} isOpen={value} onClick={() => toggle()} className={buttonClassname}>
 				{buttonChildren}
 			</DropdownButton>
 			<DropdownItems isHidden={!value} className='right-0 mt-10' size={overlaySize}>

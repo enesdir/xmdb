@@ -5,9 +5,15 @@ import { BaseLink, type BaseLinkProps } from './BaseLink'
 type BaseLinkIconProps = Readonly<BaseLinkProps>
 export const BaseLinkIcon = ({ href, label, className, children, ...props }: BaseLinkIconProps) => {
 	return (
-		<BaseLink href={href} className={cn('p-2', className)} {...props} aria-disabled='false' label={label}>
+		<BaseLink
+			href={href}
+			className={cn('!hover:bg-none p-2 text-white/95 hover:underline', className)}
+			{...props}
+			aria-disabled='false'
+			label={label}
+		>
 			{children}
-			<TbExternalLink className='h-5 w-5 text-white/95 transition' />
+			<TbExternalLink className='mr-1 inline-block h-4 w-4 overflow-hidden align-middle text-white/95 transition' />
 		</BaseLink>
 	)
 }
