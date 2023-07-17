@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { BiHelpCircle, BiLogOut, BiSlider } from 'react-icons/bi'
-import { UserAvatar } from '@/components'
+import { IconButton, UserAvatar } from '@/components'
 import { DropdownItem, DropdownItems } from '@/components/Dropdown'
 import { DropdownButton } from '@/components/Dropdown/DropdownButton'
 import { useBoolean } from '@/hooks/useBoolean'
@@ -29,12 +29,21 @@ export const UserMenu = () => {
 	return (
 		<div className='order-4 flex justify-center'>
 			<div className='relative flex h-full' ref={dropdownRef}>
+				<IconButton
+					icon={<UserAvatar user={user} size='2xs' icon={true} />}
+					onClick={() => {
+						toggle()
+					}}
+					variant='rounded'
+					className='sm:hidden'
+					label='User Menu'
+				/>
 				<DropdownButton
 					onClick={() => {
 						toggle()
 					}}
 					isOpen={value}
-					className='flex items-center rounded-md border border-transparent bg-transparent text-sm'
+					className='hidden items-center rounded-md border border-transparent bg-transparent text-sm sm:flex'
 				>
 					<UserAvatar user={user} size='2xs' icon={true} />
 					<span>{user.name ? getFirstLetter(user.name) : '?'}</span>

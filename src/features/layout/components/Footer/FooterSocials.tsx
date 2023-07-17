@@ -1,16 +1,17 @@
+import { List, ListItem } from '@/components/List/'
 import { SocialLink } from '@/components/SocialLink'
 import { socialMediaLinks } from '@/features/layout/constants/socialMediaLinks'
 
 export const FooterSocials = () => {
 	return (
 		<div className='my-4'>
-			<ul className='inline list-none' role='presentation'>
+			<List>
 				{socialMediaLinks.map((socialMedia) => (
-					<li role='presentation' className='mx-2 inline-block list-none' key={socialMedia.platform}>
+					<ListItem className='mx-2' key={socialMedia.platform}>
 						<SocialLink href={socialMedia.href} />
-					</li>
+					</ListItem>
 				))}
-			</ul>
+			</List>
 		</div>
 	)
 }
