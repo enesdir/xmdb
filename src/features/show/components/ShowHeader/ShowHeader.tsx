@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { BsDot } from 'react-icons/bs'
+import { Title } from '@/components/Title'
 import { formatMinutes } from '@/features/show/utils/formatMinutes'
 import type { Show } from '@/server/modules/shows/showsSchemas'
-import { HeroRight } from './HeroRight'
+import { Trends } from './Trends'
 
 type ShowHeaderProps = Readonly<{
 	show: Show
@@ -10,10 +11,12 @@ type ShowHeaderProps = Readonly<{
 
 export const ShowHeader = ({ show }: ShowHeaderProps) => {
 	return (
-		<div className='flex w-full flex-col justify-between py-2 md:flex-row'>
-			<div>
-				<span className='text-2xl font-extrabold uppercase text-white md:text-3xl'>{show.title}</span>
-				<div className='flex flex-row pt-2 text-center text-sm text-gray-200'>
+		<div className='flex w-full items-center justify-between py-2'>
+			<div className='min-h-[4rem] tracking-[0.03125em]'>
+				<Title className='text-3xl font-normal uppercase tracking-[0.0735em] text-white md:text-3xl md:tracking-normal'>
+					{show.title}
+				</Title>
+				<div className='flex flex-row pt-2 text-center text-sm text-white/70'>
 					<Link href='#'>{show.media_type}</Link>
 					<span>
 						<BsDot className='text-xl' />
@@ -25,7 +28,14 @@ export const ShowHeader = ({ show }: ShowHeaderProps) => {
 					<span>{formatMinutes(Math.floor(1 + Math.random() * 120))}</span>
 				</div>
 			</div>
-			<HeroRight rate={7} numberOfVoters={100000} popularity={{ score: 1, rating: 3 }} />
+			<Trends
+				trends={{
+					rate: 7.9,
+					numberOfVoters: Math.floor((1 + Math.random()) * 1000000),
+					popularity: { score: 96, rating: 50, trending: 'up' },
+				}}
+				className='hidden md:flex'
+			/>
 		</div>
 	)
 }

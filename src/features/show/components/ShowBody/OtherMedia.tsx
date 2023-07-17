@@ -22,7 +22,7 @@ export const OtherMedia = ({ media }: OtherMediaProps) => {
 			</Link>
 			<Link
 				href='#'
-				className='grow flex-col items-center bg-white/5 hover:bg-white/10 sm:max-h-[calc(50%_-_0.125rem)] md:flex-row'
+				className='grow flex-col items-center bg-white/5 hover:bg-white/10 sm:max-h-[calc(50%_-_0.125rem)] sm:flex-row'
 			>
 				<div className='flex h-full flex-row items-center justify-center gap-2 text-white sm:flex-col'>
 					<AiOutlinePicture className='text-sm sm:text-3xl' />
