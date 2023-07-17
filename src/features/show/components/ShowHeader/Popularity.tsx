@@ -1,43 +1,52 @@
-import {
-	BsArrowDownShort,
-	BsArrowUpShort,
-	BsDot,
-	BsGraphDownArrow,
-	BsGraphUp,
-	BsGraphUpArrow,
-} from 'react-icons/bs'
+import type { IconType } from 'react-icons'
+import { BsDot } from 'react-icons/bs'
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
+import { FaArrowTrendDown, FaArrowTrendUp } from 'react-icons/fa6'
+import { MdTrendingFlat } from 'react-icons/md'
+import { cn } from '@/lib/utils/cn'
 
-const UpScoreComponent: React.FC<Omit<PopularityProps, 'rating'>> = ({ score }) => (
-	<>
-		<BsGraphUpArrow color='green' className='text-lg md:text-2xl' />
-		<span className='text-sm font-medium text-gray-50 md:text-2xl'>{score}</span>
-		<BsArrowUpShort color='gray' className='text-sm md:text-2xl' />
-	</>
-)
+type Trending = 'up' | 'down' | 'neutral'
 
-const DownScoreComponent: React.FC<Omit<PopularityProps, 'rating'>> = ({ score }) => (
-	<>
-		<BsGraphDownArrow color='red' className='text-lg md:text-2xl' />
-		<span className='text-sm font-medium text-gray-800 dark:text-gray-600 md:text-xl'>{score}</span>
-		<BsArrowDownShort color='gray' className='text-sm md:text-2xl' />
-	</>
-)
+export type PopularityType = { score: number; rating: number; trending: Trending }
+type TrendIconInfo = {
+	icon: IconType
+	ratingIcon: IconType
+}
+const iconMapper: { [key in Trending]: TrendIconInfo } = {
+	up: {
+		icon: FaArrowTrendUp,
+		ratingIcon: FaCaretUp,
+	},
+	down: {
+		icon: FaArrowTrendDown,
+		ratingIcon: FaCaretDown,
+	},
+	neutral: {
+		icon: MdTrendingFlat,
+		ratingIcon: BsDot,
+	},
+}
 
-const EqualScoreComponent: React.FC<Omit<PopularityProps, 'rating'>> = ({ score }) => (
-	<>
-		<BsGraphUp color='gray' className='text-lg md:text-2xl' />
-		<span className='text-sm font-medium text-gray-800 dark:text-gray-600 md:text-xl'>{score}</span>
-		<BsDot color='gray' className='text-sm md:text-2xl' />
-	</>
-)
-type PopularityProps = { score: number; rating: number }
-export const Popularity = ({ score, rating }: PopularityProps) => {
+export const Popularity = ({ score, rating, trending = 'neutral' }: PopularityType) => {
+	const trend = iconMapper[trending]
+	if (!trending) {
+		console.warn(`No icon found for `)
+		return <span>icon</span>
+	}
 	return (
-		<div className='flex truncate text-center tracking-wider'>
-			{score > 100 && <UpScoreComponent score={score} />}
-			{score < 100 && <DownScoreComponent score={score} />}
-			{score === 100 && <EqualScoreComponent score={score} />}
-			<span className='text-xs opacity-50 md:text-lg'>{rating}</span>
+		<div className='inline-flex items-center truncate tracking-wider'>
+			<trend.icon
+				className={cn('rounded-full border-2 border-solid pr-0.5 text-2xl md:text-3xl', [
+					trending === 'up' && 'border-green-600 text-green-600',
+					trending === 'down' && 'border-red-600 text-red-600',
+					trending === 'neutral' && 'border-white/70 text-white/70',
+				])}
+			/>
+			<div className='inline-flex flex-row items-center'>
+				<span className='pl-0.5 text-base font-semibold text-white md:text-2xl'>{score}</span>
+				<trend.ratingIcon className='text-sm text-white/70 md:text-2xl' />
+				<span className='text-xs text-white/70 md:text-lg'>{rating}</span>
+			</div>
 		</div>
 	)
 }
