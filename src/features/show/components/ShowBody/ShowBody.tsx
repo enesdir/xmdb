@@ -13,8 +13,8 @@ type ShowBodyProps = Readonly<{
 
 export const ShowBody = ({ show }: ShowBodyProps) => {
 	return (
-		<>
-			<div className='mb-4 min-h-[calc(177.6px_+_0.5rem)] border-b pb-4 pl-32 sm:w-2/3 sm:pl-0'>
+		<div className='relative mx-4 flex flex-col lg:w-full lg:flex-row lg:items-center lg:justify-between'>
+			<div className='mb-4 pb-4 pl-32 sm:min-h-0 sm:w-2/3 sm:pl-0'>
 				<div className='mx-auto flex w-full flex-col items-center sm:flex-row sm:items-start'>
 					<section className='grow space-y-4 '>
 						<ChipList genres={['Action', 'Adventure', 'Sci-Fi']} />
@@ -94,6 +94,6 @@ export const ShowBody = ({ show }: ShowBodyProps) => {
 					</div>
 				</li>
 			</div>
-		</>
+		</div>
 	)
 }

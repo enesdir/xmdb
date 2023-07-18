@@ -3,6 +3,7 @@ import { BsDot } from 'react-icons/bs'
 import { Title } from '@/components/Title'
 import { formatMinutes } from '@/features/show/utils/formatMinutes'
 import type { Show } from '@/server/modules/shows/showsSchemas'
+import { List, ListItem } from '../../../../components/List'
 import { Trends } from './Trends'
 
 type ShowHeaderProps = Readonly<{
@@ -11,22 +12,30 @@ type ShowHeaderProps = Readonly<{
 
 export const ShowHeader = ({ show }: ShowHeaderProps) => {
 	return (
-		<div className='flex w-full items-center justify-between py-2'>
+		<div className='flex w-full items-center justify-between px-4 opacity-100'>
 			<div className='min-h-[4rem] tracking-[0.03125em]'>
-				<Title className='text-3xl font-normal uppercase tracking-[0.0735em] text-white md:text-3xl md:tracking-normal'>
+				<Title className='text-3xl font-normal uppercase tracking-[0.0735em] text-white md:text-3xl md:tracking-normal max-hsm:tracking-[0.00735em]'>
 					{show.title}
 				</Title>
-				<div className='flex flex-row pt-2 text-center text-sm text-white/70'>
-					<Link href='#'>{show.media_type}</Link>
-					<span>
-						<BsDot className='text-xl' />
-					</span>
+				<List className='flex flex-row pt-2 text-center text-sm text-white/70'>
+					<ListItem>
+						<Link href='#'>{show.media_type}</Link>
+					</ListItem>
+					<ListItem>
+						<span>
+							<BsDot className='text-xl' />
+						</span>
+					</ListItem>
 					<Link href='#'>{'PG-13'}</Link>
-					<span>
-						<BsDot className='text-xl' />
-					</span>
-					<span>{formatMinutes(Math.floor(1 + Math.random() * 120))}</span>
-				</div>
+					<ListItem>
+						<span>
+							<BsDot className='text-xl' />
+						</span>
+					</ListItem>
+					<ListItem>
+						<span>{formatMinutes(Math.floor(1 + Math.random() * 120))}</span>
+					</ListItem>
+				</List>
 			</div>
 			<Trends
 				trends={{

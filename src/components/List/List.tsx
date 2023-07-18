@@ -9,7 +9,7 @@ export const List = ({ children, className, ...rest }: ListProps) => {
 	return (
 		<ul
 			className={cn(
-				'm-0 inline list-outside list-none list-image-none flex-wrap items-center p-0 sm:inline',
+				'm-0 inline-flex list-outside list-none list-image-none flex-wrap items-center p-0 sm:inline-flex',
 				className
 			)}
 			role='presentation'

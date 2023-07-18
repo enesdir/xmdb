@@ -62,17 +62,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 			<head />
 			<body
 				className={cn(
-					'overflow-clip scroll-smooth leading-none antialiased',
+					'scroll-smooth font-default leading-none antialiased',
 					fontRoboto.variable
 					// 'm-2 xs:m-6 md:m-6 lg:m-4 xl:m-6'
 				)}
 			>
 				<AppProviders>
-					<div className='flex min-h-screen flex-col overflow-hidden'>
-						<Header />
-						<MainWrapper>{children}</MainWrapper>
-						<Footer />
-					</div>
+					<Header />
+					<MainWrapper>{children}</MainWrapper>
+					<Footer />
 				</AppProviders>
 			</body>
 		</html>

@@ -23,15 +23,13 @@
 html {
 	scroll-behavior: smooth;
 	background: rgb(0, 0, 0);
+	line-height: 1.15;
 }
-html,
+
 body {
-	display: block;
-	max-width: 100vw;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
 	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
 }
 html,
 body,
@@ -118,7 +116,7 @@ video {
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
-	/* font: inherit; */
+	font: inherit;
 	vertical-align: baseline;
 }
 article,

@@ -1,6 +1,9 @@
-import { Container } from '@/components'
-import { OtherMedia, Poster, ShowBody, ShowHeader, Trailer } from '@/features/show/'
+import { OtherMedia, Poster, ShowBody, ShowHeader } from '@/features/show/'
 import type { Show } from '@/server/modules/shows/showsSchemas'
+import { PageContainer } from '../../../components/PageContainer'
+import { cn } from '../../../lib/utils/cn'
+import { BreadCumb } from './ShowHeader/BreadCumb'
+import { Player } from './ShowHeader/Player'
 
 type ShowHeroProps = Readonly<{
 	show: Show
@@ -10,31 +13,33 @@ export const ShowHero = ({ show }: ShowHeroProps) => {
 		index.toString()
 	)
 	return (
-		<>
-			<div className='w-full bg-[#202020] bg-blend-darken'>
-				<Container>
-					<section className='bg-gradient-to-tr from-[rgb(31,31,31)]/80 to-[rgb(31,31,31)]/20'>
-						<div className='flex w-full flex-col sm:flex-row sm:flex-wrap'>
-							<div className='w-full'>
-								<ShowHeader show={show} />
-							</div>
-							<div className='relative flex w-full flex-row flex-wrap'>
-								<div className='absolute left-0 top-[calc(100%_+_0.75rem)] flex w-28 bg-gray-200 sm:static sm:w-2/12'>
-									<Poster show={show} />
-								</div>
-								<div className='relative flex w-full flex-col sm:mr-1 sm:w-8/12'>
-									<Trailer show={show} />
-								</div>
-
+		<div className='w-full bg-[rgb(31,31,31)]'>
+			<PageContainer>
+				<div
+					className='relative m-0 bg-[rgb(31,31,31)] bg-cover bg-center bg-no-repeat p-0 bg-blend-overlay'
+					style={{
+						backgroundImage: `url(${show.images[0]})`,
+					}}
+				>
+					<div className='absolute z-[2] block h-full w-full backdrop-blur-[50px] backdrop-saturate-[100%] will-change-transform'></div>
+					<section
+						className={cn(
+							'relative z-20 w-full bg-gradient-to-tr from-[rgb(31,31,31)]/80 to-[rgb(31,31,31)]/20'
+						)}
+					>
+						<BreadCumb />
+						<ShowHeader show={show} />
+						<div className='flex flex-col lg:flex-row lg:flex-wrap lg:items-center'>
+							<div className='relative mb-3 flex flex-row flex-wrap lg:w-full xs:mx-4'>
+								<Poster show={show} />
+								<Player show={show} />
 								<OtherMedia media={{ images: randomStrings, videos: randomStrings }} />
 							</div>
-							<div className='relative flex w-full flex-col items-center justify-between sm:flex-row'>
-								<ShowBody show={show} />
-							</div>
+							<ShowBody show={show} />
 						</div>
 					</section>
-				</Container>
-			</div>
-		</>
+				</div>
+			</PageContainer>
+		</div>
 	)
 }
