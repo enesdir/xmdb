@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/components/'
+import { Button } from '@/components/Button'
 import { SignInModal } from '@/features/auth/'
 import { useBoolean } from '@/hooks/useBoolean'
 

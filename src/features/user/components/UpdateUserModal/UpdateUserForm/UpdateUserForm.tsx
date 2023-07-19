@@ -1,4 +1,6 @@
-import { Button, TextField, Textarea } from '@/components/'
+import { Button } from '@/components/Button'
+import { TextField } from '@/components/TextField'
+import { Textarea } from '@/components/Textarea'
 import type { User } from '@/server/modules/users/usersSchemas'
 import { useUpdateUserForm } from './useUpdateUserForm'
 

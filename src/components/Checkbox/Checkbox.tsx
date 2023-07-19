@@ -1,7 +1,7 @@
 import type { ChangeEventHandler, FocusEventHandler } from 'react'
 import { forwardRef } from 'react'
 import { FaCheck } from 'react-icons/fa'
-import { ErrorMessage } from '@/components/'
+import { ErrorMessage } from '@/components/ErrorMessage'
 
 type CheckboxProps = Readonly<{
 	error?: string

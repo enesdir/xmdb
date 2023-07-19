@@ -1,4 +1,4 @@
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/lib/utils/cn'
 import { formatNumber } from '@/lib/utils/intl'
 
 type StatisticItemProps = Readonly<{
@@ -8,7 +8,7 @@ type StatisticItemProps = Readonly<{
 }>
 
 export const StatisticItem = ({ name, value, onClick }: StatisticItemProps) => (
-	<li onClick={onClick} className={twMerge('flex flex-col items-center', onClick && 'cursor-pointer')}>
+	<li onClick={onClick} className={cn('flex flex-col items-center', onClick && 'cursor-pointer')}>
 		{name}
 		<strong>{formatNumber(value)}</strong>
 	</li>

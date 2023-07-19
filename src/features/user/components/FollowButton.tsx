@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
-import { Button } from '@/components/'
+import { Button } from '@/components/Button'
 import { useToggleFollow } from '@/features/user/hooks/useToggleFollow'
 import { useRequiredSession } from '@/hooks/useRequiredSession'
 import type { User } from '@/server/modules/users/usersSchemas'

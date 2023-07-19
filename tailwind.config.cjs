@@ -24,7 +24,7 @@ module.exports = {
 				'max-sm': { raw: 'not all and (min-width: 600px)' },
 				'max-hsm': { raw: '(max-height: 680px)' },
 			},
-			keyframes: {
+			keyframes: ({ theme }) => ({
 				'fade-in-down': {
 					'0%': {
 						opacity: '0',
@@ -35,7 +35,25 @@ module.exports = {
 						transform: 'translateY(0)',
 					},
 				},
-			},
+				rerender: {
+					'0%': {
+						'border-color': theme('colors.blue.200'),
+					},
+					'40%': {
+						'border-color': theme('colors.blue.200'),
+					},
+				},
+				highlight: {
+					'0%': {
+						background: theme('colors.blue.400'),
+						color: theme('colors.white'),
+					},
+					'40%': {
+						background: theme('colors.blue.400'),
+						color: theme('colors.white'),
+					},
+				},
+			}),
 			animation: {
 				'fade-in-down': 'fade-in-down 0.5s ease-out',
 			},

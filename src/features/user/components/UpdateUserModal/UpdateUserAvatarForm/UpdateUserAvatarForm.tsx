@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import { Button, FileButton, UserAvatar } from '@/components/'
+import { Button } from '@/components/Button'
+import { FileButton } from '@/components/FileButton'
+import { UserAvatar } from '@/components/UserAvatar'
 import { createUrlFromFile } from '@/lib/utils/file'
 import type { User } from '@/server/modules/users/usersSchemas'
 import { useUpdateUserAvatarForm } from './useUpdateUserAvatarForm'

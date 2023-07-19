@@ -1,4 +1,4 @@
-import { Button } from '@/components'
+import { Button } from '@/components/Button'
 import { PROJECT_NAME } from '@/lib/constants'
 
 export const LogoPro = () => {

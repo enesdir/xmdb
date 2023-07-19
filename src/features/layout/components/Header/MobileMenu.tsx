@@ -1,5 +1,5 @@
 import { AiOutlineMenu } from 'react-icons/ai'
-import { IconButton } from '@/components/'
+import { IconButton } from '@/components/IconButton'
 
 export const MobileMenu = () => {
 	return (

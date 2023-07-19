@@ -1,5 +1,5 @@
 import type { FormEventHandler, ReactNode } from 'react'
-import { Button } from '@/components/'
+import { Button } from '@/components/Button'
 import { signInWith } from '@/lib/auth'
 import { SocialButton } from './SocialButton'
 

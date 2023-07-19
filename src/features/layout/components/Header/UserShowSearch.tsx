@@ -2,7 +2,8 @@
 
 import { useRef, useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { Spinner, TextField } from '@/components/'
+import { Spinner } from '@/components/Spinner'
+import { TextField } from '@/components/TextField'
 import { ShowSearchBarList } from '@/features/shows/components/ShowSearchBar/ShowSearchBarList'
 import { useSearchShows } from '@/features/shows/hooks/useSearchShows'
 import { useBoolean } from '@/hooks/useBoolean'

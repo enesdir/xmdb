@@ -1,4 +1,4 @@
-import { EmptyDataAlert } from '@/components/'
+import { EmptyDataAlert } from '@/components/EmptyDataAlert'
 import type { User } from '@/server/modules/users/usersSchemas'
 import { UserItem } from './UserItem'
 

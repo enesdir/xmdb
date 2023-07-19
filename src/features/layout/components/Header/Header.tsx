@@ -1,7 +1,8 @@
 'use client'
 
 import { AiOutlineMenu } from 'react-icons/ai'
-import { AccessControl, Button } from '@/components/'
+import { AccessControl } from '@/components/AccessControl'
+import { Button } from '@/components/Button'
 import { LanguageMenu } from '../LanguageMenu/LanguageMenu'
 import { AuthButtons } from './AuthButtons/AuthButtons'
 import { Logo } from './Logo'

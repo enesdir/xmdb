@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react'
 import { useSession } from 'next-auth/react'
-import { Spinner } from './Spinner/Spinner'
+import { Spinner } from '../Spinner/Spinner'
 
 type AccessControlPermissions = 'isLoggedIn' | 'isOwner' | 'isAdmin'
 

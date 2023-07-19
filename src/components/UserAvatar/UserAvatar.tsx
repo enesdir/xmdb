@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react'
-import { Avatar } from '@/components/'
+import { Avatar } from '@/components/Avatar'
 import { getFirstLetter } from '@/lib/utils/stringOperations'
 
 const sizes = {

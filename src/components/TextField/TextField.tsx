@@ -1,6 +1,7 @@
 import type { ChangeEventHandler, ComponentPropsWithRef, FocusEventHandler, ReactNode } from 'react'
 import { forwardRef, useId } from 'react'
-import { ErrorMessage, FieldLabel } from '@/components'
+import { ErrorMessage } from '@/components/ErrorMessage'
+import { FieldLabel } from '@/components/FieldLabel'
 import { cn } from '@/lib/utils/cn'
 import { TextFieldIcon } from './TextFieldIcon'
 

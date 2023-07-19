@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { Container } from '@/components'
+import { Container } from '@/components/Container'
 
 export default function AppLayoutContainer({ children }: PropsWithChildren) {
 	return (

@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react'
-import { Modal } from '@/components/Modal/Modal'
+import { Modal } from '@/components/Modal/'
 import { UserFollowingList } from './UserFollowingList'
 
 type UserFollowingModalProps = Readonly<{

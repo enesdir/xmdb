@@ -1,6 +1,6 @@
 'use client'
 
-import { LoadingContent } from '~/src/components/LoadingContent'
+import { LoadingContent } from '@/components/LoadingContent'
 import { useGetUserShows } from '@/features/show/hooks/useGetUserShows'
 import type { User } from '@/server/modules/users/usersSchemas'
 import { UserShowList } from './UserShowList/UserShowList'

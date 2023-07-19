@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from 'react'
-import { Button } from '@/components/'
+import { Button } from '@/components/Button'
 import { Modal } from '@/components/Modal/Modal'
 
 type ConfirmModalProps = Readonly<{

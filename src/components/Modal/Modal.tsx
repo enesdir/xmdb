@@ -4,7 +4,7 @@ import type { PropsWithChildren } from 'react'
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { IoCloseSharp } from 'react-icons/io5'
-import { IconButton } from '@/components/'
+import { IconButton } from '@/components/IconButton'
 import { cn } from '@/lib/utils/cn'
 import { ModalTitle } from './ModalTitle'
 

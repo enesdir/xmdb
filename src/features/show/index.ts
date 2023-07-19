@@ -1,7 +1,7 @@
 export { CreateShowButton } from './components/CreateShowButton'
 export { OtherMedia } from './components/HeroBody/OtherMedia'
 export { Poster } from './components/HeroBody/Poster'
-export { Trailer } from './components/HeroBody/Trailer'
+// export { Trailer } from './components/HeroBody/Trailer'
 export { ShowBody } from './components/HeroDetail/ShowBody'
 export { ShowHeader } from './components/HeroHeader/ShowHeader'
 export { ShowCard } from './components/ShowCard'

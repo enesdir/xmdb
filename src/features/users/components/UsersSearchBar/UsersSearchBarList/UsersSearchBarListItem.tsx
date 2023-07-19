@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { UserAvatar } from '@/components/'
+import { UserAvatar } from '@/components/UserAvatar'
 import { FollowButton } from '@/features/user/components/FollowButton'
 import type { User } from '@/server/modules/users/usersSchemas'
 

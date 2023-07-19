@@ -1,4 +1,4 @@
-import { AccessControl } from '@/components/'
+import { AccessControl } from '@/components/AccessControl'
 import type { Show } from '@/server/modules/shows/showsSchemas'
 import { DeleteShowButton } from './DeleteShowButton'
 

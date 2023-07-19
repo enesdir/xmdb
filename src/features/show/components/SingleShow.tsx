@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ImagesSlider, UserAvatar } from '@/components/'
+import { ImagesSlider } from '@/components/ImagesSlider'
+import { UserAvatar } from '@/components/UserAvatar'
 import { formatFromNow } from '@/lib/utils/date'
 import { formatNumber, pluralize } from '@/lib/utils/intl'
 import type { Show } from '@/server/modules/shows/showsSchemas'

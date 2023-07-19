@@ -3,7 +3,8 @@
 import type { ComponentProps } from 'react'
 import { forwardRef, useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-import { IconButton, TextField } from '@/components'
+import { IconButton } from '@/components/IconButton'
+import { TextField } from '@/components/TextField'
 
 type PasswordFieldProps = Omit<ComponentProps<typeof TextField>, 'type' | 'icon'>
 

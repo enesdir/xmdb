@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { BsThreeDotsVertical } from 'react-icons/bs'
-import { IconButton } from '@/components'
+import { IconButton } from '@/components/IconButton'
 import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type PlayerProps = Readonly<{

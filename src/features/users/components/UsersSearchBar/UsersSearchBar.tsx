@@ -2,7 +2,8 @@
 
 import { useRef, useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { Spinner, TextField } from '@/components/'
+import { Spinner } from '@/components/Spinner'
+import { TextField } from '@/components/TextField'
 import { useSearchUsers } from '@/features/users/hooks/useSearchUsers'
 import { useBoolean } from '@/hooks/useBoolean'
 import { useDebounce } from '@/hooks/useDebounce'
@@ -25,7 +26,6 @@ export const UsersSearchBar = () => {
 			<TextField
 				type='text'
 				placeholder='Enter username'
-				autoComplete={false}
 				spellCheck={false}
 				icon={<AiOutlineSearch />}
 				value={value}

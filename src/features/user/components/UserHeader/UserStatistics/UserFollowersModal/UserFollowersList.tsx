@@ -1,4 +1,4 @@
-import { LoadingContent } from '@/components/'
+import { LoadingContent } from '@/components/LoadingContent'
 import { useGetFollowers } from '@/features/user/hooks/useGetFollowers'
 import { UserList } from '@/features/users/'
 

@@ -1,4 +1,4 @@
-import { ImagesSlider } from '@/components/'
+import { ImagesSlider } from '@/components/ImagesSlider'
 import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type UserShowDetailsProps = Readonly<{

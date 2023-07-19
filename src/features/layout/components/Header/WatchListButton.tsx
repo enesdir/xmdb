@@ -1,5 +1,5 @@
 import { BsBookmarkPlusFill } from 'react-icons/bs'
-import { Button } from '@/components'
+import { Button } from '@/components/Button'
 
 export const WatchListButton = () => {
 	return (

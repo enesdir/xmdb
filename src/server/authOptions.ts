@@ -1,9 +1,9 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { type NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { prisma } from '~/src/server/prisma'
 import { userSchema } from '@/server/modules/users/usersSchemas'
 import { getUserByCredentials, initCreatedUser } from '@/server/modules/users/usersService'
+import { prisma } from '@/server/prisma'
 
 /**
  * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.

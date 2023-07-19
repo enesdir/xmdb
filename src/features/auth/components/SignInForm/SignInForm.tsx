@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
-import { PasswordField, TextField } from '@/components/'
+import { PasswordField } from '@/components/PasswordField'
+import { TextField } from '@/components/TextField'
 import { AuthForm } from '@/features/auth/components/AuthForm'
 import { useSignInForm } from './useSignInForm'
 

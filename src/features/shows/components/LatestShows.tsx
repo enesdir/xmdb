@@ -1,6 +1,6 @@
 'use client'
 
-import { Spinner } from '@/components/'
+import { Spinner } from '@/components/Spinner'
 import { useGetLatestShows } from '@/features/shows/hooks/useGetLatestShows'
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import { LatestShowList } from './LatestShowList'

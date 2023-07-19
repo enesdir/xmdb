@@ -1,6 +1,6 @@
-import { Avatar } from '@/components/'
+import { Avatar } from '@/components/Avatar'
 
-export const ShowCastItem = ({ person }) => {
+export const ShowCastItem = ({ person }: any) => {
 	return (
 		<tr className='hover:bg-gray-50'>
 			<th className='flex items-center gap-3 px-6 py-4 font-normal text-gray-900'>

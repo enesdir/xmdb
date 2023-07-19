@@ -1,6 +1,6 @@
 'use client'
 
-import { useSearchBarCategory } from '~/src/providers/SearchBarProvider'
+import { useSearchBarCategory } from '@/providers/SearchBarProvider'
 import { CategoryButton } from './CategoryButton'
 import { UserSearch } from './UserSearch'
 import { UserShowSearch } from './UserShowSearch'

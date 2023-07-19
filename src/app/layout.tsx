@@ -2,9 +2,9 @@ import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Roboto_Flex as Roboto } from 'next/font/google'
 import { Footer, Header } from '@/features/layout'
+import { MainWrapper } from '@/features/layout/components/MainWrapper'
 import { cn } from '@/lib/utils/cn'
 import { AppProviders } from '@/providers/AppProviders'
-import { MainWrapper } from '../features/layout/components/MainWrapper'
 import './global.css'
 
 const fontRoboto = Roboto({
