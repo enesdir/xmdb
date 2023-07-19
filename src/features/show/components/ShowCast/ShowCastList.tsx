@@ -24,7 +24,7 @@ const cast = [
 ]
 export const ShowCastList = () => {
 	return (
-		<div>
+		<div className='w-full'>
 			<div className='overflow-hidden rounded-lg border border-gray-200 shadow-md'>
 				<MovieCastTable cast={cast} />
 			</div>

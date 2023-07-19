@@ -2,8 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { IconButton } from '@/components'
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
-export const Player = ({ show }) => {
+type PlayerProps = Readonly<{
+	show: Show
+}>
+export const Player = ({ show }: PlayerProps) => {
 	return (
 		<div className='relative mr-0 inline-flex w-full min-w-[auto] cursor-pointer flex-col sm:ml-1 sm:w-[calc(72.35%_-_0.125rem)] sm:bg-none sm:pb-0 lg:mr-1 lg:w-[calc(60%_-_0.125rem)]'>
 			<div className='absolute right-2.5 top-2.5 z-10'>
@@ -21,7 +25,8 @@ export const Player = ({ show }) => {
 				>
 					<Image
 						alt='Home Video Trailer from Sony Pictures Home Entertainment'
-						className='object-cover'
+						className='absolute inset-0 object-fill '
+						// @ts-expect-error
 						src={show.images[0]}
 						sizes='100vw, (min-width: 480px) 68vw, (min-width: 600px) 52vw, (min-width: 1024px) 32vw, (min-width: 1280px) 32vw'
 						fill

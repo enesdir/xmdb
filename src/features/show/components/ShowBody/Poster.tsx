@@ -15,7 +15,7 @@ export const Poster = ({ show }: PosterProps) => {
 						// @ts-expect-error
 						src={show.images[0]}
 						alt={show.title}
-						className='absolute inset-0 object-cover'
+						className='absolute inset-0 object-fill'
 						fill
 						sizes='50vw, (min-width: 480px) 34vw, (min-width: 600px) 26vw, (min-width: 1024px) 16vw, (min-width: 1280px) 16vw'
 					/>
