@@ -4,7 +4,7 @@ import { Button, IconButton } from '@/components'
 import { BaseLink } from '@/components/BaseLink'
 import { List, ListItem } from '@/components/List'
 
-export const BreadCumb = () => {
+export const HeroBreadCumb = () => {
 	return (
 		<div className='flex h-12 items-center justify-between'>
 			<div className='flex flex-nowrap items-center'></div>

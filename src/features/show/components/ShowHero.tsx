@@ -1,9 +1,10 @@
-import { OtherMedia, Poster, ShowBody, ShowHeader } from '@/features/show/'
+import { PageContainer } from '@/components/PageContainer'
+import { OtherMedia, Poster, ShowHeader } from '@/features/show/'
+import { cn } from '@/lib/utils/cn'
 import type { Show } from '@/server/modules/shows/showsSchemas'
-import { PageContainer } from '../../../components/PageContainer'
-import { cn } from '../../../lib/utils/cn'
-import { BreadCumb } from './ShowHeader/BreadCumb'
-import { Player } from './ShowHeader/Player'
+import { Player } from './HeroBody/Player'
+import { HeroDetail } from './HeroDetail/HeroDetail'
+import { HeroBreadCumb } from './HeroHeader/HeroBreadCumb'
 
 type ShowHeroProps = Readonly<{
 	show: Show
@@ -27,7 +28,7 @@ export const ShowHero = ({ show }: ShowHeroProps) => {
 							'relative z-20 w-full bg-gradient-to-tr from-[rgb(31,31,31)]/80 to-[rgb(31,31,31)]/20'
 						)}
 					>
-						<BreadCumb />
+						<HeroBreadCumb />
 						<ShowHeader show={show} />
 						<div className='flex flex-col lg:flex-row lg:flex-wrap lg:items-center'>
 							<div className='relative mb-3 flex flex-row flex-wrap lg:w-full xs:mx-4'>
@@ -35,7 +36,7 @@ export const ShowHero = ({ show }: ShowHeroProps) => {
 								<Player show={show} />
 								<OtherMedia media={{ images: randomStrings, videos: randomStrings }} />
 							</div>
-							<ShowBody show={show} />
+							<HeroDetail show={show} />
 						</div>
 					</section>
 				</div>
