@@ -3,13 +3,7 @@
 import { ReactNode } from 'react'
 import { useSelectedLayoutSegment } from 'next/navigation'
 
-export default function UserShowProviders({
-	modal,
-	children,
-}: {
-	modal: ReactNode
-	children: React.ReactNode
-}) {
+export default function UserShowProviders({ modal, children }: { modal: ReactNode; children: ReactNode }) {
 	const segment = useSelectedLayoutSegment()
 	return (
 		<>

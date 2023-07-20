@@ -4,7 +4,7 @@ import { IoPersonCircleSharp } from 'react-icons/io5'
 import { cn } from '@/lib/utils/cn'
 
 const sizes = {
-	'2xs': 'h-6 w-6',
+	'2xs': 'h-5 w-5',
 	xs: 'h-8 w-8',
 	sm: 'h-11 w-11',
 	md: 'h-16 w-16',
@@ -27,16 +27,14 @@ type AvatarProps = Readonly<
 
 export const Avatar = ({ size = 'sm', src, alt, children, icon }: AvatarProps) => {
 	if (icon) {
-		return <IoPersonCircleSharp className={cn('text-white', sizes[size])} fill='white' stroke='white' />
+		return <IoPersonCircleSharp className={cn('-p-1 text-white', sizes[size])} fill='white' stroke='white' />
 	}
 	return (
 		<div
-			className={cn(
-				'relative shrink-0 overflow-hidden rounded-full',
-				sizes[size],
-				children &&
-					'flex items-center justify-center bg-blue-600 font-medium text-white dark:bg-blue-200 dark:text-blue-600'
-			)}
+			className={cn('relative shrink-0 overflow-hidden rounded-full', sizes[size], {
+				'flex items-center justify-center bg-blue-600 font-medium text-white dark:bg-blue-200 dark:text-blue-600':
+					children,
+			})}
 		>
 			{src && <Image className='object-cover' src={src} alt={alt} fill />}
 			{children}

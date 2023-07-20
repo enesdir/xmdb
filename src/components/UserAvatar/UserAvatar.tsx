@@ -2,14 +2,6 @@ import type { ComponentProps } from 'react'
 import { Avatar } from '@/components/Avatar'
 import { getFirstLetter } from '@/lib/utils/stringOperations'
 
-const sizes = {
-	'2xs': 'h-6 w-6',
-	xs: 'h-8 w-8',
-	sm: 'h-11 w-11',
-	md: 'h-16 w-16',
-	lg: 'h-28 w-28',
-	xl: 'h-36 w-36',
-} as const
 type UserAvatarProps = Readonly<{
 	user: {
 		name?: string | null

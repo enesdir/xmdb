@@ -5,13 +5,15 @@
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
+	parser: '@typescript-eslint/parser',
 	extends: [
 		'next/core-web-vitals',
 		'prettier',
 		'plugin:tailwindcss/recommended',
 		'plugin:storybook/recommended',
+		'plugin:@typescript-eslint/recommended',
 	],
-	plugins: ['unused-imports'],
+	plugins: ['@typescript-eslint/eslint-plugin', 'unused-imports'],
 	rules: {
 		'space-in-parens': 'error',
 		'no-empty': 'error',

@@ -29,7 +29,7 @@ export const SingleShow = ({
 	return (
 		<article className='space-y-2.5'>
 			<div className='flex items-center justify-between'>
-				<Link href={`/${author.username}`} className='flex w-fit items-center gap-x-2.5'>
+				<Link href={`/user/${author.username}`} className='flex w-fit items-center gap-x-2.5'>
 					<UserAvatar user={author} />
 					<p className='font-medium'>{author.username}</p>
 				</Link>

@@ -1,4 +1,4 @@
-import { Banner } from '../../../../../features/show/components/Banner'
+import { Banner } from '../../../../../../features/show/components/Banner'
 
 const SliderData = [
 	{

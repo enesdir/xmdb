@@ -10,7 +10,7 @@ export const HeroBreadCumb = () => {
 		<div className='flex h-12 items-center justify-between'>
 			<div className='flex flex-nowrap items-center'></div>
 			<div className='flex flex-nowrap items-center'>
-				<List className='hidden text-sm font-medium text-white md:inline-flex'>
+				<List className='hidden -space-x-1 pr-2 text-sm font-medium text-white md:inline-flex'>
 					<ListItem>Cast & Crew</ListItem>
 					<ListItem className='before:mx-2 before:mb-[0.2rem] before:mt-0 before:inline-block before:rounded-[50%] before:bg-current before:p-px before:align-middle before:text-base before:leading-[0.5rem] before:content-[""]'>
 						Trivia

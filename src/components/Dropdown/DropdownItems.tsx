@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/lib/utils/cn'
+import { List } from '../List'
 
 const sizes = {
 	xs: 'w-8',
@@ -29,7 +30,9 @@ export const DropdownItems = ({
 			)}
 			{...rest}
 		>
-			{children}
+			<List role='menu' aria-orientation='vertical'>
+				{children}
+			</List>
 		</div>
 	)
 }

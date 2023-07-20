@@ -1,12 +1,12 @@
-import { BsBookmarkPlusFill } from 'react-icons/bs'
+import { BsFillBookmarkPlusFill } from 'react-icons/bs'
 import { Button } from '@/components/Button'
 
 export const WatchListButton = () => {
 	return (
 		<Button
-			className='order-5 hidden lg:order-6 lg:inline-flex'
+			className='order-6 hidden lg:order-6 lg:inline-flex'
 			variant='text'
-			icon={<BsBookmarkPlusFill className='text-xl' />}
+			icon={<BsFillBookmarkPlusFill className='text-xl' />}
 		>
 			<span className='truncate text-sm font-medium tracking-wide'>
 				Watchlist

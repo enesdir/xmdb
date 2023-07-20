@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils/cn'
+import { ListItem } from '../List'
 
 export type DropdownItemProps<T> = Readonly<
 	| {
@@ -23,7 +24,7 @@ export const DropdownItem = <T,>({ onClick, icon, href, className, children }: D
 	)
 
 	return (
-		<>
+		<ListItem className='m-0 w-full' role='menuitem' aria-disabled='false' tabIndex={0}>
 			{href ? (
 				<Link href={href} className={styles}>
 					{icon}
@@ -35,6 +36,6 @@ export const DropdownItem = <T,>({ onClick, icon, href, className, children }: D
 					{children}
 				</button>
 			)}
-		</>
+		</ListItem>
 	)
 }

@@ -8,7 +8,7 @@ type ListItemProps = LiHTMLAttributes<HTMLLIElement> &
 export const ListItem = ({ children, className, ...rest }: ListItemProps) => {
 	return (
 		<li
-			className={cn('mx-2 inline-block list-outside list-none list-image-none', className)}
+			className={cn('inline-block list-outside list-none list-image-none truncate', className)}
 			role='presentation'
 			{...rest}
 		>

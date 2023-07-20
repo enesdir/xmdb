@@ -22,7 +22,7 @@ module.exports = {
 				// => @media (min-width: 600px) { ... }
 				sm: '600px',
 				'max-sm': { raw: 'not all and (min-width: 600px)' },
-				'max-hsm': { raw: '(max-height: 680px)' },
+				'max-wsm': { raw: '(max-width: 600px)' },
 			},
 			keyframes: ({ theme }) => ({
 				'fade-in-down': {
@@ -37,19 +37,19 @@ module.exports = {
 				},
 				rerender: {
 					'0%': {
-						'border-color': theme('colors.blue.200'),
+						'border-color': theme('colors.red.200'),
 					},
 					'40%': {
-						'border-color': theme('colors.blue.200'),
+						'border-color': theme('colors.red.600'),
 					},
 				},
 				highlight: {
 					'0%': {
-						background: theme('colors.blue.400'),
+						background: theme('colors.red.400'),
 						color: theme('colors.white'),
 					},
 					'40%': {
-						background: theme('colors.blue.400'),
+						background: theme('colors.red.600'),
 						color: theme('colors.white'),
 					},
 				},

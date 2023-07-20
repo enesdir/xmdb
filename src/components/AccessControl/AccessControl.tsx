@@ -1,8 +1,5 @@
-'use client'
-
 import type { ReactNode } from 'react'
-import { useSession } from 'next-auth/react'
-import { Spinner } from '../Spinner/Spinner'
+import type { Session } from 'next-auth'
 
 type AccessControlPermissions = 'isLoggedIn' | 'isOwner' | 'isAdmin'
 
@@ -12,19 +9,21 @@ type AccessControlProps = Readonly<{
 	accessCheck?: boolean
 	createdID?: string
 	permissions: AccessControlPermissions[]
+	user?: Session['user']
 }>
-
+const checkLoggedIn = (user?: Session['user']): boolean => {
+	return Boolean(user && user.id)
+}
 export const AccessControl = ({
 	children,
 	renderNoAccess = null,
 	accessCheck = false,
 	createdID,
 	permissions = ['isLoggedIn'],
+	user,
 }: AccessControlProps) => {
-	const { data, status } = useSession()
-	if (status === 'loading') return <Spinner />
-	const isOwner = createdID && data?.user?.id === createdID
-	const isLoggedIn = Boolean(status === 'authenticated')
+	const isOwner = createdID && user?.id === createdID
+	const isLoggedIn = checkLoggedIn(user)
 	// TODO: Add your logic to determine if the user is an admin
 	const isAdmin = false
 

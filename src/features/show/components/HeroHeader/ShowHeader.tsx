@@ -14,10 +14,10 @@ export const ShowHeader = ({ show }: ShowHeaderProps) => {
 	return (
 		<div className='flex w-full items-center justify-between px-4 opacity-100'>
 			<div className='min-h-[4rem] tracking-[0.03125em]'>
-				<Title className='text-3xl font-normal uppercase tracking-[0.0735em] text-white md:text-3xl md:tracking-normal max-hsm:tracking-[0.00735em]'>
+				<Title className='max-hsm:tracking-[0.00735em] text-3xl font-normal uppercase tracking-[0.0735em] text-white md:text-3xl md:tracking-normal'>
 					{show.title}
 				</Title>
-				<List className='flex flex-row pt-2 text-center text-sm text-white/70'>
+				<List className='mb-2 flex flex-row justify-start -space-x-1 pt-2 text-center text-sm text-white/70 lg:mb-0'>
 					<ListItem>
 						<Link href='#'>{show.media_type}</Link>
 					</ListItem>

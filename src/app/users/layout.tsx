@@ -1,5 +1,6 @@
-import { Container } from '@/components'
+import type { PropsWithChildren } from 'react'
+import { Container } from '@/components/Container'
 
-export default function UsersLayout(props) {
-	return <Container>{props.children}</Container>
+export default function UsersLayout({ children }: PropsWithChildren) {
+	return <Container>{children}</Container>
 }

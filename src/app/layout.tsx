@@ -1,10 +1,11 @@
-import type { ReactNode } from 'react'
+import type { PropsWithChildren } from 'react'
 import type { Metadata } from 'next'
 import { Roboto_Flex as Roboto } from 'next/font/google'
 import { Footer, Header } from '@/features/layout'
 import { MainWrapper } from '@/features/layout/components/MainWrapper'
 import { cn } from '@/lib/utils/cn'
 import { AppProviders } from '@/providers/AppProviders'
+import { getCurrentUser } from '../lib/session'
 import './global.css'
 
 const fontRoboto = Roboto({
@@ -56,7 +57,8 @@ export const metadata: Metadata = {
 
 	metadataBase: new URL('https://yourflix.vercel.app'),
 }
-export default async function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: PropsWithChildren) {
+	const user = await getCurrentUser()
 	return (
 		<html lang='en'>
 			<head />
@@ -68,7 +70,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 				)}
 			>
 				<AppProviders>
-					<Header />
+					<Header user={user} />
 					<MainWrapper>{children}</MainWrapper>
 					<Footer />
 				</AppProviders>

@@ -102,7 +102,13 @@ const nextConfig = {
 				hostname: 'res.cloudinary.com',
 			},
 		],
-		domains: ['via.placeholder.com', 'images.unsplash.com', 'unsplash.com'],
+		domains: [
+			'via.placeholder.com',
+			'images.unsplash.com',
+			'unsplash.com',
+			'picsum.photos',
+			'm.media-amazon.com',
+		],
 		dangerouslyAllowSVG: true,
 		contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
 	},
@@ -115,6 +121,7 @@ const nextConfig = {
 		appDir: true,
 		typedRoutes: true,
 		serverComponentsExternalPackages: ['@prisma/client', 'bcrypt'],
+		serverActions: true,
 	},
 	async headers() {
 		return [

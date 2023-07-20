@@ -41,7 +41,7 @@ export const Boundary = ({
 }) => {
 	return (
 		<div
-			className={cn('relative rounded-lg border border-dashed', {
+			className={cn('relative m-20 rounded-lg border border-dashed', {
 				'p-3 lg:p-5': size === 'small',
 				'p-4 lg:p-9': size === 'default',
 				'border-gray-700': color === 'default',
@@ -50,7 +50,7 @@ export const Boundary = ({
 				'border-cyan-700': color === 'cyan',
 				'border-violet-700': color === 'violet',
 				'border-orange-700': color === 'orange',
-				'animate-[rerender_1s_ease-in-out_1] text-gray-700': animateRerendering,
+				'animate-[rerender_1s_ease-in-out_1] text-gray-100': animateRerendering,
 			})}
 		>
 			<div
