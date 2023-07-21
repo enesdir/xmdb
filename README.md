@@ -1,4 +1,4 @@
-# Yourflix
+# XMDb
 
 ## Stacks
 
@@ -21,6 +21,11 @@ Tooling & Test:
 - 💖 Prettier — Format your code consistently also will **auto sort** your imports
 - 🤖 Conventional Commit Lint — Make sure you & your teammates follow conventional commit
 
+## Features
+
+- User registration and authentication
+- Movie creation and listing
+
 ## Getting Started
 
 ### Prerequisites
@@ -35,8 +40,8 @@ This application requires Node.js.
 1. Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/enesdir/yourflix.git
-cd yourflix
+git clone https://github.com/enesdir/xmdb.git
+cd xmdb
 ```
 
 2. Install dependencies by running `npm install`.
@@ -96,7 +101,7 @@ npm run test
 ```bash
 npm run build      # runs `prisma generate` + `prisma migrate` + `next build`
 npm run dev        # starts next.js
-npm run test  # runs normal Vitest unit tests
+npm run test       # runs normal Vitest unit tests
 
 ```
 
