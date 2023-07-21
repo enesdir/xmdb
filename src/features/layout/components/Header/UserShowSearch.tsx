@@ -44,7 +44,7 @@ export const UserShowSearch = () => {
 					id='navSuggestionSearch'
 					role='listbox'
 					className={cn(
-						'absolute left-0 top-full mt-2 w-full rounded-md border-none bg-[#1f1f1f] shadow-sm',
+						'absolute left-0 top-full mt-2 w-full rounded-md border-none bg-[--brand-black] shadow-sm',
 						isHideList && 'hidden'
 					)}
 				>

@@ -9,7 +9,7 @@ type UsersSearchBarListItemProps = Readonly<{
 export const ShowSearchBarListItem = ({ onClick, show }: UsersSearchBarListItemProps) => (
 	<li onClick={onClick} className='flex items-center justify-between p-2.5 hover:bg-white/10'>
 		<Link
-			href={`${String(show.author.username)}/show/${String(show.id)}`}
+			href={`/user/${String(show.author.username)}/show/${String(show.id)}`}
 			className='flex flex-1 items-center gap-x-2 overflow-hidden'
 		>
 			<p>Poster</p>
