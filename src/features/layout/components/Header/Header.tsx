@@ -2,12 +2,12 @@
 
 import type { Session } from 'next-auth'
 import { AccessControl } from '@/components/AccessControl'
-import { LanguageMenu } from '../LanguageMenu/LanguageMenu'
-import { NavMenu } from '../NavMenu/NavMenu'
+import { Logo, LogoPro } from '@/components/Brand/'
+import { menuItems } from '@/features/layout/constants/menuItems'
 import { AuthButtons } from './AuthButtons/AuthButtons'
-import { Logo } from './Logo'
-import { LogoPro } from './LogoPro'
+import { LanguageMenu } from './LanguageMenu/LanguageMenu'
 import { MobileSearch } from './MobileSearch'
+import { NavMenu } from './NavMenu'
 import { SearchBar } from './SearchBar'
 import { UserMenu } from './UserMenu/UserMenu'
 import { WatchListButton } from './WatchListButton'
@@ -18,7 +18,7 @@ type HeaderProps = Readonly<{
 export const Header = ({ user }: HeaderProps) => (
 	<header className='relative z-10 m-0 flex min-h-[3.5rem] w-full items-center p-1'>
 		<div className='m-0 flex w-screen items-center justify-between gap-x-1 sm:px-0 sm:py-3 lg:mx-auto lg:my-0 lg:w-full lg:max-w-screen-lg xl:max-w-screen-xl'>
-			<NavMenu />
+			<NavMenu menuItems={menuItems} />
 			<Logo />
 			<MobileSearch />
 			<SearchBar />

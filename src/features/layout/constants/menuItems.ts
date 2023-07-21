@@ -1,8 +1,12 @@
-import { BiSolidFilm, BiSolidVideos, BiWorld } from 'react-icons/bi'
-import { BsFillPeopleFill } from 'react-icons/bs'
-import { MdStars } from 'react-icons/md'
-import { SlScreenDesktop } from 'react-icons/sl'
+import dynamic from 'next/dynamic'
 import type { MenuItemType } from '@/features/layout/types/MenuItemType'
+
+const BiSolidFilm = dynamic(() => import('../utils/navIcons').then((icons) => icons.BiSolidFilm))
+const BiSolidVideos = dynamic(() => import('../utils/navIcons').then((icons) => icons.BiSolidVideos))
+const BiWorld = dynamic(() => import('../utils/navIcons').then((icons) => icons.BiWorld))
+const BsFillPeopleFill = dynamic(() => import('../utils/navIcons').then((icons) => icons.BsFillPeopleFill))
+const MdStars = dynamic(() => import('../utils/navIcons').then((icons) => icons.MdStars))
+const SlScreenDesktop = dynamic(() => import('../utils/navIcons').then((icons) => icons.SlScreenDesktop))
 
 export const menuItems: MenuItemType[] = [
 	{
@@ -22,7 +26,7 @@ export const menuItems: MenuItemType[] = [
 		href: '#',
 		icon: SlScreenDesktop,
 		items: [
-			{ title: 'What&#781;s on TV & Streaming', href: '#' },
+			{ title: "What's on TV & Streaming", href: '#' },
 			{ title: 'Top 250 TV Shows', href: '#' },
 			{ title: 'Most Popular TV Shows', href: '#' },
 			{ title: 'Browse TV Shows by Genre', href: '#' },

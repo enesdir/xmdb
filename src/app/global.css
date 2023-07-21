@@ -5,6 +5,7 @@
 :root {
 	--brand-black: rgb(31, 31, 31);
 	--brand-yellow: rgb(245, 197, 24);
+	--brand-white: rgba(255, 255, 255, 1);
 }
 
 *,

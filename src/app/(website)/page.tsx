@@ -9,9 +9,9 @@ export default function WebsiteRootPage() {
 	return (
 		<div>
 			<p>Website Home</p>
-			<Link href={'/shows'}>Go to Latest Shows</Link>
+			<Link href={'/user/shows'}>Go to Latest Shows</Link>
 			<br />
-			<Link href={'/shows/all'}>Go to All Show</Link>
+			<Link href={'/users/shows/all'}>Go to All Show</Link>
 		</div>
 	)
 }
