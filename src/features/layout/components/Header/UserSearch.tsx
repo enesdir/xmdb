@@ -9,7 +9,7 @@ import { useSearchUsers } from '@/features/users/hooks/useSearchUsers'
 import { useBoolean } from '@/hooks/useBoolean'
 import { useDebounce } from '@/hooks/useDebounce'
 import { useOnClickOutside } from '@/hooks/useOnClickOutside'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 
 export const UserSearch = () => {
 	const [value, setValue] = useState<string>('')

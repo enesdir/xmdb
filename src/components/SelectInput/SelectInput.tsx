@@ -2,7 +2,7 @@ import type { ChangeEventHandler, FocusEventHandler, ReactNode } from 'react'
 import React, { cloneElement, forwardRef, isValidElement, useId } from 'react'
 import { ErrorMessage } from '@/components/ErrorMessage'
 import { FieldLabel } from '@/components/FieldLabel'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 
 type SelectInputProps = Readonly<{
 	spellCheck?: boolean

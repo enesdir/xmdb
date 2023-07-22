@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils/cn'
-import { formatNumber } from '@/lib/utils/intl'
+import { cn } from '@/utils/cn'
+import { formatNumber } from '@/utils/intl'
 
 type StatisticItemProps = Readonly<{
 	name: string

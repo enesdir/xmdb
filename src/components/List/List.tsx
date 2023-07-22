@@ -1,5 +1,5 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 
 type ListProps = HTMLAttributes<HTMLUListElement> &
 	PropsWithChildren & {

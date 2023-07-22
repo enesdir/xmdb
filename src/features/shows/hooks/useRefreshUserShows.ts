@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation'
-import { trpc } from '@/lib/utils/trpc'
+import { trpc } from '@/lib/trpc'
 
 export const useRefreshUserShows = () => {
 	const { shows } = trpc.useContext()

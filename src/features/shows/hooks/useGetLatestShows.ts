@@ -1,4 +1,4 @@
-import { trpc } from '@/lib/utils/trpc'
+import { trpc } from '@/lib/trpc'
 
 export const useGetLatestShows = () => {
 	const { data, ...rest } = trpc.shows.getAllLatest.useInfiniteQuery(

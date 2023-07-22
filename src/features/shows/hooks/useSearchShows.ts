@@ -1,4 +1,4 @@
-import { trpc } from '@/lib/utils/trpc'
+import { trpc } from '@/lib/trpc'
 
 export const useSearchShows = (search: string) => {
 	const { data: shows = [], ...rest } = trpc.shows.search.useQuery(

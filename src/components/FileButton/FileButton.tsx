@@ -1,21 +1,21 @@
 import type { ChangeEvent, ChangeEventHandler, FocusEventHandler, ReactNode } from 'react'
 import { forwardRef, useId } from 'react'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 
 type FileButtonProps = Readonly<
-	| {
-			name?: string
-			accept?: string
-			multiple?: boolean
-			fill?: boolean
-			icon?: boolean
-			variant?: 'primary' | 'danger' | 'text' | 'default'
-			onChange?: ChangeEventHandler<HTMLInputElement>
-			onBlur?: FocusEventHandler<HTMLInputElement>
-			onFiles?: (files: FileList) => void
-			children: ReactNode
-	  } & ({ limit?: undefined; onLimitError?: undefined } | { limit: number; onLimitError?: () => void })
+	{
+		name?: string
+		accept?: string
+		multiple?: boolean
+		fill?: boolean
+		icon?: boolean
+		variant?: 'primary' | 'danger' | 'text' | 'default'
+		onChange?: ChangeEventHandler<HTMLInputElement>
+		onBlur?: FocusEventHandler<HTMLInputElement>
+		onFiles?: (files: FileList) => void
+		children: ReactNode
+	} & ({ limit?: undefined; onLimitError?: undefined } | { limit: number; onLimitError?: () => void })
 >
 
 export const FileButton = forwardRef<HTMLInputElement, FileButtonProps>(

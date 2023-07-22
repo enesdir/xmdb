@@ -2,7 +2,7 @@ import { Children, ReactElement, cloneElement, useRef, type ReactNode } from 're
 import type { ButtonProps } from '@/components/Button/Button'
 import { useBoolean } from '@/hooks/useBoolean'
 import { useOnClickOutside } from '@/hooks/useOnClickOutside'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 import { DropdownButton } from './DropdownButton'
 import { DropdownItem, type DropdownItemProps } from './DropdownItem'
 import { DropdownItems, type DropdownItemsProps } from './DropdownItems'

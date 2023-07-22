@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { trpc } from '@/lib/utils/trpc'
+import { trpc } from '@/lib/trpc'
 
 export const useToggleFollow = (initialState: boolean) => {
 	const [isFollowing, setIsFollowing] = useState(initialState)

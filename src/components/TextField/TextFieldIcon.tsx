@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 
 type TextFieldIconProps = Readonly<{
 	error?: boolean

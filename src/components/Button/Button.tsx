@@ -1,6 +1,6 @@
 import { forwardRef, type ComponentPropsWithRef, type ReactNode } from 'react'
 import { Spinner } from '@/components/Spinner'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 
 export enum ButtonVariant {
 	'default',

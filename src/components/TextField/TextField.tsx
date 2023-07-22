@@ -2,7 +2,7 @@ import type { ChangeEventHandler, ComponentPropsWithRef, FocusEventHandler, Reac
 import { forwardRef, useId } from 'react'
 import { ErrorMessage } from '@/components/ErrorMessage'
 import { FieldLabel } from '@/components/FieldLabel'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 import { TextFieldIcon } from './TextFieldIcon'
 
 type TextFieldProps = Readonly<

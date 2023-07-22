@@ -1,5 +1,5 @@
 import { TbExternalLink } from 'react-icons/tb'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 import { BaseLink, type BaseLinkProps } from './BaseLink'
 
 type BaseLinkIconProps = Readonly<BaseLinkProps>

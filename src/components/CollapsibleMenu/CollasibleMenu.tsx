@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react'
 import type { MenuItemType } from '@/features/layout/types/MenuItemType'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 import { CollapsibleButton } from './CollapsibleButton'
 import { CollapsibleContent } from './CollapsibleContent'
 

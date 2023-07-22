@@ -1,4 +1,4 @@
-import { trpc } from '@/lib/utils/trpc'
+import { trpc } from '@/lib/trpc'
 
 export const useGetUserShows = (username: string | null) => {
 	const { data: shows = [], ...rest } = trpc.shows.getShowsByUser.useQuery(

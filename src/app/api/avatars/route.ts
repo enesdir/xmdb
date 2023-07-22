@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createImage, deleteImage } from '@/lib/cloudinary/cloudinaryService'
-import { createJsonResponse, protectRoute } from '@/lib/utils/route'
+import { createJsonResponse, protectRoute } from '@/utils/route'
 
 export const POST = async (request: Request) => {
 	const [err, session] = await protectRoute()

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { formatNumber } from '@/lib/utils/intl'
+import { formatNumber } from '@/utils/intl'
 
 type StatisticItemProps = Readonly<{
 	icon: ReactNode

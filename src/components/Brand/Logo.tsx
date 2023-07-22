@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { PROJECT_NAME } from '@/lib/constants'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 
 type LogoProps = Readonly<{
 	className?: string

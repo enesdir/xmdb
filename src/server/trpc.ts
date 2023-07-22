@@ -14,7 +14,7 @@ import { experimental_createServerActionHandler } from '@trpc/next/app-dir/serve
 import { initTRPC, TRPCError } from '@trpc/server'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
-import { isPrismaError } from '@/lib/utils/prismaErrors'
+import { isPrismaError } from '@/utils/prismaErrors'
 import { auth } from './auth'
 import type { TRPCContext } from './createTRPCContext'
 

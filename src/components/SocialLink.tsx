@@ -10,7 +10,7 @@ import {
 	BsTwitter,
 	BsYoutube,
 } from 'react-icons/bs'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 import { BaseLink, type BaseLinkProps } from './BaseLink'
 
 type SocialLinkProps = Readonly<

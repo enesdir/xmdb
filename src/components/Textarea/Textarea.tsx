@@ -1,8 +1,8 @@
 import type { ChangeEventHandler, FocusEventHandler } from 'react'
 import { forwardRef, useId } from 'react'
-import { cn } from '@/lib/utils/cn'
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage'
-import { FieldLabel } from '../FieldLabel'
+import { ErrorMessage } from '@/components/ErrorMessage/ErrorMessage'
+import { FieldLabel } from '@/components/FieldLabel'
+import { cn } from '@/utils/cn'
 
 type TextareaProps = Readonly<{
 	spellCheck?: boolean

@@ -1,20 +1,20 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { cn } from '@/lib/utils/cn'
-import { ListItem } from '../List'
+import { ListItem } from '@/components/List'
+import { cn } from '@/utils/cn'
 
 export type DropdownItemProps<T> = Readonly<
-	| {
-			icon?: ReactNode
-			children: ReactNode
-			className?: string
-	  } & (
-			| {
-					href?: __next_route_internal_types__.RouteImpl<T>
-					onClick?: undefined
-			  }
-			| { onClick?: () => void; href?: undefined }
-	  )
+	{
+		icon?: ReactNode
+		children: ReactNode
+		className?: string
+	} & (
+		| {
+				href?: __next_route_internal_types__.RouteImpl<T>
+				onClick?: undefined
+		  }
+		| { onClick?: () => void; href?: undefined }
+	)
 >
 
 export const DropdownItem = <T,>({ onClick, icon, href, className, children }: DropdownItemProps<T>) => {

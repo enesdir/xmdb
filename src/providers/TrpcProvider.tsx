@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink, loggerLink } from '@trpc/client'
 import superjson from 'superjson'
-import { getTRPCUrl, trpc } from '@/lib/utils/trpc'
+import { getTRPCUrl, trpc } from '@/lib/trpc'
 
 const queryClient = new QueryClient({
 	defaultOptions: { queries: { refetchOnWindowFocus: false } },

@@ -1,4 +1,4 @@
-import { trpc } from '@/lib/utils/trpc'
+import { trpc } from '@/lib/trpc'
 
 export const useToggleLike = (like: boolean) => {
 	const createLikeMutation = trpc.likes.create.useMutation()

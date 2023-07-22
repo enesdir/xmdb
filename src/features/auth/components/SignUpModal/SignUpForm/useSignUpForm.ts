@@ -1,7 +1,7 @@
 import { useCreateUser } from '@/features/auth/hooks/useCreateUser'
 import { useZodForm } from '@/hooks/useZodForm'
-import { isObjectKey } from '@/lib/utils/objectOperations'
-import { capitalize } from '@/lib/utils/stringOperations'
+import { isObjectKey } from '@/utils/objectOperations'
+import { capitalize } from '@/utils/stringOperations'
 import { signUpFormSchema } from './SignUpFormSchemas'
 
 interface Options {

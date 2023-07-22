@@ -8,7 +8,7 @@ import { SelectInput } from '@/components/SelectInput'
 import { TextField } from '@/components/TextField'
 import { Textarea } from '@/components/Textarea'
 import { DEFAULT_ERROR_MESSAGE } from '@/lib/constants'
-import { createUrlFromFile } from '@/lib/utils/file'
+import { createUrlFromFile } from '@/utils/file'
 import { useCreateShowForm } from './useCreateShowForm'
 
 type CreateShowFormProps = Readonly<{

@@ -11,7 +11,7 @@ import { UserAvatar } from '@/components/UserAvatar'
 import { useBoolean } from '@/hooks/useBoolean'
 import { useOnClickOutside } from '@/hooks/useOnClickOutside'
 import { signOutUser } from '@/lib/auth'
-import { getFirstLetter } from '@/lib/utils/stringOperations'
+import { getFirstLetter } from '@/utils/stringOperations'
 
 type UserMenuProps = Readonly<{
 	user: Session['user']

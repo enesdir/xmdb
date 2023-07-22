@@ -1,7 +1,7 @@
 import { makeApi } from '@zodios/core'
 import { z } from 'zod'
 import { createApiClient } from '@/lib/createApiClient'
-import { getBaseUrl } from '@/lib/utils/getBaseUrl'
+import { getBaseUrl } from '@/utils/getBaseUrl'
 
 const endpoints = makeApi([
 	{

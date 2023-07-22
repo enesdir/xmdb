@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react'
 import { Avatar } from '@/components/Avatar'
-import { getFirstLetter } from '@/lib/utils/stringOperations'
+import { getFirstLetter } from '@/utils/stringOperations'
 
 type UserAvatarProps = Readonly<{
 	user: {

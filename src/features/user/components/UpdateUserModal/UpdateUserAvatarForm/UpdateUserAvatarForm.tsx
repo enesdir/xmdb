@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Button } from '@/components/Button'
 import { FileButton } from '@/components/FileButton'
 import { UserAvatar } from '@/components/UserAvatar'
-import { createUrlFromFile } from '@/lib/utils/file'
 import type { User } from '@/server/modules/users/usersSchemas'
+import { createUrlFromFile } from '@/utils/file'
 import { useUpdateUserAvatarForm } from './useUpdateUserAvatarForm'
 
 type UpdateUserAvatarFormProps = Readonly<{
@@ -27,7 +27,7 @@ export const UpdateUserAvatarForm = ({
 	})
 
 	const handleFilesChange = (files: FileList) => {
-		// @ts-ignore: argument sent when has file
+		// @ts-expect-error: argument sent when has file
 		setImage(files.length > 0 ? createUrlFromFile(files[0]) : null)
 	}
 

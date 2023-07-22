@@ -4,9 +4,9 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ImagesSlider } from '@/components/ImagesSlider'
 import { UserAvatar } from '@/components/UserAvatar'
-import { formatFromNow } from '@/lib/utils/date'
-import { formatNumber, pluralize } from '@/lib/utils/intl'
 import type { Show } from '@/server/modules/shows/showsSchemas'
+import { formatFromNow } from '@/utils/date'
+import { formatNumber, pluralize } from '@/utils/intl'
 import { LikeButton } from './LikeButton'
 
 type SinglePostProps = Readonly<{

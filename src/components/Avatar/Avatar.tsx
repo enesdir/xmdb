@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import Image from 'next/image'
 import { IoPersonCircleSharp } from 'react-icons/io5'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 
 const sizes = {
 	'2xs': 'h-5 w-5',

@@ -1,5 +1,5 @@
 import { forwardRef, type ComponentPropsWithRef, type ReactNode } from 'react'
-import { cn } from '@/lib/utils/cn'
+import { cn } from '@/utils/cn'
 
 type IconButtonProps = Readonly<
 	{

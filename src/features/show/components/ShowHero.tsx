@@ -1,7 +1,7 @@
 import { PageContainer } from '@/components/PageContainer'
 import { OtherMedia, Poster, ShowHeader } from '@/features/show/'
-import { cn } from '@/lib/utils/cn'
 import type { Show } from '@/server/modules/shows/showsSchemas'
+import { cn } from '@/utils/cn'
 import { Player } from './HeroBody/Player'
 import { HeroDetail } from './HeroDetail/HeroDetail'
 import { HeroBreadCumb } from './HeroHeader/HeroBreadCumb'
