@@ -26,6 +26,6 @@ export const createShowSelect = ({ userId }: { userId?: string } = {}) =>
 		},
 		...(userId && { like: { where: { userId } } }),
 		_count: { select: { like: true } },
-	} satisfies Prisma.ShowSelect)
+	}) satisfies Prisma.ShowSelect
 
 export const getFileNameFromUrl = (url: string) => url.match(/\/([^/]+)\.[\w]+$/)?.at(-1) || null

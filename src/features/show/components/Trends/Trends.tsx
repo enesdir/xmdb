@@ -25,7 +25,7 @@ export const Trends = ({ trends: { numberOfVoters, rate, popularity }, className
 	return (
 		<div
 			className={cn(
-				'grow-0 items-end justify-start space-x-1 pr-0 sm:mb-4 sm:justify-end max-sm:-ml-1 max-sm:mt-2',
+				'grow-0 items-end justify-start space-x-1 pr-0 lg:mb-4 lg:justify-end max-sm:-ml-1 max-sm:mt-2',
 				className
 			)}
 		>

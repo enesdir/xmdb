@@ -1,6 +1,8 @@
 import type { Show } from '@/server/modules/shows/showsSchemas'
 import { Trends } from '../Trends/Trends'
 import { ChipList } from './ChipList'
+import { HeroCrew } from './HeroCrew'
+import { HeroWatchList } from './HeroWatchList'
 import { Plot } from './Plot'
 
 type HeroDetailProps = Readonly<{
@@ -13,7 +15,7 @@ export const HeroDetail = ({ show }: HeroDetailProps) => {
 				<section className='lg:mb-3'>
 					<ChipList genres={['Action', 'Adventure', 'Sci-Fi']} />
 					<Plot text={show.description} />
-					<div className='hidden lg:block'></div>
+					<HeroCrew />
 				</section>
 			</div>
 			<div className='lg:w-[calc(_33.33%_-_(_1rem_*_2)_+_0.25rem_)]'>
@@ -23,8 +25,9 @@ export const HeroDetail = ({ show }: HeroDetailProps) => {
 						numberOfVoters: Math.floor((1 + Math.random()) * 1000000),
 						popularity: { score: 96, rating: 50, trending: 'up' },
 					}}
-					className='flex lg:hidden'
+					className='mb-4 mt-2 flex lg:hidden'
 				/>
+				<HeroWatchList isAdded={false} numberOfAddedUser={254000} />
 			</div>
 		</div>
 	)
