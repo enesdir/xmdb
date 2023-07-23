@@ -7,16 +7,14 @@ type LogoProps = Readonly<{
 }>
 export const Logo = ({ className }: LogoProps) => {
 	return (
-		<div className=''>
-			<Link
-				href='/'
-				className={cn(
-					'relative order-1 ml-1 mr-auto flex shrink-0 select-none items-center rounded-md bg-[#f5c518] p-1 text-2xl font-extrabold text-gray-900',
-					className
-				)}
-			>
-				{PROJECT_NAME}
-			</Link>
-		</div>
+		<Link
+			href='/'
+			className={cn(
+				'relative order-1 ml-1 mr-auto flex shrink-0 select-none items-center rounded-md bg-[#f5c518] p-2 text-xl font-black leading-none tracking-tight antialiased',
+				className
+			)}
+		>
+			{PROJECT_NAME}
+		</Link>
 	)
 }

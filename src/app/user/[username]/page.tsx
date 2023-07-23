@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { PageContainer } from '@/components/PageContainer'
+import { SectionContainer } from '@/components/SectionContainer'
 import { env } from '@/env.mjs'
 import { UserShows } from '@/features/show/components/UserShows/UserShows'
 import { UserHeader } from '@/features/user/components/UserHeader/UserHeader'
@@ -36,8 +38,12 @@ export default async function UserPage({ params: { username } }: UserPageProps) 
 
 	return (
 		<>
-			<UserHeader user={user} />
-			<UserShows user={user} />
+			<SectionContainer>
+				<UserHeader user={user} />
+			</SectionContainer>
+			<PageContainer>
+				<UserShows user={user} />
+			</PageContainer>
 		</>
 	)
 }

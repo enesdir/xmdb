@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import Link from 'next/link'
-import { Session } from 'next-auth'
+import type { Session } from 'next-auth'
 import { BiHelpCircle, BiLogOut, BiSlider } from 'react-icons/bi'
 import { DropdownItem, DropdownItems } from '@/components/Dropdown'
 import { DropdownButton } from '@/components/Dropdown/DropdownButton'
@@ -59,7 +59,7 @@ export const UserMenu = ({ user }: UserMenuProps) => {
 							<span className='text-sm text-white/30'>{user.email}</span>
 						</div>
 					</Link>
-					<DropdownItem href={`/${user.username}`} icon={<BiLogOut />}>
+					<DropdownItem href={`/user/${user.username}`} icon={<BiLogOut />}>
 						View Profile
 					</DropdownItem>
 					<DropdownItem href='#' icon={<BiSlider />}>

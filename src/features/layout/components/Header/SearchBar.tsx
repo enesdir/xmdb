@@ -18,7 +18,7 @@ export const SearchBar = () => {
 	return (
 		<div
 			id='suggestion-search-container'
-			className='pointer-events-none invisible flex min-h-[2.25rem] w-full grow sm:pointer-events-auto sm:relative sm:order-3 sm:grow sm:translate-y-0'
+			className='pointer-events-none invisible flex min-h-[2.25rem] w-full grow sm:pointer-events-auto sm:relative sm:order-3 sm:grow sm:translate-y-0 sm:px-2'
 		>
 			<form
 				id='nav-search-form'

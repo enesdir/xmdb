@@ -16,8 +16,8 @@ type HeaderProps = Readonly<{
 	user?: Session['user']
 }>
 export const Header = ({ user }: HeaderProps) => (
-	<header className='relative z-10 m-0 flex min-h-[3.5rem] w-full items-center p-1'>
-		<div className='m-0 flex w-screen items-center justify-between gap-x-1 sm:px-0 sm:py-3 lg:mx-auto lg:my-0 lg:w-full lg:max-w-screen-lg xl:max-w-screen-xl'>
+	<nav className='relative z-40 m-0 flex min-h-[3.5rem] w-full items-center p-1'>
+		<div className='m-0 flex w-screen items-center justify-between sm:px-3 sm:py-0 lg:mx-auto lg:my-0 lg:w-full lg:max-w-screen-lg xl:max-w-screen-xl'>
 			<NavMenu menuItems={menuItems} />
 			<Logo />
 			<MobileSearch />
@@ -33,5 +33,5 @@ export const Header = ({ user }: HeaderProps) => (
 			</div>
 			<LanguageMenu />
 		</div>
-	</header>
+	</nav>
 )
