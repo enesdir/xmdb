@@ -43,7 +43,7 @@ export const ShowHeader = ({ show }: ShowHeaderProps) => {
 					numberOfVoters: Math.floor((1 + Math.random()) * 1000000),
 					popularity: { score: 96, rating: 50, trending: 'up' },
 				}}
-				className='hidden md:flex'
+				className='hidden lg:flex'
 			/>
 		</div>
 	)
