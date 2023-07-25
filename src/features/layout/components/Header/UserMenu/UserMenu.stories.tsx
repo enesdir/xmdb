@@ -4,6 +4,9 @@ import { UserMenu } from './UserMenu'
 const meta = {
 	title: 'Layout/UserMenu',
 	component: UserMenu,
+	args: {
+		user: { id: '1', name: 'storybook' },
+	},
 	parameters: {
 		backgrounds: {
 			default: 'xmdb',

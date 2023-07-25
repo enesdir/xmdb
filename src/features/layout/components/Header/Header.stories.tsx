@@ -4,6 +4,9 @@ import { Header } from './Header'
 const meta = {
 	title: 'Layout/Header',
 	component: Header,
+	args: {
+		user: { id: '1', name: 'storybook' },
+	},
 	parameters: {
 		backgrounds: {
 			default: 'xmdb',
