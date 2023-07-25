@@ -30,7 +30,7 @@ export const UserShowModal = ({ show }: UserShowModalProps) => {
 		<Modal
 			isOpen={modalValue}
 			onClose={() => {
-				replace(`/${value?.author.username}`)
+				replace(`/user/${value?.author.username}`)
 			}}
 		>
 			<Modal.Title>{value?.author.name}</Modal.Title>
