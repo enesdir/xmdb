@@ -19,7 +19,7 @@ export const generateMetadata = async ({ params: { username } }: UserPageProps):
 			type: 'profile',
 			locale: 'en_US',
 			siteName: PROJECT_NAME,
-			url: `${env.NEXT_PUBLIC_BASE_URL}/${String(userName)}`,
+			url: `${env.NEXT_PUBLIC_BASE_URL}/user/${String(userName)}`,
 			description: biography || DEFAULT_PROFILE_BIOGRAPHY,
 			firstName,
 			lastName,

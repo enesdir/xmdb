@@ -1,15 +1,20 @@
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { HTMLAttributes } from 'react'
+import type { BaseComponentProps } from '@/types/BaseComponentProps'
 import { cn } from '@/utils/cn'
 
-type ListProps = HTMLAttributes<HTMLUListElement> &
-	PropsWithChildren & {
-		className?: string
-	}
-export const List = ({ children, className, ...rest }: ListProps) => {
+type ListProps = Readonly<
+	{
+		variant?: 'default' | 'inline'
+	} & HTMLAttributes<HTMLUListElement> &
+		BaseComponentProps
+>
+export const List = ({ children, className, variant, ...rest }: ListProps) => {
 	return (
 		<ul
 			className={cn(
-				'm-0 inline-flex list-outside list-none list-image-none flex-wrap items-center p-0 sm:inline-flex',
+				'list-outside-none list-none list-image-none',
+				{ 'm-0 flex flex-col p-0': variant === 'default' },
+				{ 'm-0 inline-flex flex-wrap items-center p-0': variant === 'inline' },
 				className
 			)}
 			role='presentation'

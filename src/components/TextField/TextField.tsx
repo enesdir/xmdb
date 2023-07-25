@@ -1,4 +1,10 @@
-import type { ChangeEventHandler, ComponentPropsWithRef, FocusEventHandler, ReactNode } from 'react'
+import type {
+	ChangeEventHandler,
+	ComponentPropsWithRef,
+	FocusEventHandler,
+	KeyboardEvent,
+	ReactNode,
+} from 'react'
 import { forwardRef, useId } from 'react'
 import { ErrorMessage } from '@/components/ErrorMessage'
 import { FieldLabel } from '@/components/FieldLabel'
@@ -10,6 +16,7 @@ type TextFieldProps = Readonly<
 		autoComplete?: boolean
 		spellCheck?: boolean
 		required?: boolean
+		disabled?: boolean
 		name?: string
 		/** Input label */
 		label?: string
@@ -20,6 +27,7 @@ type TextFieldProps = Readonly<
 		onFocus?: FocusEventHandler<HTMLInputElement>
 		onChange?: ChangeEventHandler<HTMLInputElement>
 		onBlur?: FocusEventHandler<HTMLInputElement>
+		onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void
 		/**
 		 * Input type
 		 *
@@ -41,11 +49,13 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 			label,
 			error,
 			value,
+			disabled,
 			leftIcon,
 			icon,
 			onChange,
 			onFocus,
 			onBlur,
+			onKeyDown,
 			type,
 			placeholder,
 			className,
@@ -67,14 +77,16 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 						value={value}
 						placeholder={placeholder}
 						required={required}
+						disabled={disabled}
 						onChange={onChange}
 						onBlur={onBlur}
 						onFocus={onFocus}
+						onKeyDown={onKeyDown}
 						className={cn(
 							'duration-250 focus:border-primary-400 w-full rounded-lg border bg-white p-2 shadow-sm transition-colors focus:outline-none',
-							leftIcon && 'pl-10',
-							error && 'border-red-600 text-red-600 focus:border-red-600',
-							icon && 'pr-9',
+							{ 'pl-10': leftIcon },
+							{ 'border-red-600 text-red-600 focus:border-red-600': error },
+							{ 'pr-9': icon },
 							className
 						)}
 						{...(!autoComplete && { autoComplete: 'off' })}

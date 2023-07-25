@@ -8,7 +8,12 @@ import { getShowById } from '@/lib/show'
 import { PageParams } from '@/types/pageParams'
 
 export const generateMetadata = async ({ params }: ShowPageProps): Promise<Metadata> => {
-	const { id: pageID, title, description } = await getShowById(Number(params.id))
+	const {
+		id: pageID,
+		title,
+		description,
+		author: { id: UserID },
+	} = await getShowById(Number(params.id))
 
 	return {
 		title: title,
@@ -16,7 +21,7 @@ export const generateMetadata = async ({ params }: ShowPageProps): Promise<Metad
 			type: 'article',
 			locale: 'en_US',
 			siteName: PROJECT_NAME,
-			url: `${env.NEXT_PUBLIC_BASE_URL}/${String(pageID)}`,
+			url: `${env.NEXT_PUBLIC_BASE_URL}/user/${String(UserID)}/${String(pageID)}`,
 			description: description,
 		},
 	}

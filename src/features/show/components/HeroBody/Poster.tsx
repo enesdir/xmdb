@@ -12,7 +12,7 @@ export const Poster = ({ show }: PosterProps) => {
 			<div className='relative mr-0 inline-flex w-full min-w-[auto]'>
 				<div className='relative inline-flex w-full overflow-hidden before:relative before:block before:w-full before:pb-[148%] before:content-[""]'>
 					<Image
-						// @ts-expect-error
+						// @ts-expect-error todo add fallback
 						src={show.images[0]}
 						alt={show.title}
 						className='absolute inset-0 object-fill'

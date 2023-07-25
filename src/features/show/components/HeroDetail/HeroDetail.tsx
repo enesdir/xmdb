@@ -1,7 +1,8 @@
 import type { Show } from '@/server/modules/shows/showsSchemas'
+import { crewCategories } from '../../constants/crewCategories'
 import { Trends } from '../Trends/Trends'
 import { ChipList } from './ChipList'
-import { HeroCrew } from './HeroCrew'
+import { HeroCrew } from './HeroCrew/HeroCrew'
 import { HeroWatchList } from './HeroWatchList'
 import { Plot } from './Plot'
 
@@ -15,7 +16,7 @@ export const HeroDetail = ({ show }: HeroDetailProps) => {
 				<section className='lg:mb-3'>
 					<ChipList genres={['Action', 'Adventure', 'Sci-Fi']} />
 					<Plot text={show.description} />
-					<HeroCrew />
+					<HeroCrew crewCategories={crewCategories} />
 				</section>
 			</div>
 			<div className='lg:w-[calc(_33.33%_-_(_1rem_*_2)_+_0.25rem_)]'>

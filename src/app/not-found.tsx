@@ -8,12 +8,14 @@ export const metadata: Metadata = {
 
 export default function ErrorPage() {
 	return (
-		<Boundary labels={['not-found.tsx']} color='default' animateRerendering>
-			<h2>Not Found</h2>
-			<p>Could not find requested resource</p>
-			<p>
-				View <Link href='/'>Main page</Link>
-			</p>
+		<Boundary labels={['not-found.tsx']} color='default' size='default' animateRerendering>
+			<div className='relative block'>
+				<h2>Not Found</h2>
+				<p>Could not find requested resource</p>
+				<p>
+					View <Link href='/'>Main page</Link>
+				</p>
+			</div>
 		</Boundary>
 	)
 }

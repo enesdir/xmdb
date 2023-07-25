@@ -41,9 +41,10 @@ export const Boundary = ({
 }) => {
 	return (
 		<div
-			className={cn('relative m-20 rounded-lg border border-dashed', {
+			className={cn('relative mt-20 rounded-lg border border-dashed', {
 				'p-3 lg:p-5': size === 'small',
-				'p-4 lg:p-9': size === 'default',
+				'm-0 w-full items-center bg-[--brand-black] p-0 text-base sm:mx-auto sm:my-0 sm:px-3 sm:py-0 lg:max-w-screen-lg xl:max-w-screen-xl':
+					size === 'default',
 				'border-gray-700': color === 'default',
 				'border-pink-700': color === 'pink',
 				'border-blue-700': color === 'blue',
@@ -54,9 +55,9 @@ export const Boundary = ({
 			})}
 		>
 			<div
-				className={cn('absolute -top-2.5 flex gap-x-1 text-[9px] uppercase leading-4 tracking-widest', {
-					'left-3 lg:left-5': size === 'small',
-					'left-4 lg:left-9': size === 'default',
+				className={cn('-top-6.5 absolute flex gap-x-1 text-[9px] uppercase leading-4 tracking-widest', {
+					'right-3 lg:right-5': size === 'small',
+					'right-4 lg:right-9': size === 'default',
 				})}
 			>
 				{labels.map((label) => {
