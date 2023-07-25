@@ -25,7 +25,7 @@ export const ShowHero = ({ show }: ShowHeroProps) => {
 					<HeroBreadCumb />
 					<ShowHeader show={show} />
 					<div className='flex flex-col lg:flex-row lg:flex-wrap lg:items-center'>
-						<div className='relative mb-3 flex flex-row flex-wrap lg:w-full xs:mx-4'>
+						<div className='relative mb-3 flex flex-row flex-wrap sm:mx-4 lg:w-full'>
 							<Poster show={show} />
 							<Player show={show} />
 							<OtherMedia media={{ images: randomStrings, videos: randomStrings }} />

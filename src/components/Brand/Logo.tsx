@@ -10,11 +10,13 @@ export const Logo = ({ className }: LogoProps) => {
 		<Link
 			href='/'
 			className={cn(
-				'relative order-1 ml-1 mr-auto flex shrink-0 select-none items-center rounded-md bg-[#f5c518] p-2 text-xl font-black leading-none tracking-tight antialiased',
+				'order-none ml-1 mr-auto flex shrink-0 select-none items-center justify-center',
 				className
 			)}
 		>
-			{PROJECT_NAME}
+			<span className='rounded-md bg-[#f5c518] p-2 text-xl font-black leading-none text-[--brand-black]'>
+				{PROJECT_NAME}
+			</span>
 		</Link>
 	)
 }

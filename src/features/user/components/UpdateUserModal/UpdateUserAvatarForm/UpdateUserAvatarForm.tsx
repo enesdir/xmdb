@@ -35,7 +35,7 @@ export const UpdateUserAvatarForm = ({
 		<div className='flex flex-col items-center gap-y-2'>
 			<UserAvatar size='xl' user={{ name, image }} />
 			<form onSubmit={handleFormSubmit} className='flex w-full flex-col gap-y-2'>
-				<div className='grid gap-2 sm:grid-cols-2'>
+				<div className='grid gap-2 md:grid-cols-2'>
 					<FileButton
 						accept='image/png,image/jpeg'
 						icon={true}

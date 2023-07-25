@@ -3,8 +3,8 @@ import { List } from '@/components/List'
 import { cn } from '@/utils/cn'
 
 const sizes = {
-	xs: 'w-8',
-	sm: 'w-12',
+	sm: 'w-8',
+	md: 'w-12',
 	md: 'w-16',
 	lg: 'w-32',
 	xl: 'w-56',

@@ -10,7 +10,7 @@ export const FooterLinks = () => {
 					Get the XMDb App
 				</BaseLinkIcon>
 			</ListItem>
-			<List className='inline sm:inline' variant='inline'>
+			<List className='inline md:inline' variant='inline'>
 				{footerRows1Links.map((footerLink) => (
 					<ListItem className='' key={footerLink.text} variant='inline'>
 						<BaseLinkIcon href={footerLink.href} label='ExternalLink'>
@@ -20,7 +20,7 @@ export const FooterLinks = () => {
 				))}
 			</List>
 			<div>
-				<List className='inline sm:inline' variant='inline'>
+				<List className='inline md:inline' variant='inline'>
 					{footerRows2Links.map((footerLink) => (
 						<ListItem className='mx-2' key={footerLink.text} variant='inline'>
 							<BaseLinkIcon href={footerLink.href} label='ExternalLink'>

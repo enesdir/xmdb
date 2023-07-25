@@ -16,7 +16,7 @@ export const LanguageMenu = () => {
 			<Dropdown
 				buttonChildren={buttonElements()}
 				overlaySize='xl'
-				className='min-h-[2.25rem] pr-1 max-wsm:pl-0'
+				className='max-wmd:pl-0 min-h-[2.25rem] pr-1'
 			>
 				<Dropdown.Item
 					onClick={() => console.log('language')}

@@ -9,11 +9,5 @@ export const HeroCrew = ({ crewCategories }: HeroCrewProps) => {
 	const renderCategories = crewCategories.map((crewCategory, i) => (
 		<HeroCrewCategory category={crewCategory} key={i} />
 	))
-	return (
-		<div className='hidden lg:block'>
-			<div>
-				<List variant='default'>{renderCategories}</List>
-			</div>
-		</div>
-	)
+	return <List variant='default'>{renderCategories}</List>
 }

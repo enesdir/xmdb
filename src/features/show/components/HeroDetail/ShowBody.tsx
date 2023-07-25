@@ -14,8 +14,8 @@ type ShowBodyProps = Readonly<{
 export const ShowBody = ({ show }: ShowBodyProps) => {
 	return (
 		<div className='relative mx-4 flex flex-col lg:w-full lg:flex-row lg:items-center lg:justify-between'>
-			<div className='mb-4 pb-4 pl-32 sm:min-h-0 sm:w-2/3 sm:pl-0'>
-				<div className='mx-auto flex w-full flex-col items-center sm:flex-row sm:items-start'>
+			<div className='mb-4 pb-4 pl-32 md:min-h-0 md:w-2/3 md:pl-0'>
+				<div className='mx-auto flex w-full flex-col items-center md:flex-row md:items-start'>
 					<section className='grow space-y-4 '>
 						<ChipList genres={['Action', 'Adventure', 'Sci-Fi']} />
 						<ShowCta show={show} />
@@ -24,7 +24,7 @@ export const ShowBody = ({ show }: ShowBodyProps) => {
 					</section>
 				</div>
 			</div>
-			<div className='sm:w-3/12'>
+			<div className='md:w-3/12'>
 				<Trends
 					trends={{
 						rate: 7.9,
@@ -38,11 +38,11 @@ export const ShowBody = ({ show }: ShowBodyProps) => {
 						<Link
 							href='#'
 							role='button'
-							className='m-auto inline-block border-none bg-none py-2 sm:inline-flex'
+							className='m-auto inline-block border-none bg-none py-2 md:inline-flex'
 							tabIndex={0}
 							aria-disabled={false}
 						>
-							<span className='text-center sm:inline-flex'>
+							<span className='text-center md:inline-flex'>
 								<span className='block'>964</span>
 								<span>User reviews</span>
 							</span>
@@ -56,7 +56,7 @@ export const ShowBody = ({ show }: ShowBodyProps) => {
 							tabIndex={0}
 							aria-disabled={false}
 						>
-							<span className='text-center sm:inline-flex'>
+							<span className='text-center md:inline-flex'>
 								<span className='block'>188</span>
 								<span> Critic reviews</span>
 							</span>
@@ -81,7 +81,7 @@ export const ShowBody = ({ show }: ShowBodyProps) => {
 				</ul>
 				<li
 					role='presentation'
-					className='mt-2 block min-h-[3rem] border-t-2 border-white/20 pb-2  sm:hidden'
+					className='mt-2 block min-h-[3rem] border-t-2 border-white/20 pb-2  md:hidden'
 				>
 					<div className='relative'>
 						<BaseLinkIcon

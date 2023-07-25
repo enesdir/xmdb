@@ -1,8 +1,9 @@
+import { crewCategories } from '@/features/show/constants/crewCategories'
 import type { Show } from '@/server/modules/shows/showsSchemas'
-import { crewCategories } from '../../constants/crewCategories'
 import { Trends } from '../Trends/Trends'
 import { ChipList } from './ChipList'
-import { HeroCrew } from './HeroCrew/HeroCrew'
+import { HeroCrewDesktop } from './HeroCrew/HeroCrewDesktop'
+import { HeroCrewMobile } from './HeroCrew/HeroCrewMobile'
 import { HeroWatchList } from './HeroWatchList'
 import { Plot } from './Plot'
 
@@ -12,11 +13,11 @@ type HeroDetailProps = Readonly<{
 export const HeroDetail = ({ show }: HeroDetailProps) => {
 	return (
 		<div className='mx-4 flex flex-col lg:w-full lg:flex-row lg:items-center lg:justify-between'>
-			<div className='min-h-[calc(140.6px_+_0.5rem)] pl-[calc(95px_+_1rem)] sm:min-h-0 sm:pl-0 lg:w-[calc(66.66%_-_0.5rem)] xs:min-h-[calc(177.6px_+_0.5rem)] xs:pl-[calc(120px_+_1rem)]'>
+			<div className='min-h-[calc(140.6px_+_0.5rem)] pl-[calc(95px_+_1rem)] sm:min-h-[calc(177.6px_+_0.5rem)] sm:pl-[calc(120px_+_1rem)] md:min-h-0 md:pl-0 lg:w-[calc(66.66%_-_0.5rem)]'>
 				<section className='lg:mb-3'>
 					<ChipList genres={['Action', 'Adventure', 'Sci-Fi']} />
 					<Plot text={show.description} />
-					<HeroCrew crewCategories={crewCategories} />
+					<HeroCrewDesktop crewCategories={crewCategories} />
 				</section>
 			</div>
 			<div className='lg:w-[calc(_33.33%_-_(_1rem_*_2)_+_0.25rem_)]'>
@@ -28,6 +29,7 @@ export const HeroDetail = ({ show }: HeroDetailProps) => {
 					}}
 					className='mb-4 mt-2 flex lg:hidden'
 				/>
+				<HeroCrewMobile crewCategories={crewCategories} />
 				<HeroWatchList isAdded={false} numberOfAddedUser={254000} />
 			</div>
 		</div>

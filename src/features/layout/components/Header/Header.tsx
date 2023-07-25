@@ -16,14 +16,17 @@ type HeaderProps = Readonly<{
 	user?: Session['user']
 }>
 export const Header = ({ user }: HeaderProps) => (
-	<nav className='relative z-40 m-0 flex min-h-[3.5rem] w-full items-center p-1'>
-		<div className='m-0 flex w-screen items-center justify-between sm:px-3 sm:py-0 lg:mx-auto lg:my-0 lg:w-full lg:max-w-screen-lg xl:max-w-screen-xl'>
+	<nav className='relative z-40 m-0 flex min-h-[3.5rem] w-full items-center px-0 py-1 text-base font-normal text-[--brand-white]'>
+		<div
+			className='m-0 flex w-screen items-center justify-between md:px-3 md:py-0 lg:mx-auto lg:my-0 lg:w-full lg:max-w-screen-lg xl:max-w-screen-xl'
+			role='presentation'
+		>
 			<NavMenu menuItems={menuItems} />
 			<Logo />
 			<MobileSearch />
 			<SearchBar />
 			<LogoPro />
-			<div className='order-4 mx-2 my-0 h-8 w-px border border-solid border-white/20 sm:order-6 max-wsm:hidden'></div>
+			<div className='max-wmd:hidden order-4 mx-2 my-0 h-8 w-px border border-solid border-white/20 md:order-6'></div>
 			<WatchListButton />
 			<div className='order-6'>
 				<AccessControl renderNoAccess={<AuthButtons />} permissions={['isLoggedIn']} user={user}>

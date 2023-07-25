@@ -26,7 +26,7 @@ export const HeroBreadCumb = () => {
 					variant='text'
 					className='m-0 inline-flex min-h-[2rem] flex-row flex-nowrap content-center px-4 py-0 -tracking-tight text-white'
 				>
-					<span className='hidden sm:inline-block'>All topics</span>
+					<span className='hidden md:inline-block'>All topics</span>
 				</Button>
 				<div className='inline-block before:absolute before:mt-3 before:h-6 before:w-px before:bg-white/20 before:content-[""]'>
 					<IconButton

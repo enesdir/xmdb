@@ -17,7 +17,7 @@ export const generateMetadata = async ({ params: { name } }: CelebrityPageProps)
 }
 
 type CelebrityPageProps = Readonly<{
-	params: PageParams<'name'>
+	params: PageParams<['name']>
 }>
 
 export default async function CelebrityPage({ params: { name } }: CelebrityPageProps) {

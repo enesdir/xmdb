@@ -8,7 +8,7 @@ type ShowBodyProps = Readonly<{
 export const UserControls = ({ show }: ShowBodyProps) => {
 	return (
 		<AccessControl createdID={show.author.id} permissions={['isLoggedIn', 'isOwner']}>
-			<section className='space-y-4 sm:max-w-xs'>
+			<section className='space-y-4 md:max-w-xs'>
 				<DeleteShowButton show={show} />
 			</section>
 		</AccessControl>

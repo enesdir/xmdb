@@ -58,7 +58,7 @@ export const Modal = ({ isOpen, onClose, setIsOpen, large, children }: ModalProp
 							>
 								<Dialog.Panel
 									className={cn(
-										'relative w-full max-w-xl rounded-2xl bg-white p-3 shadow-sm sm:p-6',
+										'relative w-full max-w-xl rounded-2xl bg-white p-3 shadow-sm md:p-6',
 										large && 'max-w-6xl'
 									)}
 								>

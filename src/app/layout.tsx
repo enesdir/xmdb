@@ -18,14 +18,14 @@ const description =
 
 export const metadata: Metadata = {
 	title: {
-		template: '%s | YourFlix',
+		template: '%s - XMDb',
 		default: 'Example Site',
 	},
 	description,
 	openGraph: {
 		type: 'website',
 		locale: 'en_IE',
-		url: 'https://yourflix.vercel.app',
+		url: 'https://xmdb.vercel.app',
 		siteName: 'YourFlix',
 	},
 	twitter: {
@@ -66,7 +66,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 				className={cn(
 					'scroll-smooth font-default leading-none antialiased',
 					fontRoboto.variable
-					// 'm-2 xs:m-6 md:m-6 lg:m-4 xl:m-6'
+					// 'm-2 sm:m-6 md:m-6 lg:m-4 xl:m-6'
 				)}
 			>
 				<AppProviders>

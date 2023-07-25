@@ -9,11 +9,11 @@ import { PageParams } from '@/types/pageParams'
 
 export const generateMetadata = async ({ params }: ShowPageProps): Promise<Metadata> => {
 	const {
-		id: pageID,
+		id: showID,
 		title,
 		description,
 		author: { id: UserID },
-	} = await getShowById(Number(params.id))
+	} = await getShowById(Number(params.showId))
 
 	return {
 		title: title,
@@ -21,18 +21,18 @@ export const generateMetadata = async ({ params }: ShowPageProps): Promise<Metad
 			type: 'article',
 			locale: 'en_US',
 			siteName: PROJECT_NAME,
-			url: `${env.NEXT_PUBLIC_BASE_URL}/user/${String(UserID)}/${String(pageID)}`,
+			url: `${env.NEXT_PUBLIC_BASE_URL}/user/${String(UserID)}/${String(showID)}`,
 			description: description,
 		},
 	}
 }
 
 type ShowPageProps = Readonly<{
-	params: PageParams<'id'>
+	params: PageParams<['showId']>
 }>
 
 export default async function ShowPage({ params }: ShowPageProps) {
-	const show = await getShowById(Number(params.id))
+	const show = await getShowById(Number(params.showId))
 
 	return (
 		<>

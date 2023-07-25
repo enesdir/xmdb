@@ -30,7 +30,7 @@ export const generateMetadata = async ({ params: { username } }: UserPageProps):
 }
 
 type UserPageProps = Readonly<{
-	params: PageParams<'username'>
+	params: PageParams<['username']>
 }>
 
 export default async function UserPage({ params: { username } }: UserPageProps) {

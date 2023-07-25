@@ -5,7 +5,7 @@ type ShowCtaProps = Readonly<{
 }>
 
 export const ShowCta = ({ show }: ShowCtaProps) => (
-	<div className='flex items-center justify-between gap-x-3 sm:justify-start'>
+	<div className='flex items-center justify-between gap-x-3 md:justify-start'>
 		<h2 className='truncate text-lg font-medium'>{show.title}</h2>
 		{/* <FollowButton user={user} /> */}
 	</div>

@@ -16,11 +16,12 @@ module.exports = {
 			},
 			screens: {
 				// => @media (min-width: 320px) { ... }
-				xxs: '320px',
+				xs: '320px',
 				// => @media (min-width: 480px) { ... }
-				xs: '480px',
+				sm: '480px',
 				// => @media (min-width: 600px) { ... }
-				sm: '600px',
+				md: '600px',
+				'max-xs': { raw: 'not all and (min-width: 480px)' },
 				'max-sm': { raw: 'not all and (min-width: 600px)' },
 				'max-wsm': { raw: '(max-width: 600px)' },
 			},

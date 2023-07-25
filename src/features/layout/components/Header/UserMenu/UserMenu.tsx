@@ -34,7 +34,7 @@ export const UserMenu = ({ user }: UserMenuProps) => {
 						toggle()
 					}}
 					variant='rounded'
-					className='sm:hidden'
+					className='md:hidden'
 					label='User Menu'
 				/>
 				<DropdownButton
@@ -42,7 +42,7 @@ export const UserMenu = ({ user }: UserMenuProps) => {
 						toggle()
 					}}
 					isOpen={value}
-					className='hidden items-center rounded-md border border-transparent bg-transparent text-sm sm:flex'
+					className='hidden items-center rounded-md border border-transparent bg-transparent text-sm md:flex'
 				>
 					<UserAvatar user={user} size='2xs' icon={true} />
 					<span>{user.name ? getFirstLetter(user.name) : '?'}</span>

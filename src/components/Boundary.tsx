@@ -43,7 +43,7 @@ export const Boundary = ({
 		<div
 			className={cn('relative mt-20 rounded-lg border border-dashed', {
 				'p-3 lg:p-5': size === 'small',
-				'm-0 w-full items-center bg-[--brand-black] p-0 text-base sm:mx-auto sm:my-0 sm:px-3 sm:py-0 lg:max-w-screen-lg xl:max-w-screen-xl':
+				'm-0 w-full items-center bg-[--brand-black] p-0 text-base md:mx-auto md:my-0 md:px-3 md:py-0 lg:max-w-screen-lg xl:max-w-screen-xl':
 					size === 'default',
 				'border-gray-700': color === 'default',
 				'border-pink-700': color === 'pink',

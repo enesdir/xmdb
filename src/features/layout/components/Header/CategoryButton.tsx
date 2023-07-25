@@ -21,7 +21,7 @@ export const CategoryButton = () => {
 	return (
 		<div className='relative flex h-full' ref={dropdownRef}>
 			<button
-				className='inline-flex w-fit items-center justify-center rounded-l-lg border-r border-gray-200 px-1'
+				className='inline-flex w-fit items-center justify-center rounded-l-lg border-r border-gray-200 px-1 text-black'
 				type='button'
 				onClick={() => {
 					toggle()

@@ -1,11 +1,11 @@
 import { cn } from '@/utils/cn'
 
 const sizes = {
-	xs: 'h-3.5 w-3.5',
-	sm: 'h-5 w-5',
-	md: 'h-7 w-7',
-	lg: 'h-10 w-10',
-	xl: 'h-14 w-14',
+	sm: 'h-3.5 w-3.5',
+	md: 'h-5 w-5',
+	lg: 'h-7 w-7',
+	xl: 'h-10 w-10',
+	xxl: 'h-14 w-14',
 } as const
 
 type SpinnerProps = Readonly<{

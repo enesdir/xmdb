@@ -9,7 +9,7 @@ type HeroRightContainerProps = PropsWithChildren & { title: string; className?: 
 export const HeroRightContainer = ({ children, title, className }: HeroRightContainerProps) => {
 	return (
 		<div className={cn('inline-flex flex-col items-center p-1', className)}>
-			<div className='mb-1 hidden whitespace-nowrap text-xs font-semibold uppercase tracking-[0.17em] text-white/70 sm:flex md:tracking-[0.16667em]'>
+			<div className='mb-1 hidden whitespace-nowrap text-xs font-semibold uppercase tracking-[0.17em] text-white/70 md:flex md:tracking-[0.16667em]'>
 				{title}
 			</div>
 			{children}
@@ -25,7 +25,7 @@ export const Trends = ({ trends: { numberOfVoters, rate, popularity }, className
 	return (
 		<div
 			className={cn(
-				'-ml-2 grow-0 flex-row items-end justify-start space-x-1 pr-0 lg:mb-4 lg:justify-end max-sm:-ml-1 max-sm:mt-2',
+				'max-md:-ml-1 max-md:mt-2 -ml-2 grow-0 flex-row items-end justify-start space-x-1 pr-0 lg:mb-4 lg:justify-end',
 				className
 			)}
 		>

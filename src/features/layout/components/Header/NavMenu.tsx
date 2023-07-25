@@ -20,7 +20,7 @@ export const NavMenu = ({ menuItems }: NavMenuProps) => {
 			<Button
 				icon={<AiOutlineMenu className='text-2xl leading-5' />}
 				variant='text'
-				className='order-3 hidden  sm:inline-flex'
+				className='order-3 hidden md:inline-flex'
 				onClick={() => {
 					openMenu()
 				}}
@@ -31,7 +31,7 @@ export const NavMenu = ({ menuItems }: NavMenuProps) => {
 				icon={<AiOutlineMenu className='text-2xl leading-5 text-white' />}
 				variant='ghost'
 				label='Mobile Menu'
-				className='order-[0] flex sm:hidden'
+				className='order-first flex md:hidden'
 				onClick={() => {
 					openMenu()
 				}}

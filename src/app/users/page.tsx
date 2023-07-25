@@ -10,7 +10,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 			type: 'website',
 			locale: 'en_US',
 			siteName: PROJECT_NAME,
-			url: `${env.NEXT_PUBLIC_BASE_URL}/shows`,
+			url: `${env.NEXT_PUBLIC_BASE_URL}/users/shows`,
 		},
 	}
 }

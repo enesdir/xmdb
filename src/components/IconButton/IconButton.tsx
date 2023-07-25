@@ -22,7 +22,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 				disabled={disabled}
 				onClick={onClick}
 				className={cn(
-					'duration-250 rounded-md border-0 border-transparent p-1 transition-colors disabled:pointer-events-none disabled:opacity-50 sm:flex',
+					'duration-250 rounded-md border-0 border-transparent p-1 transition-colors disabled:pointer-events-none disabled:opacity-50 md:flex',
 					variant === 'default' && 'text-gray-600 hover:bg-gray-100 hover:text-blue-500',
 					variant === 'danger' && 'text-red-600 hover:border-red-600 hover:bg-red-600/20',
 					variant === 'rounded' && 'rounded-full bg-transparent p-3 hover:bg-[#2b2b2b]',

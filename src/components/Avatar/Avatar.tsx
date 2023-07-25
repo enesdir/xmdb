@@ -5,8 +5,8 @@ import { cn } from '@/utils/cn'
 
 const sizes = {
 	'2xs': 'h-5 w-5',
-	xs: 'h-8 w-8',
-	sm: 'h-11 w-11',
+	sm: 'h-8 w-8',
+	md: 'h-11 w-11',
 	md: 'h-16 w-16',
 	lg: 'h-28 w-28',
 	xl: 'h-36 w-36',
