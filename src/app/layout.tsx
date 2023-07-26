@@ -1,18 +1,15 @@
 import type { PropsWithChildren } from 'react'
 import type { Metadata } from 'next'
 import { Roboto_Flex as Roboto } from 'next/font/google'
-import { Footer, Header } from '@/features/layout'
-import { MainWrapper } from '@/features/layout/components/MainWrapper'
 import { AppProviders } from '@/providers/AppProviders'
 import { cn } from '@/utils/cn'
-import { getCurrentUser } from '../lib/session'
 import './global.css'
 
 const fontRoboto = Roboto({
 	variable: '--font-roboto',
 	subsets: ['latin', 'latin-ext'],
 })
-const title = 'YourMDB'
+const title = 'XMDb'
 const description =
 	"YourMDb is the world's most popular and authoritative source for movie, TV and celebrity content. Find ratings and reviews for the newest movie and TV shows. Get personalized recommendations, and learn where to watch across hundreds of streaming providers."
 
@@ -55,10 +52,9 @@ export const metadata: Metadata = {
 		{ media: '(prefers-color-scheme: dark)', color: 'black' },
 	],
 
-	metadataBase: new URL('https://yourflix.vercel.app'),
+	metadataBase: new URL('https://xmdb.vercel.app'),
 }
 export default async function RootLayout({ children }: PropsWithChildren) {
-	const user = await getCurrentUser()
 	return (
 		<html lang='en'>
 			<head />
@@ -69,11 +65,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 					// 'm-2 sm:m-6 md:m-6 lg:m-4 xl:m-6'
 				)}
 			>
-				<AppProviders>
-					<Header user={user} />
-					<MainWrapper>{children}</MainWrapper>
-					<Footer />
-				</AppProviders>
+				<AppProviders>{children}</AppProviders>
 			</body>
 		</html>
 	)

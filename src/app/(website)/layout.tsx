@@ -1,10 +1,15 @@
 import type { PropsWithChildren } from 'react'
-import { Container } from '@/components/Container'
+import { Footer, Header } from '@/features/layout'
+import { MainWrapper } from '@/features/layout/components/MainWrapper'
+import { getCurrentUser } from '@/lib/session'
 
-export default function AppLayoutContainer({ children }: PropsWithChildren) {
+export default async function WebsiteLayoutContainer({ children }: PropsWithChildren) {
+	const user = await getCurrentUser()
 	return (
 		<>
-			<Container>{children}</Container>
+			<Header user={user} />
+			<MainWrapper>{children}</MainWrapper>
+			<Footer />
 		</>
 	)
 }

@@ -7,6 +7,7 @@ export enum ButtonVariant {
 	'primary',
 	'danger',
 	'text',
+	'brand',
 }
 export type ButtonProps = Readonly<
 	{
@@ -40,6 +41,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 						'dark:bg-gray bg-white text-black': variant === 'default',
 						'border-red-600 text-red-600 hover:bg-red-600/10': variant === 'danger',
 						'border-none text-white shadow-none hover:bg-[#2b2b2b]': variant === 'text',
+						'rounded-lg border border-solid border-[#F2C200] bg-[#FFD814] align-middle font-sans text-xs leading-5 hover:bg-[#F7CA00]':
+							variant === 'brand',
 					},
 					className
 				)}
