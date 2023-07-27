@@ -24,7 +24,7 @@ export default async function ForgotPassword() {
 						</Button>
 
 						<p className='text-center'>
-							Not registered yet? <AuthLink href='#' label='Register now' hasIcon />
+							Not registered yet? <AuthLink href='/ap/register' label='Register now' hasIcon />
 						</p>
 					</div>
 				</form>

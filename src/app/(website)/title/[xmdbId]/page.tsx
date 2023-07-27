@@ -5,9 +5,9 @@ import { env } from '@/env.mjs'
 import { PROJECT_NAME } from '@/lib/constants'
 import { PageParams } from '@/types/pageParams'
 
-export const generateMetadata = async ({ params: { name } }: CelebrityPageProps): Promise<Metadata> => {
+export const generateMetadata = async ({ params: { name } }: XMDBShowPageProps): Promise<Metadata> => {
 	return {
-		title: 'Celebrity',
+		title: 'Show',
 		openGraph: {
 			type: 'profile',
 			locale: 'en_US',
@@ -17,11 +17,11 @@ export const generateMetadata = async ({ params: { name } }: CelebrityPageProps)
 	}
 }
 
-type CelebrityPageProps = Readonly<{
+type XMDBShowPageProps = Readonly<{
 	params: PageParams<['name']>
 }>
 
-export default async function CelebrityPage({ params: { name } }: CelebrityPageProps) {
+export default async function XMDBShowPage({ params: { name } }: XMDBShowPageProps) {
 	return (
 		<>
 			<SectionContainer>

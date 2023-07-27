@@ -1,4 +1,7 @@
+import { Logo } from '@/components/Brand'
+import { Button } from '@/components/Button'
 import { AuthLink } from '@/components/Link/AuthLink'
+import { TextWithDivider } from '@/components/Text'
 
 // import { redirect } from 'next/navigation'
 // import { getServerSession } from 'next-auth'
@@ -9,42 +12,48 @@ export default async function Login() {
 
 	return (
 		<section>
-			<div className='flex h-full w-full flex-row'>
-				<div className='h-full w-6/12'></div>
-				<div className='flex w-6/12 flex-col items-center justify-center py-24'>
-					<form className='flex flex-col gap-7 md:min-w-[500px]'>
-						<h1 className='text-5xl font-bold'>Login</h1>
-						<div className='flex w-full flex-col items-start justify-start gap-2'>
-							<label className=''>Email</label>
+			<div className='mx-auto py-8'>
+				<Logo />
+				<div className='mx-auto my-4 max-w-lg rounded-xl bg-white p-8 shadow shadow-slate-300'>
+					<h1 className='mb-4 text-4xl font-medium'>Sign in</h1>
+					<form className=''>
+						<div className='mb-4'>
+							<label className='mb-2 block text-xs font-bold text-gray-700' htmlFor='email'>
+								Email
+							</label>
 							<input
-								className='w-full rounded-lg border-[1px] p-5 py-3 outline-none transition-all focus:border-[#000]'
+								className='w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:outline-none'
 								type='email'
-								placeholder='example@gmail.com'
-								formNoValidate
+								id='email'
+								name='email'
+								placeholder='john@example.com'
 							/>
 						</div>
-						<div className='flex w-full flex-col items-start justify-start gap-2'>
-							<label className=''>Password</label>
+						<div className='mb-4'>
+							<div className='mb-2 flex justify-between'>
+								<label className='block text-xs font-bold text-gray-700' htmlFor='password'>
+									Password
+								</label>
+								<AuthLink href={'/ap/forgotpassword'} label='Forgot your password?' className='text-xs' />
+							</div>
 							<input
-								className='w-full rounded-lg border-[1px] p-5 py-3 outline-none transition-all focus:border-[#000]'
+								className='w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:outline-none'
 								type='password'
-								placeholder='* * * * * *'
-								formNoValidate
+								id='password'
+								name='password'
+								placeholder='********'
 							/>
 						</div>
-						<div className='flex w-full flex-col items-start justify-start gap-2'>
-							<input
-								className='w-full cursor-pointer rounded-lg border-[1px] p-5 py-3 outline-none transition-all hover:border-[#000] active:scale-95'
-								type='submit'
-								value='Login'
-								formNoValidate
-							/>
-						</div>
+					</form>
+					<div className='px-8'>
+						<Button fill className='' variant='brand'>
+							<span>Sign in</span>
+						</Button>
+						<TextWithDivider text='New to XMDb?' />
 						<p>
 							Don&apos;t have an account? <AuthLink href={'/ap/register'} label='Register' />
-							instead.
 						</p>
-					</form>
+					</div>
 				</div>
 			</div>
 		</section>

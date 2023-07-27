@@ -1,0 +1,1 @@
+export { TextWithDivider } from './TextWithDivider'

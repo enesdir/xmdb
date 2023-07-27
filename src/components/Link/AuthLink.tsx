@@ -1,10 +1,14 @@
 import Link from 'next/link'
+import { cn } from '@/utils/cn'
 
-type AuthLinkProps = Readonly<{ href: string; label: string; hasIcon?: boolean }>
-export const AuthLink = ({ href, label, hasIcon }: AuthLinkProps) => {
+type AuthLinkProps = Readonly<{ href: string; label: string; hasIcon?: boolean; className?: string }>
+export const AuthLink = ({ href, label, hasIcon, className }: AuthLinkProps) => {
 	return (
 		<Link
-			className='inline-flex items-center space-x-1 text-[#0066c0] hover:cursor-pointer hover:text-[#c45500] hover:underline focus:outline-4 focus:-outline-offset-2 active:scale-95'
+			className={cn(
+				'inline-flex items-center space-x-1 text-[#0066c0] hover:cursor-pointer hover:text-[#c45500] hover:underline focus:outline-4 focus:-outline-offset-2 active:scale-95',
+				className
+			)}
 			// @ts-expect-error todo
 			href={href}
 		>

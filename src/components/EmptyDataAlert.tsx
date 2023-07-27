@@ -1,5 +1,3 @@
-// import EmptyData from '@/assets/svg/empty-data.svg'
-
 type EmptyDataAlertProps = Readonly<{
 	message: string
 }>
