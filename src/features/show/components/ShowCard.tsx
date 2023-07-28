@@ -1,7 +1,8 @@
+import type { Show } from '@/server/modules/shows/showsSchemas'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { BiCameraMovie } from 'react-icons/bi'
-import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type ShowCardProps = Readonly<{
 	show: Show

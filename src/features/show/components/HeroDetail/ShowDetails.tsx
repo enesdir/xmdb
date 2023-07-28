@@ -1,4 +1,4 @@
-import { Show } from '@/server/modules/shows/showsSchemas'
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type ShowDetailsProps = Readonly<{
 	show: Show

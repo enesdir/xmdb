@@ -1,5 +1,6 @@
-import { Decorator } from '@storybook/react'
 import type { Session } from 'next-auth'
+
+import { Decorator } from '@storybook/react'
 import { SessionProvider } from 'next-auth/react'
 
 export const withSessionProvider: Decorator = (StoryFn) => {

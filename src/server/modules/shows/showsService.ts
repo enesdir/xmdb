@@ -1,5 +1,6 @@
 import { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
-import { prisma } from '~/src/server/prisma'
+
+import { prisma } from '@/server/prisma'
 import { createShowSelect } from './showsUtils'
 
 export const getAllShows = () =>

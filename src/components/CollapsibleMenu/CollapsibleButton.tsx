@@ -1,5 +1,9 @@
-import { type ComponentPropsWithoutRef, type ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
+
+import 'react'
+
 import { IoIosArrowDown } from 'react-icons/io'
+
 import { cn } from '@/utils/cn'
 
 export type CollapsibleButtonProps = Readonly<

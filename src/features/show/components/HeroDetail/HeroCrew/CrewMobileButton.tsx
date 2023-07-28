@@ -1,5 +1,6 @@
 import { type ComponentPropsWithoutRef } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
+
 import { cn } from '@/utils/cn'
 
 export type CrewMobileButtonProps = Readonly<

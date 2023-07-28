@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+
 import { PageContainer } from './PageContainer'
 
 export const SectionContainer = ({ children }: PropsWithChildren) => {

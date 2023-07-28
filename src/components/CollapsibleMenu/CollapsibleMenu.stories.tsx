@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { BiAbacus } from 'react-icons/bi'
+
 import { CollapsibleMenu } from './CollasibleMenu'
 
 const meta = {

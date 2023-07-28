@@ -1,6 +1,8 @@
 import type { IconType } from 'react-icons'
+
 import { BsDiscord, BsFacebook } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
+
 import { cn } from '@/utils/cn'
 
 type Variant = 'discord' | 'facebook' | 'google'

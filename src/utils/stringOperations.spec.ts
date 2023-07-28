@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+
 import { capitalize, getFirstLetter } from './stringOperations'
 
 describe('string', () => {

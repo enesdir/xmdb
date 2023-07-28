@@ -1,5 +1,6 @@
-import dynamic from 'next/dynamic'
 import type { MenuItemType } from '@/features/layout/types/MenuItemType'
+
+import dynamic from 'next/dynamic'
 
 const BiSolidFilm = dynamic(() => import('../utils/navIcons').then((icons) => icons.BiSolidFilm))
 const BiSolidVideos = dynamic(() => import('../utils/navIcons').then((icons) => icons.BiSolidVideos))

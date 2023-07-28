@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+
 import { APFooter } from './footer'
 
 export default async function WebsiteLayoutContainer({ children }: PropsWithChildren) {

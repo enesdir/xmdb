@@ -1,7 +1,9 @@
 import type { PropsWithChildren } from 'react'
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink, loggerLink } from '@trpc/client'
 import superjson from 'superjson'
+
 import { getTRPCUrl, trpc } from '@/lib/trpc'
 
 const queryClient = new QueryClient({
@@ -13,7 +15,8 @@ const trpcClient = trpc.createClient({
 	links: [
 		loggerLink({
 			enabled: (opts) =>
-				process.env.NODE_ENV === 'development' || (opts.direction === 'down' && opts.result instanceof Error),
+				process.env.VERCEL_ENV === 'development' ||
+				(opts.direction === 'down' && opts.result instanceof Error),
 		}),
 		httpBatchLink({
 			url: getTRPCUrl(),

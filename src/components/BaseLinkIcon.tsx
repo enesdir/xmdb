@@ -1,6 +1,9 @@
+import type { BaseLinkProps } from './BaseLink'
+
 import { TbExternalLink } from 'react-icons/tb'
+
 import { cn } from '@/utils/cn'
-import { BaseLink, type BaseLinkProps } from './BaseLink'
+import { BaseLink } from './BaseLink'
 
 type BaseLinkIconProps = Readonly<BaseLinkProps>
 export const BaseLinkIcon = ({ href, label, className, children, ...props }: BaseLinkIconProps) => {

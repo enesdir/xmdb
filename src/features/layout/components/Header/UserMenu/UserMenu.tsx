@@ -1,9 +1,11 @@
 'use client'
 
+import type { Session } from 'next-auth'
+
 import { useRef } from 'react'
 import Link from 'next/link'
-import type { Session } from 'next-auth'
 import { BiHelpCircle, BiLogOut, BiSlider } from 'react-icons/bi'
+
 import { DropdownItem, DropdownItems } from '@/components/Dropdown'
 import { DropdownButton } from '@/components/Dropdown/DropdownButton'
 import { IconButton } from '@/components/IconButton'

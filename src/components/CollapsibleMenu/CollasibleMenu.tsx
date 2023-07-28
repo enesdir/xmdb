@@ -1,7 +1,9 @@
 'use client'
 
-import { useCallback, useState } from 'react'
 import type { MenuItemType } from '@/features/layout/types/MenuItemType'
+
+import { useCallback, useState } from 'react'
+
 import { cn } from '@/utils/cn'
 import { CollapsibleButton } from './CollapsibleButton'
 import { CollapsibleContent } from './CollapsibleContent'

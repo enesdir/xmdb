@@ -1,7 +1,9 @@
 import { Fragment } from 'react'
+
 import { ShowCastItem } from './ShowCastItem'
 
 type ShowCastProps = Readonly<{
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	cast: any[]
 }>
 

@@ -1,11 +1,13 @@
 'use client'
 
+import type { Show } from '@/server/modules/shows/showsSchemas'
+
 import { AiOutlineDelete } from 'react-icons/ai'
+
 import { Button } from '@/components/Button'
 import { ConfirmModal } from '@/components/ConfirmModal/'
 import { useDeleteUserShow } from '@/features/show/hooks/useDeleteUserShow'
 import { useBoolean } from '@/hooks/useBoolean'
-import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type DeleteShowButtonProps = Readonly<{
 	show: Show

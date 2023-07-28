@@ -1,5 +1,7 @@
 import type { TypeOf } from 'zod'
+
 import { z } from 'zod'
+
 import {
 	BIOGRAPHY_REGEX,
 	EMAIL_MAX_LENGTH,

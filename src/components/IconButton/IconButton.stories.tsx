@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { AiOutlineSmile } from 'react-icons/ai'
+
 import { IconButton } from './IconButton'
 
 const meta = {

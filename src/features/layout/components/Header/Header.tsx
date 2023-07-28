@@ -1,6 +1,7 @@
 'use client'
 
 import type { Session } from 'next-auth'
+
 import { AccessControl } from '@/components/AccessControl'
 import { Logo, LogoPro } from '@/components/Brand/'
 import { menuItems } from '@/features/layout/constants/menuItems'

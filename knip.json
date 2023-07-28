@@ -1,0 +1,59 @@
+{
+	"$schema": "https://unpkg.com/knip@2/schema.json",
+	"paths": {
+		"@/*": ["src/*"],
+		"~/*": ["./*"]
+	},
+	"rules": {
+		"files": "warn",
+		"unlisted": "off"
+	},
+	"ignoreDependencies": ["@next/bundle-analyzer", "sharp"],
+	"next": {
+		"entry": ["next.config.{js,ts,cjs,mjs}", "src/app/**/*.{js,jsx,ts,tsx}", "src/pages/**/*.{js,jsx,ts,tsx}"]
+	},
+	"eslint": {
+		"config": [".eslintrc", ".eslintrc.{js,json,cjs}", ".eslintrc.{yml,yaml}", "package.json"],
+		"entry": ["eslint.config.js"]
+	},
+	"husky": {
+		"config": [
+			".husky/commit-msg",
+			".husky/pre-{applypatch,commit,merge-commit,push,rebase,receive}",
+			".husky/post-{checkout,commit,merge,rewrite}"
+		]
+	},
+	"lint-staged": {
+		"config": [
+			".lintstagedrc",
+			".lintstagedrc.json",
+			".lintstagedrc.{yml,yaml}",
+			".lintstagedrc.{js,mjs,cjs}",
+			"lint-staged.config.{js,mjs,cjs}",
+			"package.json"
+		]
+	},
+	"postcss": {
+		"config": ["postcss.config.cjs", "postcss.config.json", "package.json"]
+	},
+	"prettier": {
+		"config": [
+			".prettierrc",
+			".prettierrc.{json,js,cjs,yml,yaml}",
+			"prettier.config.{js,cjs}",
+			"package.json"
+		]
+	},
+	"storybook": {
+		"config": [".storybook/{main,manager}.{js,ts}"],
+		"entry": [".storybook/preview.{js,jsx,ts,tsx}", "**/*.stories.{js,jsx,ts,tsx}"],
+		"project": [".storybook/**/*.{js,jsx,ts,tsx}"]
+	},
+	"tailwind": {
+		"config": ["tailwind.config.{js,cjs,mjs,ts}"]
+	},
+	"typescript": {
+		"entry": ["next-env.d.ts", "src/types/next-auth.d.ts"],
+		"config": ["tsconfig.json"]
+	}
+}

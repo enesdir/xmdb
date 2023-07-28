@@ -1,12 +1,13 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react'
+
 import Dropdown, { DropdownProps } from './Dropdown'
 
 const meta = {
 	title: 'UI/Dropdown',
 	component: Dropdown,
-	subcomponents: {
-		'Dropdown.Item': Dropdown.Item,
-	},
+	// subcomponents: {
+	// 	'Dropdown.Item': Dropdown.Item,
+	// },
 	parameters: {
 		backgrounds: {
 			default: 'xmdb',
@@ -16,7 +17,7 @@ const meta = {
 } satisfies Meta<typeof Dropdown>
 
 export default meta
-
+// eslint-disable-next-line unused-imports/no-unused-vars, @typescript-eslint/no-unused-vars
 type Story = StoryObj<typeof meta>
 const { log } = console
 const Template: StoryFn<DropdownProps> = (args) => (

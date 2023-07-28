@@ -1,5 +1,6 @@
 import { makeApi } from '@zodios/core'
 import { z } from 'zod'
+
 import { createApiClient } from '@/lib/createApiClient'
 import { getBaseUrl } from '@/utils/getBaseUrl'
 

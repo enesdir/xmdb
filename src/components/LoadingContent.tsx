@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+
 import { Spinner } from '@/components/Spinner/Spinner'
 
 type LoadingContentProps = Readonly<

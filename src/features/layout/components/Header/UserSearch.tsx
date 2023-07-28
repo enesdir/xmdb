@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
+
 import { Spinner } from '@/components/Spinner'
 import { TextField } from '@/components/TextField'
 import { UsersSearchBarList } from '@/features/users/components/UsersSearchBar/UsersSearchBarList/UsersSearchBarList'

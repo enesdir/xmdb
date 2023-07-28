@@ -1,9 +1,10 @@
 // TODO: for future implementations
 import type { Metadata } from 'next'
-import { env } from '@/env.mjs'
+import { PageParams } from '@/types/pageParams'
+
 import { Banner } from '@/features/show/components/Banner'
 import { PROJECT_NAME } from '@/lib/constants'
-import { PageParams } from '@/types/pageParams'
+import { getBaseUrl } from '@/utils/getBaseUrl'
 
 const SliderData = [
 	{
@@ -30,15 +31,14 @@ const SliderData = [
 export const generateMetadata = async ({
 	params: { username, showId, mediaId },
 }: MediaPageProps): Promise<Metadata> => {
+	const host = getBaseUrl(true)
 	return {
 		title: 'Show Title',
 		openGraph: {
 			type: 'article',
 			locale: 'en_US',
 			siteName: PROJECT_NAME,
-			url: `${env.NEXT_PUBLIC_BASE_URL}/user/${String(username)}/${String(showId)}/mediaviewer/${String(
-				mediaId
-			)}`,
+			url: `${host}/user/${String(username)}/${String(showId)}/mediaviewer/${String(mediaId)}`,
 		},
 	}
 }

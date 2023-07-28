@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import { trpc } from '@/lib/trpc'
 
 export const useToggleFollow = (initialState: boolean) => {

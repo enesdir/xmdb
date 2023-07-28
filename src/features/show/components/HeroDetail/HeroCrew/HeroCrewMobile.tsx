@@ -1,6 +1,7 @@
 'use client'
 
-import { CrewCategoryType } from '@/features/show/types/crewCategoryType'
+import type { CrewCategoryType } from '@/features/show/types/crewCategoryType'
+
 import { useBoolean } from '@/hooks/useBoolean'
 import { cn } from '@/utils/cn'
 import { CrewMobileButton } from './CrewMobileButton'

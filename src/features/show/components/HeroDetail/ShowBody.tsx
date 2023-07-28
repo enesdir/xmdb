@@ -1,6 +1,8 @@
-import Link from 'next/link'
-import { BaseLinkIcon } from '@/components/BaseLinkIcon'
 import type { Show } from '@/server/modules/shows/showsSchemas'
+
+import Link from 'next/link'
+
+import { BaseLinkIcon } from '@/components/BaseLinkIcon'
 import { Trends } from '../Trends/Trends'
 import { ChipList } from './ChipList'
 import { ShowCta } from './ShowCta'

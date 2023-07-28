@@ -1,7 +1,8 @@
+import type { User } from '@/server/modules/users/usersSchemas'
+
 import { AccessControl } from '@/components/AccessControl'
 import { UserAvatar } from '@/components/UserAvatar'
 import { CreateShowButton } from '@/features/show/'
-import type { User } from '@/server/modules/users/usersSchemas'
 import { UserCta } from './UserCta'
 import { UserDetails } from './UserDetails'
 import { UserEditorPanel } from './UserEditorPanel'

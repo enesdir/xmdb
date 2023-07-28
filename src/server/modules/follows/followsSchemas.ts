@@ -1,5 +1,7 @@
 import type { TypeOf } from 'zod'
+
 import { z } from 'zod'
+
 import { userSchema } from '../users/usersSchemas'
 
 export const followsSchema = z.array(userSchema)

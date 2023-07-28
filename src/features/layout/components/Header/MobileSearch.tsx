@@ -1,4 +1,5 @@
 import { AiOutlineSearch } from 'react-icons/ai'
+
 import { IconButton } from '@/components/IconButton'
 
 export const MobileSearch = () => {

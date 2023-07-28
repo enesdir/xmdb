@@ -1,4 +1,5 @@
 import NextAuth from 'next-auth'
+
 import { authOptions } from '@/server/authOptions'
 
 const handler = NextAuth(authOptions) as unknown

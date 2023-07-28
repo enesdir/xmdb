@@ -1,4 +1,5 @@
 import type { User } from '@/server/modules/users/usersSchemas'
+
 import { FollowButton } from '../FollowButton'
 
 type UserCtaProps = Readonly<{

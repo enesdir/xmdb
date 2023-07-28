@@ -1,5 +1,6 @@
-import type { HTMLAttributes } from 'react'
 import type { BaseComponentProps } from '@/types/BaseComponentProps'
+import type { HTMLAttributes } from 'react'
+
 import { cn } from '@/utils/cn'
 
 type ListProps = Readonly<

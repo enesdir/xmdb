@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+
 import { formatNumber } from '@/utils/intl'
 
 type StatisticItemProps = Readonly<{

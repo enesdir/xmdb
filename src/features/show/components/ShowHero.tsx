@@ -1,6 +1,7 @@
+import type { Show } from '@/server/modules/shows/showsSchemas'
+
 import { SectionContainer } from '@/components/SectionContainer'
 import { OtherMedia, Poster, ShowHeader } from '@/features/show/'
-import type { Show } from '@/server/modules/shows/showsSchemas'
 import { Player } from './HeroBody/Player'
 import { HeroDetail } from './HeroDetail/HeroDetail'
 import { HeroBreadCumb } from './HeroHeader/HeroBreadCumb'

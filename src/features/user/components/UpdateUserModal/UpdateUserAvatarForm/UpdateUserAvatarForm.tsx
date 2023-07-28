@@ -1,8 +1,10 @@
+import type { User } from '@/server/modules/users/usersSchemas'
+
 import { useState } from 'react'
+
 import { Button } from '@/components/Button'
 import { FileButton } from '@/components/FileButton'
 import { UserAvatar } from '@/components/UserAvatar'
-import type { User } from '@/server/modules/users/usersSchemas'
 import { createUrlFromFile } from '@/utils/file'
 import { useUpdateUserAvatarForm } from './useUpdateUserAvatarForm'
 

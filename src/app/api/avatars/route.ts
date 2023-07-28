@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+
 import { createImage, deleteImage } from '@/lib/cloudinary/cloudinaryService'
 import { createJsonResponse, protectRoute } from '@/utils/route'
 

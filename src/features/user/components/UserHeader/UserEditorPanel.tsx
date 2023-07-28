@@ -1,11 +1,13 @@
 'use client'
 
+import type { User } from '@/server/modules/users/usersSchemas'
 import type { ReactNode } from 'react'
+
 import { useSession } from 'next-auth/react'
 import { AiOutlineEdit } from 'react-icons/ai'
+
 import { UpdateUserModal } from '@/features/user/components/UpdateUserModal/UpdateUserModal'
 import { useBoolean } from '@/hooks/useBoolean'
-import type { User } from '@/server/modules/users/usersSchemas'
 
 type UserEditorPanelProps = Readonly<{
 	user: User

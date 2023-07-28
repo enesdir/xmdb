@@ -53,7 +53,7 @@ npm install
 3. Set environment variables. Create a `.env.local` file in the root directory of the project and add the following variables:
 
 ```bash
- cp .env.example .env.local
+cp .env.example .env.local
 ```
 
 1. Start the development database server
@@ -99,10 +99,9 @@ npm run test
 ## Commands
 
 ```bash
-npm run build      # runs `prisma generate` + `prisma migrate` + `next build`
-npm run dev        # starts next.js
-npm run test       # runs normal Vitest unit tests
-
+npm run build # runs `prisma generate` + `prisma migrate` + `next build`
+npm run dev   # starts next.js
+npm run test  # runs normal Vitest unit tests
 ```
 
 ## Files of note

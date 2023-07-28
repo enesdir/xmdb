@@ -1,6 +1,8 @@
+import type { CrewType } from '@/features/show/types/crewType'
+
 import Link from 'next/link'
+
 import { ListItem } from '@/components/List'
-import { CrewType } from '@/features/show/types/crewType'
 import { cn } from '@/utils/cn'
 
 type CrewItemProps = { isNotZero: boolean } & { crew: CrewType }

@@ -1,11 +1,13 @@
 'use client'
 
+import type { Show } from '@/server/modules/shows/showsSchemas'
+
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+
 import { Modal } from '@/components/Modal/'
 import { useBoolean } from '@/hooks/useBoolean'
 import { useCacheValue } from '@/hooks/useCacheValue'
-import type { Show } from '@/server/modules/shows/showsSchemas'
 import { UserShowDetails } from './UserShowDetails'
 
 type UserShowModalProps = Readonly<{

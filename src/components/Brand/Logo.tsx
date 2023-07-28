@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import { PROJECT_NAME } from '@/lib/constants'
 import { cn } from '@/utils/cn'
 

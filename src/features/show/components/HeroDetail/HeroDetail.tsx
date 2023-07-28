@@ -1,5 +1,6 @@
-import { crewCategories } from '@/features/show/constants/crewCategories'
 import type { Show } from '@/server/modules/shows/showsSchemas'
+
+import { crewCategories } from '@/features/show/constants/crewCategories'
 import { Trends } from '../Trends/Trends'
 import { ChipList } from './ChipList'
 import { HeroCrewDesktop } from './HeroCrew/HeroCrewDesktop'

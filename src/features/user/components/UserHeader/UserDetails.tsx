@@ -1,5 +1,6 @@
-import { DEFAULT_PROFILE_BIOGRAPHY } from '@/lib/constants'
 import type { User } from '@/server/modules/users/usersSchemas'
+
+import { DEFAULT_PROFILE_BIOGRAPHY } from '@/lib/constants'
 
 type UserDetailsProps = Readonly<{
 	user: User

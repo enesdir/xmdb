@@ -1,3 +1,7 @@
+/** @typedef {import('@ianvs/prettier-plugin-sort-imports').PluginConfig} SortImportsConfig */
+/** @typedef {import('prettier').Config} PrettierConfig */
+/** @typedef {{ tailwindConfig: string; tailwindFunctions: string[] }} TailwindConfig */
+
 /**
  * @file Prettier Configuration
  * @see https://prettier.io/docs/en/configuration.html
@@ -5,22 +9,8 @@
  * @see https://github.com/rx-ts/prettier/tree/master/packages/sh
  */
 
-/** @type {import('prettier').Config} */
-module.exports = {
-	plugins: [
-		'@trivago/prettier-plugin-sort-imports',
-		'prettier-plugin-packagejson',
-		'prettier-plugin-jsdoc',
-		'prettier-plugin-prisma',
-		'prettier-plugin-tailwindcss',
-	],
-	importOrder: [
-		'^(react/(.*)$)|^(react$)',
-		'^(next/(.*)$)|^(next$)',
-		'<THIRD_PARTY_MODULES>',
-		'^@/(.*)$',
-		'^[./]',
-	],
+/** @type {PrettierConfig | SortImportsConfig | TailwindConfig} */
+const config = {
 	printWidth: 110,
 	tabWidth: 2,
 	useTabs: true,
@@ -33,6 +23,40 @@ module.exports = {
 	bracketSameLine: false,
 	arrowParens: 'always',
 	endOfLine: 'lf',
+	plugins: [
+		// for sorting imports
+		'@ianvs/prettier-plugin-sort-imports',
+		// for sort fields in package.json
+		'prettier-plugin-pkg',
+		// for prettifying shellscript, Dockerfile, properties, gitignore, dotenv
+		'prettier-plugin-sh',
+		'prettier-plugin-jsdoc',
+		'prettier-plugin-prisma',
+		'prettier-plugin-tailwindcss',
+	],
+	importOrder: [
+		'<TYPES>',
+		'<TYPES>^[.]',
+		'^@/types/(.*)$',
+		'^@/features/(.*)/types/(.*)$',
+		'',
+		// React and Next
+		'^(react/(.*)$)|^(react$)',
+		'^(next/(.*)$)|^(next$)',
+		// Anything not matched in other groups.
+		'<THIRD_PARTY_MODULES>',
+		'',
+		// Things that start with `@` or digit or underscore.
+		'^(@/|\\d|~/)',
+		// Anything that starts with a dot, or multiple dots, and doesn't have the "other files" extensions.
+		'^(?=\\.+)(.(?!\\.(graphql|css|png|svg|jpe?g|webp|avif|wasm|mp4|webm)))+$',
+		// Other files with extensions.
+		'^.+\\.(graphql|css|png|svg|jpe?g|webp|avif|wasm|mp4|webm)$',
+	],
+	importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
+	tailwindConfig: './tailwind.config.cjs',
+	tailwindFunctions: ['cn'],
+
 	overrides: [
 		{
 			files: '*.json',
@@ -54,3 +78,4 @@ module.exports = {
 		},
 	],
 }
+module.exports = config

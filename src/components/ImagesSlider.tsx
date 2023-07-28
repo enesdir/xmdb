@@ -1,9 +1,10 @@
 'use client'
 
+import type { SwiperRef } from 'swiper/react'
+
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { register } from 'swiper/element/bundle'
-import type { SwiperRef } from 'swiper/react'
 
 register()
 

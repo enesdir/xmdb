@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import { cn } from '@/utils/cn'
 
 type AuthLinkProps = Readonly<{ href: string; label: string; hasIcon?: boolean; className?: string }>

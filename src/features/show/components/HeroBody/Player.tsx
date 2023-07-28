@@ -1,9 +1,11 @@
+import type { Show } from '@/server/modules/shows/showsSchemas'
+
 import Link from 'next/link'
 import { BsThreeDotsVertical } from 'react-icons/bs'
+
 import BlurImage from '@/components/BlurImage'
 import { IconButton } from '@/components/IconButton'
 import { getBlurDataURL } from '@/lib/images'
-import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type PlayerProps = Readonly<{
 	show: Show

@@ -1,10 +1,11 @@
 // TODO: for future implementations
 import type { Metadata } from 'next'
-import { env } from '@/env.mjs'
+import { PageParams } from '@/types/pageParams'
+
 import { Banner } from '@/features/show/components/Banner'
 import { PROJECT_NAME } from '@/lib/constants'
 import { getShowById } from '@/lib/show'
-import { PageParams } from '@/types/pageParams'
+import { getBaseUrl } from '@/utils/getBaseUrl'
 
 const SliderData = [
 	{
@@ -29,6 +30,7 @@ const SliderData = [
 	},
 ]
 export const generateMetadata = async ({ params: { showId } }: ShowGalleryPageProps): Promise<Metadata> => {
+	const host = getBaseUrl(true)
 	const {
 		id: showID,
 		title,
@@ -41,7 +43,7 @@ export const generateMetadata = async ({ params: { showId } }: ShowGalleryPagePr
 			type: 'article',
 			locale: 'en_US',
 			siteName: PROJECT_NAME,
-			url: `${env.NEXT_PUBLIC_BASE_URL}/user/${String(UserID)}/${String(showID)}/mediaindex`,
+			url: `${host}/user/${String(UserID)}/${String(showID)}/mediaindex`,
 			description: description,
 		},
 	}

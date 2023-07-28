@@ -1,4 +1,5 @@
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch'
+
 import { env } from '@/env.mjs'
 import { createTRPCContext } from '@/server/createTRPCContext'
 import { appRouter } from '@/server/router'
@@ -13,7 +14,7 @@ const handler = (request: Request) =>
 		router: appRouter,
 		createContext: createTRPCContext,
 		onError:
-			env.NODE_ENV === 'development'
+			env.VERCEL_ENV === 'development'
 				? ({ path, error }) => {
 						console.error(`❌ tRPC failed on ${path ?? '<no-path>'}: ${error.message}`)
 				  }

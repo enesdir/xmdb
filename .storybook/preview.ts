@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react'
+
 import '~/src/app/global.css'
+
 import { withSearchBarProvider } from './withSearchBarProvider'
 import { withSessionProvider } from './withSessionProvider'
 import { withTRPCProvider } from './withTRPCProvider'

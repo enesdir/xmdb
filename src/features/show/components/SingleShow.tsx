@@ -1,10 +1,12 @@
 'use client'
 
+import type { Show } from '@/server/modules/shows/showsSchemas'
+
 import { useState } from 'react'
 import Link from 'next/link'
+
 import { ImagesSlider } from '@/components/ImagesSlider'
 import { UserAvatar } from '@/components/UserAvatar'
-import type { Show } from '@/server/modules/shows/showsSchemas'
 import { formatFromNow } from '@/utils/date'
 import { formatNumber, pluralize } from '@/utils/intl'
 import { LikeButton } from './LikeButton'

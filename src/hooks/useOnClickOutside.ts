@@ -1,4 +1,5 @@
 import { RefObject, useCallback } from 'react'
+
 import useWindowEventListener from './useWindowEventListener'
 
 type CallbackEvent = MouseEvent | PointerEvent

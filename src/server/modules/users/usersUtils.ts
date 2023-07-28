@@ -1,5 +1,5 @@
-import type { Prisma } from '@prisma/client'
 import crypto from 'node:crypto'
+import type { Prisma } from '@prisma/client'
 
 /**
  * Default selector for User. It's important to always explicitly say which fields you want to return in order

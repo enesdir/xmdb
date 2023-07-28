@@ -1,5 +1,6 @@
-import { SingleShow } from '@/features/show/'
 import type { Show } from '@/server/modules/shows/showsSchemas'
+
+import { SingleShow } from '@/features/show/'
 
 type LatestShowListProps = Readonly<{
 	shows: Show[]

@@ -1,7 +1,10 @@
-import { useState } from 'react'
 import type { Meta, StoryFn } from '@storybook/react'
+import type { DrawerProps } from './Drawer'
+
+import { useState } from 'react'
+
 import { Button } from '@/components/Button/'
-import { Drawer, type DrawerProps } from './Drawer'
+import { Drawer } from './Drawer'
 
 const meta = {
 	title: 'UI/Drawer',

@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { IoPeople } from 'react-icons/io5'
 import { MdLocalMovies } from 'react-icons/md'
 import { SiThemoviedatabase } from 'react-icons/si'
+
 import { DropdownItem, DropdownItems } from '@/components/Dropdown'
 import { useBoolean } from '@/hooks/useBoolean'
 import { useOnClickOutside } from '@/hooks/useOnClickOutside'

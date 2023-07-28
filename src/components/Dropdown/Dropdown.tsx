@@ -1,11 +1,16 @@
-import { Children, ReactElement, cloneElement, useRef, type ReactNode } from 'react'
 import type { ButtonProps } from '@/components/Button/Button'
+import type { ReactNode } from 'react'
+import type { DropdownItemProps } from './DropdownItem'
+import type { DropdownItemsProps } from './DropdownItems'
+
+import { Children, cloneElement, ReactElement, useRef } from 'react'
+
 import { useBoolean } from '@/hooks/useBoolean'
 import { useOnClickOutside } from '@/hooks/useOnClickOutside'
 import { cn } from '@/utils/cn'
 import { DropdownButton } from './DropdownButton'
-import { DropdownItem, type DropdownItemProps } from './DropdownItem'
-import { DropdownItems, type DropdownItemsProps } from './DropdownItems'
+import { DropdownItem } from './DropdownItem'
+import { DropdownItems } from './DropdownItems'
 
 function isDropdownItem(child: ReactNode): boolean {
 	return (child as ReactElement).type === DropdownItem

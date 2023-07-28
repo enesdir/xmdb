@@ -1,8 +1,11 @@
 'use client'
 
-import { Fragment, type ReactNode } from 'react'
+import type { ReactNode } from 'react'
+
+import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { AiOutlineClose } from 'react-icons/ai'
+
 import { IconButton } from '@/components/IconButton'
 
 export type DrawerProps = Readonly<{

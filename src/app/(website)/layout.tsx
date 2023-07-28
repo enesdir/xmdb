@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+
 import { Footer, Header } from '@/features/layout'
 import { getCurrentUser } from '@/lib/session'
 

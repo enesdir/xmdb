@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { AiOutlinePicture } from 'react-icons/ai'
 import { BiMoviePlay } from 'react-icons/bi'
+
 import { displayMediaCount } from '@/features/show/utils/displayMediaCount'
 
 type OtherMediaProps = Readonly<{

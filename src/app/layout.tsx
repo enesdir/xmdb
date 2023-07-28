@@ -1,9 +1,14 @@
-import type { PropsWithChildren } from 'react'
 import type { Metadata } from 'next'
+import type { PropsWithChildren } from 'react'
+
 import { Roboto_Flex as Roboto } from 'next/font/google'
+
 import { AppProviders } from '@/providers/AppProviders'
+
+import '@/styles/global.css'
+
 import { cn } from '@/utils/cn'
-import './global.css'
+import { getBaseUrl } from '@/utils/getBaseUrl'
 
 const fontRoboto = Roboto({
 	variable: '--font-roboto',
@@ -12,7 +17,7 @@ const fontRoboto = Roboto({
 const title = 'XMDb'
 const description =
 	"YourMDb is the world's most popular and authoritative source for movie, TV and celebrity content. Find ratings and reviews for the newest movie and TV shows. Get personalized recommendations, and learn where to watch across hundreds of streaming providers."
-
+const host = getBaseUrl(true)
 export const metadata: Metadata = {
 	title: {
 		template: '%s - XMDb',
@@ -22,7 +27,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		type: 'website',
 		locale: 'en_IE',
-		url: 'https://xmdb.vercel.app',
+		url: host,
 		siteName: 'YourFlix',
 	},
 	twitter: {
@@ -52,7 +57,7 @@ export const metadata: Metadata = {
 		{ media: '(prefers-color-scheme: dark)', color: 'black' },
 	],
 
-	metadataBase: new URL('https://xmdb.vercel.app'),
+	metadataBase: new URL(host),
 }
 export default async function RootLayout({ children }: PropsWithChildren) {
 	return (

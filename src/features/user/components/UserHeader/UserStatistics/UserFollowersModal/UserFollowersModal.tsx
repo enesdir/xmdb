@@ -1,4 +1,5 @@
 import type { ComponentProps } from 'react'
+
 import { Modal } from '@/components/Modal/'
 import { UserFollowersList } from './UserFollowersList'
 

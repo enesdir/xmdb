@@ -1,5 +1,5 @@
-import { prisma } from '~/src/server/prisma'
 import { createUserSelect } from '@/server/modules/users/usersUtils'
+import { prisma } from '@/server/prisma'
 
 export const getFollows = (
 	{

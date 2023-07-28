@@ -4,6 +4,7 @@
  * @link https://www.prisma.io/docs/support/help-articles/nextjs-prisma-client-dev-practices
  */
 import { PrismaClient } from '@prisma/client'
+
 import { env } from '@/env.mjs'
 
 const globalForPrisma = globalThis as unknown as {
@@ -13,7 +14,7 @@ const globalForPrisma = globalThis as unknown as {
 export const prisma =
 	globalForPrisma.prisma ??
 	new PrismaClient({
-		log: env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+		log: env.VERCEL_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
 	})
 
-if (env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+if (env.VERCEL_ENV !== 'production') globalForPrisma.prisma = prisma

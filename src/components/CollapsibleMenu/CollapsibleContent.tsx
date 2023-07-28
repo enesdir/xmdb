@@ -1,6 +1,8 @@
+import type { CategoryItemType } from '@/features/layout/types/MenuItemType'
+
 import React from 'react'
 import Link from 'next/link'
-import type { CategoryItemType } from '@/features/layout/types/MenuItemType'
+
 import { cn } from '@/utils/cn'
 
 type CollapsibleContentProps = Readonly<{

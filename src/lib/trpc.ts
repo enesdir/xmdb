@@ -1,5 +1,7 @@
-import { createTRPCReact, TRPCClientError } from '@trpc/react-query'
 import type { AppRouter } from '@/server/router'
+
+import { createTRPCReact, TRPCClientError } from '@trpc/react-query'
+
 import { getBaseUrl } from '@/utils/getBaseUrl'
 
 export function getTRPCUrl(): string {

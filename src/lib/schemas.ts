@@ -1,4 +1,5 @@
 import { z } from 'zod'
+
 import {
 	EMAIL_ERROR_MESSAGE,
 	EMAIL_MAX_LENGTH,

@@ -1,7 +1,9 @@
 'use client'
 
-import { PropsWithChildren, useMemo, useState } from 'react'
 import type { SearchCatogeries } from '@/features/layout/types/SearchBar'
+
+import { PropsWithChildren, useMemo, useState } from 'react'
+
 import { createCtx } from '@/lib/createCtx'
 
 export type SearchBarContextData = {

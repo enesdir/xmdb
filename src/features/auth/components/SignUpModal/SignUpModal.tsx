@@ -1,4 +1,5 @@
 import type { ComponentProps } from 'react'
+
 import { Alert } from '@/components/Alert'
 import { Modal } from '@/components/Modal/Modal'
 import { getSignInPageErrorMessage } from '@/utils/authErrors'

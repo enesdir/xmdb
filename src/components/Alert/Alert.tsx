@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react'
 import type { IconType } from 'react-icons'
+
 import { MdError, MdTaskAlt } from 'react-icons/md'
+
 import { cn } from '@/utils/cn'
 
 type Variant = 'error' | 'success'

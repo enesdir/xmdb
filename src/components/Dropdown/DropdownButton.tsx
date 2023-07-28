@@ -1,5 +1,8 @@
-import { forwardRef, type ComponentPropsWithRef, type ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
+
+import { forwardRef } from 'react'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
+
 import { Spinner } from '@/components/Spinner'
 import { cn } from '@/utils/cn'
 

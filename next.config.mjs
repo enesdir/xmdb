@@ -1,4 +1,5 @@
 import configureBundleAnalyzer from '@next/bundle-analyzer'
+
 import { env } from './src/env.mjs'
 
 /**

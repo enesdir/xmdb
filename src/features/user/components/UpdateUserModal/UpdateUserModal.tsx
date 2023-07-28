@@ -1,6 +1,7 @@
-import type { ComponentProps } from 'react'
-import { Modal } from '@/components/Modal/'
 import type { User } from '@/server/modules/users/usersSchemas'
+import type { ComponentProps } from 'react'
+
+import { Modal } from '@/components/Modal/'
 import { UpdateUserAvatarForm } from './UpdateUserAvatarForm/UpdateUserAvatarForm'
 import { UpdateUserForm } from './UpdateUserForm/UpdateUserForm'
 

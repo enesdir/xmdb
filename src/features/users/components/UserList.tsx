@@ -1,5 +1,6 @@
-import { EmptyDataAlert } from '@/components/EmptyDataAlert'
 import type { User } from '@/server/modules/users/usersSchemas'
+
+import { EmptyDataAlert } from '@/components/EmptyDataAlert'
 import { UserItem } from './UserItem'
 
 type UserListProps = Readonly<{
@@ -13,7 +14,7 @@ export const UserList = ({ alertMessage, users }: UserListProps) => {
 	}
 
 	return (
-		<ul className='no-scrollbar max-h-96 divide-y overflow-auto'>
+		<ul className='max-h-96 divide-y overflow-auto'>
 			{users.map((user) => (
 				<UserItem key={user.id} user={user} />
 			))}

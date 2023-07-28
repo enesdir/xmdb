@@ -1,5 +1,7 @@
-import { compare, hash } from 'bcrypt'
 import type { User } from 'next-auth'
+
+import { compare, hash } from 'bcrypt'
+
 import { prisma } from '@/server/prisma'
 import { createUserSelect, generateUsername } from './usersUtils'
 

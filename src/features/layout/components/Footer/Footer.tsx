@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import { Copyright } from './Copyright'
 import { FooterLinks } from './FooterLinks'
 import { FooterLogo } from './FooterLogo'

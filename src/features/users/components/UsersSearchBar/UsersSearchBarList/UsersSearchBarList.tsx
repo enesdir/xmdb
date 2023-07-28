@@ -1,4 +1,5 @@
 import type { User } from '@/server/modules/users/usersSchemas'
+
 import { UserSearchBarListItem } from './UsersSearchBarListItem'
 
 type UsersSearchBarListProps = Readonly<{

@@ -1,4 +1,5 @@
 import { useRouter } from 'next/navigation'
+
 import { useCreateUserAvatar } from '@/features/user/hooks/useCreateUserAvatar'
 import { useDeleteUserAvatar } from '@/features/user/hooks/useDeleteUserAvatar'
 import { useUpdateUser } from '@/features/user/hooks/useUpdateUser'

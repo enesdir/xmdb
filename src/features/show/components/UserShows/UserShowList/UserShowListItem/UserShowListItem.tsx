@@ -1,8 +1,10 @@
+import type { Show } from '@/server/modules/shows/showsSchemas'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiFillHeart, AiFillMessage } from 'react-icons/ai'
 import { TbLayersSubtract } from 'react-icons/tb'
-import type { Show } from '@/server/modules/shows/showsSchemas'
+
 import { DeleteShowButton } from './DeleteShowButton'
 import { StatisticItem } from './StatisticItem'
 

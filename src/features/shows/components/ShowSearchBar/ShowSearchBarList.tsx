@@ -1,4 +1,5 @@
 import type { Show } from '@/server/modules/shows/showsSchemas'
+
 import { ShowSearchBarListItem } from './ShowSearchBarListItem'
 
 type ShowSearchBarListProps = Readonly<{

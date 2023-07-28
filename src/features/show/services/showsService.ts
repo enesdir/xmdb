@@ -1,6 +1,7 @@
 import { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
 import { makeApi } from '@zodios/core'
 import { z } from 'zod'
+
 import { createApiClient } from '@/lib/createApiClient'
 import { showSchema } from '@/server/modules/shows/showsSchemas'
 import { getBaseUrl } from '@/utils/getBaseUrl'

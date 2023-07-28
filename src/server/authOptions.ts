@@ -1,6 +1,7 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { type NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
+
 import { userSchema } from '@/server/modules/users/usersSchemas'
 import { getUserByCredentials, initCreatedUser } from '@/server/modules/users/usersService'
 import { prisma } from '@/server/prisma'
@@ -19,13 +20,13 @@ export const authOptions: NextAuthOptions = {
 		strategy: 'jwt',
 	},
 	callbacks: {
-		session({ session, token }) {
+		async session({ session, token }) {
 			session.user.id = token.id
 			session.user.username = token.username
 
 			return session
 		},
-		jwt({ token, trigger, user, session }) {
+		async jwt({ token, trigger, user, session }) {
 			if (trigger === 'update') {
 				const result = userSchema.safeParse(session)
 
@@ -42,7 +43,7 @@ export const authOptions: NextAuthOptions = {
 				token.username = user.username
 			}
 
-			return token
+			return Promise.resolve(token)
 		},
 	},
 	events: {
@@ -60,7 +61,7 @@ export const authOptions: NextAuthOptions = {
 				username: {},
 				password: {},
 			},
-			authorize: (credentials) => {
+			authorize: async (credentials) => {
 				if (!credentials) {
 					return null
 				}
