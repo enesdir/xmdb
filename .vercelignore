@@ -1,0 +1,35 @@
+# <!-- markdownlint-disable-file -->
+# Local build files
+**/.next
+**/node_modules
+**/.DS_Store
+
+# ESLint: ignore all eslint-related stuff so we won't be annoyed by ESLint notification
+**/.eslint*
+
+# vercel
+**/.vercel
+
+# Vitest
+**/vitest.config.ts
+test/
+**/*.test.tsx
+**/*.test.ts
+
+# Storybook: the production environment doesn't need it
+**/.storybook/
+**/stories.tsx
+**/*.stories.tsx
+
+# other
+.vscode
+docker-compose.yml
+README.md
+LICENSE.md
+knip.json
+.markdownlint.json
+.lintstagedrc.cjs
+.env.example
+.env.production.example
+.commitlintrc.cjs
+**/.prettier*

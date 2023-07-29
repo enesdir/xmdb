@@ -111,6 +111,7 @@ const nextConfig = {
 			'm.media-amazon.com',
 		],
 		dangerouslyAllowSVG: true,
+		contentDispositionType: 'attachment',
 		contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
 	},
 	// i18n: {
@@ -123,6 +124,16 @@ const nextConfig = {
 		typedRoutes: true,
 		serverComponentsExternalPackages: ['@prisma/client', 'bcrypt'],
 		serverActions: true,
+		legacyBrowsers: false,
+		outputFileTracingExcludes: {
+			'/*': ['./public/favicon/**/*.png'],
+			'/**/*': ['./public/favicon/**/*.png'],
+			'*': [
+				'node_modules/@swc/core-linux-x64-gnu',
+				'node_modules/@swc/core-linux-x64-musl',
+				'node_modules/@esbuild/linux-x64',
+			],
+		},
 	},
 	async headers() {
 		return [

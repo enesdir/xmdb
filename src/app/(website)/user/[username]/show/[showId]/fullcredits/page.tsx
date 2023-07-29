@@ -29,7 +29,6 @@ type FullCreditsPageProps = Readonly<{
 }>
 
 export default async function FullCreditsPage({ params }: FullCreditsPageProps) {
-	console.log(params)
 	return (
 		<>
 			<SectionContainer>
