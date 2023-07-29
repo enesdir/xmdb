@@ -7,8 +7,8 @@ import { AppProviders } from '@/providers/AppProviders'
 
 import '@/styles/global.css'
 
+import { env } from '@/env.mjs'
 import { cn } from '@/utils/cn'
-import { getBaseUrl } from '@/utils/getBaseUrl'
 
 const fontRoboto = Roboto({
 	variable: '--font-roboto',
@@ -17,7 +17,6 @@ const fontRoboto = Roboto({
 const title = 'XMDb'
 const description =
 	"YourMDb is the world's most popular and authoritative source for movie, TV and celebrity content. Find ratings and reviews for the newest movie and TV shows. Get personalized recommendations, and learn where to watch across hundreds of streaming providers."
-const host = getBaseUrl(true)
 export const metadata: Metadata = {
 	title: {
 		template: '%s - XMDb',
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		type: 'website',
 		locale: 'en_IE',
-		url: host,
+		url: env.NEXT_PUBLIC_BASE_URL,
 		siteName: 'YourFlix',
 	},
 	twitter: {
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
 		{ media: '(prefers-color-scheme: dark)', color: 'black' },
 	],
 
-	metadataBase: new URL(host),
+	metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
 }
 export default async function RootLayout({ children }: PropsWithChildren) {
 	return (

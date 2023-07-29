@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function WebsiteRootPage() {
 	return (
-		<div className='w-full'>
+		<div className='w-full bg-white'>
 			<p>Website Home</p>
 			<Link href={'/user/shows'}>Go to Latest Shows</Link>
 			<br />

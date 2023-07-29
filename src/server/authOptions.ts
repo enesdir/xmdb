@@ -2,6 +2,7 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { type NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
+import { env } from '@/env.mjs'
 import { userSchema } from '@/server/modules/users/usersSchemas'
 import { getUserByCredentials, initCreatedUser } from '@/server/modules/users/usersService'
 import { prisma } from '@/server/prisma'
@@ -13,6 +14,7 @@ import { prisma } from '@/server/prisma'
  */
 export const authOptions: NextAuthOptions = {
 	adapter: PrismaAdapter(prisma),
+	secret: env.NEXTAUTH_SECRET,
 	pages: {
 		signIn: '/',
 	},

@@ -2,12 +2,11 @@ import type { Metadata } from 'next'
 import { PageParams } from '@/types/pageParams'
 
 import { SectionContainer } from '@/components/SectionContainer'
+import { env } from '@/env.mjs'
 import { PROJECT_NAME } from '@/lib/constants'
 import { getShowById } from '@/lib/show'
-import { getBaseUrl } from '@/utils/getBaseUrl'
 
 export const generateMetadata = async ({ params: { showId } }: FullCreditsPageProps): Promise<Metadata> => {
-	const host = getBaseUrl(true)
 	const {
 		id: showID,
 		title,
@@ -20,7 +19,7 @@ export const generateMetadata = async ({ params: { showId } }: FullCreditsPagePr
 			type: 'article',
 			locale: 'en_US',
 			siteName: PROJECT_NAME,
-			url: `${host}/user/${String(UserID)}/${String(showID)}/fullcredits`,
+			url: `${env.NEXT_PUBLIC_BASE_URL}/user/${String(UserID)}/${String(showID)}/fullcredits`,
 		},
 	}
 }

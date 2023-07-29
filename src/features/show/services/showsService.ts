@@ -2,9 +2,9 @@ import { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
 import { makeApi } from '@zodios/core'
 import { z } from 'zod'
 
+import { env } from '@/env.mjs'
 import { createApiClient } from '@/lib/createApiClient'
 import { showSchema } from '@/server/modules/shows/showsSchemas'
-import { getBaseUrl } from '@/utils/getBaseUrl'
 
 const endpoints = makeApi([
 	{
@@ -25,7 +25,7 @@ const endpoints = makeApi([
 ])
 
 export function getApi() {
-	return createApiClient<typeof endpoints>(getBaseUrl(true), endpoints)
+	return createApiClient<typeof endpoints>(env.NEXT_PUBLIC_BASE_URL, endpoints)
 }
 export const createShow = ({
 	description,

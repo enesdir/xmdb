@@ -5,18 +5,11 @@ import { z } from 'zod'
  * with invalid env vars.
  */
 const server = z.object({
-	// DATABASE_URL: z.string().url(),
 	POSTGRES_PRISMA_URL: z.string().min(1),
 	POSTGRES_URL_NON_POOLING: z.string().min(1),
 	VERCEL_ENV: z.enum(['development', 'test', 'production']),
-	NEXTAUTH_URL: z.preprocess(
-		// This makes Vercel deployments not fail if you don't set NEXTAUTH_URL
-		// Since NextAuth.js automatically uses the VERCEL_URL if present.
-		(str) => process.env.VERCEL_URL ?? str,
-		// VERCEL_URL doesn't include `https` so it cant be validated as a URL
-		process.env.VERCEL ? z.string().min(1) : z.string().url()
-	),
-	NEXTAUTH_SECRET: z.string().min(1),
+	NEXTAUTH_URL: z.string().url().nonempty(),
+	NEXTAUTH_SECRET: z.string().min(10).nonempty(),
 	CLOUDINARY_API_KEY: z.string().nonempty(),
 	CLOUDINARY_API_SECRET: z.string().nonempty(),
 	CLOUDINARY_CLOUD_NAME: z.string().nonempty(),
@@ -28,9 +21,7 @@ const server = z.object({
  * with invalid env vars. To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 const client = z.object({
-	NEXT_PUBLIC_VERCEL_URL: z.string().nonempty(),
-	NEXT_PUBLIC_RENDER_INTERNAL_HOSTNAME: z.string().optional(),
-	NEXT_PUBLIC_PORT: z.string().optional(),
+	NEXT_PUBLIC_BASE_URL: z.string().url().nonempty(),
 })
 
 /**
@@ -40,17 +31,16 @@ const client = z.object({
  * @type {Record<keyof z.infer<typeof server> | keyof z.infer<typeof client>, string | undefined>}
  */
 const processEnv = {
-	// DATABASE_URL: process.env.DATABASE_URL,
 	POSTGRES_PRISMA_URL: process.env.POSTGRES_PRISMA_URL,
 	POSTGRES_URL_NON_POOLING: process.env.POSTGRES_URL_NON_POOLING,
 	VERCEL_ENV: process.env.VERCEL_ENV,
-	NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+	NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
 	NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+	NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
 	CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
 	CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
 	CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
 	CLOUDINARY_ASSETS_FOLDER: process.env.CLOUDINARY_ASSETS_FOLDER,
-	NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
 }
 
 // Don't touch the part below

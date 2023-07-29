@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { getBaseUrl } from '@/utils/getBaseUrl'
+import { env } from '@/env.mjs'
 
 /**
  * Template metadata for app links
@@ -10,11 +10,9 @@ import { getBaseUrl } from '@/utils/getBaseUrl'
  */
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-	const host = getBaseUrl(true)
-
 	return [
 		{
-			url: host,
+			url: env.NEXT_PUBLIC_BASE_URL,
 			lastModified: new Date(),
 		},
 	]

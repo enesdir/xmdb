@@ -1,18 +1,17 @@
 import type { Metadata } from 'next'
 
+import { env } from '@/env.mjs'
 import { LatestShows } from '@/features/shows'
 import { PROJECT_NAME } from '@/lib/constants'
-import { getBaseUrl } from '@/utils/getBaseUrl'
 
 export const generateMetadata = async (): Promise<Metadata> => {
-	const host = getBaseUrl(true)
 	return {
 		title: 'Shows & Movies & Series',
 		openGraph: {
 			type: 'website',
 			locale: 'en_US',
 			siteName: PROJECT_NAME,
-			url: `${host}/shows`,
+			url: `${env.NEXT_PUBLIC_BASE_URL}/shows`,
 		},
 	}
 }

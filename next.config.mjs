@@ -22,7 +22,7 @@ const ContentSecurityPolicy = `
   frame-src 'self';
   manifest-src 'self';
   object-src 'none';
-  script-src 'self' ${env.NODE_ENV === 'development' ? "'unsafe-eval' 'unsafe-inline'" : ''};
+  script-src 'self' ${env.VERCEL_ENV === 'development' ? "'unsafe-eval' 'unsafe-inline'" : ''};
   style-src 'self' https: 'unsafe-inline';
   img-src * blob: data:;
   connect-src 'self' https://vitals.vercel-insights.com/v1/vitals;

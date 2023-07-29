@@ -3,14 +3,13 @@ import { PageParams } from '@/types/pageParams'
 
 import { PageContainer } from '@/components/PageContainer'
 import { SectionContainer } from '@/components/SectionContainer'
+import { env } from '@/env.mjs'
 import { UserShows } from '@/features/show/components/UserShows/UserShows'
 import { UserHeader } from '@/features/user/components/UserHeader/UserHeader'
 import { DEFAULT_PROFILE_BIOGRAPHY, PROJECT_NAME } from '@/lib/constants'
 import { getUserByUsername } from '@/lib/user'
-import { getBaseUrl } from '@/utils/getBaseUrl'
 
 export const generateMetadata = async ({ params: { username } }: UserPageProps): Promise<Metadata> => {
-	const host = getBaseUrl(true)
 	const { username: userName, name, image, biography } = await getUserByUsername(username)
 
 	const [firstName, lastName] = name?.split(' ') || []
@@ -21,7 +20,7 @@ export const generateMetadata = async ({ params: { username } }: UserPageProps):
 			type: 'profile',
 			locale: 'en_US',
 			siteName: PROJECT_NAME,
-			url: `${host}/user/${String(userName)}`,
+			url: `${env.NEXT_PUBLIC_BASE_URL}/user/${String(userName)}`,
 			description: biography || DEFAULT_PROFILE_BIOGRAPHY,
 			firstName,
 			lastName,
