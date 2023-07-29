@@ -13,7 +13,7 @@
 		"build-storybook": "storybook build",
 		"commit": "commit",
 		"db:migrate": "dotenv -e .env.local -- npx prisma migrate dev",
-		"db:push": "dotenv -e .env.production -- npx prisma db push",
+		"db:push": "dotenv -e .env.production.local -- npx prisma db push",
 		"db:studio": "dotenv -e .env.production -- npx prisma studio",
 		"dev": "next dev",
 		"dev:docker": "concurrently --kill-others-on-fail \"npm run start:db\" \"npm run start:dev\"",

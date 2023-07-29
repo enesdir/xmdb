@@ -1,7 +1,5 @@
 import configureBundleAnalyzer from '@next/bundle-analyzer'
 
-import { env } from './src/env.mjs'
-
 /**
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful for
  * Docker builds.
@@ -11,10 +9,10 @@ import { env } from './src/env.mjs'
 const withBundleAnalyzer = configureBundleAnalyzer({
 	enabled: process.env.ANALYZE === 'true',
 })
-
+// TODO: find better rule for script-src
 // https://securityheaders.com
 const ContentSecurityPolicy = `
-  default-src 'none';
+  default-src 'self';
   base-uri 'self';
   font-src 'self' https: data:;
   form-action 'self';
@@ -22,10 +20,10 @@ const ContentSecurityPolicy = `
   frame-src 'self';
   manifest-src 'self';
   object-src 'none';
-  script-src 'self' ${env.VERCEL_ENV === 'development' ? "'unsafe-eval' 'unsafe-inline'" : ''};
+  script-src 'self' 'unsafe-eval' 'unsafe-inline';
   style-src 'self' https: 'unsafe-inline';
   img-src * blob: data:;
-  connect-src 'self' https://vitals.vercel-insights.com/v1/vitals;
+  connect-src *;
   worker-src 'self' blob:;
   upgrade-insecure-requests
 `
@@ -163,7 +161,7 @@ const nextConfig = {
 			},
 			// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
 			{
-				source: '/login',
+				source: '/ap/login',
 				headers: [
 					{
 						key: 'X-Frame-Options',
@@ -173,7 +171,7 @@ const nextConfig = {
 			},
 			// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
 			{
-				source: '/register',
+				source: '/ap/register',
 				headers: [
 					{
 						key: 'X-Frame-Options',

@@ -27,7 +27,7 @@ export default function ErrorPage() {
 							</div>
 						</div>
 						<div className='absolute -bottom-5 right-32 h-0 w-0 border-b-0 border-l-[32px] border-r-0 border-t-[21px] border-solid border-x-transparent border-t-[--brand-yellow2] leading-[0] lg:right-60'></div>
-						<div className='text-2xl text-white'>Where&aposs the page, Lebowski? Where&aposs the page?</div>
+						<div className='text-2xl text-white'>Where&apos;s the page, Lebowski? Where&apos;s the page?</div>
 					</div>
 					<div className='flex w-full items-center justify-end p-5'>
 						<span className='text-gray-600'>Blond Thug, </span>
