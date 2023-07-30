@@ -4,6 +4,7 @@
 	"no-inline-html": {
 		"allowed_elements": [
 			"a",
+			"p",
 			"code",
 			"dl",
 			"dt",
@@ -11,6 +12,7 @@
 			"sub",
 			"sup",
 			"summary",
+			"details",
 			"detail",
 			"img",
 			"table",

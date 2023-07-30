@@ -1,0 +1,5 @@
+---
+requesters:
+  enesdir:
+    labels:
+      - automerge

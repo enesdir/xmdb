@@ -39,15 +39,6 @@ const t = initTRPC.context<TRPCContext>().create({
 	},
 })
 
-/** Reusable middleware that enforces users are logged in before running the procedure. */
-const isAuthed = t.middleware(({ ctx: { session }, next }) => {
-	if (!session) {
-		throw new TRPCError({ code: 'UNAUTHORIZED' })
-	}
-
-	return next({ ctx: { session } })
-})
-
 /**
  * This is how you create new routers and sub-routers in your tRPC API.
  *
@@ -64,6 +55,15 @@ export const createTRPCRouter = t.router
  * @see https://trpc.io/docs/v10/procedures
  */
 export const publicProcedure = t.procedure
+
+/** Reusable middleware that enforces users are logged in before running the procedure. */
+const isAuthed = t.middleware(({ ctx: { session }, next }) => {
+	if (!session) {
+		throw new TRPCError({ code: 'UNAUTHORIZED' })
+	}
+
+	return next({ ctx: { session } })
+})
 
 /**
  * Protected (authenticated) procedure

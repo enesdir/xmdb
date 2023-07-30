@@ -1,0 +1,29 @@
+{
+	"Typescipt Barrel File": {
+		"scope": "typescript,typescriptreact",
+		"prefix": "!barrel",
+		"body": [
+			"// codegen:start {preset: barrel, include: ${1|./*.ts,./*.tsx,./*.ts\\, exclude: ./file.ts,./*.tsx\\, exclude: ./file.tsx|}}",
+			"// codegen:end"
+		],
+		"description": "Code to have ESLint generate barrel file"
+	},
+	"Storybook Story": {
+		"prefix": "sbstory",
+		"body": [
+			"import { Meta, StoryObj } from '@storybook/react'",
+			"",
+			"import { ${1:Component} } from './${2:File}'",
+			"",
+			"export default {",
+			"\ttitle: '${3:Story Name}',",
+			"\tcomponent: ${1:Component},",
+			"} satisfies Meta<typeof ${1:Component}>",
+			"",
+			"type StoryDef = StoryObj<typeof ${1:Component}>",
+			"",
+			"export const Default = {} satisfies StoryDef"
+		],
+		"description": "Storybook Story"
+	}
+}

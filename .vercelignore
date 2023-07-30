@@ -1,14 +1,19 @@
 # <!-- markdownlint-disable-file -->
 # Local build files
-**/.next
 **/node_modules
 **/.DS_Store
 
-# ESLint: ignore all eslint-related stuff so we won't be annoyed by ESLint notification
-**/.eslint*
+# next.js
+.next/
+out/
+build
+
+# ESLint cache files
+.eslintcache
 
 # vercel
 **/.vercel
+.turbo
 
 # Vitest
 **/vitest.config.ts
@@ -22,6 +27,7 @@ test/
 **/*.stories.tsx
 
 # other
+.github
 .vscode
 docker-compose.yml
 README.md
@@ -29,7 +35,17 @@ LICENSE.md
 knip.json
 .markdownlint.json
 .lintstagedrc.cjs
-.env.example
-.env.production.example
 .commitlintrc.cjs
 **/.prettier*
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+.env.example
+.env.production.example
+
+# TypeScript incremental compilation cache
+*.tsbuildinfo
