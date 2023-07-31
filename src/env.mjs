@@ -14,6 +14,8 @@ const server = z.object({
 	CLOUDINARY_API_SECRET: z.string().nonempty(),
 	CLOUDINARY_CLOUD_NAME: z.string().nonempty(),
 	CLOUDINARY_ASSETS_FOLDER: z.string().nonempty(),
+	TMDB_READ_ACCESS_TOKEN: z.string().min(1),
+	TMDB_API_KEY: z.string().min(1),
 })
 
 /**
@@ -41,6 +43,8 @@ const processEnv = {
 	CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
 	CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
 	CLOUDINARY_ASSETS_FOLDER: process.env.CLOUDINARY_ASSETS_FOLDER,
+	TMDB_READ_ACCESS_TOKEN: process.env.TMDB_READ_ACCESS_TOKEN,
+	TMDB_API_KEY: process.env.TMDB_API_KEY,
 }
 
 // Don't touch the part below
