@@ -1,104 +1,80 @@
-import type { TypeOf } from 'zod'
-
 import { z } from 'zod'
 
-export const getMovieByIDSchema = z.object({
-	movieId: z.number(),
+export const getByTmdbIDSchema = z.object({
+	tmdbId: z.number(),
 })
-export type GetMovieByIDSchema = TypeOf<typeof getMovieByIDSchema>
 
 // BelongsToCollection
-export const BelongsToCollection = z.object({
+export const belongsToCollection = z.object({
 	id: z.number().optional(),
 	name: z.string().optional(),
 	poster_path: z.string().nullable().optional(),
 	backdrop_path: z.string().nullable().optional(),
 })
 
-export type BelongsToCollectionType = z.infer<typeof BelongsToCollection>
-
 // Genre
-export const Genre = z.object({
+export const genre = z.object({
 	id: z.number().optional(),
 	name: z.string().optional(),
 })
 
-export type GenreType = z.infer<typeof Genre>
-
 // ProductionCompany
-export const ProductionCompany = z.object({
+export const productionCompany = z.object({
 	id: z.number().optional(),
 	logo_path: z.string().nullable().optional(),
 	name: z.string().optional(),
 	origin_country: z.string().optional(),
 })
 
-export type ProductionCompanyType = z.infer<typeof ProductionCompany>
-
 // ProductionCountry
-export const ProductionCountry = z.object({
+export const productionCountry = z.object({
 	iso_3166_1: z.string().optional(),
 	name: z.string().optional(),
 })
 
-export type ProductionCountryType = z.infer<typeof ProductionCountry>
-
 // SpokenLanguage
-const SpokenLanguage = z.object({
-	english_name: z.string().optional(),
-	iso_639_1: z.string().optional(),
-	name: z.string().optional(),
+const spokenLanguage = z.object({
+	english_name: z.string().nullable(),
+	iso_639_1: z.string().nullable(),
+	name: z.string().nullable(),
 })
 
-export type SpokenLanguageType = z.infer<typeof SpokenLanguage>
+const baseCrew = z.object({
+	adult: z.boolean(),
+	gender: z.number().int().nullable(),
+	id: z.number().int(),
+	known_for_department: z.string().nullable(),
+	name: z.string(),
+	original_name: z.string().nullable(),
+	popularity: z.number().nullable(),
+	profile_path: z.string().nullable(),
+	credit_id: z.string().nullable(),
+})
 
 // Cast
-export const Cast = z.object({
-	adult: z.boolean().optional(),
-	gender: z.number().optional(),
-	id: z.number().int().optional(),
-	known_for_department: z.string().optional(),
-	name: z.string().optional(),
-	original_name: z.string().optional(),
-	popularity: z.number().optional(),
-	profile_path: z.string().nullish(),
-	cast_id: z.number().int().optional(),
-	character: z.string().optional(),
-	credit_id: z.string().optional(),
-	order: z.number().optional(),
-	department: z.string().optional(),
-	job: z.string().optional(),
+export const cast = baseCrew.extend({
+	cast_id: z.number().int().nullable(),
+	character: z.string().nullable(),
+	order: z.number().int().nullable(),
 })
-
-export type CastType = z.infer<typeof Cast>
 
 // Crew
-const Crew = z.object({
-	adult: z.boolean().optional(),
-	gender: z.number().optional(),
-	id: z.number().optional(),
-	known_for_department: z.string().optional(),
-	name: z.string().optional(),
-	original_name: z.string().optional(),
-	popularity: z.number().optional(),
-	profile_path: z.string().optional(),
-	credit_id: z.string().optional(),
-	department: z.string().optional(),
-	job: z.string().optional(),
+export const crew = baseCrew.extend({
+	department: z.string().nullable(),
+	job: z.string().nullable(),
 })
 
-export type CrewType = z.infer<typeof Crew>
+// Credits in MovieDetails
+export const movieDetailsCrew = z.intersection(crew.partial(), cast.partial())
 
 // Credits
-export const Credits = z.object({
+export const credits = z.object({
 	id: z.number().int(),
-	cast: z.array(Cast).optional(),
-	crew: z.array(Cast).optional(),
+	cast: z.array(cast).nullable(),
+	crew: z.array(crew).nullable(),
 })
 
-export type CreditsType = z.infer<typeof Credits>
-
-export const ExternalIdsSchema = z.object({
+export const externalIdsSchema = z.object({
 	imdb_id: z.string().nullable(),
 	wikidata_id: z.string().nullable(),
 	facebook_id: z.string().nullable(),
@@ -107,40 +83,64 @@ export const ExternalIdsSchema = z.object({
 })
 // export const
 // MovieDetailsResults
-export const movieDetailsSchema = z.object({
-	adult: z.boolean().optional(),
-	backdrop_path: z.string().nullable().optional(),
-	belongs_to_collection: BelongsToCollection.nullable().optional(),
-	budget: z.number().int().optional(),
-	genres: z.array(Genre).optional(),
-	homepage: z.string(),
+export const movieDetailsBaseSchema = z.object({
+	adult: z.boolean().nullable(),
+	backdrop_path: z.string().nullable(),
+	belongs_to_collection: belongsToCollection.nullable(),
+	budget: z.number().int().nullable(),
+	genres: z.array(genre).nullable(),
+	homepage: z.string().nullable(),
 	id: z.number().int(),
-	imdb_id: z.string().min(9).max(10).optional().nullable().or(z.literal('')),
-	original_language: z.string().optional(),
-	original_title: z.string().optional(),
-	overview: z.string().nullable().optional(),
-	popularity: z.number().optional(),
+	imdb_id: z.string().min(9).max(10).nullable().or(z.literal('')),
+	original_language: z.string().nullable(),
+	original_title: z.string().nullable(),
+	overview: z.string().nullable(),
+	popularity: z.number().nullable(),
 	poster_path: z.string().nullable(),
-	production_companies: z.array(ProductionCompany).optional(),
-	production_countries: z.array(ProductionCountry).optional(),
+	production_companies: z.array(productionCompany).nullish(),
+	production_countries: z.array(productionCountry).nullish(),
 	release_date: z
 		.string()
 		.regex(/^$|^(\d{4})-(\d{2})-(\d{2})$/)
-		.nullable()
-		.optional(),
-	revenue: z.number().int().optional(),
-	runtime: z.number().nullable().optional(),
-	spoken_languages: z.array(SpokenLanguage).optional(),
+		.nullable(),
+	revenue: z.number().int().nullable(),
+	runtime: z.number().nullable(),
+	spoken_languages: z.array(spokenLanguage).nullable(),
 	status: z
 		.enum(['Rumored', 'Planned', 'In Production', 'Post Production', 'Released', 'Canceled'])
-		.optional(),
-	tagline: z.string().nullable().optional(),
+		.nullable(),
+	tagline: z.string().nullable(),
 	title: z.string(),
-	video: z.boolean().optional(),
-	vote_average: z.number().optional(),
-	vote_count: z.number().int().optional(),
-	credits: z.object({ cast: z.array(Cast).optional(), crew: z.array(Cast).optional() }).optional(),
-	external_ids: ExternalIdsSchema.optional(),
+	video: z.boolean().nullable(),
+	vote_average: z.number().nullable(),
+	vote_count: z.number().int().nullable(),
 })
 
-export type MovieDetails = TypeOf<typeof movieDetailsSchema>
+const movieDetailsWithCreditsSchema = movieDetailsBaseSchema.extend({
+	credits: z
+		.object({ cast: z.array(movieDetailsCrew).nullable(), crew: z.array(movieDetailsCrew).nullable() })
+		.nullable(),
+})
+
+const movieDetailsWithExternalIDSchema = movieDetailsBaseSchema.extend({
+	external_ids: externalIdsSchema.nullable(),
+})
+
+export const movieDetailsSchema = z.intersection(
+	movieDetailsWithCreditsSchema,
+	movieDetailsWithExternalIDSchema
+)
+
+// export as a Type
+export type GetByTmdbIDSchema = z.infer<typeof getByTmdbIDSchema>
+export type ProductionCompany = z.infer<typeof productionCompany>
+export type BelongsToCollection = z.infer<typeof belongsToCollection>
+export type Genre = z.infer<typeof genre>
+export type ProductionCountry = z.infer<typeof productionCountry>
+export type SpokenLanguage = z.infer<typeof spokenLanguage>
+export type CastType = z.infer<typeof cast>
+export type CrewType = z.infer<typeof crew>
+export type MovieDetailsCrew = z.infer<typeof movieDetailsCrew>
+export type Credits = z.infer<typeof credits>
+export type MovieDetailsBase = z.infer<typeof movieDetailsSchema>
+export type MovieDetails = z.infer<typeof movieDetailsSchema>

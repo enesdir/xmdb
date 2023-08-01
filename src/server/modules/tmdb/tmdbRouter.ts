@@ -1,10 +1,10 @@
 import { createTRPCRouter, publicProcedure } from '@/server/trpc'
 import { getMovieByIdHandler } from './tmdbHandler'
-import { getMovieByIDSchema, movieDetailsSchema } from './tmdbSchemas'
+import { getByTmdbIDSchema, movieDetailsSchema } from './tmdbSchemas'
 
 export const tmdbRouter = createTRPCRouter({
 	getMovieById: publicProcedure
-		.input(getMovieByIDSchema)
+		.input(getByTmdbIDSchema)
 		.output(movieDetailsSchema)
 		.query(({ input }) => getMovieByIdHandler(input)),
 })
