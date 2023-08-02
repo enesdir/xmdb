@@ -5,7 +5,7 @@ import { PageParams } from '@/types/pageParams'
 import { SectionContainer } from '@/components/SectionContainer'
 import { env } from '@/env.mjs'
 import { PROJECT_NAME } from '@/lib/constants'
-import { getMovieById } from '@/lib/tmdb'
+import { getShowById } from '@/lib/tmdb'
 
 export const generateMetadata = async ({ params: { xmdbId } }: XMDBShowPageProps): Promise<Metadata> => {
 	return {
@@ -14,7 +14,7 @@ export const generateMetadata = async ({ params: { xmdbId } }: XMDBShowPageProps
 			type: 'article',
 			locale: 'en_US',
 			siteName: PROJECT_NAME,
-			url: `${env.NEXT_PUBLIC_BASE_URL}/title/${String(xmdbId)}`,
+			url: `${env.NEXT_PUBLIC_BASE_URL}/tv/${String(xmdbId)}`,
 		},
 	}
 }
@@ -24,11 +24,11 @@ type XMDBShowPageProps = Readonly<{
 }>
 
 export default async function XMDBShowPage({ params: { xmdbId } }: XMDBShowPageProps) {
-	const movie = await getMovieById(Number(xmdbId))
+	const show = await getShowById(Number(xmdbId))
 	return (
 		<>
 			<SectionContainer>
-				<p>celebrity: {JSON.stringify(movie)}</p>
+				<p>celebrity: {JSON.stringify(show)}</p>
 			</SectionContainer>
 		</>
 	)

@@ -1,5 +1,5 @@
 import type { AxiosResponse } from 'axios'
-import type { GetByTmdbIDSchema } from './tmdbSchemas'
+import type { GetByTmdbIDSchema, GetDiscoverSchema } from './tmdbSchemas'
 
 import { tmdb } from '@/server/tmdb'
 
@@ -19,3 +19,13 @@ export const getMovieById = async <ResType>(
 	tmdbId: GetByTmdbIDSchema['tmdbId'],
 	query?: GetMovieQueryProps
 ): Promise<AxiosResponse<ResType>> => tmdb.get(`/movie/${tmdbId}`, { params: query })
+
+export const getShowById = async <ResType>(
+	tmdbId: GetByTmdbIDSchema['tmdbId'],
+	query?: GetMovieQueryProps
+): Promise<AxiosResponse<ResType>> => tmdb.get(`/tv/${tmdbId}`, { params: query })
+
+export const getDiscover = async <ResType>(
+	type: GetDiscoverSchema['type'],
+	query?: GetDiscoverSchema['options']
+): Promise<AxiosResponse<ResType>> => tmdb.get(`/discover/${type}`, { params: query })
