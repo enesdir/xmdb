@@ -7,11 +7,29 @@ import superjson from 'superjson'
 import { getTRPCUrl, trpc } from '@/lib/trpc'
 
 const queryClient = new QueryClient({
-	defaultOptions: { queries: { refetchOnWindowFocus: false } },
+	defaultOptions: {
+		queries: {
+			refetchOnMount: false,
+			refetchOnWindowFocus: false,
+			refetchOnReconnect: true,
+			retry: false,
+			staleTime: 30 * 60 * 1000,
+		},
+	},
 })
 
 const trpcClient = trpc.createClient({
+	/**
+	 * Transformer used for data de-serialization from the server
+	 *
+	 * @see https://trpc.io/docs/data-transformers
+	 */
 	transformer: superjson,
+	/**
+	 * Links used to determine request flow from client to server
+	 *
+	 * @see https://trpc.io/docs/links
+	 */
 	links: [
 		loggerLink({
 			enabled: (opts) =>
