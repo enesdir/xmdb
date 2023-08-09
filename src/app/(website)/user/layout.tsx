@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react'
 
-import { MainWrapper } from '@/features/layout/components/MainWrapper'
+import { MainWhiteWrapper } from '@/components/Containers/MainWhiteWrapper'
 
 export default function UserLayout({ children }: PropsWithChildren) {
-	return <MainWrapper>{children}</MainWrapper>
+	return <MainWhiteWrapper>{children}</MainWhiteWrapper>
 }

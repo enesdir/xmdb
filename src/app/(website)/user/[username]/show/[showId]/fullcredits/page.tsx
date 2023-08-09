@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { PageParams } from '@/types/pageParams'
 
-import { SectionContainer } from '@/components/SectionContainer'
+import { SectionContainer } from '@/components/Containers/SectionContainer'
 import { env } from '@/env.mjs'
 import { PROJECT_NAME } from '@/lib/constants'
 import { getShowById } from '@/lib/show'

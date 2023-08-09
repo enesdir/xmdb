@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { PageParams } from '@/types/pageParams'
 
-import { PageContainer } from '@/components/PageContainer'
+import { PageContainer } from '@/components/Containers/PageContainer'
 import { env } from '@/env.mjs'
 import { ShowCastList } from '@/features/show/'
 import { ShowHero } from '@/features/show/components/ShowHero'

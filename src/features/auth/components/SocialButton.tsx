@@ -1,23 +1,10 @@
-import type { IconType } from 'react-icons'
-
 import { BsDiscord, BsFacebook } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
 
+import { LogoIcon } from '@/components/Brand'
 import { cn } from '@/utils/cn'
 
-type Variant = 'discord' | 'facebook' | 'google'
-
-const variants: Record<Variant, string> = {
-	discord: 'bg-[#7289d9]',
-	facebook: 'bg-[#1877f2]',
-	google: 'border bg-white text-black',
-}
-
-const icons: Record<Variant, IconType> = {
-	discord: BsDiscord,
-	facebook: BsFacebook,
-	google: FcGoogle,
-}
+type Variant = 'xmdb' | 'discord' | 'facebook' | 'google'
 
 type SocialButtonProps = Readonly<{
 	variant: Variant
@@ -26,19 +13,21 @@ type SocialButtonProps = Readonly<{
 }>
 
 export const SocialButton = ({ variant, text, onClick }: SocialButtonProps) => {
-	const Icon = icons[variant]
-
 	return (
 		<button
 			type='button'
 			onClick={onClick}
 			className={cn(
-				'flex h-9 w-full items-center justify-center gap-x-2 rounded-lg font-medium text-white',
-				variants[variant]
+				'mx-2 flex h-9 w-full items-center justify-start gap-x-2 rounded-md border border-[#dddddd] py-1 pl-4 font-black text-[#555555]'
 			)}
 		>
-			<Icon className='text-lg' />
-			{text}
+			<span className='inline-block align-middle text-xl'>
+				{variant === 'xmdb' && <LogoIcon />}
+				{variant === 'google' && <FcGoogle className='' />}
+				{variant === 'facebook' && <BsFacebook className='text-[#1877f2]' />}
+				{variant === 'discord' && <BsDiscord className='text-[#7289d9]' />}
+			</span>
+			Sign in with {text}
 		</button>
 	)
 }

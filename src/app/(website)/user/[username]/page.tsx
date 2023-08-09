@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { PageParams } from '@/types/pageParams'
 
-import { PageContainer } from '@/components/PageContainer'
-import { SectionContainer } from '@/components/SectionContainer'
+import { PageContainer } from '@/components/Containers/PageContainer'
+import { SectionContainer } from '@/components/Containers/SectionContainer'
 import { env } from '@/env.mjs'
 import { UserShows } from '@/features/show/components/UserShows/UserShows'
 import { UserHeader } from '@/features/user/components/UserHeader/UserHeader'

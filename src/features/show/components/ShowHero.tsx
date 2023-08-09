@@ -1,6 +1,6 @@
 import type { Show } from '@/server/modules/shows/showsSchemas'
 
-import { SectionContainer } from '@/components/SectionContainer'
+import { SectionContainer } from '@/components/Containers/SectionContainer'
 import { OtherMedia, Poster, ShowHeader } from '@/features/show/'
 import { Player } from './HeroBody/Player'
 import { HeroDetail } from './HeroDetail/HeroDetail'
