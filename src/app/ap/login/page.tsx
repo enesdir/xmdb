@@ -1,7 +1,7 @@
 import { Logo } from '@/components/Brand'
-import { Button } from '@/components/Button'
-import { AuthLink } from '@/components/Link/AuthLink'
+import { CustomLink } from '@/components/CustomLink'
 import { TextWithDivider } from '@/components/Text'
+import { CardContainer, CardTitle } from '@/features/auth/components/Card'
 import { SignInForm } from '@/features/auth/components/SignInForm/SignInForm'
 
 // import { redirect } from 'next/navigation'
@@ -15,19 +15,17 @@ export default async function Login() {
 		<section>
 			<div className='mx-auto py-8'>
 				<Logo />
-				<div className='mx-auto my-4 max-w-lg rounded-xl bg-white p-8 shadow shadow-slate-300'>
-					<h1 className='mb-4 text-4xl font-medium'>Sign in</h1>
+				<CardContainer>
+					<CardTitle text='Sign in' />
 					<SignInForm />
-					<div className='px-8'>
-						<Button fill className='' variant='brand'>
-							<span>Sign in</span>
-						</Button>
-						<TextWithDivider text='New to XMDb?' />
-						<p>
-							Don&apos;t have an account? <AuthLink href={'/ap/register'} label='Register' />
-						</p>
-					</div>
-				</div>
+					<TextWithDivider text='New to XMDb?' />
+					<p>
+						Don&apos;t have an account?{' '}
+						<CustomLink href='/ap/register' variant='classic'>
+							Register
+						</CustomLink>
+					</p>
+				</CardContainer>
 			</div>
 		</section>
 	)

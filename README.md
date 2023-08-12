@@ -29,6 +29,7 @@
 - [XMDb](#xmdb)
   - [Stacks](#stacks)
   - [Features](#features)
+  - [RoadMap](#roadmap)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Running Locally](#running-locally)
@@ -75,12 +76,17 @@ Tooling & Test:
 ## Features
 
 - Reponsive layout / navigation.
-- Sign In / Sign Up screens.
+- Sign In(Functional) / Sign Up(Functional) / Forgot Password screens.
 - Account profile screens.
 - Movie creation and listing
 - Search User / Search User Created Movies
 - Developer eXperience improved with ESLint, Prettier and Husky
 - Deployment made easy using Next.js
+
+## RoadMap
+
+- () The functionality should be added to the **Forgot Password** screen.
+- () UI improvements for TMDB.
 
 ## Getting Started
 

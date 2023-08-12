@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react'
 
-import '~/src/app/global.css'
+import '~/src/styles/global.css'
 
 import { withSearchBarProvider } from './withSearchBarProvider'
 import { withSessionProvider } from './withSessionProvider'

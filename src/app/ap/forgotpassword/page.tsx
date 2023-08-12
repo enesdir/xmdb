@@ -1,8 +1,9 @@
 // import { redirect } from 'next/navigation'
 // import { getServerSession } from 'next-auth'
-import { Button } from '@/components/Button'
-import { AuthLink } from '@/components/Link/AuthLink'
-import { TextField } from '@/components/TextField'
+import { Logo } from '@/components/Brand'
+import { CustomLink } from '@/components/CustomLink'
+import { CardContainer, CardTitle } from '@/features/auth/components/Card'
+import { ForgotPasswordForm } from '@/features/auth/components/ForgotPasswordForm/ForgotPasswordForm'
 
 export default async function ForgotPassword() {
 	// const session = await getServerSession()
@@ -10,24 +11,25 @@ export default async function ForgotPassword() {
 
 	return (
 		<section>
-			<div className='mx-auto my-10 max-w-lg rounded-xl bg-white p-8 shadow shadow-slate-300'>
-				<h1 className='text-4xl font-medium'>Password assistance</h1>
-				<p className='text-slate-500'>
-					Enter the email address associated with your XMDb account, then click Continue.
-				</p>
-
-				<form action='' className='my-10'>
-					<div className='flex flex-col space-y-5'>
-						<TextField type='email' label='Email address' placeholder='Your email' required={true} />
-						<Button fill className='' variant='brand'>
-							<span>Reset password</span>
-						</Button>
-
-						<p className='text-center'>
-							Not registered yet? <AuthLink href='/ap/register' label='Register now' hasIcon />
-						</p>
-					</div>
-				</form>
+			<div className='mx-auto py-8'>
+				<Logo />
+				<CardContainer>
+					<CardTitle text='Password assistance' />
+					<p className='text-black'>
+						Enter the email address associated with your XMDb account, then click Continue.
+					</p>
+					<ForgotPasswordForm />
+				</CardContainer>
+				<div>
+					<h1 className='text-[17px] font-normal leading-[1.255]'>Has your email address changed?</h1>
+					<p className='text-[13px]'>
+						Please visit our{' '}
+						<CustomLink href='#' variant='classic'>
+							Registration Help page
+						</CustomLink>{' '}
+						for account recovery assistance
+					</p>
+				</div>
 			</div>
 		</section>
 	)

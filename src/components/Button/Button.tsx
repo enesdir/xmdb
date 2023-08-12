@@ -52,7 +52,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			>
 				{isLoading && (
 					<div className='text-sm'>
-						<Spinner size='xs' />
+						<Spinner size='sm' />
 					</div>
 				)}
 				{icon && <div className='text-sm'>{icon}</div>}

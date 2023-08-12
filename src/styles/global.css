@@ -21,7 +21,6 @@
 }
 html {
 	scroll-behavior: smooth;
-	background: rgb(0, 0, 0);
 	line-height: 1.15;
 }
 
@@ -142,4 +141,21 @@ p {
 	margin-block-end: 1em;
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
+}
+
+/* ApFooter divider inner */
+@layer utilities {
+	.from-black-15 {
+		--tw-gradient-from: rgba(0, 0, 0, 0.15);
+	}
+
+	.via-black-3 {
+		--tw-gradient-stops: rgba(0, 0, 0, 0.03);
+	}
+}
+
+@layer utilities {
+	.bg-gradient-to-b {
+		background: linear-gradient(to bottom, var(--tw-gradient-from), var(--tw-gradient-stops), transparent);
+	}
 }
