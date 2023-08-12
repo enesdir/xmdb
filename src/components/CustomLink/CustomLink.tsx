@@ -15,7 +15,8 @@ type Variant = 'classic' | 'modern' | 'button'
 const variants: Record<Variant, string> = {
 	classic:
 		'space-x-1 text-[#0066c0] hover:cursor-pointer hover:text-[#c45500] hover:underline focus:outline-4 focus:-outline-offset-2 active:scale-95',
-	modern: 'bg-green-50 text-green-700 [&>svg]:text-green-400',
+	modern:
+		'relative m-0 inline-block cursor-pointer border-none text-center no-underline p-2 text-white/95 hover:bg-none hover:underline',
 	button: 'w-fit border-none text-white shadow-none hover:bg-[#2b2b2b]',
 }
 
@@ -39,14 +40,14 @@ export const CustomLink = <T,>({
 	hasExternalIcon,
 	...rest
 }: CustomLinkProps<T>) => {
-	if (href === 'string' && isExternal(href)) {
+	if (typeof href === 'string' && isExternal(href)) {
 		return (
 			<a
 				href={href as string}
 				target='_blank'
 				{...rest}
 				rel='noopener noreferrer'
-				className={cn('p-2 text-white/95 hover:bg-none hover:underline', commonClass, className)}
+				className={cn(commonClass, variants[variant], className)}
 			>
 				{children}
 				{hasExternalIcon && (
@@ -56,11 +57,11 @@ export const CustomLink = <T,>({
 						fill='none'
 						viewBox='0 0 24 24'
 						stroke='currentColor'
-						stroke-width='2'
+						strokeWidth='2'
 					>
 						<path
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 							d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
 						/>
 					</svg>
