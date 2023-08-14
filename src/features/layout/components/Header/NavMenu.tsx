@@ -22,7 +22,7 @@ export const NavMenu = ({ menuItems }: NavMenuProps) => {
 			<Button
 				icon={<AiOutlineMenu className='text-2xl leading-5' />}
 				variant='text'
-				className='order-3 hidden md:inline-flex'
+				className='order-3 hidden font-extrabold md:inline-flex'
 				onClick={() => {
 					openMenu()
 				}}

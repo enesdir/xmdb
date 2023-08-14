@@ -18,7 +18,7 @@ export const SocialButton = ({ variant, text, onClick }: SocialButtonProps) => {
 			type='button'
 			onClick={onClick}
 			className={cn(
-				'mx-2 flex h-9 w-full items-center justify-start gap-x-2 rounded-md border border-[#dddddd] py-1 pl-4 font-black text-[#555555]'
+				'flex h-9 w-full items-center justify-start gap-x-2 rounded-md border border-[#dddddd] py-1 pl-4 font-black text-[#555555]'
 			)}
 		>
 			<span className='inline-block align-middle text-xl'>

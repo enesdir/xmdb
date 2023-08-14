@@ -8,7 +8,7 @@ import Dropdown from '@/components/Dropdown/Dropdown'
 export const LanguageMenu = () => {
 	const buttonElements = () => (
 		<>
-			<span className='truncate font-medium capitalize leading-5 tracking-wide'>{'EN'}</span>
+			<span className='truncate font-extrabold capitalize leading-5 tracking-wide'>{'EN'}</span>
 		</>
 	)
 

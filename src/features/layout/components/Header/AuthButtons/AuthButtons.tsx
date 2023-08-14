@@ -1,14 +1,9 @@
-import { List, ListItem } from '@/components/List'
-import { SignInButton } from './SignInButton'
-import { SignUpButton } from './SignUpButton'
+import { CustomLink } from '@/components/CustomLink'
 
 export const AuthButtons = () => (
-	<List className='order-4 flex gap-x-2'>
-		<ListItem>
-			<SignInButton />
-		</ListItem>
-		<ListItem>
-			<SignUpButton />
-		</ListItem>
-	</List>
+	<div className='order-4 lg:order-7'>
+		<CustomLink className='min-h-[2.25rem] ' href='/registration/signin' variant='button'>
+			<span className='truncate'>Sign In</span>
+		</CustomLink>
+	</div>
 )

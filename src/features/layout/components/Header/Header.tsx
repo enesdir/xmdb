@@ -29,12 +29,11 @@ export const Header = ({ user }: HeaderProps) => (
 			<LogoPro />
 			<div className='max-wmd:hidden order-4 mx-2 my-0 h-8 w-px border border-solid border-white/20 md:order-6'></div>
 			<WatchListButton />
-			<div className='order-6'>
-				<AccessControl renderNoAccess={<AuthButtons />} permissions={['isLoggedIn']} user={user}>
-					{/* @ts-expect-error: we already check user */}
-					<UserMenu user={user} />
-				</AccessControl>
-			</div>
+			<AccessControl renderNoAccess={<AuthButtons />} permissions={['isLoggedIn']} user={user}>
+				{/* @ts-expect-error: we already check user */}
+				<UserMenu user={user} />
+			</AccessControl>
+
 			<LanguageMenu />
 		</div>
 	</nav>

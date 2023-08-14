@@ -12,7 +12,7 @@ export default function ErrorPage() {
 					<div className='mb-2 mt-4 w-60 items-center justify-center space-y-2 text-sm leading-6'>
 						<SignInOptions />
 					</div>
-					<TextWithDivider text='or' />
+					<TextWithDivider text='or' className='w-60' />
 					<div className='mb-2 mt-4 flex space-y-2 text-sm leading-6'>
 						<Link
 							href='/ap/register'
