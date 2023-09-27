@@ -118,11 +118,9 @@ const nextConfig = {
 	// },
 	// Experimental configs
 	experimental: {
-		appDir: true,
 		typedRoutes: true,
 		serverComponentsExternalPackages: ['@prisma/client', 'bcrypt'],
 		serverActions: true,
-		legacyBrowsers: false,
 		outputFileTracingExcludes: {
 			'/*': ['./public/favicon/**/*.png'],
 			'/**/*': ['./public/favicon/**/*.png'],
