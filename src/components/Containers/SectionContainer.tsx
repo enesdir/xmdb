@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from 'react'
-
 import { PageContainer } from './PageContainer'
+
+import type { PropsWithChildren } from 'react'
 
 export const SectionContainer = ({ children }: PropsWithChildren) => {
 	return (

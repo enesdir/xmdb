@@ -1,5 +1,7 @@
 import { type MetadataRoute } from 'next'
 
+import { siteConfig } from '../constants/siteConfig'
+
 export default function robots(): MetadataRoute.Robots {
 	return {
 		rules: {
@@ -7,6 +9,7 @@ export default function robots(): MetadataRoute.Robots {
 			allow: '/',
 			disallow: '/app/',
 		},
-		sitemap: 'https://example.com/sitemap.xml',
+		sitemap: `${siteConfig.siteUrl}/sitemap.xml`,
+		host: siteConfig.siteUrl,
 	}
 }

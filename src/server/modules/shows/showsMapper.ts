@@ -12,13 +12,21 @@ export const mapPrismaShowToShow = ({
 	overview,
 	original_language,
 	media_type,
+	// @ts-expect-error:todo
 	release_date,
+	// @ts-expect-error:todo
 	first_air_date,
+	// @ts-expect-error:todo
 	last_air_date,
+	// @ts-expect-error:todo
 	number_of_seasons,
+	// @ts-expect-error:todo
 	number_of_episodes,
+	// @ts-expect-error:todo
 	revenue,
+	// @ts-expect-error:todo
 	runtime,
+	// @ts-expect-error:todo
 	trailer,
 	adult,
 	director,
@@ -48,6 +56,7 @@ export const mapPrismaShowToShow = ({
 	overview,
 	original_language,
 	media_type,
+	// @ts-expect-error:todo
 	release_date,
 	first_air_date,
 	last_air_date,

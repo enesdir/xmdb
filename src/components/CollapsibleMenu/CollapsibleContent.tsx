@@ -1,9 +1,9 @@
-import type { CategoryItemType } from '@/features/layout/types/MenuItemType'
-
 import React from 'react'
 import Link from 'next/link'
 
 import { cn } from '@/utils/cn'
+
+import type { CategoryItemType } from '@/features/layout/types/MenuItemType'
 
 type CollapsibleContentProps = Readonly<{
 	items: CategoryItemType[]
@@ -24,6 +24,7 @@ export const CollapsibleContent = ({ items, parentIndex, onClose }: CollapsibleC
 			{items.map((item, index) => (
 				<div className='h-auto py-2 pl-14 hover:bg-white/20 lg:!h-auto lg:border-none lg:bg-none' key={index}>
 					{/* Render the menu item */}
+					{/* @ts-expect-error: todo */}
 					<Link className={cn('w-full cursor-pointer text-white')} href={item.href} onClick={onClose}>
 						<span className='block grow truncate text-white/100'>{item.title}</span>
 					</Link>

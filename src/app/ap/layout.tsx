@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from 'react'
-
 import { APFooter } from './footer'
+
+import type { PropsWithChildren } from 'react'
 
 export default async function WebsiteLayoutContainer({ children }: PropsWithChildren) {
 	return (

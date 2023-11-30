@@ -1,12 +1,12 @@
 'use client'
 
-import type { MenuItemType } from '@/features/layout/types/MenuItemType'
-
 import { useCallback, useState } from 'react'
 
 import { cn } from '@/utils/cn'
 import { CollapsibleButton } from './CollapsibleButton'
 import { CollapsibleContent } from './CollapsibleContent'
+
+import type { MenuItemType } from '@/features/layout/types/MenuItemType'
 
 export type CollapsibleMenuProps = Readonly<{ menu: MenuItemType[]; onClose: () => void }>
 /**

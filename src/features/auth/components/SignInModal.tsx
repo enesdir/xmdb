@@ -1,7 +1,7 @@
-import type { ComponentProps } from 'react'
-
 import { Modal } from '@/components/Modal/Modal'
 import { SignInForm } from './SignInForm/SignInForm'
+
+import type { ComponentProps } from 'react'
 
 type SignInModalProps = ComponentProps<typeof Modal>
 

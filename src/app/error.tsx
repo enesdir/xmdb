@@ -1,9 +1,9 @@
 'use client'
 
 // Error components must be Client components
-import type { Metadata } from 'next/types'
-
 import { useEffect } from 'react'
+
+import type { Metadata } from 'next/types'
 
 export const metadata: Metadata = {
 	title: 'Something Wrong',

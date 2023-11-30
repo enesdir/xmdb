@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
-
 import { Trends } from './Trends'
+
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
 	title: 'Main/Trends',

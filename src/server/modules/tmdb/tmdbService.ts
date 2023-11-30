@@ -1,7 +1,7 @@
+import { tmdb } from '@/server/tmdb'
+
 import type { AxiosResponse } from 'axios'
 import type { GetByTmdbIDSchema, GetDiscoverSchema } from './tmdbSchemas'
-
-import { tmdb } from '@/server/tmdb'
 
 type S = 'credits' | 'videos' | 'watch/providers' | 'recommendations' | 'external_ids'
 type AppendToResponseType =

@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
-
 import { AiOutlineSmile } from 'react-icons/ai'
 
 import { IconButton } from './IconButton'
+
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
 	title: 'UI/IconButton',

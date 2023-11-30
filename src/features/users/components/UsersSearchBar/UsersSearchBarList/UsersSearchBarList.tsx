@@ -1,6 +1,6 @@
-import type { User } from '@/server/modules/users/usersSchemas'
-
 import { UserSearchBarListItem } from './UsersSearchBarListItem'
+
+import type { User } from '@/server/modules/users/usersSchemas'
 
 type UsersSearchBarListProps = Readonly<{
 	onItemClick?: () => void

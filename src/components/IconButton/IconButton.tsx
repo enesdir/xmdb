@@ -1,8 +1,8 @@
-import type { ComponentPropsWithRef, ReactNode } from 'react'
-
 import { forwardRef } from 'react'
 
 import { cn } from '@/utils/cn'
+
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 type IconButtonProps = Readonly<
 	{

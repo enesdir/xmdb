@@ -1,5 +1,3 @@
-import type { User } from '@/server/modules/users/usersSchemas'
-
 import { useState } from 'react'
 
 import { Button } from '@/components/Button'
@@ -7,6 +5,8 @@ import { FileButton } from '@/components/FileButton'
 import { UserAvatar } from '@/components/UserAvatar'
 import { createUrlFromFile } from '@/utils/file'
 import { useUpdateUserAvatarForm } from './useUpdateUserAvatarForm'
+
+import type { User } from '@/server/modules/users/usersSchemas'
 
 type UpdateUserAvatarFormProps = Readonly<{
 	onSuccess?: () => void

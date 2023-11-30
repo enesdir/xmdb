@@ -1,7 +1,5 @@
 'use client'
 
-import type { Dispatch, PropsWithChildren, SetStateAction } from 'react'
-
 import { Fragment } from 'react'
 import { useRouter } from 'next/navigation'
 import { Dialog, Transition } from '@headlessui/react'
@@ -10,6 +8,8 @@ import { IoCloseSharp } from 'react-icons/io5'
 import { IconButton } from '@/components/IconButton'
 import { cn } from '@/utils/cn'
 import { ModalTitle } from './ModalTitle'
+
+import type { Dispatch, PropsWithChildren, SetStateAction } from 'react'
 
 type ModalProps = Readonly<
 	{

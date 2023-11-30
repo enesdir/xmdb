@@ -1,6 +1,6 @@
-import type { Show } from '@/server/modules/shows/showsSchemas'
-
 import Link from 'next/link'
+
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type UsersSearchBarListItemProps = Readonly<{
 	onClick?: () => void

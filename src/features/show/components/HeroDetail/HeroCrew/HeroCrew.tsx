@@ -1,7 +1,7 @@
-import type { CrewCategoryType } from '@/features/show/types/crewCategoryType'
-
 import { List } from '@/components/List'
 import { HeroCrewCategory } from './HeroCrewCategory'
+
+import type { CrewCategoryType } from '@/features/show/types/crewCategoryType'
 
 type HeroCrewProps = Readonly<{
 	crewCategories: CrewCategoryType[]

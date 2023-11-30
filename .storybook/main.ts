@@ -10,8 +10,11 @@ const config: StorybookConfig = {
 	docs: {
 		autodocs: 'tag',
 	},
+	logLevel: 'error',
+	staticDirs: ['../public'],
 	core: {
 		disableTelemetry: true, // 👈 Disables telemetry
+		disableWhatsNewNotifications: true,
 	},
 }
 

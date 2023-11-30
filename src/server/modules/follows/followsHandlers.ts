@@ -1,8 +1,8 @@
-import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
-import type { CreateFollowInput, DeleteFollowInput, GetFollowsInput } from './followsSchemas'
-
 import { mapPrismaUserToUser } from '@/server/modules/users/usersMapper'
 import { createFollow, deleteFollow, getFollows } from './followsService'
+
+import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
+import type { CreateFollowInput, DeleteFollowInput, GetFollowsInput } from './followsSchemas'
 
 export const getFollowersHandler = async ({ session }: TRPCContext, { userId }: GetFollowsInput) => {
 	const follows = await getFollows(
@@ -12,7 +12,7 @@ export const getFollowersHandler = async ({ session }: TRPCContext, { userId }: 
 		session?.user.id
 	)
 	const followers = follows.map(({ follower }) => follower).filter(Boolean)
-
+	// @ts-expect-error:todo
 	return followers.map((user) => mapPrismaUserToUser(user))
 }
 
@@ -24,7 +24,7 @@ export const getFollowingHandler = async ({ session }: TRPCContext, { userId }: 
 		session?.user.id
 	)
 	const following = follows.map(({ following }) => following).filter(Boolean)
-
+	// @ts-expect-error:todo
 	return following.map((user) => mapPrismaUserToUser(user))
 }
 

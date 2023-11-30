@@ -1,7 +1,7 @@
-import type { Show } from '@/server/modules/shows/showsSchemas'
-
 import { AccessControl } from '@/components/AccessControl'
 import { DeleteShowButton } from './DeleteShowButton'
+
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type ShowBodyProps = Readonly<{
 	show: Show

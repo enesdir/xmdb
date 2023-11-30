@@ -1,10 +1,10 @@
-import type { ComponentPropsWithRef, ReactNode } from 'react'
-
 import { forwardRef } from 'react'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 
 import { Spinner } from '@/components/Spinner'
 import { cn } from '@/utils/cn'
+
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 export type ButtonProps = Readonly<
 	{

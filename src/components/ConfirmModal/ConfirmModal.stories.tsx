@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react'
-
 import { useState } from 'react'
 
 import { Button } from '../Button/Button'
 import { ConfirmModal } from './ConfirmModal'
+
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
 	title: 'UI/ConfirmModal',

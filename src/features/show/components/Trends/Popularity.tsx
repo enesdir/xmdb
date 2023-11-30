@@ -1,11 +1,11 @@
-import type { IconType } from 'react-icons'
-
 import { BsDot } from 'react-icons/bs'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 import { FaArrowTrendDown, FaArrowTrendUp } from 'react-icons/fa6'
 import { MdTrendingFlat } from 'react-icons/md'
 
 import { cn } from '@/utils/cn'
+
+import type { IconType } from 'react-icons'
 
 type Trending = 'up' | 'down' | 'neutral'
 

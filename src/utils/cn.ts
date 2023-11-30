@@ -1,7 +1,7 @@
-import type { ClassValue } from 'clsx'
-
 import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+
+import type { ClassValue } from 'clsx'
 
 /**
  * Merges and applies the given tailwind CSS classes as well as any other custom classes to an element.

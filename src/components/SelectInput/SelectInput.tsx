@@ -1,10 +1,10 @@
-import type { ChangeEventHandler, FocusEventHandler, ReactNode } from 'react'
-
 import React, { cloneElement, forwardRef, isValidElement, useId } from 'react'
 
 import { ErrorMessage } from '@/components/ErrorMessage'
 import { FieldLabel } from '@/components/FieldLabel'
 import { cn } from '@/utils/cn'
+
+import type { ChangeEventHandler, FocusEventHandler, ReactNode } from 'react'
 
 type SelectInputProps = Readonly<{
 	spellCheck?: boolean
@@ -30,6 +30,7 @@ export const SelectInput = forwardRef<HTMLSelectElement, SelectInputProps>(
 		const readOnlyChildren = React.Children.map<ReactNode, ReactNode>(children, (child) => {
 			if (isValidElement(child)) {
 				return cloneElement(child, {
+					// @ts-expect-error: todo
 					disabled: child.props.value !== rest?.defaultValue,
 					// selected: child.props.value === rest?.defaultValue,
 				})

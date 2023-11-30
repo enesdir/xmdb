@@ -1,3 +1,9 @@
+import { TRPCError } from '@trpc/server'
+
+import { isPrismaError, prismaErrors } from '@/utils/prismaErrors'
+import { mapPrismaUserToUser } from './usersMapper'
+import { createUser, getUserByUsername, searchUsers, updateUser } from './usersService'
+
 import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
 import type {
 	CreateUserInput,
@@ -5,12 +11,6 @@ import type {
 	SearchUsersInput,
 	UpdateUserInput,
 } from './usersSchemas'
-
-import { TRPCError } from '@trpc/server'
-
-import { isPrismaError, prismaErrors } from '@/utils/prismaErrors'
-import { mapPrismaUserToUser } from './usersMapper'
-import { createUser, getUserByUsername, searchUsers, updateUser } from './usersService'
 
 export const createUserHandler = async ({ username, name, email, password }: CreateUserInput) => {
 	try {

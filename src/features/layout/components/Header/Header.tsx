@@ -1,7 +1,5 @@
 'use client'
 
-import type { Session } from 'next-auth'
-
 import { AccessControl } from '@/components/AccessControl'
 import { Logo, LogoPro } from '@/components/Brand/'
 import { menuItems } from '@/features/layout/constants/menuItems'
@@ -12,6 +10,8 @@ import { NavMenu } from './NavMenu'
 import { SearchBar } from './SearchBar'
 import { UserMenu } from './UserMenu/UserMenu'
 import { WatchListButton } from './WatchListButton'
+
+import type { Session } from 'next-auth'
 
 type HeaderProps = Readonly<{
 	user?: Session['user']

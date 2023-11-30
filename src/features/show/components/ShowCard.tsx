@@ -1,18 +1,18 @@
-import type { Show } from '@/server/modules/shows/showsSchemas'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import { BiCameraMovie } from 'react-icons/bi'
+
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type ShowCardProps = Readonly<{
 	show: Show
 }>
 
-export const ShowCard = ({ show: { description, images, title, id } }: ShowCardProps) => (
+export const ShowCard = ({ show: { description, images, title, id, author } }: ShowCardProps) => (
 	<>
 		<article className='group relative mx-auto flex w-full max-w-sm overflow-hidden rounded-lg'>
 			<div className='relative overflow-hidden rounded-xl text-white shadow-lg transition duration-500 ease-in-out hover:-translate-y-2 hover:shadow-2xl'>
-				<Link href={`/show/${id}`}>
+				<Link href={`/user/${author.username}/show/${id}`}>
 					<div className='absolute inset-0 z-10 bg-gradient-to-t from-black via-gray-900 to-transparent transition duration-300 ease-in-out'></div>
 					<div className='group relative z-10 cursor-pointer space-y-6 px-6 pt-10'>
 						<div className='w-full'>
@@ -55,7 +55,7 @@ export const ShowCard = ({ show: { description, images, title, id } }: ShowCardP
 				<div className='relative z-10 flex flex-row space-x-4 pb-10'>
 					<Link
 						className='mx-auto flex items-center rounded-full bg-red-500 px-4 py-2 text-white hover:bg-red-700'
-						href={`/show/${String(id)}`}
+						href={`/user/${author.username}/show/${String(id)}`}
 					>
 						<BiCameraMovie />
 						<div className='ml-2 text-sm text-white'>Go to the show</div>

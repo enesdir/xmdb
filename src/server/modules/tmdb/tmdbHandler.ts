@@ -1,9 +1,9 @@
-import type { Discover, GetByTmdbIDSchema, GetDiscoverSchema, MovieDetails, ShowDetails } from './tmdbSchemas'
-
 import { TRPCError } from '@trpc/server'
 import { isAxiosError } from 'axios'
 
 import { getDiscover, getMovieById, getShowById } from './tmdbService'
+
+import type { Discover, GetByTmdbIDSchema, GetDiscoverSchema, MovieDetails, ShowDetails } from './tmdbSchemas'
 
 export const getMovieByIdHandler = async ({ tmdbId }: GetByTmdbIDSchema): Promise<MovieDetails> => {
 	try {
@@ -44,10 +44,6 @@ export const getShowByIdHandler = async ({ tmdbId }: GetByTmdbIDSchema): Promise
 export const getDiscoverHandler = async ({ type, options }: GetDiscoverSchema): Promise<Discover> => {
 	try {
 		const { data } = await getDiscover<Discover>(type, {
-			include_adult: false,
-			// with_genres: options.genres.length > 0 ? options.genres.join(',') : undefined,
-			// primary_release_year: options.year,
-			sort_by: options.sortBy ?? 'popularity.desc',
 			page: options.page,
 		})
 		return Promise.resolve(data)

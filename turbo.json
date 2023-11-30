@@ -1,0 +1,31 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"pipeline": {
+		"build": {
+			"dependsOn": [],
+			"outputs": [".next/**", "!.next/cache/**", "public/**", "next-env.d.ts"]
+		},
+		"lint": {
+			"outputs": [],
+			"inputs": [".eslintrc.*", "src/**"]
+		},
+		"type-check": {
+			"cache": false,
+			"outputs": ["*.tsbuildinfo"]
+		}
+	},
+	"globalEnv": [
+		"NEXT_PUBLIC_BASE_URL",
+		"NEXTAUTH_URL",
+		"CLOUDINARY_API_KEY",
+		"CLOUDINARY_API_SECRET",
+		"CLOUDINARY_CLOUD_NAME",
+		"CLOUDINARY_ASSETS_FOLDER",
+		"VERCEL_ENV",
+		"NEXTAUTH_SECRET",
+		"POSTGRES_PRISMA_URL",
+		"POSTGRES_URL_NON_POOLING",
+		"TMDB_READ_ACCESS_TOKEN",
+		"TMDB_API_KEY"
+	]
+}

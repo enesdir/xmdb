@@ -1,7 +1,5 @@
 'use client'
 
-import type { MenuItemType } from '@/features/layout/types/MenuItemType'
-
 import { AiOutlineMenu } from 'react-icons/ai'
 
 import { Logo } from '@/components/Brand/'
@@ -10,6 +8,8 @@ import { CollapsibleMenu } from '@/components/CollapsibleMenu'
 import { Drawer } from '@/components/Drawer'
 import { IconButton } from '@/components/IconButton'
 import { useBoolean } from '@/hooks/useBoolean'
+
+import type { MenuItemType } from '@/features/layout/types/MenuItemType'
 
 type NavMenuProps = Readonly<{
 	menuItems: MenuItemType[]

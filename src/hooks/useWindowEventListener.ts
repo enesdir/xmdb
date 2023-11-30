@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react'
  */
 export default function useWindowEventListener<T extends keyof WindowEventMap>(
 	eventName: T,
-	handler: (this: Window, evt: WindowEventMap[T]) => any
+	handler: (this: Window, evt: WindowEventMap[T]) => unknown
 ) {
 	// Create a ref that stores handler
 	const savedHandler = useRef(handler)

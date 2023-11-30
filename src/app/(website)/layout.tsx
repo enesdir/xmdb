@@ -1,7 +1,7 @@
-import type { PropsWithChildren } from 'react'
-
 import { Footer, Header } from '@/features/layout'
 import { getCurrentUser } from '@/lib/session'
+
+import type { PropsWithChildren } from 'react'
 
 export default async function WebsiteLayoutContainer({ children }: PropsWithChildren) {
 	const user = await getCurrentUser()

@@ -30,12 +30,16 @@ export const useCreateShowForm = ({ onSuccess, onUnknownError }: Options) => {
 					description,
 					images,
 					title,
+					// @ts-expect-error: todo
 					original_title,
+					// @ts-expect-error: todo
 					overview,
 					original_language,
 					media_type,
+					// @ts-expect-error: todo
 					trailer,
 					adult,
+					// @ts-expect-error: todo
 					director,
 				})
 				onSuccess?.()

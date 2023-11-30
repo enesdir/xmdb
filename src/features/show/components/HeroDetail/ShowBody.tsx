@@ -1,5 +1,3 @@
-import type { Show } from '@/server/modules/shows/showsSchemas'
-
 import Link from 'next/link'
 
 import { BaseLinkIcon } from '@/components/BaseLinkIcon'
@@ -8,6 +6,8 @@ import { ChipList } from './ChipList'
 import { ShowCta } from './ShowCta'
 import { ShowDetails } from './ShowDetails'
 import { ShowStatistics } from './ShowStatistics'
+
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type ShowBodyProps = Readonly<{
 	show: Show

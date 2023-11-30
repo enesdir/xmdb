@@ -1,12 +1,12 @@
 'use client'
 
-import type { ComponentProps } from 'react'
-
 import { forwardRef, useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 import { IconButton } from '@/components/IconButton'
 import { TextField } from '@/components/TextField'
+
+import type { ComponentProps } from 'react'
 
 type PasswordFieldProps = Omit<ComponentProps<typeof TextField>, 'type' | 'icon'>
 

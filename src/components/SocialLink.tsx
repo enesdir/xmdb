@@ -1,6 +1,3 @@
-import type { IconType } from 'react-icons'
-import type { BaseLinkProps } from './BaseLink'
-
 import {
 	BsFacebook,
 	BsGithub,
@@ -15,6 +12,9 @@ import {
 
 import { cn } from '@/utils/cn'
 import { BaseLink } from './BaseLink'
+
+import type { IconType } from 'react-icons'
+import type { BaseLinkProps } from './BaseLink'
 
 type SocialLinkProps = Readonly<
 	{

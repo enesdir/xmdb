@@ -1,11 +1,11 @@
 'use client'
 
-import type { User } from '@/server/modules/users/usersSchemas'
-
 import { useBoolean } from '@/hooks/useBoolean'
 import { StatisticItem } from './StatisticItem'
 import { UserFollowersModal } from './UserFollowersModal/UserFollowersModal'
 import { UserFollowingModal } from './UserFollowingModal/UserFollowingModal'
+
+import type { User } from '@/server/modules/users/usersSchemas'
 
 type UserStatisticsProps = Readonly<{
 	user: User

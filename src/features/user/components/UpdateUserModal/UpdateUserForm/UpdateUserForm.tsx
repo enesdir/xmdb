@@ -1,9 +1,9 @@
-import type { User } from '@/server/modules/users/usersSchemas'
-
 import { Button } from '@/components/Button'
 import { Textarea } from '@/components/Textarea'
 import { TextField } from '@/components/TextField'
 import { useUpdateUserForm } from './useUpdateUserForm'
+
+import type { User } from '@/server/modules/users/usersSchemas'
 
 type UpdateUserFormProps = Readonly<{
 	user: User

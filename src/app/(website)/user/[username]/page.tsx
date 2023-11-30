@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import { PageParams } from '@/types/pageParams'
-
 import { PageContainer } from '@/components/Containers/PageContainer'
 import { SectionContainer } from '@/components/Containers/SectionContainer'
 import { env } from '@/env.mjs'
@@ -8,6 +5,9 @@ import { UserShows } from '@/features/show/components/UserShows/UserShows'
 import { UserHeader } from '@/features/user/components/UserHeader/UserHeader'
 import { DEFAULT_PROFILE_BIOGRAPHY, PROJECT_NAME } from '@/lib/constants'
 import { getUserByUsername } from '@/lib/user'
+import { PageParams } from '@/types/pageParams'
+
+import type { Metadata } from 'next'
 
 export const generateMetadata = async ({ params: { username } }: UserPageProps): Promise<Metadata> => {
 	const { username: userName, name, image, biography } = await getUserByUsername(username)

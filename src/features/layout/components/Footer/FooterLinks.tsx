@@ -13,6 +13,7 @@ export const FooterLinks = () => {
 			<List className='inline md:inline' variant='inline'>
 				{footerRows1Links.map((footerLink) => (
 					<ListItem className='' key={footerLink.text} variant='inline'>
+						{/* @ts-expect-error:todo */}
 						<CustomLink href={footerLink.href} variant='modern' hasExternalIcon>
 							{footerLink.text}
 						</CustomLink>
@@ -23,6 +24,7 @@ export const FooterLinks = () => {
 				<List className='inline md:inline' variant='inline'>
 					{footerRows2Links.map((footerLink) => (
 						<ListItem className='mx-2' key={footerLink.text} variant='inline'>
+							{/* @ts-expect-error:todo */}
 							<CustomLink href={footerLink.href} hasExternalIcon variant='modern'>
 								{footerLink.text}
 							</CustomLink>

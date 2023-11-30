@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
-
 import { AiOutlineEye } from 'react-icons/ai'
 
 import { TextField } from './TextField'
+
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
 	title: 'UI/TextField',

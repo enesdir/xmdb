@@ -1,7 +1,7 @@
-import type { ZodiosOptions } from '@zodios/core'
-
 import { Zodios, ZodiosEndpointDefinitions } from '@zodios/core'
-import { Narrow } from '@zodios/core/utils.types'
+import { Narrow } from '@zodios/core/lib/utils.types'
+
+import type { ZodiosOptions } from '@zodios/core'
 
 export function createApiClient<Api extends ZodiosEndpointDefinitions>(
 	baseUrl: string,

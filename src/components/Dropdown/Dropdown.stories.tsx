@@ -1,6 +1,6 @@
-import type { Meta, StoryFn, StoryObj } from '@storybook/react'
-
 import Dropdown, { DropdownProps } from './Dropdown'
+
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 const meta = {
 	title: 'UI/Dropdown',

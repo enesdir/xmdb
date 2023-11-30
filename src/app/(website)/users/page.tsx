@@ -1,8 +1,8 @@
-import type { Metadata } from 'next'
-
 import { env } from '@/env.mjs'
 import { LatestShows } from '@/features/shows'
 import { PROJECT_NAME } from '@/lib/constants'
+
+import type { Metadata } from 'next'
 
 export const generateMetadata = async (): Promise<Metadata> => {
 	return {

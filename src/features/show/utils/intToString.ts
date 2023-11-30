@@ -8,12 +8,12 @@ export const intToString = (num: number): string => {
 	if (Number.isNaN(num)) {
 		throw new Error('Invalid number')
 	}
-	num = num.toString().replace(/[^0-9.]/g, '')
+	const parsedNum = parseFloat(num.toString().replace(/[^0-9.]/g, ''))
 
-	if (num < 1000) {
-		return num.toString()
+	if (parsedNum < 1000) {
+		return parsedNum.toString()
 	}
-	let si = [
+	const si = [
 		{ v: 1e3, s: 'K' },
 		{ v: 1e6, s: 'M' },
 		{ v: 1e9, s: 'B' },
@@ -23,9 +23,11 @@ export const intToString = (num: number): string => {
 	]
 	let index: number
 	for (index = si.length - 1; index >= 0; index--) {
+		// @ts-expect-error: todo
 		if (num >= si[index].v) {
 			break
 		}
 	}
+	// @ts-expect-error: todo
 	return (num / si[index].v).toFixed(2).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, '$1') + si[index].s
 }

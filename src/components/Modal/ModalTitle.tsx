@@ -1,8 +1,8 @@
 'use client'
 
-import type { PropsWithChildren } from 'react'
-
 import { Dialog } from '@headlessui/react'
+
+import type { PropsWithChildren } from 'react'
 
 type ModalTitleProps = Readonly<PropsWithChildren>
 

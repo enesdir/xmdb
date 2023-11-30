@@ -1,12 +1,12 @@
-import type { ComponentPropsWithoutRef } from 'react'
-
 import { List } from '@/components/List'
 import { cn } from '@/utils/cn'
+
+import type { ComponentPropsWithoutRef } from 'react'
 
 const sizes = {
 	sm: 'w-8',
 	md: 'w-12',
-	md: 'w-16',
+	// md: 'w-16',
 	lg: 'w-32',
 	xl: 'w-56',
 } as const

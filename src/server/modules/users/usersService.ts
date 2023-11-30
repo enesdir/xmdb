@@ -1,9 +1,9 @@
-import type { User } from 'next-auth'
-
 import { compare, hash } from 'bcrypt'
 
 import { prisma } from '@/server/prisma'
 import { createUserSelect, generateUsername } from './usersUtils'
+
+import type { User } from 'next-auth'
 
 export const createUser = async ({
 	username,

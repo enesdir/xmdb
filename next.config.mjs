@@ -1,10 +1,8 @@
 import configureBundleAnalyzer from '@next/bundle-analyzer'
 
-/**
- * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful for
- * Docker builds.
- */
-!process.env.SKIP_ENV_VALIDATION && (await import('./src/env.mjs'))
+// @ts-check
+/* eslint-disable @typescript-eslint/no-var-requires */
+import { env } from './src/env.mjs'
 
 const withBundleAnalyzer = configureBundleAnalyzer({
 	enabled: process.env.ANALYZE === 'true',
@@ -43,6 +41,10 @@ const securityHeaders = [
 		key: 'Cross-Origin-Resource-Policy',
 		value: 'same-origin',
 	},
+	{
+		key: 'Cross-Origin-Embedder-Policy',
+		value: 'require-corp',
+	},
 	// https://web.dev/origin-agent-cluster/
 	{
 		key: 'Origin-Agent-Cluster',
@@ -79,11 +81,17 @@ const securityHeaders = [
 /** @link https://nextjs.org/docs/api-reference/next.config.js/introduction */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	eslint: {
-		// Warning: This allows production builds to successfully complete even if
-		// your project has ESLint errors.
-		ignoreDuringBuilds: true,
+	/**
+	 * Dynamic configuration available for the browser and server. Note: requires `ssr: true` or a
+	 * `getInitialProps` in `_app.tsx`
+	 *
+	 * @link https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration
+	 */
+	publicRuntimeConfig: {
+		VERCEL_ENV: env.VERCEL_ENV,
 	},
+	/** We run eslint as a separate task in CI */
+	eslint: { ignoreDuringBuilds: !!process.env.CI },
 	typescript: {
 		// !! WARN !!
 		// Dangerously allow production builds to successfully complete even if
@@ -91,6 +99,7 @@ const nextConfig = {
 		// !! WARN !!
 		ignoreBuildErrors: true,
 	},
+
 	swcMinify: true,
 	reactStrictMode: true,
 	poweredByHeader: false,
@@ -120,7 +129,6 @@ const nextConfig = {
 	experimental: {
 		typedRoutes: true,
 		serverComponentsExternalPackages: ['@prisma/client', 'bcrypt'],
-		serverActions: true,
 		outputFileTracingExcludes: {
 			'/*': ['./public/favicon/**/*.png'],
 			'/**/*': ['./public/favicon/**/*.png'],

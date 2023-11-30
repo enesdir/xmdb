@@ -1,5 +1,3 @@
-import type { Show } from '@/server/modules/shows/showsSchemas'
-
 import Link from 'next/link'
 import { BsDot } from 'react-icons/bs'
 
@@ -7,6 +5,8 @@ import { List, ListItem } from '@/components/List'
 import { Title } from '@/components/Title'
 import { formatMinutes } from '@/features/show/utils/formatMinutes'
 import { Trends } from '../Trends/Trends'
+
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type ShowHeaderProps = Readonly<{
 	show: Show

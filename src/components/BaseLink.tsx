@@ -1,6 +1,6 @@
-import type { AnchorHTMLAttributes } from 'react'
-
 import { cn } from '@/utils/cn'
+
+import type { AnchorHTMLAttributes } from 'react'
 
 export type BaseLinkProps = Readonly<
 	{

@@ -1,10 +1,10 @@
 'use client'
 
-import type { SearchCatogeries } from '@/features/layout/types/SearchBar'
-
 import { PropsWithChildren, useMemo, useState } from 'react'
 
 import { createCtx } from '@/lib/createCtx'
+
+import type { SearchCatogeries } from '@/features/layout/types/SearchBar'
 
 export type SearchBarContextData = {
 	/** Search Bar Category Value */

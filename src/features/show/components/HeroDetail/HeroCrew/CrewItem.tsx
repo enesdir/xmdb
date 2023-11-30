@@ -1,9 +1,9 @@
-import type { CrewType } from '@/features/show/types/crewType'
-
 import Link from 'next/link'
 
 import { ListItem } from '@/components/List'
 import { cn } from '@/utils/cn'
+
+import type { CrewType } from '@/features/show/types/crewType'
 
 type CrewItemProps = { isNotZero: boolean } & { crew: CrewType }
 export const CrewItem = ({ isNotZero, crew: { id, name } }: CrewItemProps) => {

@@ -1,10 +1,10 @@
 'use client'
 
-import type { User } from '@/server/modules/users/usersSchemas'
-
 import { LoadingContent } from '@/components/LoadingContent'
 import { useGetUserShows } from '@/features/show/hooks/useGetUserShows'
 import { UserShowList } from './UserShowList/UserShowList'
+
+import type { User } from '@/server/modules/users/usersSchemas'
 
 type UserShowsProps = Readonly<{
 	user: User

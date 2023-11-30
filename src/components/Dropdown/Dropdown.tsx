@@ -1,8 +1,3 @@
-import type { ButtonProps } from '@/components/Button/Button'
-import type { ReactNode } from 'react'
-import type { DropdownItemProps } from './DropdownItem'
-import type { DropdownItemsProps } from './DropdownItems'
-
 import { Children, cloneElement, ReactElement, useRef } from 'react'
 
 import { useBoolean } from '@/hooks/useBoolean'
@@ -11,6 +6,11 @@ import { cn } from '@/utils/cn'
 import { DropdownButton } from './DropdownButton'
 import { DropdownItem } from './DropdownItem'
 import { DropdownItems } from './DropdownItems'
+
+import type { ButtonProps } from '@/components/Button/Button'
+import type { ReactNode } from 'react'
+import type { DropdownItemProps } from './DropdownItem'
+import type { DropdownItemsProps } from './DropdownItems'
 
 function isDropdownItem(child: ReactNode): boolean {
 	return (child as ReactElement).type === DropdownItem
@@ -47,6 +47,7 @@ const Dropdown = ({
 			<DropdownItems isHidden={!value} className='right-0 mt-10' size={overlaySize}>
 				{Children.toArray(children)
 					.filter(isDropdownItem)
+					// @ts-expect-error: todo
 					.map((child) => child as ReactElement<DropdownItemProps>)
 					.map((child) =>
 						cloneElement(child, {

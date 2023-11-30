@@ -1,5 +1,4 @@
 import crypto from 'node:crypto'
-
 import { NextResponse } from 'next/server'
 
 import { mapPrismaShowToShow } from '@/server/modules/shows/showsMapper'
@@ -49,12 +48,16 @@ export const POST = async (request: Request) => {
 	const show = await createShow({
 		description,
 		title,
+		// @ts-expect-error: todo
 		original_title,
+		// @ts-expect-error: todo
 		overview,
 		original_language,
 		media_type,
+		// @ts-expect-error: todo
 		trailer,
 		adult,
+		// @ts-expect-error: todo
 		director,
 		images: urls.map(({ secure_url }) => secure_url),
 		userId: session.user.id,

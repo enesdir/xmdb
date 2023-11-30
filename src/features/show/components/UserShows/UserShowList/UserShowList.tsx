@@ -1,9 +1,9 @@
-import type { Show } from '@/server/modules/shows/showsSchemas'
-
 import { Fragment } from 'react'
 
 import { EmptyShowsAlert } from '@/features/shows/components/EmptyShowsAlert'
 import { UserShowListItem } from './UserShowListItem/UserShowListItem'
+
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type ShowListProps = Readonly<{
 	shows: Show[]

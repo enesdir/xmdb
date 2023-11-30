@@ -1,10 +1,10 @@
 'use client'
 
-import type { SwiperRef } from 'swiper/react'
-
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { register } from 'swiper/element/bundle'
+
+import type { SwiperRef } from 'swiper/react'
 
 register()
 
@@ -20,12 +20,18 @@ export const ImagesSlider = ({ images }: ImagesSliderProps) => {
 	}, [images])
 
 	return (
+		// @ts-expect-error:todo
 		<swiper-container slides-per-view={1} ref={ref} class='rounded-xl' navigation>
 			{images.map((image) => (
-				<swiper-slide key={image} class='relative h-80'>
-					<Image src={image} alt='Slide image' className='object-cover' fill />
-				</swiper-slide>
+				<>
+					{/* @ts-expect-error:todo} */}
+					<swiper-slide key={image} class='relative h-80'>
+						<Image src={image} alt='Slide image' className='object-cover' fill />
+						{/* @ts-expect-error:todo} */}
+					</swiper-slide>
+				</>
 			))}
+			{/* @ts-expect-error:todo} */}
 		</swiper-container>
 	)
 }

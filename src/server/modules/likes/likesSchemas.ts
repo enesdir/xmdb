@@ -1,6 +1,6 @@
-import type { TypeOf } from 'zod'
-
 import { z } from 'zod'
+
+import type { TypeOf } from 'zod'
 
 export const createLikeSchema = z.object({
 	showId: z.number(),

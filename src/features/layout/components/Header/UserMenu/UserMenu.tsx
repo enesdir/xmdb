@@ -1,7 +1,5 @@
 'use client'
 
-import type { Session } from 'next-auth'
-
 import { useRef } from 'react'
 import Link from 'next/link'
 import { BiHelpCircle, BiLogOut, BiSlider } from 'react-icons/bi'
@@ -14,6 +12,8 @@ import { useBoolean } from '@/hooks/useBoolean'
 import { useOnClickOutside } from '@/hooks/useOnClickOutside'
 import { signOutUser } from '@/lib/auth'
 import { getFirstLetter } from '@/utils/stringOperations'
+
+import type { Session } from 'next-auth'
 
 type UserMenuProps = Readonly<{
 	user: Session['user']

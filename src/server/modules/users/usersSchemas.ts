@@ -1,5 +1,3 @@
-import type { TypeOf } from 'zod'
-
 import { z } from 'zod'
 
 import {
@@ -10,6 +8,8 @@ import {
 	PASSWORD_MIN_LENGTH,
 	USERNAME_REGEX,
 } from '@/lib/constants'
+
+import type { TypeOf } from 'zod'
 
 export const userSchema = z.object({
 	id: z.string(),

@@ -1,5 +1,3 @@
-import type { User } from '@/server/modules/users/usersSchemas'
-
 import { AccessControl } from '@/components/AccessControl'
 import { UserAvatar } from '@/components/UserAvatar'
 import { CreateShowButton } from '@/features/show/'
@@ -7,6 +5,8 @@ import { UserCta } from './UserCta'
 import { UserDetails } from './UserDetails'
 import { UserEditorPanel } from './UserEditorPanel'
 import { UserStatistics } from './UserStatistics/UserStatistics'
+
+import type { User } from '@/server/modules/users/usersSchemas'
 
 type UserHeaderProps = Readonly<{
 	user: User

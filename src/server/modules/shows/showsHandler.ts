@@ -1,14 +1,3 @@
-import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
-import type {
-	DeleteShowByIdInput,
-	GetAllLatestShowsInput,
-	GetAllShowsInput,
-	GetShowByIdInput,
-	GetShowByIdUserInput,
-	GetShowsByUserInput,
-	SearchShowsInput,
-} from './showsSchemas'
-
 import { TRPCError } from '@trpc/server'
 
 import { deleteImage } from '@/lib/cloudinary/cloudinaryService'
@@ -23,6 +12,17 @@ import {
 	searchShows,
 } from './showsService'
 import { getFileNameFromUrl } from './showsUtils'
+
+import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
+import type {
+	DeleteShowByIdInput,
+	GetAllLatestShowsInput,
+	GetAllShowsInput,
+	GetShowByIdInput,
+	GetShowByIdUserInput,
+	GetShowsByUserInput,
+	SearchShowsInput,
+} from './showsSchemas'
 
 export const getAllLatestShowsHandler = async (
 	{ session }: TRPCContext,

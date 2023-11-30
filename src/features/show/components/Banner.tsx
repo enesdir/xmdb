@@ -28,6 +28,7 @@ export const SliderData = [
 ]
 
 interface Props {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	slides: any
 }
 

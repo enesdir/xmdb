@@ -1,7 +1,7 @@
+import { cn } from '@/utils/cn'
+
 import type { BaseComponentProps } from '@/types/BaseComponentProps'
 import type { LiHTMLAttributes } from 'react'
-
-import { cn } from '@/utils/cn'
 
 type ListItemProps = Readonly<
 	{

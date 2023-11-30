@@ -1,4 +1,6 @@
-import type { IconType } from 'react-icons'
+import { ComponentType } from 'react'
+
+import type { IconBaseProps } from 'react-icons'
 
 export type CategoryItemType = {
 	href: string
@@ -9,7 +11,7 @@ export type CategoryItemType = {
 export type MenuItemType = {
 	href: string
 	title: string
-	icon: IconType
+	icon: ComponentType<IconBaseProps>
 	isExternal?: boolean
 	items: CategoryItemType[]
 }

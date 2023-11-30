@@ -1,9 +1,9 @@
-import type { Show } from '@/server/modules/shows/showsSchemas'
-
 import Link from 'next/link'
 
 import BlurImage from '@/components/BlurImage'
 import { getBlurDataURL } from '@/lib/images'
+
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type PosterProps = Readonly<{
 	show: Show

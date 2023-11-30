@@ -1,11 +1,11 @@
-import type { CrewCategoryType } from '@/features/show/types/crewCategoryType'
-
 import Link from 'next/link'
 import { AiOutlineRight } from 'react-icons/ai'
 
 import { ListItem } from '@/components/List'
 import { cn } from '@/utils/cn'
 import { Crew } from './Crew'
+
+import type { CrewCategoryType } from '@/features/show/types/crewCategoryType'
 
 type HeroCrewCategoryProps = {
 	category: CrewCategoryType

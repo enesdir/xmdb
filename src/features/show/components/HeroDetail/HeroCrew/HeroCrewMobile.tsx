@@ -1,11 +1,11 @@
 'use client'
 
-import type { CrewCategoryType } from '@/features/show/types/crewCategoryType'
-
 import { useBoolean } from '@/hooks/useBoolean'
 import { cn } from '@/utils/cn'
 import { CrewMobileButton } from './CrewMobileButton'
 import { HeroCrew } from './HeroCrew'
+
+import type { CrewCategoryType } from '@/features/show/types/crewCategoryType'
 
 type HeroCrewProps = Readonly<{
 	crewCategories: CrewCategoryType[]

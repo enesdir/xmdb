@@ -1,8 +1,8 @@
-import type { LinkProps } from 'next/link'
-
 import Link from 'next/link'
 
 import { cn } from '@/utils/cn'
+
+import type { LinkProps } from 'next/link'
 
 const externalPrefixes = ['http', 'tel:', 'mailto:'] as const
 

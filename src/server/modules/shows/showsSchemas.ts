@@ -1,9 +1,9 @@
-import type { TypeOf } from 'zod'
-
 import { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
 import { z } from 'zod'
 
 import { SHOW_DESCRIPTION_MAX_LENGTH } from '@/lib/constants'
+
+import type { TypeOf } from 'zod'
 
 export const showSchema = z.object({
 	id: z.number(),

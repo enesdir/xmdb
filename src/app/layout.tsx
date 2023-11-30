@@ -1,39 +1,48 @@
-import type { Metadata } from 'next'
-import type { PropsWithChildren } from 'react'
-
 import { Roboto_Flex as Roboto } from 'next/font/google'
 
 import { AppProviders } from '@/providers/AppProviders'
 
+import type { Metadata, Viewport } from 'next'
+import type { PropsWithChildren } from 'react'
+
 import '@/styles/global.css'
 
-import { env } from '@/env.mjs'
 import { cn } from '@/utils/cn'
+import { siteConfig } from '../constants/siteConfig'
 
 const fontRoboto = Roboto({
 	variable: '--font-roboto',
 	subsets: ['latin', 'latin-ext'],
 })
-const title = 'XMDb'
-const description =
-	"YourMDb is the world's most popular and authoritative source for movie, TV and celebrity content. Find ratings and reviews for the newest movie and TV shows. Get personalized recommendations, and learn where to watch across hundreds of streaming providers."
+
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 1,
+	themeColor: [
+		{ media: '(prefers-color-scheme: light)', color: 'white' },
+		{ media: '(prefers-color-scheme: dark)', color: 'black' },
+	],
+}
+
 export const metadata: Metadata = {
 	title: {
-		template: '%s - XMDb',
-		default: 'Example Site',
+		template: `%s - ${siteConfig.seoTitle}`,
+		default: siteConfig.seoTitle,
 	},
-	description,
+	description: siteConfig.seoDescription,
 	openGraph: {
 		type: 'website',
-		locale: 'en_IE',
-		url: env.NEXT_PUBLIC_BASE_URL,
-		siteName: 'YourFlix',
+		locale: 'en_US',
+		url: siteConfig.siteUrl,
+		title: siteConfig.seoTitle,
+		description: siteConfig.seoDescription,
+		siteName: siteConfig.seoTitle,
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title,
-		description,
-		creator: '@codenuru',
+		title: siteConfig.seoTitle,
+		description: siteConfig.seoDescription,
+		creator: siteConfig.og.twitterCreator,
 	},
 	icons: {
 		icon: {
@@ -50,13 +59,8 @@ export const metadata: Metadata = {
 			},
 		],
 	},
-	manifest: '/favicon/site.webmanifest',
-	themeColor: [
-		{ media: '(prefers-color-scheme: light)', color: 'cyan' },
-		{ media: '(prefers-color-scheme: dark)', color: 'black' },
-	],
 
-	metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
+	metadataBase: new URL(siteConfig.siteUrl),
 }
 export default async function RootLayout({ children }: PropsWithChildren) {
 	return (

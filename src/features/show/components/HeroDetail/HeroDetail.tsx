@@ -1,5 +1,3 @@
-import type { Show } from '@/server/modules/shows/showsSchemas'
-
 import { crewCategories } from '@/features/show/constants/crewCategories'
 import { Trends } from '../Trends/Trends'
 import { ChipList } from './ChipList'
@@ -7,6 +5,8 @@ import { HeroCrewDesktop } from './HeroCrew/HeroCrewDesktop'
 import { HeroCrewMobile } from './HeroCrew/HeroCrewMobile'
 import { HeroWatchList } from './HeroWatchList'
 import { Plot } from './Plot'
+
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type HeroDetailProps = Readonly<{
 	show: Show

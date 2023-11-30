@@ -1,11 +1,11 @@
 // TODO: for future implementations
-import type { Metadata } from 'next'
-import { PageParams } from '@/types/pageParams'
-
 import { env } from '@/env.mjs'
 import { Banner } from '@/features/show/components/Banner'
 import { PROJECT_NAME } from '@/lib/constants'
 import { getShowById } from '@/lib/show'
+import { PageParams } from '@/types/pageParams'
+
+import type { Metadata } from 'next'
 
 const SliderData = [
 	{

@@ -1,6 +1,6 @@
-import type { Show } from '@/server/modules/shows/showsSchemas'
-
 import { ShowSearchBarListItem } from './ShowSearchBarListItem'
+
+import type { Show } from '@/server/modules/shows/showsSchemas'
 
 type ShowSearchBarListProps = Readonly<{
 	onItemClick?: () => void

@@ -1,5 +1,6 @@
 import { Avatar } from '@/components/Avatar'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ShowCastItem = ({ person }: any) => {
 	return (
 		<tr className='hover:bg-gray-50'>

@@ -10,6 +10,7 @@ export const decorators = [withSessionProvider, withTRPCProvider, withSearchBarP
 
 const preview: Preview = {
 	parameters: {
+		nextjs: { router: { basePath: '' }, appDirectory: true },
 		actions: { argTypesRegex: '^on[A-Z].*' },
 		controls: {
 			matchers: {

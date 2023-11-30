@@ -1,12 +1,12 @@
-import type { PropsWithChildren } from 'react'
-import type { PopularityType } from './Popularity'
-
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
 import { Button } from '@/components/Button'
 import { intToString } from '@/features/show/utils/intToString'
 import { cn } from '@/utils/cn'
 import { Popularity } from './Popularity'
+
+import type { PropsWithChildren } from 'react'
+import type { PopularityType } from './Popularity'
 
 type HeroRightContainerProps = PropsWithChildren & { title: string; className?: string }
 export const HeroRightContainer = ({ children, title, className }: HeroRightContainerProps) => {

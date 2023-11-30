@@ -1,6 +1,6 @@
-import type { PropsWithChildren, ReactNode } from 'react'
-
 import UserShowProviders from './providers'
+
+import type { PropsWithChildren, ReactNode } from 'react'
 
 type UserLayoutProps = Readonly<
 	{

@@ -1,7 +1,7 @@
-import type { User } from '@/server/modules/users/usersSchemas'
-
 import { EmptyDataAlert } from '@/components/EmptyDataAlert'
 import { UserItem } from './UserItem'
+
+import type { User } from '@/server/modules/users/usersSchemas'
 
 type UserListProps = Readonly<{
 	alertMessage: string

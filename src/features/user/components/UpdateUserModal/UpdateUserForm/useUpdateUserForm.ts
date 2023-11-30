@@ -1,5 +1,3 @@
-import type { User } from '@/server/modules/users/usersSchemas'
-
 import { useRouter } from 'next/navigation'
 
 import { useUpdateUser } from '@/features/user/hooks/useUpdateUser'
@@ -7,6 +5,8 @@ import { useZodForm } from '@/hooks/useZodForm'
 import { isObjectKey } from '@/utils/objectOperations'
 import { capitalize } from '@/utils/stringOperations'
 import { updateUserFormSchema } from './UpdateUserFormSchemas'
+
+import type { User } from '@/server/modules/users/usersSchemas'
 
 interface Options {
 	readonly onSuccess?: () => void
@@ -33,7 +33,7 @@ export const useUpdateUserForm = (
 			{ username, name, email, biography },
 			{
 				onSuccess: ({ username }) => {
-					router.replace(`/${username}`)
+					router.replace(`/user/${username}`)
 					router.refresh()
 					onSuccess?.()
 				},

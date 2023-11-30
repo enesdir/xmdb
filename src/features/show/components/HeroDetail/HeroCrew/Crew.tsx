@@ -1,6 +1,5 @@
-import { CrewType } from '@/features/show/types/crewType'
-
 import { List } from '@/components/List'
+import { CrewType } from '@/features/show/types/crewType'
 import { CrewItem } from './CrewItem'
 
 type CrewProps = {

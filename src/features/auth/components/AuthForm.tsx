@@ -1,6 +1,6 @@
-import type { FormEventHandler, ReactNode } from 'react'
-
 import { Button } from '@/components/Button'
+
+import type { FormEventHandler, ReactNode } from 'react'
 
 type AuthFormProps = Readonly<{
 	buttonText: string
