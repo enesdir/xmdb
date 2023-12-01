@@ -1,6 +1,6 @@
 {
 	"name": "xmdb",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"type": "module",
 	"private": true,
 	"engines": {
@@ -27,7 +27,7 @@
 		"postinstall": "prisma generate",
 		"prepare": "husky install",
 		"push-release": "git push --follow-tags origin main",
-		"release": "dotenv HUSKY=0 standard-version",
+		"release": "dotenv -e HUSKY=0 standard-version",
 		"start": "next start",
 		"start:db": "docker compose up",
 		"start:dev": "wait-on tcp:5432 -i 1000 && npm run db:migrate && next dev",
