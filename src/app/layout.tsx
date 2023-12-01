@@ -29,6 +29,10 @@ export const metadata: Metadata = {
 		template: `%s - ${siteConfig.seoTitle}`,
 		default: siteConfig.seoTitle,
 	},
+	robots: {
+		follow: true,
+		index: true,
+	},
 	description: siteConfig.seoDescription,
 	openGraph: {
 		type: 'website',
@@ -43,19 +47,18 @@ export const metadata: Metadata = {
 		title: siteConfig.seoTitle,
 		description: siteConfig.seoDescription,
 		creator: siteConfig.og.twitterCreator,
+		site: siteConfig.siteUrl,
 	},
+
 	icons: {
-		icon: {
-			url: '/favicon/favicon-32x32.png',
-			sizes: '32x32',
-		},
-		apple: '/favicon/apple-icon.png',
-		shortcut: '/favicon/favicon.ico',
+		icon: { url: `${siteConfig.siteUrl}/favicon/favicon-16x16.png`, type: 'image/png', sizes: '16x16' },
+		apple: { url: `${siteConfig.siteUrl}/favicon/apple-icon.png`, type: 'image/png', sizes: '180x180' },
+		shortcut: { url: `${siteConfig.siteUrl}/favicon/favicon.ico`, type: 'image/x-icon', sizes: '48x48' },
 		other: [
 			{
-				rel: 'icon',
-				url: '/favicon/favicon-16x16.png',
-				sizes: '16x16',
+				url: `${siteConfig.siteUrl}/favicon/favicon-32x32.png`,
+				type: 'image/png',
+				sizes: '32x32',
 			},
 		],
 	},

@@ -7,22 +7,30 @@ import { env } from './src/env.mjs'
 const withBundleAnalyzer = configureBundleAnalyzer({
 	enabled: process.env.ANALYZE === 'true',
 })
+const baseDomain = process.env.NEXT_PUBLIC_BASE_URL?.replace(/^(https?:)?\/\//, '')
+const allowListBase =
+	'wss://*.vercel.com vercel.com *.vercel.com *.vercel.sh *.github.com *.codesandbox.io chrome-extension://*'
+const allowListExtended =
+	'www.google.com www.google-analytics.com www.googleadservices.com www.gstatic.com *.googleapis.com'
 // TODO: find better rule for script-src
 // https://securityheaders.com
 const ContentSecurityPolicy = `
-  default-src 'self';
+  default-src 'self' ${baseDomain} ${allowListBase};
   base-uri 'self';
-  font-src 'self' https: data:;
+  font-src 'self' https: ${baseDomain} *.gstatic.com;
   form-action 'self';
   frame-ancestors 'self';
   frame-src 'self';
+  child-src ${baseDomain} ${allowListBase} ${allowListExtended};
   manifest-src 'self';
   object-src 'none';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline';
-  style-src 'self' https: 'unsafe-inline';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' ${baseDomain} ${allowListBase} ${allowListExtended};
+  style-src 'self' 'unsafe-inline' ${baseDomain} ${allowListBase} ${allowListExtended};
   img-src * blob: data:;
-  connect-src *;
-  worker-src 'self' blob:;
+  media-src 'self' ${baseDomain} ${allowListBase};
+  connect-src data: *;
+  worker-src 'self' ${baseDomain} blob:;
+  block-all-mixed-content;
   upgrade-insecure-requests
 `
 const securityHeaders = [
@@ -37,14 +45,14 @@ const securityHeaders = [
 		value: 'same-origin',
 	},
 	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy
-	{
-		key: 'Cross-Origin-Resource-Policy',
-		value: 'same-origin',
-	},
-	{
-		key: 'Cross-Origin-Embedder-Policy',
-		value: 'require-corp',
-	},
+	// {
+	// 	key: 'Cross-Origin-Resource-Policy',
+	// 	value: 'same-origin',
+	// },
+	// {
+	// 	key: 'Cross-Origin-Embedder-Policy',
+	// 	value: 'require-corp',
+	// },
 	// https://web.dev/origin-agent-cluster/
 	{
 		key: 'Origin-Agent-Cluster',
@@ -74,7 +82,12 @@ const securityHeaders = [
 	// Opt-out of Google FLoC: https://amifloced.org/
 	{
 		key: 'Permissions-Policy',
-		value: 'self',
+		value: `fullscreen=(self "${env.NEXT_PUBLIC_BASE_URL}"), geolocation=(), camera=()`,
+	},
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+	{
+		key: 'Strict-Transport-Security',
+		value: 'max-age=31536000; includeSubDomains; preload',
 	},
 ]
 
@@ -93,9 +106,6 @@ const nextConfig = {
 	/** We run eslint as a separate task in CI */
 	eslint: { ignoreDuringBuilds: !!process.env.CI },
 	typescript: {
-		// !! WARN !!
-		// Dangerously allow production builds to successfully complete even if
-		// your project has type errors.
 		// !! WARN !!
 		ignoreBuildErrors: true,
 	},
@@ -121,10 +131,6 @@ const nextConfig = {
 		contentDispositionType: 'attachment',
 		contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
 	},
-	// i18n: {
-	//   locales: ['en'],
-	//   defaultLocale: 'en',
-	// },
 	// Experimental configs
 	experimental: {
 		typedRoutes: true,
@@ -147,6 +153,33 @@ const nextConfig = {
 			},
 			// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
 			{
+				source: '/manifest.webmanifest',
+				headers: [
+					{
+						key: 'Cache-Control',
+						value: 'public, max-age=0, must-revalidate',
+					},
+					// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition
+					{
+						key: 'content-disposition',
+						value: 'inline; filename="manifest.webmanifest"',
+					},
+					{
+						key: 'content-type',
+						value: 'application/manifest+json; charset=utf-8',
+					},
+				],
+			},
+			{
+				source: '/sitemap.xml',
+				headers: [
+					{
+						key: 'Cache-Control',
+						value: 'public, max-age=0, must-revalidate',
+					},
+				],
+			},
+			{
 				source: '/favicon/:all*',
 				headers: [
 					{
@@ -155,7 +188,6 @@ const nextConfig = {
 					},
 				],
 			},
-			// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
 			{
 				source: '/images/:all*',
 				headers: [
