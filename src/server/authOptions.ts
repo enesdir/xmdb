@@ -1,6 +1,7 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { type NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import { z } from 'zod'
 
 import { env } from '@/env.mjs'
 import { userSchema } from '@/server/modules/users/usersSchemas'
@@ -59,16 +60,22 @@ export const authOptions: NextAuthOptions = {
 	},
 	providers: [
 		CredentialsProvider({
+			name: 'Credentials',
 			credentials: {
-				username: {},
-				password: {},
+				username: { label: 'Username', type: 'text' },
+				password: { label: 'Password', type: 'password' },
 			},
-			authorize: async (credentials) => {
-				if (!credentials) {
-					return null
-				}
 
-				return getUserByCredentials(credentials)
+			authorize: async (credentials) => {
+				const parsedCredentials = z
+					.object({ username: z.string(), password: z.string().min(6) })
+					.safeParse(credentials)
+
+				if (parsedCredentials.success) {
+					return getUserByCredentials(parsedCredentials.data)
+				}
+				console.log('Invalid credentials')
+				return null
 			},
 		}),
 	],

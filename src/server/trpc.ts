@@ -24,8 +24,7 @@ const t = initTRPC.context<TRPCContext>().create({
 	/** @see https://trpc.io/docs/v10/data-transformers */
 	transformer: superjson,
 	/** @see https://trpc.io/docs/v10/error-formatting */
-	errorFormatter(opts) {
-		const { shape, error } = opts
+	errorFormatter({ shape, error }) {
 		return {
 			...shape,
 			data: {
