@@ -119,13 +119,10 @@ const nextConfig = {
 				protocol: 'https',
 				hostname: 'res.cloudinary.com',
 			},
-		],
-		domains: [
-			'via.placeholder.com',
-			'images.unsplash.com',
-			'unsplash.com',
-			'picsum.photos',
-			'm.media-amazon.com',
+			{
+				protocol: 'https',
+				hostname: 'images.unsplash.com',
+			},
 		],
 		dangerouslyAllowSVG: true,
 		contentDispositionType: 'attachment',

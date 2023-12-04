@@ -1,7 +1,9 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import { type Config } from 'tailwindcss'
+import { fontFamily } from 'tailwindcss/defaultTheme'
+
+export default {
 	dark: ['class'],
-	content: ['./src/**/*.{js,ts,jsx,tsx}'],
+	content: ['./src/**/*.tsx'],
 	theme: {
 		extend: {
 			colors: {
@@ -17,6 +19,9 @@ module.exports = {
 				'brand-yellow2': '#DEC616',
 				'brand-yellow3': '#E4B721',
 				'brand-yellow4': '#BFAD13',
+				'brand-yellow5': '#F7CA00',
+				'brand-yellow6': '#F2C200',
+				'brand-yellow7': '#FFD814',
 				'brand-blue': '#5799EF',
 				'brand-blue2': '#136CB2',
 			},
@@ -50,7 +55,7 @@ module.exports = {
 				'brand-s-1': 'calc(50% - 0.125rem)',
 			},
 			fontFamily: {
-				default: ['var(--font-roboto)', 'system-ui', 'sans-serif'],
+				default: ['var(--font-roboto)', 'system-ui', ...fontFamily.serif],
 			},
 			container: {
 				center: true,
@@ -105,5 +110,10 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('tailwindcss-animate')],
-}
+	plugins: [
+		require('tailwindcss-animate'),
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/typography'),
+		require('@tailwindcss/aspect-ratio'),
+	],
+} satisfies Config

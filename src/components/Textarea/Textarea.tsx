@@ -40,7 +40,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 					onBlur={onBlur}
 					onKeyDown={onKeyDown}
 					className={cn(
-						'duration-250 app-scrollbar focus:border-primary-400 block h-32 w-full resize-none rounded-lg border p-2.5 leading-5 shadow-sm transition-colors focus:outline-0',
+						'block h-32 w-full resize-none rounded-lg border p-2.5 leading-5 shadow-sm transition-colors focus:outline-0',
 						{ 'border-red-600 text-red-600 focus:border-red-600': error },
 						{ 'cursor-not-allowed': disabled }
 					)}

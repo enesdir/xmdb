@@ -60,12 +60,12 @@ export const FileButton = forwardRef<HTMLInputElement, FileButtonProps>(
 				<label
 					htmlFor={id}
 					className={cn(
-						'duration-250 flex items-center justify-center gap-x-1.5 rounded-lg border px-5 py-2.5 font-medium shadow-sm transition disabled:pointer-events-none disabled:opacity-75',
+						'flex items-center justify-center gap-x-1.5 rounded-lg border px-5 py-2.5 font-medium shadow-sm transition disabled:pointer-events-none disabled:opacity-75',
 						'cursor-pointer select-none',
 						fill ? 'w-full' : 'w-fit',
 						[
 							variant === 'primary' && ['border-blue-400 bg-blue-500 text-white hover:bg-blue-400'],
-							variant === 'default' && ['dark:bg-gray bg-white text-black'],
+							variant === 'default' && ['bg-white text-black dark:bg-gray-600 dark:text-white'],
 							variant === 'danger' && ['border-red-600 text-red-600 hover:bg-red-600/10'],
 							variant === 'text' && ['border-transparent text-black shadow-none hover:bg-gray-100'],
 						]

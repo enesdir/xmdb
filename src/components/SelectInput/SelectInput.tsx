@@ -49,7 +49,7 @@ export const SelectInput = forwardRef<HTMLSelectElement, SelectInputProps>(
 					onChange={onChange}
 					onBlur={onBlur}
 					className={cn(
-						'duration-250 app-scrollbar block w-full resize-none rounded-lg border p-2.5 leading-5 shadow-sm transition-colors focus:border-blue-400 focus:outline-0',
+						'block w-full resize-none rounded-lg border p-2.5 leading-5 shadow-sm transition-colors focus:border-blue-400 focus:outline-0',
 						error && 'border-red-600 text-red-600 focus:border-red-600'
 					)}
 					{...(!spellCheck && { spellCheck })}

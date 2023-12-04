@@ -29,7 +29,7 @@ type AvatarProps = Readonly<
 
 export const Avatar = ({ size = 'sm', src, alt, children, icon }: AvatarProps) => {
 	if (icon) {
-		return <IoPersonCircleSharp className={cn('-p-1 text-white', sizes[size])} fill='white' stroke='white' />
+		return <IoPersonCircleSharp className={cn('text-white', sizes[size])} fill='white' stroke='white' />
 	}
 	return (
 		<div

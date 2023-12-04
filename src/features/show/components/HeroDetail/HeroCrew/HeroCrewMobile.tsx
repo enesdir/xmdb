@@ -20,7 +20,7 @@ export const HeroCrewMobile = ({ crewCategories }: HeroCrewProps) => {
 				<div
 					className={cn(
 						'overflow-hidden border-b border-solid border-b-transparent',
-						value ? 'fade-in-down visible block h-auto border-white/20' : 'invisible h-0'
+						value ? 'visible block h-auto border-white/20' : 'invisible h-0'
 					)}
 					aria-hidden={value}
 					aria-expanded={value}

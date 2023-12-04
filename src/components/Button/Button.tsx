@@ -37,14 +37,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				disabled={disabled || isLoading}
 				onClick={onClick}
 				className={cn(
-					'duration-250 focus-visible:ring-primary-500 flex items-center justify-center gap-x-1.5 rounded-lg border px-4 py-2 font-medium shadow-sm transition-colors duration-75 focus:outline-none focus-visible:ring disabled:pointer-events-none disabled:opacity-75',
+					'flex items-center justify-center gap-x-1.5 rounded-lg border px-4 py-2 font-medium shadow-sm transition-colors duration-75 focus:outline-none disabled:pointer-events-none disabled:opacity-75',
 					fill ? 'w-full' : 'w-fit',
 					{
 						'border-slate-50 bg-slate-50 text-black hover:bg-slate-200': variant === 'primary',
 						'dark:bg-gray bg-white text-black': variant === 'default',
 						'border-red-600 text-red-600 hover:bg-red-600/10': variant === 'danger',
 						'border-none text-white shadow-none hover:bg-[#2b2b2b]': variant === 'text',
-						'rounded-lg border border-solid border-[#F2C200] bg-[#FFD814] align-middle font-sans text-xs leading-5 hover:bg-[#F7CA00]':
+						'rounded-lg border border-solid border-brand-yellow6 bg-brand-yellow7 align-middle font-sans text-xs leading-5 hover:bg-brand-yellow5':
 							variant === 'brand',
 					},
 					className

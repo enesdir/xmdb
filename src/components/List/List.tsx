@@ -13,7 +13,7 @@ export const List = ({ children, className, variant, ...rest }: ListProps) => {
 	return (
 		<ul
 			className={cn(
-				'list-outside-none list-none list-image-none',
+				'list-none list-image-none',
 				{ 'm-0 flex flex-col p-0': variant === 'default' },
 				{ 'm-0 inline-flex flex-wrap items-center p-0': variant === 'inline' },
 				className

@@ -85,7 +85,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 						onFocus={onFocus}
 						onKeyDown={onKeyDown}
 						className={cn(
-							'duration-250 focus:border-primary-400 w-full rounded-lg border bg-white p-2 text-black shadow-sm transition-colors focus:outline-none',
+							' w-full rounded-lg border bg-white p-2 text-black shadow-sm focus:border-brand-yellow7 focus:outline-none',
 							{ 'pl-10': leftIcon },
 							{ 'border-red-600 text-red-600 focus:border-red-600': error },
 							{ 'pr-9': icon },

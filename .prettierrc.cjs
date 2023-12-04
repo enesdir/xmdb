@@ -10,7 +10,7 @@
  */
 
 /** @type {PrettierConfig | SortImportsConfig | TailwindConfig} */
-const config = {
+module.exports = {
 	printWidth: 110,
 	tabWidth: 2,
 	useTabs: true,
@@ -54,7 +54,7 @@ const config = {
 	],
 	importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
 	importOrderTypeScriptVersion: '5.0.0',
-	tailwindConfig: './tailwind.config.cjs',
+	tailwindConfig: './tailwind.config.ts',
 	tailwindFunctions: ['cn'],
 
 	overrides: [
@@ -78,4 +78,3 @@ const config = {
 		},
 	],
 }
-module.exports = config

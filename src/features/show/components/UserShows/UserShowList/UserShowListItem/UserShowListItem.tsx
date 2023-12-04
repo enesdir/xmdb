@@ -22,7 +22,8 @@ export const UserShowListItem = ({ show }: UserShowListItemProps) => {
 	} = show
 
 	return (
-		<li className='group relative aspect-square overflow-hidden rounded-md border border-solid border-slate-200 hover:border-none'>
+		// eslint-disable-next-line tailwindcss/no-custom-classname
+		<li className='aspect-square group relative overflow-hidden rounded-md border border-solid border-slate-200 hover:border-none'>
 			<DeleteShowButton show={show} />
 			<Link href={`/user/${String(username)}/show/${String(id)}`}>
 				{/* @ts-expect-error: todo fail case  */}
