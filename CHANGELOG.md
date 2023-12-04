@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.2](https://github.com/enesdir/xmdb/compare/v1.2.0...v1.2.2) (2023-12-04)
+
+
+### Improvements
+
+* global css variables ([1facb55](https://github.com/enesdir/xmdb/commit/1facb5517cddbe00bc740c2debf1d768ee81097f))
+
 ## [1.2.1](https://github.com/enesdir/xmdb/compare/v1.2.0...v1.2.1) (2023-12-04)
 
 
