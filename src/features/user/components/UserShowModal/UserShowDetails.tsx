@@ -1,4 +1,4 @@
-import { ImagesSlider } from '@/components/ImagesSlider'
+import { ImagesSlider } from '@/components/ImagesSlider/ImagesSlider'
 
 import type { Show } from '@/server/modules/shows/showsSchemas'
 

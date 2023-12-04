@@ -23,8 +23,8 @@ export const getShowsByUsername = (username: string) =>
 		select: createShowSelect(),
 	})
 
-export const getShowById = ({ id }: { id: number }) =>
-	prisma.show.findFirst({ where: { id }, select: createShowSelect() })
+export const getShowById = ({ id }: { id: number }, userId?: string) =>
+	prisma.show.findFirst({ where: { id }, select: createShowSelect({ userId }) })
 
 export const deleteShowById = (id: number) =>
 	prisma.show.delete({ where: { id }, select: createShowSelect() })

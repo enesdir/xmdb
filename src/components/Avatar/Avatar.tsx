@@ -34,8 +34,7 @@ export const Avatar = ({ size = 'sm', src, alt, children, icon }: AvatarProps) =
 	return (
 		<div
 			className={cn('relative shrink-0 overflow-hidden rounded-full', sizes[size], {
-				'flex items-center justify-center bg-blue-600 font-medium text-white dark:bg-blue-200 dark:text-blue-600':
-					children,
+				'flex items-center justify-center bg-black/10 font-medium text-gray-50': children,
 			})}
 		>
 			{src && <Image className='object-cover' src={src} alt={alt} fill />}

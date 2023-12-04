@@ -14,8 +14,10 @@ export const UserShows = ({ user: { username } }: UserShowsProps) => {
 	const { shows, isLoading } = useGetUserShows(username || '')
 
 	return (
-		<LoadingContent isLoading={isLoading}>
-			<UserShowList shows={shows} />
-		</LoadingContent>
+		<div className='pt-4'>
+			<LoadingContent isLoading={isLoading}>
+				<UserShowList shows={shows} />
+			</LoadingContent>
+		</div>
 	)
 }

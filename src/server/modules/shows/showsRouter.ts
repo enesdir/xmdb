@@ -37,7 +37,7 @@ export const showsRouter = createTRPCRouter({
 	getById: publicProcedure
 		.input(getShowByIdSchema)
 		.output(showSchema)
-		.query(({ input }) => getShowByIdHandler(input)),
+		.query(({ ctx, input }) => getShowByIdHandler(ctx, input)),
 	getByIdUser: publicProcedure
 		.input(getShowByIdUserSchema)
 		.output(showSchema)

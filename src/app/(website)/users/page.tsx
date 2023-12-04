@@ -1,5 +1,6 @@
+import { SectionContainer } from '@/components/Containers'
+import { Title } from '@/components/Title'
 import { env } from '@/env.mjs'
-import { LatestShows } from '@/features/shows'
 import { PROJECT_NAME } from '@/lib/constants'
 
 import type { Metadata } from 'next'
@@ -18,9 +19,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 export default async function LatestShowsPage() {
 	return (
-		<>
-			<h1 className='text-3xl font-semibold'>Latest Shows</h1>
-			<LatestShows />
-		</>
+		<SectionContainer variant='secondary'>
+			<Title className='text-3xl font-semibold'>Users</Title>
+			<Title className='text-3xl font-semibold'>TODO: future implementation for list of user</Title>
+		</SectionContainer>
 	)
 }

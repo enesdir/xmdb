@@ -13,7 +13,7 @@ type UserHeaderProps = Readonly<{
 }>
 
 export const UserHeader = ({ user }: UserHeaderProps) => (
-	<div className='mb-4 border-b pb-4'>
+	<div className='border-b py-10'>
 		<div className='relative mx-auto flex w-full flex-col items-center justify-start space-x-6 md:flex-row md:items-start'>
 			<UserEditorPanel user={user}>
 				<UserAvatar user={user} size='xl' />

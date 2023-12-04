@@ -23,7 +23,7 @@ type ModalProps = Readonly<
 export const Modal = ({ isOpen, onClose, setIsOpen, large, children }: ModalProps) => {
 	const router = useRouter()
 
-	const closeModal = () => {
+	const closeModal: () => void = () => {
 		// fire onClose event if provided
 		onClose && onClose()
 

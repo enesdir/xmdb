@@ -30,7 +30,7 @@ export const FollowButton = ({ user: { id, follow } }: FollowButtonProps) => {
 	}
 
 	return (
-		<Button disabled={isLoading} onClick={requiredSession(handleButtonClick)}>
+		<Button disabled={isLoading} onClick={requiredSession(handleButtonClick)} variant='primary'>
 			{isFollowing ? 'Unfollow' : 'Follow'}
 		</Button>
 	)

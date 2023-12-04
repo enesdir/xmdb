@@ -27,6 +27,7 @@ test/
 **/*.stories.tsx
 
 # other
+.czrc
 .github
 .vscode
 docker-compose.yml

@@ -10,6 +10,7 @@
 			"inputs": [".eslintrc.*", "src/**"]
 		},
 		"type-check": {
+			"dependsOn": ["^build"],
 			"cache": false,
 			"outputs": ["*.tsbuildinfo"]
 		}

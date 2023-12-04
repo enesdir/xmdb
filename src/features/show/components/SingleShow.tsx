@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 
 import { ImagesSlider } from '@/components/ImagesSlider'
@@ -16,18 +15,9 @@ type SinglePostProps = Readonly<{
 }>
 
 const likesPluralize = pluralize('like', 'likes')
-
 export const SingleShow = ({
 	show: { id, description, createdAt, images, author, like, statistics },
 }: SinglePostProps) => {
-	const [likes, setLikes] = useState(statistics.likes)
-	const [isLike, setIsLike] = useState(like)
-
-	const handleLikeClick = () => {
-		setLikes((prev) => prev + (isLike ? -1 : 1))
-		setIsLike((prev) => !prev)
-	}
-
 	return (
 		<article className='space-y-2.5'>
 			<div className='flex items-center justify-between'>
@@ -38,10 +28,12 @@ export const SingleShow = ({
 				<time dateTime={createdAt}>{formatFromNow(createdAt)}</time>
 			</div>
 			<ImagesSlider images={images} />
-			<LikeButton postId={id} isLike={isLike} onClick={handleLikeClick} />
-			<p className='font-medium'>
-				{formatNumber(likes)} {likesPluralize(likes)}
-			</p>
+			<div className='flex items-center gap-x-1'>
+				<LikeButton postId={id} isLiked={like} />
+				<span className='font-medium'>
+					{formatNumber(statistics.likes)} {likesPluralize(statistics.likes)}
+				</span>
+			</div>
 			<div className='whitespace-pre-line break-all'>{description}</div>
 		</article>
 	)

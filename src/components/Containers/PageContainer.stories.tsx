@@ -1,10 +1,10 @@
-import { Container } from './Container'
+import { PageContainer } from './PageContainer'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-	title: 'UI/Container',
-	component: Container,
+	title: 'UI/PageContainer',
+	component: PageContainer,
 	args: {
 		children: (
 			<>
@@ -13,7 +13,7 @@ const meta = {
 			</>
 		),
 	},
-} satisfies Meta<typeof Container>
+} satisfies Meta<typeof PageContainer>
 
 export default meta
 

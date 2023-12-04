@@ -46,8 +46,8 @@ export const getShowsByUserHandler = async ({ username }: GetShowsByUserInput) =
 
 	return shows.map(mapPrismaShowToShow)
 }
-export const getShowByIdHandler = async ({ id }: GetShowByIdInput) => {
-	const show = await getShowById({ id })
+export const getShowByIdHandler = async ({ session }: TRPCContext, id: GetShowByIdInput) => {
+	const show = await getShowById(id, session?.user.id)
 
 	if (!show) {
 		throw new TRPCError({

@@ -1,4 +1,5 @@
 import { PageContainer } from '@/components/Containers/PageContainer'
+import { SectionContainer } from '@/components/Containers/SectionContainer'
 import { env } from '@/env.mjs'
 import { ShowCastList } from '@/features/show/'
 import { ShowHero } from '@/features/show/components/ShowHero'
@@ -37,8 +38,10 @@ export default async function ShowPage({ params }: ShowPageProps) {
 
 	return (
 		<>
-			<ShowHero show={show} />
-			<PageContainer>
+			<SectionContainer>
+				<ShowHero show={show} />
+			</SectionContainer>
+			<PageContainer center>
 				<ShowCastList />
 			</PageContainer>
 		</>

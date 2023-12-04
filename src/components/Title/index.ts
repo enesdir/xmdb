@@ -1,2 +1,2 @@
-export { SubTitle } from './SubTitle'
+export { SectionTitle } from './SectionTitle'
 export { Title } from './Title'

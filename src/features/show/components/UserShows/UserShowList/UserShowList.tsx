@@ -15,7 +15,7 @@ export const UserShowList = ({ shows }: ShowListProps) => {
 	}
 
 	return (
-		<ol className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+		<ol className='grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4'>
 			{shows.map((show) => (
 				<Fragment key={show.id}>
 					<UserShowListItem show={show} />

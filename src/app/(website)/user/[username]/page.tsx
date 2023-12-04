@@ -42,7 +42,7 @@ export default async function UserPage({ params: { username } }: UserPageProps) 
 			<SectionContainer>
 				<UserHeader user={user} />
 			</SectionContainer>
-			<PageContainer>
+			<PageContainer center>
 				<UserShows user={user} />
 			</PageContainer>
 		</>

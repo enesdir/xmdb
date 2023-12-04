@@ -1,9 +1,28 @@
+import { cn } from '@/utils/cn'
+import { PageContainer } from './PageContainer'
+
 import type { PropsWithChildren } from 'react'
 
-export const MainWrapper = ({ children }: PropsWithChildren) => {
+export enum SectionContainerVariant {
+	'white',
+	'black',
+}
+type MainWrapperProps = Readonly<
+	{
+		className?: string
+		variant?: keyof typeof SectionContainerVariant
+	} & PropsWithChildren
+>
+export const MainWrapper = ({ children, className, variant = 'white' }: MainWrapperProps) => {
 	return (
-		<main className='relative min-h-[67vh] min-w-[300px] bg-black text-base font-normal normal-case leading-6 tracking-[0.03125em] text-white'>
-			<div className='relative mx-auto my-0 w-full'>{children}</div>
+		<main
+			className={cn(
+				'relative min-h-[67vh] min-w-[300px] text-base font-normal normal-case leading-6 tracking-[0.03125em]',
+				{ 'bg-white text-black': variant === 'white', 'bg-black text-white': variant === 'black' },
+				className
+			)}
+		>
+			<PageContainer full>{children}</PageContainer>
 		</main>
 	)
 }

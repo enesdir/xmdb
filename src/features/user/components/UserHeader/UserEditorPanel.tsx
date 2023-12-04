@@ -25,10 +25,15 @@ export const UserEditorPanel = ({ user, children }: UserEditorPanelProps) => {
 	return (
 		<>
 			<div onClick={setTrue} className='group relative h-fit w-fit'>
+				<div className='fixed w-full'>
+					<span className='absolute left-[10rem] top-12 z-10 w-auto min-w-max origin-left scale-0 rounded-md bg-white p-2 text-xs font-bold text-black shadow-md transition-all duration-200 group-hover:scale-100 '>
+						Edit Your Profile
+					</span>
+				</div>
 				{children}
 				<button
 					type='button'
-					className='absolute left-0 top-0 z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black/60 text-3xl text-white opacity-0 transition-opacity group-hover:opacity-100'
+					className='absolute left-0 top-0 z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black text-3xl text-white opacity-0 transition-opacity group-hover:opacity-100'
 				>
 					<AiOutlineEdit />
 				</button>

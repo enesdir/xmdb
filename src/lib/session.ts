@@ -5,7 +5,9 @@ import { getServerSession } from 'next-auth/next'
 
 import { authOptions } from '@/server/authOptions'
 
-export const getSession = cache(async () => {
+import type { Session } from 'next-auth'
+
+export const getSession: () => Promise<Session | null> = cache(async () => {
 	return await getServerSession(authOptions)
 })
 
