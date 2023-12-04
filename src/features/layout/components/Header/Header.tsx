@@ -18,7 +18,7 @@ type HeaderProps = Readonly<{
 	user?: Session['user']
 }>
 export const Header = ({ user }: HeaderProps) => (
-	<nav className='relative z-40 m-0 flex min-h-[3.5rem] w-full items-center px-0 py-1 text-base font-normal text-[--brand-white]'>
+	<nav className='relative z-40 m-0 flex min-h-[3.5rem] w-full items-center px-0 py-1 text-base font-normal text-white'>
 		<PageContainer center className='flex justify-between'>
 			<NavMenu menuItems={menuItems} />
 			<Logo />

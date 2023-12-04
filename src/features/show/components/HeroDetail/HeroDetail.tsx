@@ -14,14 +14,14 @@ type HeroDetailProps = Readonly<{
 export const HeroDetail = ({ show }: HeroDetailProps) => {
 	return (
 		<div className='mx-4 flex flex-col lg:w-full lg:flex-row lg:items-center lg:justify-between'>
-			<div className='min-h-[calc(140.6px_+_0.5rem)] pl-[calc(95px_+_1rem)] sm:min-h-[calc(177.6px_+_0.5rem)] sm:pl-[calc(120px_+_1rem)] md:min-h-0 md:pl-0 lg:w-[calc(66.66%_-_0.5rem)]'>
+			<div className='min-h-brand-s-1 pl-brand-s-9 sm:min-h-brand-s-2 sm:pl-brand-s-11 md:min-h-0 md:pl-0 lg:w-brand-s-10'>
 				<section className='lg:mb-3'>
 					<ChipList genres={['Action', 'Adventure', 'Sci-Fi']} />
 					<Plot text={show.description} />
 					<HeroCrewDesktop crewCategories={crewCategories} />
 				</section>
 			</div>
-			<div className='lg:w-[calc(_33.33%_-_(_1rem_*_2)_+_0.25rem_)]'>
+			<div className='lg:w-brand-s-12'>
 				<Trends
 					trends={{
 						rate: 7.9,

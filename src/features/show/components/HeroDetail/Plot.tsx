@@ -10,7 +10,7 @@ export const Plot = ({ text }: PlotProps) => {
 	}
 
 	return (
-		<p className='text-sm font-normal normal-case leading-5 tracking-[0.01786em] text-white sm:text-base sm:font-normal sm:normal-case sm:leading-6 sm:tracking-[0.03125em] lg:mb-3'>
+		<p className='text-sm font-normal normal-case leading-5 tracking-[0.01786em] text-white sm:text-base sm:font-normal sm:normal-case sm:leading-6 sm:tracking-brand-wide lg:mb-3'>
 			<span className='block'>
 				{truncateText(text, 150)}
 				{text.length > 150 && (

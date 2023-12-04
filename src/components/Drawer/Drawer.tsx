@@ -42,7 +42,7 @@ const Drawer = ({ heading, isOpen, onClose, openFrom = 'right', children }: Draw
 					leaveFrom='opacity-100'
 					leaveTo='opacity-0'
 				>
-					<div className='fixed inset-0 bg-[--brand-black] opacity-50' />
+					<div className='fixed inset-0 bg-brand-black opacity-50' />
 				</Transition.Child>
 
 				<div className='fixed inset-0'>
@@ -57,7 +57,7 @@ const Drawer = ({ heading, isOpen, onClose, openFrom = 'right', children }: Draw
 								leaveFrom='translate-x-0'
 								leaveTo={offScreen[openFrom]}
 							>
-								<Dialog.Panel className='h-screen w-[280px] bg-[--brand-black] text-left align-middle shadow-xl transition-all lg:w-screen lg:py-8'>
+								<Dialog.Panel className='h-screen w-[280px] bg-brand-black text-left align-middle shadow-xl transition-all lg:w-screen lg:py-8'>
 									<div className='lg:m-auto lg:max-w-screen-lg lg:px-4'>
 										<header
 											className={`sticky top-0 mb-2 flex h-[3.5rem] items-center p-1 ${
@@ -67,7 +67,7 @@ const Drawer = ({ heading, isOpen, onClose, openFrom = 'right', children }: Draw
 											{heading !== null && <Dialog.Title>{heading}</Dialog.Title>}
 											<IconButton
 												variant='rounded'
-												className='p-3 text-2xl font-extrabold text-white transition hover:text-white/50 lg:bg-[--brand-yellow] lg:text-[--brand-black]'
+												className='p-3 text-2xl font-extrabold text-white transition hover:text-white/50 lg:bg-brand-yellow lg:text-brand-black'
 												onClick={onClose}
 												label='Close panel'
 												icon={<AiOutlineClose aria-label='Close panel' className='align-middle' />}

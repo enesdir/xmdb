@@ -15,10 +15,7 @@ export const CrewItem = ({ isNotZero, crew: { id, name } }: CrewItemProps) => {
 			})}
 			variant='inline'
 		>
-			<Link
-				href={`/name/${id}`}
-				className='bg-transparent text-[--brand-blue] hover:underline focus:underline'
-			>
+			<Link href={`/name/${id}`} className='bg-transparent text-brand-blue hover:underline focus:underline'>
 				{name}
 			</Link>
 		</ListItem>

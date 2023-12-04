@@ -11,7 +11,7 @@ type PosterProps = Readonly<{
 
 export const Poster = async ({ show }: PosterProps) => {
 	return (
-		<div className='absolute left-4 top-[calc(100%_+_0.75rem)] z-[3] flex w-[95px] sm:left-0 sm:w-[120px] md:static md:left-0 md:flex md:w-[calc(27.65%_-_0.125rem)] lg:w-[calc(22.75%_-_0.125rem)]'>
+		<div className='absolute left-4 top-brand-s-7 z-[3] flex w-[95px] sm:left-0 sm:w-[120px] md:static md:left-0 md:flex md:w-brand-s-6 lg:w-brand-s-5'>
 			<div className='relative mr-0 inline-flex w-full min-w-[auto]'>
 				<div className='relative inline-flex w-full overflow-hidden before:relative before:block before:w-full before:pb-[148%] before:content-[""]'>
 					<BlurImage

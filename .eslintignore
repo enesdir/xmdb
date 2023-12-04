@@ -1,4 +1,16 @@
 **/node_modules/*
 **/out/*
 **/.next/*
-!.*
+.eslintcache
+public
+*.css
+
+prisma/migrations
+
+package-lock.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+.DS_Store
+
+!.storybook

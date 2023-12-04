@@ -40,7 +40,7 @@ export const Trends = ({ trends: { numberOfVoters, rate, popularity }, className
 						className='m-0 inline-flex min-h-[2.25rem] min-w-[3rem] max-w-full items-center px-2 py-0 font-medium'
 					>
 						<div className='inline-flex flex-row items-start truncate pr-1 lg:flex-col'>
-							<div className='mb-0 inline-block whitespace-nowrap font-normal leading-6 tracking-[0.03125em]'>
+							<div className='mb-0 inline-block whitespace-nowrap font-normal leading-6 tracking-brand-wide'>
 								<span className='pr-0.5 text-sm font-semibold tracking-[0.0125em] lg:text-lg'>{rate}</span>
 								<span className='text-xs text-white/70 md:text-sm'>
 									{'/'}
@@ -48,7 +48,7 @@ export const Trends = ({ trends: { numberOfVoters, rate, popularity }, className
 								</span>
 							</div>
 							<div className='mx-1 block text-white/70 before:content-["."] lg:hidden'></div>
-							<div className='mb-0 whitespace-nowrap text-xs font-normal leading-6 tracking-[0.03125em] text-white/70 lg:-mt-1 lg:leading-4'>
+							<div className='mb-0 whitespace-nowrap text-xs font-normal leading-6 tracking-brand-wide text-white/70 lg:-mt-1 lg:leading-4'>
 								{intToString(numberOfVoters)}
 							</div>
 						</div>
@@ -56,11 +56,11 @@ export const Trends = ({ trends: { numberOfVoters, rate, popularity }, className
 				</HeroRightContainer>
 				<HeroRightContainer title='YOUR RATING' className='mr-2'>
 					<Button
-						icon={<AiOutlineStar color='#5799ef' className='text-2xl lg:text-3xl' />}
+						icon={<AiOutlineStar className='text-2xl text-brand-blue lg:text-3xl' />}
 						variant='text'
 						className='m-0 inline-flex min-h-[2.25rem] min-w-[3rem] max-w-full items-center px-2 py-0 font-medium'
 					>
-						<span className='text-lg tracking-wider text-[#5799ef] lg:text-xl'>Rate</span>
+						<span className='text-lg tracking-wider text-brand-blue lg:text-xl'>Rate</span>
 					</Button>
 				</HeroRightContainer>
 				<HeroRightContainer title='Popularity'>

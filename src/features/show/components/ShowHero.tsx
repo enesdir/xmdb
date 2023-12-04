@@ -14,7 +14,7 @@ export const ShowHero = ({ show }: ShowHeroProps) => {
 	)
 	return (
 		<div
-			className='relative m-0 bg-[var(--brand-black)] bg-cover bg-center bg-no-repeat p-0 bg-blend-overlay'
+			className='relative m-0 bg-brand-black bg-cover bg-center bg-no-repeat p-0 bg-blend-overlay'
 			style={{
 				backgroundImage: `url(${show.images[0]})`,
 			}}

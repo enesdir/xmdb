@@ -26,8 +26,8 @@ export const SectionContainer = ({
 			className={cn(
 				'w-full',
 				{
-					'bg-[--brand-black]': variant === 'default',
-					'bg-[--brand-black3] md:bg-black': variant === 'primary',
+					'bg-brand-black': variant === 'default',
+					'bg-brand-black3 md:bg-black': variant === 'primary',
 					'bg-white/80 md:bg-white/90': variant === 'secondary',
 				},
 				className

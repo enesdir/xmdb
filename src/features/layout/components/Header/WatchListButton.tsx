@@ -11,7 +11,7 @@ export const WatchListButton = () => {
 		>
 			<span className='truncate text-sm font-extrabold -tracking-wide'>
 				Watchlist
-				<span className='ml-2 rounded-[10px] bg-yellow-500 px-[0.4rem] py-0 text-center text-xs font-normal normal-case leading-4 tracking-[0.03333em] text-black'>
+				<span className='ml-2 rounded-xl bg-brand-yellow px-[0.4rem] py-0 text-center text-xs font-normal normal-case leading-4 tracking-brand-widest text-black'>
 					61
 				</span>
 			</span>

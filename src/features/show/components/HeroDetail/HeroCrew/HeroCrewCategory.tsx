@@ -14,8 +14,8 @@ export const HeroCrewCategory = ({ category: { link, name, crew } }: HeroCrewCat
 	const categoryTypeLink: boolean = link === ''
 	return (
 		<ListItem
-			className={cn('border-t border-solid border-white/20 text-[--brand-white]', {
-				'relative cursor-pointer pr-[calc(1.5rem_+_2px)]': categoryTypeLink,
+			className={cn('border-t border-solid border-white/20 text-white', {
+				'relative cursor-pointer pr-brand-s-1': categoryTypeLink,
 			})}
 			variant='default'
 		>
@@ -37,7 +37,7 @@ export const HeroCrewCategory = ({ category: { link, name, crew } }: HeroCrewCat
 				<Link
 					// @ts-expect-error todo
 					href={category.link}
-					className='absolute right-0 top-0 z-0 flex h-full w-full cursor-pointer items-center justify-end border-[none] p-0 text-white hover:text-[--brand-yellow]'
+					className='absolute right-0 top-0 z-0 flex h-full w-full cursor-pointer items-center justify-end border-[none] p-0 text-white hover:text-brand-yellow'
 				>
 					<AiOutlineRight />
 				</Link>

@@ -15,7 +15,7 @@ export const Logo = ({ className }: LogoProps) => {
 				className
 			)}
 		>
-			<span className='rounded-md bg-[#f5c518] p-2 text-xl font-black leading-none text-[--brand-black]'>
+			<span className='rounded-md bg-brand-yellow p-2 text-xl font-black leading-none text-brand-black'>
 				{PROJECT_NAME}
 			</span>
 		</Link>

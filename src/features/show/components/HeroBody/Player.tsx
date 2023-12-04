@@ -12,7 +12,7 @@ type PlayerProps = Readonly<{
 }>
 export const Player = async ({ show }: PlayerProps) => {
 	return (
-		<div className='relative mr-0 inline-flex w-full min-w-[auto] cursor-pointer flex-col md:ml-1 md:w-[calc(72.35%_-_0.125rem)] md:bg-none md:pb-0 lg:mr-1 lg:w-[calc(60%_-_0.125rem)]'>
+		<div className='relative mr-0 inline-flex w-full min-w-[auto] cursor-pointer flex-col md:ml-1 md:w-brand-s-4 md:bg-none md:pb-0 lg:mr-1 lg:w-brand-s-3'>
 			<div className='absolute right-2.5 top-2.5 z-10'>
 				<IconButton
 					variant='rounded'
@@ -21,7 +21,7 @@ export const Player = async ({ show }: PlayerProps) => {
 					className='bg-[rgba(18,18,18,0.45)] p-2 text-white'
 				/>
 			</div>
-			<div className='relative mr-0 inline-flex w-full min-w-[auto] cursor-pointer bg-[rgb(18,18,18)] pb-14 md:bg-none md:pb-0'>
+			<div className='relative mr-0 inline-flex w-full min-w-[auto] cursor-pointer bg-brand-black3 pb-14 md:bg-none md:pb-0'>
 				<div
 					className='relative inline-flex w-full min-w-[auto] overflow-hidden text-white/10 before:relative before:block before:w-full before:bg-white/10 before:pb-[56.25%] before:content-[""]'
 					style={{ width: '100%' }}

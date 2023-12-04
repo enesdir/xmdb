@@ -12,7 +12,7 @@ export const OtherMedia = ({ media }: OtherMediaProps) => {
 		<div className='flex w-auto grow flex-row justify-between gap-1 lg:flex-col'>
 			<Link
 				href='#'
-				className='min-h-[2.25rem] max-w-[calc(50%_-_0.125rem)] grow flex-col items-center rounded-b-md bg-white/5 hover:bg-white/10 lg:max-h-[calc(50%_-_0.125rem)] lg:w-full lg:max-w-full lg:flex-row lg:rounded-r-md lg:rounded-bl-none'
+				className='min-h-[2.25rem] max-w-brand-s-1 grow flex-col items-center rounded-b-md bg-white/5 hover:bg-white/10 lg:max-h-brand-s-1 lg:w-full lg:max-w-full lg:flex-row lg:rounded-r-md lg:rounded-bl-none'
 			>
 				<div className='flex h-full flex-row items-center justify-center gap-2 text-white lg:flex-col'>
 					<BiMoviePlay className='text-sm md:text-3xl' />
@@ -23,7 +23,7 @@ export const OtherMedia = ({ media }: OtherMediaProps) => {
 			</Link>
 			<Link
 				href='#'
-				className='min-h-[2.25rem] max-w-[calc(50%_-_0.125rem)] grow flex-col items-center rounded-b-md bg-white/5 hover:bg-white/10 lg:max-h-[calc(50%_-_0.125rem)] lg:w-full lg:max-w-full lg:flex-row lg:rounded-r-md lg:rounded-bl-none'
+				className='min-h-[2.25rem] max-w-brand-s-1 grow flex-col items-center rounded-b-md bg-white/5 hover:bg-white/10 lg:max-h-brand-s-1 lg:w-full lg:max-w-full lg:flex-row lg:rounded-r-md lg:rounded-bl-none'
 			>
 				<div className='flex h-full flex-row items-center justify-center gap-2 text-white lg:flex-col'>
 					<AiOutlinePicture className='text-sm md:text-3xl' />

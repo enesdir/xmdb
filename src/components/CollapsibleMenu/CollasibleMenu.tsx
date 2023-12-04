@@ -49,7 +49,7 @@ export const CollapsibleMenu = ({ menu, onClose }: CollapsibleMenuProps) => {
 					{menuItem.items && menuItem.items.length > 0 && (
 						<ul
 							className={cn(
-								'm-0 w-full p-0 text-base font-normal normal-case leading-6 tracking-[0.03125em] lg:block',
+								'm-0 w-full p-0 text-base font-normal normal-case leading-6 tracking-brand-wide lg:block',
 								{ hidden: openIndex !== index }
 							)}
 						>

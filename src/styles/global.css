@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--brand-black: rgb(31, 31, 31);
-	--brand-black2: rgb(26, 26, 26);
-	--brand-black3: rgb(18, 18, 18);
-	--brand-yellow: rgb(245, 197, 24);
-	--brand-yellow2: rgb(222, 202, 22);
-	--brand-white: rgba(255, 255, 255, 1);
-	--brand-blue: rgb(87, 153, 239);
-}
-
 *,
 ::before,
 ::after {

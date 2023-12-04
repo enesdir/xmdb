@@ -17,7 +17,7 @@ export const MainWrapper = ({ children, className, variant = 'white' }: MainWrap
 	return (
 		<main
 			className={cn(
-				'relative min-h-[67vh] min-w-[300px] text-base font-normal normal-case leading-6 tracking-[0.03125em]',
+				'relative min-h-[67vh] min-w-[300px] text-base font-normal normal-case leading-6 tracking-brand-wide',
 				{ 'bg-white text-black': variant === 'white', 'bg-black text-white': variant === 'black' },
 				className
 			)}

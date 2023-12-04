@@ -18,7 +18,7 @@ export const CrewMobileButton = ({ onClick, isOpen, title, className }: CrewMobi
 			aria-label={`Collapse ${title} Nav Links`}
 			onClick={onClick}
 			className={cn(
-				'inline-block cursor-pointer select-none p-0 text-base font-normal normal-case leading-6 tracking-[0.03125em] text-[--brand-white] hover:underline focus:underline',
+				'inline-block cursor-pointer select-none p-0 text-base font-normal normal-case leading-6 tracking-brand-wide text-white hover:underline focus:underline',
 				{ 'pb-2': isOpen },
 				className
 			)}
