@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/enesdir/xmdb/compare/v1.1.0...v1.2.0) (2023-12-04)
+
+
+### Features
+
+* added react query devtools ([9023524](https://github.com/enesdir/xmdb/commit/90235246a0d6201a79cd26bba4fe05f155ab824a))
+
+
+### Bug Fixes
+
+* ui improvements ([ee3fb2d](https://github.com/enesdir/xmdb/commit/ee3fb2d0ea860801cc6bf645ecd66b35cde843c1))
+
 ## 1.1.0 (2023-12-01)
 
 
