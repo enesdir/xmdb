@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.3](https://github.com/enesdir/xmdb/compare/v1.2.2...v1.2.3) (2023-12-05)
+
+
+### Bug Fixes
+
+* tailwind config ([957a403](https://github.com/enesdir/xmdb/commit/957a4034a32594066fc63c7c69a8a582a5723458))
+
 ## [1.2.2](https://github.com/enesdir/xmdb/compare/v1.2.0...v1.2.2) (2023-12-04)
 
 
