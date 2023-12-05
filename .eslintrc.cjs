@@ -8,11 +8,19 @@ module.exports = {
 	root: true,
 	settings: {
 		tailwindcss: {
-			callees: ['twMerge', 'cn'],
+			callees: ['classNames', 'twMerge', 'cn'],
 			config: 'tailwind.config.ts',
 		},
+		react: {
+			version: 'detect',
+		},
 	},
-	parser: '@typescript-eslint/parser',
+	parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+	parserOptions: {
+		project: true,
+		ecmaVersion: 'latest', // Allows for the parsing of modern ECMAScript features
+		sourceType: 'module', // Allows for the use of imports
+	},
 	extends: [
 		'next/core-web-vitals',
 		'prettier',
@@ -39,4 +47,23 @@ module.exports = {
 		],
 		//#endregion  //*======== Unused Import ===========
 	},
+	overrides: [
+		{
+			// or whatever matches stories specified in .storybook/main.js
+			files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+			rules: {
+				// known issue: https://github.com/storybookjs/eslint-plugin-storybook/issues/127
+				'storybook/no-uninstalled-addons': 'off',
+			},
+		},
+		{
+			files: ['*.ts', '*.tsx'],
+			rules: {
+				// known issue: https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/291
+				'tailwindcss/classnames-order': 'off',
+				'tailwindcss/enforces-shorthand': 'off',
+				'tailwindcss/no-custom-classname': 'off',
+			},
+		},
+	],
 }

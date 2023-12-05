@@ -1,3 +1,5 @@
+'server only'
+
 import { createTRPCRouter } from '@/server/trpc'
 import { followsRouter } from './modules/follows/followsRouter'
 import { likesRouter } from './modules/likes/likesRouter'

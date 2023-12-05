@@ -1,7 +1,11 @@
+import twAspectRatio from '@tailwindcss/aspect-ratio'
+import twForms from '@tailwindcss/forms'
+import twTypography from '@tailwindcss/typography'
 import { type Config } from 'tailwindcss'
+import tailwindAnimate from 'tailwindcss-animate'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 
-export default {
+const config: Config = {
 	dark: ['class'],
 	content: ['./src/**/*.tsx'],
 	theme: {
@@ -110,10 +114,7 @@ export default {
 			},
 		},
 	},
-	plugins: [
-		require('tailwindcss-animate'),
-		require('@tailwindcss/forms'),
-		require('@tailwindcss/typography'),
-		require('@tailwindcss/aspect-ratio'),
-	],
-} satisfies Config
+	plugins: [tailwindAnimate, twForms, twTypography, twAspectRatio],
+}
+
+export default config
