@@ -13,7 +13,7 @@ import {
 } from './showsService'
 import { getFileNameFromUrl } from './showsUtils'
 
-import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
+import type { ProtectedContext, TRPCContext } from '@/server/trpc'
 import type {
 	DeleteShowByIdInput,
 	GetAllLatestShowsInput,

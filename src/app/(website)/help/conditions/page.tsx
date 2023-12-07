@@ -1,5 +1,5 @@
+import { PROJECT_NAME } from '@/constants/appConfigurations'
 import { env } from '@/env.mjs'
-import { PROJECT_NAME } from '@/lib/constants'
 
 import type { Metadata } from 'next'
 

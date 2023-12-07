@@ -13,9 +13,9 @@ interface Options {
 export const useUpdateUserAvatarForm = ({ onSuccess }: Options = {}) => {
 	const { handleSubmit, ...rest } = useZodForm(updateUserAvatarFormSchema)
 
-	const { createUserAvatar, isLoading: isCreateUserAvatarLoading } = useCreateUserAvatar()
-	const { deleteUserAvatar, isLoading: isDeleteUserAvatarLoading } = useDeleteUserAvatar()
-	const { updateUser, isLoading: isUpdateUserLoading } = useUpdateUser()
+	const { createUserAvatar, isPending: isCreateUserAvatarLoading } = useCreateUserAvatar()
+	const { deleteUserAvatar, isPending: isDeleteUserAvatarLoading } = useDeleteUserAvatar()
+	const { updateUser, isPending: isUpdateUserLoading } = useUpdateUser()
 
 	const router = useRouter()
 

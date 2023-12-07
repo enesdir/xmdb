@@ -15,7 +15,7 @@ type DeleteShowButtonProps = Readonly<{
 export const DeleteShowButton = ({ show: { id, author } }: DeleteShowButtonProps) => {
 	const { data } = useSession()
 	const { value, setTrue, setFalse } = useBoolean(false)
-	const { deleteUserShow, isLoading } = useDeleteUserShow()
+	const { deleteUserShow, isPending } = useDeleteUserShow()
 
 	if (data?.user.id !== author.id) {
 		return null
@@ -30,7 +30,7 @@ export const DeleteShowButton = ({ show: { id, author } }: DeleteShowButtonProps
 				title='Do you want to delete this show?'
 				isOpen={value}
 				variant='danger'
-				isLoading={isLoading}
+				isLoading={isPending}
 				onClose={setFalse}
 				onConfirm={() => deleteUserShow(id)}
 			/>

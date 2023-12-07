@@ -7,10 +7,10 @@ type UserFollowingListProps = Readonly<{
 }>
 
 export const UserFollowingList = ({ userId }: UserFollowingListProps) => {
-	const { following, isLoading } = useGetFollowing(userId)
+	const { following, isPending } = useGetFollowing(userId)
 
 	return (
-		<LoadingContent isLoading={isLoading}>
+		<LoadingContent isLoading={isPending}>
 			<UserList alertMessage="This user doesn't follow any user yet!" users={following} />
 		</LoadingContent>
 	)

@@ -1,9 +1,9 @@
-import { trpc } from '@/lib/trpc'
+import { client } from '@/trpc/client'
 
 export const useGetLatestShows = () => {
-	const { data, ...rest } = trpc.shows.getAllLatest.useInfiniteQuery(
+	const { data, ...rest } = client.shows.getAllLatest.useInfiniteQuery(
 		{ limit: 3 },
-		{ cacheTime: 0, getNextPageParam: ({ nextCursor }) => nextCursor }
+		{ getNextPageParam: ({ nextCursor }) => nextCursor }
 	)
 
 	const shows = data?.pages.flatMap(({ items }) => items) || []

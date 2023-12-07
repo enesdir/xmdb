@@ -8,7 +8,7 @@ import { ImagesSlider } from '@/components/ImagesSlider'
 import { SelectInput } from '@/components/SelectInput'
 import { Textarea } from '@/components/Textarea'
 import { TextField } from '@/components/TextField'
-import { DEFAULT_ERROR_MESSAGE } from '@/lib/constants'
+import { DEFAULT_ERROR_MESSAGE } from '@/constants/appConfigurations'
 import { createUrlFromFile } from '@/utils/file'
 import { useCreateShowForm } from './useCreateShowForm'
 
@@ -20,7 +20,7 @@ export const CreateShowForm = ({ onSuccess }: CreateShowFormProps) => {
 	const [images, setImages] = useState<string[]>([])
 
 	const {
-		isLoading,
+		isPending,
 		handleFormSubmit,
 		register,
 		formState: { errors, isSubmitSuccessful },
@@ -137,7 +137,7 @@ export const CreateShowForm = ({ onSuccess }: CreateShowFormProps) => {
 				<Button
 					type='submit'
 					variant='primary'
-					isLoading={isLoading}
+					isLoading={isPending}
 					disabled={images.length === 0 || isSubmitSuccessful}
 					fill
 				>

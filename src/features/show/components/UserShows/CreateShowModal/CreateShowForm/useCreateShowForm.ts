@@ -10,7 +10,7 @@ interface Options {
 export const useCreateShowForm = ({ onSuccess, onUnknownError }: Options) => {
 	const { handleSubmit, ...rest } = useZodForm(createShowFormSchema)
 
-	const { createUserShow, isLoading } = useCreateUserShow()
+	const { createUserShow, isPending } = useCreateUserShow()
 
 	const handleFormSubmit = handleSubmit(
 		async ({
@@ -49,5 +49,5 @@ export const useCreateShowForm = ({ onSuccess, onUnknownError }: Options) => {
 		}
 	)
 
-	return { handleFormSubmit, isLoading, ...rest }
+	return { handleFormSubmit, isPending, ...rest }
 }

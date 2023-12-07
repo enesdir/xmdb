@@ -1,4 +1,4 @@
-import { auth } from '@/server/auth'
+import { auth } from '@/auth'
 
 export const createJsonResponse = (body: Record<string, unknown> | undefined, status: number) =>
 	new Response(JSON.stringify(body), {

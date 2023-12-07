@@ -6,7 +6,7 @@ import {
 	EMAIL_MAX_LENGTH_ERROR_MESSAGE,
 	USERNAME_ERROR_MESSAGE,
 	USERNAME_REGEX,
-} from '@/lib/constants'
+} from '@/constants/appConfigurations'
 
 export const signInFormSchema = z.object({
 	username: z.union([

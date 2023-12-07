@@ -1,8 +1,8 @@
 // TODO: for future implementations
+import { PROJECT_NAME } from '@/constants/appConfigurations'
 import { env } from '@/env.mjs'
 import { Banner } from '@/features/show/components/Banner'
-import { PROJECT_NAME } from '@/lib/constants'
-import { getShowById } from '@/lib/show'
+import { server } from '@/trpc/server'
 import { PageParams } from '@/types/pageParams'
 
 import type { Metadata } from 'next'
@@ -23,7 +23,7 @@ export const generateMetadata = async ({ params: { showId } }: ShowGalleryPagePr
 		title,
 		description,
 		author: { id: UserID },
-	} = await getShowById(Number(showId))
+	} = await server.shows.getById.query({ id: Number(showId) })
 	return {
 		title: `${title} - Full Cast & Crew`,
 		openGraph: {

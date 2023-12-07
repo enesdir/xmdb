@@ -1,13 +1,13 @@
 import { useRouter } from 'next/navigation'
 
-import { trpc } from '@/lib/trpc'
+import { client } from '@/trpc/client'
 
 export const useRefreshUserShows = () => {
-	const { shows } = trpc.useContext()
+	const utils = client.useUtils()
 	const { refresh } = useRouter()
 
 	return async (username: string) => {
-		await shows.getShowsByUser.refetch({ username })
+		await utils.shows.getShowsByUser.invalidate({ username })
 		refresh()
 	}
 }

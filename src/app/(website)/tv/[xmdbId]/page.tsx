@@ -1,8 +1,8 @@
 // TODO: for future implementations
 import { SectionContainer } from '@/components/Containers/SectionContainer'
+import { PROJECT_NAME } from '@/constants/appConfigurations'
 import { env } from '@/env.mjs'
-import { PROJECT_NAME } from '@/lib/constants'
-import { getShowById } from '@/lib/tmdb'
+import { server } from '@/trpc/server'
 import { PageParams } from '@/types/pageParams'
 
 import type { Metadata } from 'next'
@@ -24,7 +24,8 @@ type XMDBShowPageProps = Readonly<{
 }>
 
 export default async function XMDBShowPage({ params: { xmdbId } }: XMDBShowPageProps) {
-	const show = await getShowById(Number(xmdbId))
+	const show = await server.tmdb.getShowById.query({ tmdbId: Number(xmdbId) })
+
 	return (
 		<>
 			<SectionContainer>

@@ -1,13 +1,15 @@
 import { useState } from 'react'
 
-import { trpc } from '@/lib/trpc'
+import { client } from '@/trpc/client'
 
-export const useToggleLike = (like: boolean) => {
+export const useToggleLike = (like: boolean, id: number) => {
 	const [isLike, setIsLike] = useState(like)
-	const createLikeMutation = trpc.likes.create.useMutation()
-	const deleteLikeMutation = trpc.likes.delete.useMutation()
+	const utils = client.useUtils()
+	const createLikeMutation = client.likes.create.useMutation()
+	const deleteLikeMutation = client.likes.delete.useMutation()
 
-	const isLoading = createLikeMutation.isLoading || deleteLikeMutation.isLoading
+	const isLoading = createLikeMutation.isPending || deleteLikeMutation.isPending
+	const isError = createLikeMutation.isError || deleteLikeMutation.isError
 
 	const toggleLike = async (showId: number) => {
 		if (isLike) {
@@ -16,8 +18,9 @@ export const useToggleLike = (like: boolean) => {
 			await createLikeMutation.mutateAsync({ showId })
 		}
 
+		utils.shows.getById.invalidate({ id })
 		setIsLike((prev) => !prev)
 	}
 
-	return { toggleLike, isLoading, isLike }
+	return { toggleLike, isLoading, isError, isLike }
 }

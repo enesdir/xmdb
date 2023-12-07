@@ -1,8 +1,8 @@
 import { SectionContainer } from '@/components/Containers'
 import { Title } from '@/components/Title'
+import { PROJECT_NAME } from '@/constants/appConfigurations'
 import { env } from '@/env.mjs'
 import { LatestShows } from '@/features/shows'
-import { PROJECT_NAME } from '@/lib/constants'
 
 import type { Metadata } from 'next'
 

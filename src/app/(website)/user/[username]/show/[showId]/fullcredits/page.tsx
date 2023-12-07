@@ -1,7 +1,7 @@
 import { SectionContainer } from '@/components/Containers/SectionContainer'
+import { PROJECT_NAME } from '@/constants/appConfigurations'
 import { env } from '@/env.mjs'
-import { PROJECT_NAME } from '@/lib/constants'
-import { getShowById } from '@/lib/show'
+import { server } from '@/trpc/server'
 import { PageParams } from '@/types/pageParams'
 
 import type { Metadata } from 'next'
@@ -12,7 +12,7 @@ export const generateMetadata = async ({ params: { showId } }: FullCreditsPagePr
 		title,
 
 		author: { id: UserID },
-	} = await getShowById(Number(showId))
+	} = await server.shows.getById.query({ id: Number(showId) })
 	return {
 		title: `${title} - Photo Gallery`,
 		openGraph: {

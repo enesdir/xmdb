@@ -7,14 +7,14 @@ import { Alert } from '@/components/Alert/Alert'
 import { Checkbox } from '@/components/Checkbox'
 import { PasswordField } from '@/components/PasswordField'
 import { TextField } from '@/components/TextField'
+import { DEFAULT_ERROR_MESSAGE } from '@/constants/appConfigurations'
 import { AuthForm } from '@/features/auth/components/AuthForm'
-import { DEFAULT_ERROR_MESSAGE } from '@/lib/constants'
 import { useSignUpForm } from './useSignUpForm'
 
 export const SignUpForm = () => {
 	const [alert, setAlert] = useState<string | null>(null)
 	const {
-		isLoading,
+		isPending,
 		handleFormSubmit,
 		register,
 		formState: { errors },
@@ -24,7 +24,7 @@ export const SignUpForm = () => {
 	})
 
 	return (
-		<AuthForm buttonText='Sign up' isLoading={isLoading} onSubmit={handleFormSubmit}>
+		<AuthForm buttonText='Sign up' isLoading={isPending} onSubmit={handleFormSubmit}>
 			{alert && <Alert variant='success'>{alert}</Alert>}
 			<TextField
 				type='text'

@@ -1,17 +1,17 @@
-import { Fragment } from 'react'
+'use client'
 
-import { EmptyShowsAlert } from '@/features/shows/components/EmptyShowsAlert'
+import { Fragment } from 'react'
+import { useParams } from 'next/navigation'
+
+import { client } from '@/trpc/client'
+import { PageParams } from '@/types/pageParams'
 import { UserShowListItem } from './UserShowListItem/UserShowListItem'
 
-import type { Show } from '@/server/modules/shows/showsSchemas'
-
-type ShowListProps = Readonly<{
-	shows: Show[]
-}>
-
-export const UserShowList = ({ shows }: ShowListProps) => {
-	if (shows.length === 0) {
-		return <EmptyShowsAlert />
+export const UserShowList = () => {
+	const username = useParams<PageParams<['username']>>()
+	const [shows] = client.shows.getShowsByUser.useSuspenseQuery(username)
+	if (!shows) {
+		return null
 	}
 
 	return (

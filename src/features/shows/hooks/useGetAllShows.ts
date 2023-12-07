@@ -1,7 +1,7 @@
-import { trpc } from '@/lib/trpc'
+import { client } from '@/trpc/client'
 
 export const useGetUserShows = () => {
-	const { data: shows = [], ...rest } = trpc.shows.getAll.useQuery({ cacheTime: 0 })
+	const { data: shows = [], ...rest } = client.shows.getAll.useQuery()
 
 	return { shows, ...rest }
 }

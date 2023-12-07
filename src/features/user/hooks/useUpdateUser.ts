@@ -1,6 +1,6 @@
 import { useSession } from 'next-auth/react'
 
-import { isTRPCClientError, trpc } from '@/lib/trpc'
+import { client, isTRPCClientError } from '@/trpc/client'
 
 import type { User } from '@/server/modules/users/usersSchemas'
 
@@ -19,7 +19,7 @@ interface Options {
 
 export const useUpdateUser = () => {
 	const { update } = useSession()
-	const { mutate, isLoading } = trpc.users.update.useMutation()
+	const { mutate, isPending } = client.users.update.useMutation()
 
 	const updateUser = (
 		{ username, name, email, image, biography }: UserPayload,
@@ -45,5 +45,5 @@ export const useUpdateUser = () => {
 		)
 	}
 
-	return { updateUser, isLoading }
+	return { updateUser, isPending }
 }

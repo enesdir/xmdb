@@ -6,7 +6,7 @@ import { useRefreshUserShows } from '@/features/shows/hooks/useRefreshUserShows'
 import type { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
 
 export const useCreateUserShow = () => {
-	const { mutateAsync, isLoading } = useMutation({ mutationFn: createShow })
+	const { mutateAsync, isPending } = useMutation({ mutationFn: createShow })
 
 	const refresh = useRefreshUserShows()
 
@@ -54,5 +54,5 @@ export const useCreateUserShow = () => {
 		}
 	}
 
-	return { createUserShow, isLoading }
+	return { createUserShow, isPending }
 }

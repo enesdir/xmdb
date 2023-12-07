@@ -1,16 +1,19 @@
+import { Suspense } from 'react'
+import { notFound } from 'next/navigation'
+
 import { PageContainer } from '@/components/Containers/PageContainer'
 import { SectionContainer } from '@/components/Containers/SectionContainer'
+import { DEFAULT_PROFILE_BIOGRAPHY, PROJECT_NAME } from '@/constants/appConfigurations'
 import { env } from '@/env.mjs'
-import { UserShows } from '@/features/show/components/UserShows/UserShows'
+import UserShows from '@/features/show/components/UserShows/UserShows'
 import { UserHeader } from '@/features/user/components/UserHeader/UserHeader'
-import { DEFAULT_PROFILE_BIOGRAPHY, PROJECT_NAME } from '@/lib/constants'
-import { getUserByUsername } from '@/lib/user'
+import { server } from '@/trpc/server'
 import { PageParams } from '@/types/pageParams'
 
 import type { Metadata } from 'next'
 
 export const generateMetadata = async ({ params: { username } }: UserPageProps): Promise<Metadata> => {
-	const { username: userName, name, image, biography } = await getUserByUsername(username)
+	const { username: userName, name, image, biography } = await server.users.getByUsername.query({ username })
 
 	const [firstName, lastName] = name?.split(' ') || []
 
@@ -35,15 +38,20 @@ type UserPageProps = Readonly<{
 }>
 
 export default async function UserPage({ params: { username } }: UserPageProps) {
-	const user = await getUserByUsername(username)
+	const user = await server.users.getByUsername.query({ username })
+	if (!user) {
+		notFound()
+	}
 
 	return (
 		<>
 			<SectionContainer>
-				<UserHeader user={user} />
+				<UserHeader />
 			</SectionContainer>
 			<PageContainer center>
-				<UserShows user={user} />
+				<Suspense fallback={<p>loading posts</p>}>
+					<UserShows username={username} />
+				</Suspense>
 			</PageContainer>
 		</>
 	)

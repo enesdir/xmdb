@@ -1,4 +1,4 @@
-import { DEFAULT_PROFILE_BIOGRAPHY } from '@/lib/constants'
+import { DEFAULT_PROFILE_BIOGRAPHY } from '@/constants/appConfigurations'
 
 import type { User } from '@/server/modules/users/usersSchemas'
 

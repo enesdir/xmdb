@@ -1,5 +1,5 @@
-import { PrismaAdapter } from '@next-auth/prisma-adapter'
-import { type NextAuthOptions } from 'next-auth'
+import { PrismaAdapter } from '@auth/prisma-adapter'
+import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { z } from 'zod'
 
@@ -8,12 +8,38 @@ import { userSchema } from '@/server/modules/users/usersSchemas'
 import { getUserByCredentials, initCreatedUser } from '@/server/modules/users/usersService'
 import { prisma } from '@/server/prisma'
 
-/**
- * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
- *
- * @see https://next-auth.js.org/configuration/options
- */
-export const authOptions: NextAuthOptions = {
+import type { DefaultSession } from '@auth/core/types'
+
+export type { Session } from 'next-auth'
+
+declare module 'next-auth' {
+	interface Session extends DefaultSession {
+		user: {
+			id: string
+			username?: string | null
+			// ...other properties
+			// role: UserRole;
+		} & DefaultSession['user']
+	}
+
+	interface User {
+		username?: string | null
+		// ...other properties
+		// role: UserRole;
+	}
+}
+declare module '@auth/core/jwt' {
+	interface JWT {
+		id: string
+		username?: string | null
+	}
+}
+export const {
+	handlers: { GET, POST },
+	auth,
+	signIn,
+	signOut,
+} = NextAuth({
 	adapter: PrismaAdapter(prisma),
 	secret: env.NEXTAUTH_SECRET,
 	pages: {
@@ -79,4 +105,4 @@ export const authOptions: NextAuthOptions = {
 			},
 		}),
 	],
-}
+})

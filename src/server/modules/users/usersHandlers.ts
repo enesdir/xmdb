@@ -4,7 +4,7 @@ import { isPrismaError, prismaErrors } from '@/utils/prismaErrors'
 import { mapPrismaUserToUser } from './usersMapper'
 import { createUser, getUserByUsername, searchUsers, updateUser } from './usersService'
 
-import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
+import type { ProtectedContext, TRPCContext } from '@/server/trpc'
 import type {
 	CreateUserInput,
 	GetUserByUsernameInput,

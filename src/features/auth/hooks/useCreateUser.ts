@@ -1,4 +1,4 @@
-import { isTRPCClientError, trpc } from '@/lib/trpc'
+import { client, isTRPCClientError } from '@/trpc/client'
 
 interface UserPayload {
 	readonly username: string
@@ -14,7 +14,7 @@ interface Options {
 }
 
 export const useCreateUser = () => {
-	const { mutate, isLoading } = trpc.users.create.useMutation()
+	const { mutate, isPending } = client.users.create.useMutation()
 
 	const createUser = (
 		{ username, name, email, password }: UserPayload,
@@ -39,5 +39,5 @@ export const useCreateUser = () => {
 		)
 	}
 
-	return { createUser, isLoading }
+	return { createUser, isPending }
 }

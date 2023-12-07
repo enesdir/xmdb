@@ -12,7 +12,7 @@ type UpdateUserFormProps = Readonly<{
 
 export const UpdateUserForm = ({ user, onSuccess }: UpdateUserFormProps) => {
 	const {
-		isLoading,
+		isPending,
 		handleFormSubmit,
 		register,
 		formState: { isDirty, errors },
@@ -51,7 +51,7 @@ export const UpdateUserForm = ({ user, onSuccess }: UpdateUserFormProps) => {
 				error={errors.biography?.message}
 				{...register('biography')}
 			/>
-			<Button type='submit' variant='primary' disabled={!isDirty} isLoading={isLoading} fill>
+			<Button type='submit' variant='primary' disabled={!isDirty} isLoading={isPending} fill>
 				Update the account
 			</Button>
 		</form>

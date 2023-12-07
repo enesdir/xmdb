@@ -1,29 +1,38 @@
-/**
- * This is your entry point to setup the root configuration for tRPC on the server.
- *
- * - `initTRPC` should only be used once per app.
- * - We export only the functionality that we use so we can enforce which base procedures should be used
- *
- * Learn how to create protected base procedures and other things below:
- *
- * @see https://trpc.io/docs/v10/router
- * @see https://trpc.io/docs/v10/procedures
- */
-import { headers } from 'next/headers'
-import { experimental_createServerActionHandler } from '@trpc/next/app-dir/server'
+'server only'
+
 import { initTRPC, TRPCError } from '@trpc/server'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
 
+import { auth } from '@/auth'
+import { prisma } from '@/server/prisma'
 import { isPrismaError } from '@/utils/prismaErrors'
-import { auth } from './auth'
 
-import type { TRPCContext } from './createTRPCContext'
+import type { Session } from '@/auth'
 
-const t = initTRPC.context<TRPCContext>().create({
-	/** @see https://trpc.io/docs/v10/data-transformers */
+interface CreateContextOptions {
+	session: Session | null
+}
+
+const createInnerTRPCContext = (opts: CreateContextOptions) => {
+	return {
+		session: opts.session,
+		prisma,
+	}
+}
+// eslint-disable-next-line unused-imports/no-unused-vars
+export const createTRPCContext = async (opts: { req?: Request; auth: Session | null }) => {
+	const session = opts.auth ?? (await auth())
+	const source = opts.req?.headers.get('x-trpc-source') ?? 'unknown'
+
+	console.log('>>> tRPC Request from', source, 'by', session?.user)
+
+	return createInnerTRPCContext({
+		session,
+	})
+}
+const t = initTRPC.context<typeof createTRPCContext>().create({
 	transformer: superjson,
-	/** @see https://trpc.io/docs/v10/error-formatting */
 	errorFormatter({ shape, error }) {
 		return {
 			...shape,
@@ -39,51 +48,51 @@ const t = initTRPC.context<TRPCContext>().create({
 })
 
 /**
- * This is how you create new routers and sub-routers in your tRPC API.
+ * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)
+ *
+ * These are the pieces you use to build your tRPC API. You should import these a lot in the
+ * /src/server/api/routers folder
+ */
+
+/**
+ * This is how you create new routers and subrouters in your tRPC API
  *
  * @see https://trpc.io/docs/router
  */
 export const createTRPCRouter = t.router
 
 /**
- * Public (unauthenticated) procedure
+ * Public (unauthed) procedure
  *
  * This is the base piece you use to build new queries and mutations on your tRPC API. It does not guarantee
- * that a user querying is authorized, but you can still access user session data if they are logged in.
- *
- * @see https://trpc.io/docs/v10/procedures
+ * that a user querying is authorized, but you can still access user session data if they are logged in
  */
 export const publicProcedure = t.procedure
 
-/** Reusable middleware that enforces users are logged in before running the procedure. */
-const isAuthed = t.middleware(({ ctx: { session }, next }) => {
-	if (!session) {
+/** Reusable middleware that enforces users are logged in before running the procedure */
+const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
+	if (!ctx.session?.user) {
 		throw new TRPCError({ code: 'UNAUTHORIZED' })
 	}
-
-	return next({ ctx: { session } })
+	return next({
+		ctx: {
+			// infers the `session` as non-nullable
+			session: { ...ctx.session, user: ctx.session.user },
+		},
+	})
 })
 
 /**
- * Protected (authenticated) procedure
+ * Protected (authed) procedure
  *
  * If you want a query or mutation to ONLY be accessible to logged in users, use this. It verifies the session
- * is valid and guarantees `ctx.session.user` is not null.
+ * is valid and guarantees ctx.session.user is not null
  *
  * @see https://trpc.io/docs/procedures
  */
-export const protectedProcedure = t.procedure.use(isAuthed)
+export const protectedProcedure = t.procedure.use(enforceUserIsAuthed)
 
-export const createTRPCAction = experimental_createServerActionHandler(t, {
-	async createContext() {
-		const session = await auth()
-
-		return {
-			session,
-			headers: {
-				// Pass the cookie header to the API
-				cookies: headers().get('cookie') ?? '',
-			},
-		}
-	},
-})
+export type TRPCContext = Awaited<ReturnType<typeof createTRPCContext>>
+export type ProtectedContext = Omit<TRPCContext, 'session'> & {
+	session: NonNullable<TRPCContext['session']>
+}

@@ -11,7 +11,7 @@ interface Options {
 
 export const useSignUpForm = ({ onSuccess, onUnknownError }: Options = {}) => {
 	const { handleSubmit, getValues, setError, reset, ...rest } = useZodForm(signUpFormSchema)
-	const { createUser, isLoading } = useCreateUser()
+	const { createUser, isPending } = useCreateUser()
 
 	const handleFormSubmit = handleSubmit(({ username, name, email, password }) => {
 		createUser(
@@ -38,5 +38,5 @@ export const useSignUpForm = ({ onSuccess, onUnknownError }: Options = {}) => {
 		)
 	})
 
-	return { handleFormSubmit, isLoading, ...rest }
+	return { handleFormSubmit, isPending, ...rest }
 }

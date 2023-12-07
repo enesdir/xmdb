@@ -1,13 +1,13 @@
 import { Footer, Header } from '@/features/layout'
-import { getCurrentUser } from '@/lib/session'
+import { auth } from '../../auth'
 
 import type { PropsWithChildren } from 'react'
 
 export default async function WebsiteLayoutContainer({ children }: PropsWithChildren) {
-	const user = await getCurrentUser()
+	const session = await auth()
 	return (
 		<div className='bg-black'>
-			<Header user={user} />
+			<Header user={session?.user} />
 			{children}
 			<Footer />
 		</div>

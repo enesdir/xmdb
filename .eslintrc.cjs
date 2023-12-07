@@ -49,16 +49,10 @@ module.exports = {
 	},
 	overrides: [
 		{
-			// or whatever matches stories specified in .storybook/main.js
-			files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+			files: ['*.ts', '*.tsx'],
 			rules: {
 				// known issue: https://github.com/storybookjs/eslint-plugin-storybook/issues/127
 				'storybook/no-uninstalled-addons': 'off',
-			},
-		},
-		{
-			files: ['*.ts', '*.tsx'],
-			rules: {
 				// known issue: https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/291
 				'tailwindcss/classnames-order': 'off',
 				'tailwindcss/enforces-shorthand': 'off',

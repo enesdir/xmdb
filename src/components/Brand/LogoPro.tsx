@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { PROJECT_NAME } from '@/lib/constants'
+import { PROJECT_NAME } from '@/constants/appConfigurations'
 
 export const LogoPro = () => {
 	return (

@@ -40,7 +40,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 					'flex items-center justify-center gap-x-1.5 rounded-lg border px-4 py-2 font-medium shadow-sm transition-colors duration-75 focus:outline-none disabled:pointer-events-none disabled:opacity-75',
 					fill ? 'w-full' : 'w-fit',
 					{
-						'border-slate-50 bg-slate-50 text-black hover:bg-slate-200': variant === 'primary',
+						'border-slate-300 bg-slate-300 text-black hover:bg-slate-200': variant === 'primary',
 						'dark:bg-gray bg-white text-black': variant === 'default',
 						'border-red-600 text-red-600 hover:bg-red-600/10': variant === 'danger',
 						'border-none text-white shadow-none hover:bg-[#2b2b2b]': variant === 'text',

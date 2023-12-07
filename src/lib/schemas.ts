@@ -8,7 +8,7 @@ import {
 	NAME_REGEX,
 	USERNAME_ERROR_MESSAGE,
 	USERNAME_REGEX,
-} from '@/lib/constants'
+} from '@/constants/appConfigurations'
 
 export const simpleUserFormSchema = z.object({
 	username: z.string().regex(USERNAME_REGEX, USERNAME_ERROR_MESSAGE),

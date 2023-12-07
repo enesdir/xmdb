@@ -1,7 +1,7 @@
 // TODO: for future implementations
 import { SectionContainer } from '@/components/Containers/SectionContainer'
+import { PROJECT_NAME } from '@/constants/appConfigurations'
 import { env } from '@/env.mjs'
-import { PROJECT_NAME } from '@/lib/constants'
 
 import type { Metadata } from 'next'
 

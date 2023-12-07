@@ -7,7 +7,7 @@ import {
 	PASSWORD_MAX_LENGTH,
 	PASSWORD_MIN_LENGTH,
 	USERNAME_REGEX,
-} from '@/lib/constants'
+} from '@/constants/appConfigurations'
 
 import type { TypeOf } from 'zod'
 

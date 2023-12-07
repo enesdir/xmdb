@@ -1,23 +1,19 @@
-'use client'
+'use server'
 
-import { LoadingContent } from '@/components/LoadingContent'
-import { useGetUserShows } from '@/features/show/hooks/useGetUserShows'
+import { EmptyShowsAlert } from '@/features/shows/components/EmptyShowsAlert'
+import { server } from '@/trpc/server'
+import { PageParams } from '@/types/pageParams'
 import { UserShowList } from './UserShowList/UserShowList'
 
-import type { User } from '@/server/modules/users/usersSchemas'
-
-type UserShowsProps = Readonly<{
-	user: User
-}>
-
-export const UserShows = ({ user: { username } }: UserShowsProps) => {
-	const { shows, isLoading } = useGetUserShows(username || '')
-
+// type UserShowsProps = Readonly<{
+// 	username: PageParams<['username']>
+// }>
+export default async function UserShows(username: PageParams<['username']>) {
+	const shows = await server.shows.getShowsByUser.query(username)
+	if (shows.length === 0) return <EmptyShowsAlert />
 	return (
 		<div className='pt-4'>
-			<LoadingContent isLoading={isLoading}>
-				<UserShowList shows={shows} />
-			</LoadingContent>
+			<UserShowList />
 		</div>
 	)
 }

@@ -1,7 +1,7 @@
-import { trpc } from '@/lib/trpc'
+import { client } from '@/trpc/client'
 
 export const useGetFollowers = (userId: string) => {
-	const { data: followers = [], ...rest } = trpc.follows.getFollowers.useQuery({ userId }, { cacheTime: 0 })
+	const { data: followers = [], ...rest } = client.follows.getFollowers.useQuery({ userId })
 
 	return { followers, ...rest }
 }

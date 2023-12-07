@@ -1,17 +1,20 @@
 import { notFound } from 'next/navigation'
-import { TRPCError } from '@trpc/server'
+import { TRPCClientError } from '@trpc/client'
 
-import { createTRPCContext } from '@/server/createTRPCContext'
-import { appRouter } from '@/server/router'
+import { AppRouter } from '../server/router'
+import { server } from '../trpc/server'
 
+export const isTRPCClientError = (cause: unknown): cause is TRPCClientError<AppRouter> =>
+	cause instanceof TRPCClientError
 export const getUserByUsername = async (username: string) => {
-	const caller = appRouter.createCaller(await createTRPCContext())
-
 	try {
-		return await caller.users.getByUsername({ username })
+		return await server.users.getByUsername.query({ username })
 	} catch (err) {
-		if (err instanceof TRPCError && err.code === 'NOT_FOUND') {
-			return notFound()
+		if (isTRPCClientError(err)) {
+			switch (err.data?.code) {
+				case 'NOT_FOUND':
+					notFound()
+			}
 		}
 
 		throw err

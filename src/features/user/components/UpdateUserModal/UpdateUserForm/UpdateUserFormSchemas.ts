@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { BIOGRAPHY_REGEX } from '@/lib/constants'
+import { BIOGRAPHY_REGEX } from '@/constants/appConfigurations'
 import { simpleUserFormSchema } from '@/lib/schemas'
 
 export const updateUserFormSchema = z

@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-import { trpc } from '@/lib/trpc'
+import { client } from '@/trpc/client'
 
 export const useToggleFollow = (initialState: boolean) => {
 	const [isFollowing, setIsFollowing] = useState(initialState)
 
-	const createFollowMutation = trpc.follows.createFollow.useMutation()
-	const deleteFollowMutation = trpc.follows.deleteFollow.useMutation()
+	const createFollowMutation = client.follows.createFollow.useMutation()
+	const deleteFollowMutation = client.follows.deleteFollow.useMutation()
 
-	const isLoading = createFollowMutation.isLoading || deleteFollowMutation.isLoading
+	const isLoading = createFollowMutation.isPending || deleteFollowMutation.isPending
 
 	const toggleFollow = async ({ userId }: { userId: string }) => {
 		if (isFollowing) {

@@ -15,7 +15,7 @@ type DeleteShowButtonProps = Readonly<{
 
 export const DeleteShowButton = ({ show }: DeleteShowButtonProps) => {
 	const { value, setTrue, setFalse } = useBoolean(false)
-	const { deleteUserShow, isLoading } = useDeleteUserShow()
+	const { deleteUserShow, isPending } = useDeleteUserShow()
 	return (
 		<>
 			<Button
@@ -31,7 +31,7 @@ export const DeleteShowButton = ({ show }: DeleteShowButtonProps) => {
 				title='Do you want to delete this show?'
 				isOpen={value}
 				variant='danger'
-				isLoading={isLoading}
+				isLoading={isPending}
 				onClose={setFalse}
 				onConfirm={() => deleteUserShow(show.id)}
 			/>

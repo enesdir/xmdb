@@ -1,7 +1,7 @@
 import { MEDIA_TYPE, ORIGINAL_LANGUAGE } from '@prisma/client'
 import { z } from 'zod'
 
-import { SHOW_DESCRIPTION_MAX_LENGTH } from '@/lib/constants'
+import { SHOW_DESCRIPTION_MAX_LENGTH } from '@/constants/appConfigurations'
 
 import type { TypeOf } from 'zod'
 
@@ -52,9 +52,11 @@ export const latestShowsSchema = z.object({
 	items: z.array(showSchema),
 	nextCursor: z.number().nullable(),
 })
+
 export const getShowsByUserSchema = z.object({
 	username: z.string(),
 })
+
 export const getShowByIdSchema = z.object({
 	id: z.number(),
 })

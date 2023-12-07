@@ -1,10 +1,12 @@
+'use server'
+
 import { PageContainer } from '@/components/Containers/PageContainer'
 import { SectionContainer } from '@/components/Containers/SectionContainer'
+import { PROJECT_NAME } from '@/constants/appConfigurations'
 import { env } from '@/env.mjs'
 import { ShowCastList } from '@/features/show/'
 import { ShowHero } from '@/features/show/components/ShowHero'
-import { PROJECT_NAME } from '@/lib/constants'
-import { getShowById } from '@/lib/show'
+import { server } from '@/trpc/server'
 import { PageParams } from '@/types/pageParams'
 
 import type { Metadata } from 'next'
@@ -15,7 +17,7 @@ export const generateMetadata = async ({ params }: ShowPageProps): Promise<Metad
 		title,
 		description,
 		author: { id: UserID },
-	} = await getShowById(Number(params.showId))
+	} = await server.shows.getById.query({ id: Number(params.showId) })
 
 	return {
 		title: title,
@@ -34,7 +36,7 @@ type ShowPageProps = Readonly<{
 }>
 
 export default async function ShowPage({ params }: ShowPageProps) {
-	const show = await getShowById(Number(params.showId))
+	const show = await server.shows.getById.query({ id: Number(params.showId) })
 
 	return (
 		<>

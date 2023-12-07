@@ -1,4 +1,5 @@
 import { Roboto_Flex as Roboto } from 'next/font/google'
+import { headers } from 'next/headers'
 
 import { AppProviders } from '@/providers/AppProviders'
 
@@ -8,6 +9,7 @@ import type { PropsWithChildren } from 'react'
 import '@/styles/global.css'
 
 import { cn } from '@/utils/cn'
+import { auth } from '../auth'
 import { siteConfig } from '../constants/siteConfig'
 
 const fontRoboto = Roboto({
@@ -66,6 +68,14 @@ export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.siteUrl),
 }
 export default async function RootLayout({ children }: PropsWithChildren) {
+	const session = await auth()
+	if (session?.user)
+		session.user = {
+			id: session.user.id,
+			name: session.user.name,
+			email: session.user.email,
+			username: session.user.username,
+		} // filter out sensitive data
 	return (
 		<html lang='en'>
 			<head />
@@ -76,7 +86,10 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 					// 'm-2 sm:m-6 md:m-6 lg:m-4 xl:m-6'
 				)}
 			>
-				<AppProviders>{children}</AppProviders>
+				{/* @ts-expect-error: todo */}
+				<AppProviders session={session} headers={headers()}>
+					{children}
+				</AppProviders>
 			</body>
 		</html>
 	)

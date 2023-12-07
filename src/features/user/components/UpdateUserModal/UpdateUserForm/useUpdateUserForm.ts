@@ -18,7 +18,7 @@ export const useUpdateUserForm = (
 ) => {
 	const router = useRouter()
 
-	const { updateUser, isLoading } = useUpdateUser()
+	const { updateUser, isPending } = useUpdateUser()
 	const { handleSubmit, getValues, setError, ...rest } = useZodForm(updateUserFormSchema, {
 		defaultValues: {
 			biography,
@@ -48,5 +48,5 @@ export const useUpdateUserForm = (
 		)
 	})
 
-	return { handleFormSubmit, isLoading, ...rest }
+	return { handleFormSubmit, isPending, ...rest }
 }

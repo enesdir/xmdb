@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH } from '@/lib/constants'
+import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH } from '@/constants/appConfigurations'
 import { simpleUserFormSchema } from '@/lib/schemas'
 
 const PASSWORD_MIN_LENGTH_ERROR_MESSAGE = 'Password must be at least 6 characters long'

@@ -16,7 +16,7 @@ export const UserShowSearch = () => {
 	const [value, setValue] = useState<string>('')
 	const searchValue = useDebounce(value, 300)
 	const { value: isHideList, toggle, setFalse } = useBoolean(true)
-	const { shows, isLoading } = useSearchShows(searchValue)
+	const { shows, isPending } = useSearchShows(searchValue)
 	const dropdownRef = useRef<HTMLDivElement>(null)
 	useOnClickOutside(dropdownRef, () => {
 		if (!isHideList) toggle()
@@ -49,7 +49,7 @@ export const UserShowSearch = () => {
 						{ hidden: isHideList }
 					)}
 				>
-					{isLoading ? (
+					{isPending ? (
 						<Spinner center />
 					) : (
 						<ShowSearchBarList shows={shows} onItemClick={() => setValue('')} />

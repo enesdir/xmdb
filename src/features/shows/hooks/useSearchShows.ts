@@ -1,10 +1,7 @@
-import { trpc } from '@/lib/trpc'
+import { client } from '@/trpc/client'
 
 export const useSearchShows = (search: string) => {
-	const { data: shows = [], ...rest } = trpc.shows.search.useQuery(
-		{ search },
-		{ enabled: Boolean(search), cacheTime: 0 }
-	)
+	const { data: shows = [], ...rest } = client.shows.search.useQuery({ search }, { enabled: Boolean(search) })
 
 	return { shows, ...rest }
 }

@@ -6,9 +6,9 @@ import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import { LatestShowList } from './LatestShowList'
 
 export const LatestShows = () => {
-	const { shows, hasNextPage, isLoading, isFetchingNextPage, fetchNextPage } = useGetLatestShows()
+	const { shows, hasNextPage, isPending, isFetchingNextPage, fetchNextPage } = useGetLatestShows()
 
-	const loading = isLoading || isFetchingNextPage
+	const loading = isPending || isFetchingNextPage
 
 	useInfiniteScroll(() => {
 		if (!loading && hasNextPage) {

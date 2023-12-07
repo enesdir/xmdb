@@ -1,7 +1,7 @@
 import { mapPrismaUserToUser } from '@/server/modules/users/usersMapper'
 import { createFollow, deleteFollow, getFollows } from './followsService'
 
-import type { ProtectedContext, TRPCContext } from '@/server/createTRPCContext'
+import type { ProtectedContext, TRPCContext } from '@/server/trpc'
 import type { CreateFollowInput, DeleteFollowInput, GetFollowsInput } from './followsSchemas'
 
 export const getFollowersHandler = async ({ session }: TRPCContext, { userId }: GetFollowsInput) => {

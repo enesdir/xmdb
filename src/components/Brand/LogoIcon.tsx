@@ -1,4 +1,4 @@
-import { PROJECT_NAME } from '@/lib/constants'
+import { PROJECT_NAME } from '@/constants/appConfigurations'
 
 export const LogoIcon = () => {
 	return (

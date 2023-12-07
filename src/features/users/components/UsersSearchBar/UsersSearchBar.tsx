@@ -16,7 +16,7 @@ export const UsersSearchBar = () => {
 	const [value, setValue] = useState<string>('')
 	const searchValue = useDebounce(value, 300)
 	const { value: isHideList, toggle, setFalse } = useBoolean()
-	const { users, isLoading } = useSearchUsers(searchValue)
+	const { users, isPending } = useSearchUsers(searchValue)
 	const dropdownRef = useRef<HTMLDivElement>(null)
 
 	useOnClickOutside(dropdownRef, () => {
@@ -40,7 +40,7 @@ export const UsersSearchBar = () => {
 						isHideList && 'hidden'
 					)}
 				>
-					{isLoading ? (
+					{isPending ? (
 						<Spinner center />
 					) : (
 						<UsersSearchBarList users={users} onItemClick={() => setValue('')} />

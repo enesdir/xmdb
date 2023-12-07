@@ -1,4 +1,4 @@
-import { compare, hash } from 'bcrypt'
+import { compare, hash } from 'bcryptjs'
 
 import { prisma } from '@/server/prisma'
 import { createUserSelect, generateUsername } from './usersUtils'

@@ -10,7 +10,7 @@ type LikeButtonProps = Readonly<{
 }>
 
 export const LikeButton = ({ postId, isLiked }: LikeButtonProps) => {
-	const { toggleLike, isLoading, isLike } = useToggleLike(isLiked)
+	const { toggleLike, isLoading, isLike } = useToggleLike(isLiked, postId)
 
 	const requiredSession = useRequiredSession()
 
