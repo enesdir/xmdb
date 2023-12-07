@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.3.0](https://github.com/enesdir/xmdb/compare/v1.2.3...v1.3.0) (2023-12-07)
+
+
+### Features
+
+* update react-query 5 & trpc next ([5f26f28](https://github.com/enesdir/xmdb/commit/5f26f2839b07a1035e177aafda2d0bf1eac95582))
+
+
+### Bug Fixes
+
+* eslint errors ([bbd30e5](https://github.com/enesdir/xmdb/commit/bbd30e53e837ff14408179e4c70656075bd62761))
+
 ## [1.2.3](https://github.com/enesdir/xmdb/compare/v1.2.2...v1.2.3) (2023-12-05)
 
 
