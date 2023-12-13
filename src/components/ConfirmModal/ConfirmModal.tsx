@@ -1,7 +1,8 @@
 import { Button } from '@/components/Button'
 import { Modal } from '@/components/Modal/Modal'
 
-import type { ComponentProps, ReactNode } from 'react'
+import type { ModalProps } from '@/components/Modal/Modal'
+import type { ReactNode } from 'react'
 
 type ConfirmModalProps = Readonly<{
 	title: string
@@ -10,7 +11,7 @@ type ConfirmModalProps = Readonly<{
 	icon?: ReactNode
 	onConfirm?: () => void
 }> &
-	ComponentProps<typeof Modal>
+	Omit<ModalProps, 'variant' | 'children'>
 
 export const ConfirmModal = ({ title, isLoading, onConfirm, variant, icon, ...props }: ConfirmModalProps) => (
 	<Modal {...props}>

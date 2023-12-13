@@ -109,7 +109,6 @@ const nextConfig = {
 		// !! WARN !!
 		ignoreBuildErrors: true,
 	},
-
 	swcMinify: true,
 	reactStrictMode: true,
 	poweredByHeader: false,
@@ -118,6 +117,10 @@ const nextConfig = {
 			{
 				protocol: 'https',
 				hostname: 'res.cloudinary.com',
+			},
+			{
+				protocol: 'https',
+				hostname: 'image.tmdb.org',
 			},
 			{
 				protocol: 'https',
@@ -167,9 +170,12 @@ const nextConfig = {
 					},
 				],
 			},
+			// Add X-Robots-Tag header to all pages matching /sitemap.xml and /sitemap-models.xml /sitemap-articles.xml, etc
 			{
-				source: '/sitemap.xml',
+				source: '/sitemap(-\\w+)?.xml',
 				headers: [
+					{ key: 'X-Robots-Tag', value: 'noindex' },
+					{ key: 'Content-Type', value: 'application/xml' },
 					{
 						key: 'Cache-Control',
 						value: 'public, max-age=0, must-revalidate',

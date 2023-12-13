@@ -8,6 +8,7 @@ import type { ComponentPropsWithRef, ReactNode } from 'react'
 export enum ButtonVariant {
 	'default',
 	'primary',
+	'secondary',
 	'danger',
 	'text',
 	'brand',
@@ -37,13 +38,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				disabled={disabled || isLoading}
 				onClick={onClick}
 				className={cn(
-					'flex items-center justify-center gap-x-1.5 rounded-lg border px-4 py-2 font-medium shadow-sm transition-colors duration-75 focus:outline-none disabled:pointer-events-none disabled:opacity-75',
+					'flex items-center justify-center gap-x-1.5 px-4 py-2 font-medium shadow-sm transition-colors duration-75 focus:outline-none disabled:pointer-events-none disabled:opacity-75',
 					fill ? 'w-full' : 'w-fit',
 					{
-						'border-slate-300 bg-slate-300 text-black hover:bg-slate-200': variant === 'primary',
-						'dark:bg-gray bg-white text-black': variant === 'default',
-						'border-red-600 text-red-600 hover:bg-red-600/10': variant === 'danger',
-						'border-none text-white shadow-none hover:bg-[#2b2b2b]': variant === 'text',
+						'rounded-lg border border-slate-300 bg-slate-300 text-black hover:bg-slate-200':
+							variant === 'primary',
+						'border-none bg-white/[0.08] text-brand-blue hover:bg-brand-gray3/75': variant === 'secondary',
+						'dark:bg-gray rounded bg-white text-black': variant === 'default',
+						'rounded-lg border border-red-600 text-red-600 hover:bg-red-600/10': variant === 'danger',
+						'rounded-lg border-none text-white shadow-none hover:bg-brand-black4': variant === 'text',
 						'rounded-lg border border-solid border-brand-yellow6 bg-brand-yellow7 align-middle font-sans text-xs leading-5 hover:bg-brand-yellow5':
 							variant === 'brand',
 					},
@@ -55,7 +58,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 						<Spinner size='sm' />
 					</div>
 				)}
-				{icon && <div className='text-sm'>{icon}</div>}
+				{icon && icon}
 				{children}
 			</button>
 		)

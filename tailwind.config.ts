@@ -1,6 +1,7 @@
 import twAspectRatio from '@tailwindcss/aspect-ratio'
 import twForms from '@tailwindcss/forms'
 import twTypography from '@tailwindcss/typography'
+import twScrollBar from 'tailwind-scrollbar'
 import { type Config } from 'tailwindcss'
 import tailwindAnimate from 'tailwindcss-animate'
 import { fontFamily } from 'tailwindcss/defaultTheme'
@@ -19,6 +20,7 @@ const config: Config = {
 				'brand-black': '#1F1F1F',
 				'brand-black2': '#1A1A1A',
 				'brand-black3': '#121212',
+				'brand-black4': '#2b2b2b',
 				'brand-yellow': '#F5C518',
 				'brand-yellow2': '#DEC616',
 				'brand-yellow3': '#E4B721',
@@ -114,7 +116,7 @@ const config: Config = {
 			},
 		},
 	},
-	plugins: [tailwindAnimate, twForms, twTypography, twAspectRatio],
+	plugins: [tailwindAnimate, twScrollBar, twForms, twTypography, twAspectRatio],
 }
 
 export default config

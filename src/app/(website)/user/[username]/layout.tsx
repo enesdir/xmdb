@@ -1,5 +1,3 @@
-import UserShowProviders from './providers'
-
 import type { PropsWithChildren, ReactNode } from 'react'
 
 type UserLayoutProps = Readonly<
@@ -8,5 +6,11 @@ type UserLayoutProps = Readonly<
 	} & PropsWithChildren
 >
 export default function UserLayout({ show, children }: UserLayoutProps) {
-	return <UserShowProviders modal={show}>{children}</UserShowProviders>
+	return (
+		<>
+			{/* Only show userShow modal if it's on the user page */}
+			{show}
+			{children}
+		</>
+	)
 }

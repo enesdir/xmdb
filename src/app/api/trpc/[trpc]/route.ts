@@ -1,6 +1,7 @@
+// @ts-except-error: solve Types of property '__return_type__' are incompatible.
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch'
 
-import { auth } from '@/auth'
+import { auth } from '@/server/auth'
 import { appRouter } from '@/server/router'
 import { createTRPCContext } from '@/server/trpc'
 

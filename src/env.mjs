@@ -1,10 +1,15 @@
 import { z } from 'zod'
 
+const common = {
+	NEXT_PUBLIC_BASE_URL: z.string().url().nonempty(),
+}
+
 /**
  * Specify your server-side environment variables schema here. This way you can ensure the app isn't built
  * with invalid env vars.
  */
 const server = z.object({
+	...common,
 	POSTGRES_PRISMA_URL: z.string().min(1),
 	POSTGRES_URL_NON_POOLING: z.string().min(1),
 	VERCEL_ENV: z.enum(['development', 'test', 'production']),
@@ -23,7 +28,7 @@ const server = z.object({
  * with invalid env vars. To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 const client = z.object({
-	NEXT_PUBLIC_BASE_URL: z.string().url().nonempty(),
+	...common,
 })
 
 /**
@@ -56,7 +61,7 @@ const merged = server.merge(client)
 /** @typedef {z.infer<typeof merged>} MergedOutput */
 /** @typedef {z.SafeParseReturnType<MergedInput, MergedOutput>} MergedSafeParseReturn */
 
-let env = /** @type {MergedOutput} */ (process.env)
+let env = /** @type {MergedOutput} */ (/** @type {any} */ (process.env))
 
 if (!!process.env.SKIP_ENV_VALIDATION == false) {
 	const isServer = typeof window === 'undefined'

@@ -1,6 +1,5 @@
-import { HiChevronRight } from 'react-icons/hi'
-
 import { CustomLink } from '@/components/CustomLink'
+import { RightArrow } from '@/components/Icons/RightArrow'
 import { Title } from './Title'
 
 import type { InternalLink } from '@/components/CustomLink'
@@ -19,7 +18,7 @@ export const SectionTitle = <T,>({ title, description, href }: SectionTitleProps
 				className='relative flex max-h-[2.4em] overflow-hidden border-[none] pl-3 text-white/100 before:absolute before:-ml-3 before:h-full before:w-1 before:self-start before:rounded before:bg-brand-yellow before:content-[""]'
 			>
 				{title}
-				<HiChevronRight className='ml-2 h-6 w-6 shrink-0 self-center align-baseline text-[0.8em] group-hover:text-brand-yellow' />
+				<RightArrow className='ml-2 h-6 w-6 shrink-0 self-center align-baseline text-[0.8em] group-hover:text-brand-yellow' />
 			</Title>
 		</CustomLink>
 		{description && (

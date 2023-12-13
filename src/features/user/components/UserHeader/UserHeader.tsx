@@ -14,7 +14,7 @@ import { UserEditorPanel } from './UserEditorPanel'
 import { UserStatistics } from './UserStatistics/UserStatistics'
 
 export const UserHeader = () => {
-	const { data } = useSession()
+	const { data: session } = useSession()
 	const username = useParams<PageParams<['username']>>()
 	const [user] = client.users.getByUsername.useSuspenseQuery(username)
 	return (
@@ -30,7 +30,7 @@ export const UserHeader = () => {
 					<UserDetails user={user} />
 				</section>
 
-				<AccessControl createdID={user.id} permissions={['isLoggedIn', 'isOwner']} user={data?.user}>
+				<AccessControl createdID={user.id} actions={['create']} resource='app_post' user={session?.user}>
 					<section className='absolute right-0 space-y-4 md:max-w-xs'>
 						<CreateShowButton />
 					</section>

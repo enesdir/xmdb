@@ -230,7 +230,7 @@ The following is the structured layout of the project directory, providing an ov
       - api/                # API Router
     - components/           # Reusable UI components used throughout the application
       - {ComponentName}/    # Houses reusable React components shared across the features
-    - constants/            # Functional modules or sections of the application
+    - constants/            # General Config files
     - features/             # Functional modules or sections of the application
       - {featureName}/      # Contains a specific feature module with its components, actions, and views
         - types/            # TypeScript type definitions and interfaces specific to this feature
@@ -278,16 +278,16 @@ The following is the structured layout of the project directory, providing an ov
       <td><a href="./src/app/api/trpc/[trpc].ts"><code>./src/app/api/trpc/[trpc].ts</code></a></td>
       <td>tRPC response handler</td>
     </tr>
-      <tr>
-      <td><a href="./src/app/api/trpc/[trpc].ts"><code>./src/app/api/auth/[...nextauth]/route.ts</code></a></td>
-      <td>next-auth handler</td>
-    </tr>
     <tr>
       <td><a href="./src/server/router.ts"><code>./src/server/router.ts</code></a></td>
       <td>App's different tRPC-routers</td>
     </tr>
     <tr>
-      <td><a href="./src/server/authOptions.ts"><code>./src/server/authOptions.ts</code></a></td>
+      <td><a href="./src/app/api/auth/[...nextauth]/route.ts"><code>./src/app/api/auth/[...nextauth]/route.ts</code></a></td>
+      <td>next-auth handler</td>
+    </tr>
+    <tr>
+      <td><a href="./src/server/auth.ts"><code>./src/server/auth.ts</code></a></td>
       <td>NextAuth settings</td>
     </tr>
   </tbody>

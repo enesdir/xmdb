@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { PageContainer } from '@/components/Containers/PageContainer'
 import { SectionContainer } from '@/components/Containers/SectionContainer'
+import { Spinner } from '@/components/Spinner'
 import { DEFAULT_PROFILE_BIOGRAPHY, PROJECT_NAME } from '@/constants/appConfigurations'
 import { env } from '@/env.mjs'
 import UserShows from '@/features/show/components/UserShows/UserShows'
@@ -49,7 +50,7 @@ export default async function UserPage({ params: { username } }: UserPageProps) 
 				<UserHeader />
 			</SectionContainer>
 			<PageContainer center>
-				<Suspense fallback={<p>loading posts</p>}>
+				<Suspense fallback={<Spinner size='xl' center />}>
 					<UserShows username={username} />
 				</Suspense>
 			</PageContainer>

@@ -1,4 +1,4 @@
-import { compare, hash } from 'bcryptjs'
+import bcrypt from 'bcryptjs'
 
 import { prisma } from '@/server/prisma'
 import { createUserSelect, generateUsername } from './usersUtils'
@@ -17,7 +17,7 @@ export const createUser = async ({
 	password: string
 }) =>
 	prisma.user.create({
-		data: { username, name, email, password: await hash(password, 10) },
+		data: { username, name, email, password: await bcrypt.hash(password, 10) },
 		select: createUserSelect(),
 	})
 
@@ -55,7 +55,7 @@ export const getUserByCredentials = async ({
 		select: createUserSelect(),
 	})
 
-	if (!user?.password || !(await compare(password, user.password))) {
+	if (!user?.password || !(await bcrypt.compareSync(password, user.password))) {
 		return null
 	}
 

@@ -1,17 +1,18 @@
-import { SingleShow } from '@/features/show/'
-
-import type { Show } from '@/server/modules/shows/showsSchemas'
+import { ShowCard } from '@/features/show/'
+import { RouterOutputs } from '@/trpc/shared'
 
 type LatestShowListProps = Readonly<{
-	shows: Show[]
+	shows: NonNullable<RouterOutputs['shows']['getAllLatest']['items']>
 }>
 
-export const LatestShowList = ({ shows }: LatestShowListProps) => (
-	<ol className='divide-y'>
-		{shows.map((show) => (
-			<li key={show.id} className='py-7'>
-				<SingleShow show={show} />
-			</li>
-		))}
-	</ol>
-)
+export const LatestShowList = ({ shows }: LatestShowListProps) => {
+	return (
+		<ol className='divide-y'>
+			{shows.map((show) => (
+				<li key={show.id} className='py-7'>
+					<ShowCard show={show} />
+				</li>
+			))}
+		</ol>
+	)
+}

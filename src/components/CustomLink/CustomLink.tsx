@@ -12,7 +12,7 @@ const isExternal = (href: string): href is ExternalLink => {
 }
 export type InternalLink<T> = LinkProps<T>['href']
 export type ExternalLink = `${(typeof externalPrefixes)[number]}${string}`
-type Variant = 'classic' | 'modern' | 'button' | 'title'
+type Variant = 'classic' | 'modern' | 'button' | 'title' | 'poster'
 
 const variants: Record<Variant, string> = {
 	classic:
@@ -20,11 +20,13 @@ const variants: Record<Variant, string> = {
 	modern:
 		'relative m-0 inline-block cursor-pointer border-none text-center no-underline p-2 text-white/95 hover:bg-none hover:underline',
 	button:
-		'truncate border-none text-white shadow-none hover:bg-[#2b2b2b] px-4 py-2 text-sm font-extrabold rounded-md w-fit',
+		'truncate border-none text-white shadow-none hover:bg-brand-black4 px-4 py-2 text-sm font-extrabold rounded-md w-fit',
 	title: 'inline-block no-underline hover:cursor-pointer text-inherit',
+	poster:
+		'relative m-0 inline-block cursor-pointer border-none no-underline px-2 text-white/95 hover:bg-none hover:underline h-10 line-clamp-2 text-base',
 }
 
-const commonClass = 'inline-flex items-center max-w-full'
+const commonClass = 'inline-flex items-center'
 type CustomLinkProps<T> = {
 	href: InternalLink<T> | ExternalLink
 	hasExternalIcon?: boolean

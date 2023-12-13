@@ -43,7 +43,6 @@ export const SelectInput = forwardRef<HTMLSelectElement, SelectInputProps>(
 					id={id}
 					aria-describedby={id}
 					name={name}
-					placeholder={placeholder}
 					required={required}
 					ref={ref}
 					onChange={onChange}

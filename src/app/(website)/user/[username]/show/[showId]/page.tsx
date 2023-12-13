@@ -1,5 +1,7 @@
 'use server'
 
+import { notFound } from 'next/navigation'
+
 import { PageContainer } from '@/components/Containers/PageContainer'
 import { SectionContainer } from '@/components/Containers/SectionContainer'
 import { PROJECT_NAME } from '@/constants/appConfigurations'
@@ -37,7 +39,9 @@ type ShowPageProps = Readonly<{
 
 export default async function ShowPage({ params }: ShowPageProps) {
 	const show = await server.shows.getById.query({ id: Number(params.showId) })
-
+	if (!show) {
+		notFound()
+	}
 	return (
 		<>
 			<SectionContainer>

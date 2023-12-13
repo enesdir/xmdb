@@ -2,11 +2,10 @@ import { Fragment } from 'react'
 
 import { ShowCard } from '@/features/show/'
 import { EmptyShowsAlert } from '@/features/shows/'
-
-import type { Show } from '@/server/modules/shows/showsSchemas'
+import { RouterOutputs } from '@/trpc/shared'
 
 type ShowListProps = Readonly<{
-	shows: Show[]
+	shows: NonNullable<RouterOutputs['shows']['getAll']>
 }>
 
 export const ShowList = ({ shows }: ShowListProps) => {

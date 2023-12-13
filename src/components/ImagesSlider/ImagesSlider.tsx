@@ -32,30 +32,15 @@ export const ImagesSlider = ({ images }: ImagesSliderProps) => {
 	}
 
 	return (
-		<section
-			className='relative z-0 items-center justify-center overflow-x-hidden overscroll-x-contain'
-			aria-live='polite'
-		>
+		<section className='relative z-0 items-center justify-center scrollbar-none' aria-live='polite'>
 			<button
 				onClick={prevSlide}
 				className={cn(
-					'absolute inset-y-1/2 left-5 z-10 h-10 w-10 translate-y-[-50%] rotate-180 items-center justify-center rounded-full p-2 text-8xl',
-					images.length <= 1 ? 'hidden' : 'flex',
+					'absolute left-5 top-1/2 z-10 h-10 w-10 rotate-180 items-center justify-center rounded-full p-2 text-8xl',
+					length <= 1 ? 'hidden' : 'flex',
 					currentImage > 0 ? 'opacity-100 hover:bg-slate-100' : 'cursor-not-allowed opacity-50'
 				)}
 				disabled={currentImage === 0}
-			>
-				<HiChevronRight />
-			</button>
-			<button
-				onClick={nextSlide}
-				className={cn(
-					'absolute inset-y-1/2 right-5 z-10 h-10 w-10 translate-y-[-50%] items-center justify-center rounded-full p-2 text-8xl',
-					images.length <= 1 ? 'hidden' : 'flex',
-					currentImage < length - 1 ? 'opacity-100 hover:bg-slate-100' : 'cursor-not-allowed opacity-50'
-				)}
-				aria-label='Next Image'
-				disabled={currentImage === images.length - 1}
 			>
 				<HiChevronRight />
 			</button>
@@ -68,6 +53,18 @@ export const ImagesSlider = ({ images }: ImagesSliderProps) => {
 					)
 				})}
 			</div>
+			<button
+				onClick={nextSlide}
+				className={cn(
+					'absolute right-5 top-1/2 z-10 h-10 w-10 items-center justify-center rounded-full p-2 text-8xl',
+					length <= 1 ? 'hidden' : 'flex',
+					currentImage < length - 1 ? 'opacity-100 hover:bg-slate-100' : 'cursor-not-allowed opacity-50'
+				)}
+				aria-label='Next Image'
+				disabled={currentImage === length - 1}
+			>
+				<HiChevronRight />
+			</button>
 		</section>
 	)
 }

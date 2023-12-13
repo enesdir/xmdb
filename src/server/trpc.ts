@@ -4,11 +4,11 @@ import { initTRPC, TRPCError } from '@trpc/server'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
 
-import { auth } from '@/auth'
+import { auth } from '@/server/auth'
 import { prisma } from '@/server/prisma'
-import { isPrismaError } from '@/utils/prismaErrors'
+import { isPrismaError } from '@/server/utils/prismaErrors'
 
-import type { Session } from '@/auth'
+import type { Session } from '@/server/auth'
 
 interface CreateContextOptions {
 	session: Session | null

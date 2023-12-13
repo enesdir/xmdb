@@ -1,44 +1,43 @@
+import { Role } from '@/constants/roles'
+import { useHasAccess } from '@/hooks/useHasAccess'
+
+import type { Action, Resource } from '@/types/Permissions'
 import type { Session } from 'next-auth'
 import type { ReactNode } from 'react'
-
-type AccessControlPermissions = 'isLoggedIn' | 'isOwner' | 'isAdmin'
 
 type AccessControlProps = Readonly<{
 	children: ReactNode
 	renderNoAccess?: ReactNode
 	accessCheck?: boolean
 	createdID?: string
-	permissions: AccessControlPermissions[]
+	resource: Resource
+	actions: Action[]
 	user?: Session['user']
 }>
-
-// Helper function to check if a specific permission is included in the permissions array
-const hasPermission = (
-	permissions: AccessControlPermissions[],
-	permission: AccessControlPermissions
-): boolean => {
-	return permissions.includes(permission)
+function getUserRole(user?: Session['user'], createdID?: string): Role {
+	if (!user) {
+		return Role.USER
+	}
+	if (user?.role === 'ADMIN') {
+		return Role.ADMIN
+	}
+	if (user?.id === createdID!) {
+		return Role.MEMBER
+	}
+	return Role.USER
 }
 export const AccessControl = ({
 	children,
-	renderNoAccess = null,
-	accessCheck = false,
-	createdID,
-	permissions = ['isLoggedIn'],
+	resource,
+	actions,
 	user,
-}: AccessControlProps): ReactNode => {
-	const isOwner = createdID && user?.id === createdID
-	const isLoggedIn = Boolean(user && user.id)
-	// TODO: Add your logic to determine if the user is an admin
-	const isAdmin = false
+	createdID,
+	renderNoAccess,
+}: AccessControlProps) => {
+	const { hasAccess } = useHasAccess()
+	const role = getUserRole(user, createdID)
 
-	const hasAccess =
-		(hasPermission(permissions, 'isLoggedIn') && isLoggedIn) ||
-		(hasPermission(permissions, 'isOwner') && isOwner) ||
-		(hasPermission(permissions, 'isAdmin') && isAdmin) ||
-		accessCheck
-
-	if (hasAccess) {
+	if (hasAccess(role, resource, actions)) {
 		return <>{children}</>
 	}
 

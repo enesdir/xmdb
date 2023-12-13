@@ -1,4 +1,4 @@
-import crypto from 'crypto'
+import { randomBytes } from 'crypto'
 
 import type { Prisma } from '@prisma/client'
 
@@ -22,4 +22,4 @@ export const createUserSelect = ({ followerId }: { followerId?: string } = {}) =
 	}) satisfies Prisma.UserSelect
 
 export const generateUsername = ({ email }: { email: string }) =>
-	`${email.split('@')[0]}-${crypto.randomBytes(3).toString('hex')}`
+	`${email.split('@')[0]}-${randomBytes(3).toString('hex')}`

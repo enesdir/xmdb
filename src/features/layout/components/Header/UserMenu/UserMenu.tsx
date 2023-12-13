@@ -26,7 +26,7 @@ export const UserMenu = ({ user }: UserMenuProps) => {
 	}
 	useOnClickOutside(dropdownRef, handleClickOutside)
 
-	// if (!data) return <p>loading</p>
+	if (!user) return null
 	return (
 		<div className='order-4 flex justify-center'>
 			<div className='relative flex h-full' ref={dropdownRef}>

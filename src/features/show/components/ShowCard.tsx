@@ -2,10 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { BiCameraMovie } from 'react-icons/bi'
 
-import type { Show } from '@/server/modules/shows/showsSchemas'
+import { RouterOutputs } from '@/trpc/shared'
 
 type ShowCardProps = Readonly<{
-	show: Show
+	show: NonNullable<RouterOutputs['shows']['getById']>
 }>
 
 export const ShowCard = ({ show: { description, images, title, id, author } }: ShowCardProps) => (

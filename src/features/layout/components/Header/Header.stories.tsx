@@ -6,7 +6,7 @@ const meta = {
 	title: 'Layout/Header',
 	component: Header,
 	args: {
-		user: { id: '1', name: 'storybook' },
+		session: { user: { id: '1', name: 'storybook' }, expires: new Date().toISOString() },
 	},
 	parameters: {
 		backgrounds: {

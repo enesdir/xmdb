@@ -1,6 +1,6 @@
 import { TRPCError } from '@trpc/server'
 
-import { isPrismaError, prismaErrors } from '@/utils/prismaErrors'
+import { isPrismaError, prismaErrors } from '@/server/utils/prismaErrors'
 import { mapPrismaUserToUser } from './usersMapper'
 import { createUser, getUserByUsername, searchUsers, updateUser } from './usersService'
 

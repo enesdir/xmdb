@@ -8,9 +8,9 @@ import type { PropsWithChildren } from 'react'
 
 import '@/styles/global.css'
 
+import { siteConfig } from '@/constants/siteConfig'
+import { auth } from '@/server/auth'
 import { cn } from '@/utils/cn'
-import { auth } from '../auth'
-import { siteConfig } from '../constants/siteConfig'
 
 const fontRoboto = Roboto({
 	variable: '--font-roboto',

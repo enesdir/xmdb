@@ -7,6 +7,7 @@ import { env } from '@/env.mjs'
 import { userSchema } from '@/server/modules/users/usersSchemas'
 import { getUserByCredentials, initCreatedUser } from '@/server/modules/users/usersService'
 import { prisma } from '@/server/prisma'
+import { RoleType } from '@/types/Permissions'
 
 import type { DefaultSession } from '@auth/core/types'
 
@@ -18,14 +19,14 @@ declare module 'next-auth' {
 			id: string
 			username?: string | null
 			// ...other properties
-			// role: UserRole;
+			role?: RoleType
 		} & DefaultSession['user']
 	}
 
 	interface User {
 		username?: string | null
 		// ...other properties
-		// role: UserRole;
+		role?: RoleType
 	}
 }
 declare module '@auth/core/jwt' {
@@ -74,6 +75,16 @@ export const {
 
 			return Promise.resolve(token)
 		},
+		// authorized: ({ request, auth }) => {
+		// 	if (!auth?.user) {
+		// 		const url = request.nextUrl.toString()
+		// 		const pathname = '/ap/login'
+
+		// 		return NextResponse.redirect(new URL(pathname, url))
+		// 	}
+
+		// 	return true
+		// },
 	},
 	events: {
 		createUser: async ({ user: createdUser }) => {

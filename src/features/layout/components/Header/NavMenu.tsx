@@ -7,14 +7,10 @@ import { Button } from '@/components/Button'
 import { CollapsibleMenu } from '@/components/CollapsibleMenu'
 import { Drawer } from '@/components/Drawer'
 import { IconButton } from '@/components/IconButton'
+import { menuItems } from '@/features/layout/constants/menuItems'
 import { useBoolean } from '@/hooks/useBoolean'
 
-import type { MenuItemType } from '@/features/layout/types/MenuItemType'
-
-type NavMenuProps = Readonly<{
-	menuItems: MenuItemType[]
-}>
-export const NavMenu = ({ menuItems }: NavMenuProps) => {
+export const NavMenu = () => {
 	const { value: isMenuOpen, setTrue: openMenu, setFalse: closeMenu } = useBoolean()
 
 	return (
