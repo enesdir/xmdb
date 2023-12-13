@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { AiFillHeart, AiFillMessage } from 'react-icons/ai'
 import { TbLayersSubtract } from 'react-icons/tb'
 
-import BlurImage from '@/components/BlurImage'
+import { BlurImage } from '@/components/BlurImage'
 import { cn } from '@/utils/cn'
 import { DeleteShowButton } from './DeleteShowButton'
 import { StatisticItem } from './StatisticItem'

@@ -3,17 +3,18 @@ import { HiOutlinePlus } from 'react-icons/hi2'
 import { IoMdPlay } from 'react-icons/io'
 import { MdAdd, MdInfoOutline } from 'react-icons/md'
 
+import { BlurImage } from '@/components/BlurImage'
 import { Button } from '@/components/Button'
+import { CustomLink } from '@/components/CustomLink'
 import { IconButton } from '@/components/IconButton'
+import { Ribbon } from '@/components/Icons/Ribbon'
 import { RouterOutputs } from '@/trpc/shared'
-import BlurImage from '../BlurImage'
-import { CustomLink } from '../CustomLink'
-import { Ribbon } from '../Icons/Ribbon'
 
 type SliderCardProps = {
 	show: NonNullable<RouterOutputs['tmdb']['discover']['results']>[0]
 }
 export const SliderCard = ({ show }: SliderCardProps) => {
+	const imageUrl = `https://image.tmdb.org/t/p/w500${show.backdrop_path ?? show.poster_path ?? ''}`
 	return (
 		<div className='group/card col-span-1 bg-brand-black2'>
 			<div className='flex w-full flex-col gap-2'>
@@ -35,10 +36,11 @@ export const SliderCard = ({ show }: SliderCardProps) => {
 					/>
 					<div className='relative h-[17rem] w-full'>
 						<BlurImage
-							src={`https://image.tmdb.org/t/p/w500${show.backdrop_path ?? show.poster_path ?? ''}`}
+							src={imageUrl}
 							alt={`Card Image ${show.original_title ?? show.title}`}
 							fill
 							loading='lazy'
+							sizes='100vw, (min-width: 480px) 68vw, (min-width: 600px) 52vw, (min-width: 1024px) 32vw, (min-width: 1280px) 32vw'
 							className='aspect-h-17 aspect-w-12 absolute inset-0 object-cover transition group-hover/card:scale-110'
 						/>
 					</div>

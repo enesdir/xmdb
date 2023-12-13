@@ -126,7 +126,12 @@ const nextConfig = {
 				protocol: 'https',
 				hostname: 'images.unsplash.com',
 			},
+			{
+				protocol: 'https',
+				hostname: 'avatar.vercel.sh',
+			},
 		],
+		deviceSizes: [320, 480, 640, 750, 828, 960, 1080, 1200, 1440, 1920, 2048, 2560, 3840],
 		dangerouslyAllowSVG: true,
 		contentDispositionType: 'attachment',
 		contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",

@@ -1,5 +1,5 @@
-import BlurImage from '@/components/BlurImage'
-import { cn } from '../../utils/cn'
+import { BlurImage } from '@/components/BlurImage'
+import { cn } from '@/utils/cn'
 
 type SliderImageProps = Readonly<{
 	image: string
