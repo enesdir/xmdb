@@ -1,7 +1,7 @@
 import { createTRPCRouter, publicProcedure } from '@/server/trpc'
 import { getDiscoverHandler, getMovieByIdHandler, getShowByIdHandler } from './tmdbHandler'
 import {
-	discoverSchema,
+	discoverPaginatedResultSchema,
 	getByTmdbIDSchema,
 	getDiscoverSchema,
 	movieDetailsSchema,
@@ -19,6 +19,6 @@ export const tmdbRouter = createTRPCRouter({
 		.query(({ input }) => getShowByIdHandler(input)),
 	discover: publicProcedure
 		.input(getDiscoverSchema)
-		.output(discoverSchema)
+		.output(discoverPaginatedResultSchema)
 		.query(({ input }) => getDiscoverHandler(input)),
 })

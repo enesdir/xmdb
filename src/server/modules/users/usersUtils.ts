@@ -1,5 +1,3 @@
-import { randomBytes } from 'crypto'
-
 import type { Prisma } from '@prisma/client'
 
 /**
@@ -21,5 +19,9 @@ export const createUserSelect = ({ followerId }: { followerId?: string } = {}) =
 		...(followerId && { follower: { where: { followerId } } }),
 	}) satisfies Prisma.UserSelect
 
-export const generateUsername = ({ email }: { email: string }) =>
-	`${email.split('@')[0]}-${randomBytes(3).toString('hex')}`
+export const generateUsername = async ({ email }: { email: string }) => {
+	const array = new Uint8Array(3)
+	crypto.getRandomValues(array)
+	const randomPart = Array.from(array, (byte) => byte.toString(16).padStart(2, '0')).join('')
+	return `${email.split('@')[0]}-${randomPart}`
+}

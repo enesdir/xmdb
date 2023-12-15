@@ -5,14 +5,17 @@ import { auth } from '@/server/auth'
 import { appRouter } from '@/server/router'
 import { createTRPCContext } from '@/server/trpc'
 
-// export const runtime = 'edge'
+export const runtime = 'nodejs'
 
 /** Configure basic CORS headers You should extend this to match your needs */
 function setCorsHeaders(res: Response) {
 	res.headers.set('Access-Control-Allow-Origin', '*')
 	res.headers.set('Access-Control-Request-Method', '*')
 	res.headers.set('Access-Control-Allow-Methods', 'OPTIONS, GET, POST')
-	res.headers.set('Access-Control-Allow-Headers', '*')
+	res.headers.set(
+		'Access-Control-Allow-Headers',
+		'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+	)
 }
 
 export function OPTIONS() {

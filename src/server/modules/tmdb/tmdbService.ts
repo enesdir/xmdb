@@ -28,4 +28,12 @@ export const getShowById = async <ResType>(
 export const getDiscover = async <ResType>(
 	type: GetDiscoverSchema['type'],
 	query?: GetDiscoverSchema['options']
-): Promise<AxiosResponse<ResType>> => tmdb.get(`/discover/${type}`, { params: query })
+): Promise<AxiosResponse<ResType>> =>
+	tmdb.get(`/discover/${type}`, {
+		params: {
+			with_genres: query?.genres?.length ? query?.genres.join(',') : undefined,
+			primary_release_year: query?.year,
+			sort_by: query?.sortBy,
+			page: query?.page,
+		},
+	})

@@ -60,7 +60,10 @@ export function getApi() {
 		endpoints
 	)
 }
-export const createImage = (file: Blob, { publicId, eager }: { publicId: string; eager?: string[] }) => {
+export const createImage = async (
+	file: Blob,
+	{ publicId, eager }: { publicId: string; eager?: string[] }
+) => {
 	const timestamp = Date.now().toString()
 	const formData = new FormData()
 
@@ -71,7 +74,7 @@ export const createImage = (file: Blob, { publicId, eager }: { publicId: string;
 	formData.append('api_key', env.CLOUDINARY_API_KEY)
 	formData.append(
 		'signature',
-		createSignature({
+		await createSignature({
 			publicId,
 			timestamp,
 			secret: env.CLOUDINARY_API_SECRET,
@@ -85,7 +88,7 @@ export const createImage = (file: Blob, { publicId, eager }: { publicId: string;
 	return getApi().createImage(formData)
 }
 
-export const deleteImage = (id: string) => {
+export const deleteImage = async (id: string) => {
 	const timestamp = Date.now().toString()
 	const publicId = `${env.CLOUDINARY_ASSETS_FOLDER}/${id}`
 
@@ -93,7 +96,7 @@ export const deleteImage = (id: string) => {
 		timestamp,
 		public_id: publicId,
 		api_key: env.CLOUDINARY_API_KEY,
-		signature: createSignature({
+		signature: await createSignature({
 			timestamp,
 			publicId,
 			secret: env.CLOUDINARY_API_SECRET,

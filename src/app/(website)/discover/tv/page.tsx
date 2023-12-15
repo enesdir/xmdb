@@ -30,7 +30,10 @@ type XMDBShowPageProps = Readonly<{
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
 export default async function XMDBShowPage({ params: { page } }: XMDBShowPageProps) {
-	const discoverTVData = await server.tmdb.discover.query({ type: 'tv', options: { page: 1, sortBy: '' } })
+	const discoverTVData = await server.tmdb.discover.query({
+		type: 'tv',
+		options: { page: 1, sortBy: '', year: 2023 },
+	})
 	if (!discoverTVData) {
 		notFound()
 	}

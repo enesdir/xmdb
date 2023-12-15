@@ -7,8 +7,8 @@ export const getByTmdbIDSchema = z.object({
 export const getDiscoverSchema = z.object({
 	options: z.object({
 		genres: z.array(z.number()).nullish(),
-		year: z.number().nullish(),
-		sortBy: z.string().nullish(),
+		year: z.number().optional(),
+		sortBy: z.string().optional(),
 		page: z.number(),
 	}),
 	type: z.union([z.literal('movie'), z.literal('tv')]),
@@ -249,13 +249,15 @@ export const discoverResultSchema = z.intersection(
 	movieBaseSchema.partial(),
 	showBaseSchema.partial()
 )
+const createPaginatedResult = <T extends z.ZodTypeAny>(result: T) =>
+	z.object({
+		page: z.number(),
+		results: result.array(),
+		total_pages: z.number(),
+		total_results: z.number(),
+	})
 
-export const discoverSchema = z.object({
-	page: z.number().nullable(),
-	results: z.array(discoverResultSchema).nullable(),
-	total_pages: z.number().nullable(),
-	total_results: z.number().nullable(),
-})
+export const discoverPaginatedResultSchema = createPaginatedResult(discoverResultSchema)
 
 // export as a Type
 export type GetByTmdbIDSchema = z.infer<typeof getByTmdbIDSchema>
@@ -272,4 +274,4 @@ export type Credits = z.infer<typeof credits>
 export type MovieDetailsBase = z.infer<typeof movieDetailsSchema>
 export type MovieDetails = z.infer<typeof movieDetailsSchema>
 export type ShowDetails = z.infer<typeof showDetailsSchema>
-export type Discover = z.infer<typeof discoverSchema>
+export type Discover = z.infer<typeof discoverPaginatedResultSchema>

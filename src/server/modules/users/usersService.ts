@@ -80,12 +80,12 @@ export const searchUsers = (search: string, followerId?: string) =>
 		select: createUserSelect({ followerId }),
 	})
 
-export const initCreatedUser = ({ id, email, username }: User) => {
+export const initCreatedUser = async ({ id, email, username }: User) => {
 	if (username || !email) return null
 
 	return prisma.user.update({
 		where: { id },
-		data: { username: generateUsername({ email }) },
+		data: { username: await generateUsername({ email }) },
 		select: createUserSelect(),
 	})
 }
