@@ -1,14 +1,30 @@
 import { z } from 'zod'
 
+import { TMDB_MOVIE_GENRES, TMDB_TV_GENRES } from '@/constants/genres'
+import { TMBD_SORT_BY } from '@/constants/sortBy'
+
 export const getByTmdbIDSchema = z.object({
 	tmdbId: z.number(),
 })
+const sortByValues = TMBD_SORT_BY.map((item) => item.value)
+const movieGenreIds = TMDB_MOVIE_GENRES.map((item) => item.id)
+const tvGenreIds = TMDB_TV_GENRES.map((item) => item.id)
 
 export const getDiscoverSchema = z.object({
 	options: z.object({
-		genres: z.array(z.number()).nullish(),
+		genres: z
+			.array(z.number())
+			.refine((value) => value.every((val) => [...movieGenreIds, ...tvGenreIds].includes(val)), {
+				message: 'Invalid genre id',
+			})
+			.nullish(),
 		year: z.number().optional(),
-		sortBy: z.string().optional(),
+		sortBy: z
+			.string()
+			.refine((value) => sortByValues.includes(value), {
+				message: 'Invalid sort by value',
+			})
+			.optional(),
 		page: z.number(),
 	}),
 	type: z.union([z.literal('movie'), z.literal('tv')]),
@@ -144,7 +160,7 @@ const detailsWithExternalIDSchema = z.object({
 })
 // Movie & Show Results
 export const showCommonSchema = z.object({
-	adult: z.boolean().nullable(),
+	adult: z.boolean().nullish(),
 	backdrop_path: z.string().nullable(),
 	id: z.number().int(),
 	original_language: z.string().nullable(),
@@ -154,6 +170,17 @@ export const showCommonSchema = z.object({
 	vote_average: z.number().nullable(),
 	vote_count: z.number().int().nullable(),
 })
+
+export const showBaseSchema = showCommonSchema.extend({
+	original_name: z.string().nullable(),
+	origin_country: z.array(z.string()).nullable(),
+	first_air_date: z
+		.string()
+		.regex(/^$|^(\d{4})-(\d{2})-(\d{2})$/)
+		.nullable(),
+	name: z.string().nullable(),
+})
+
 // Movie & Show Details Results
 export const showDetailsCommonSchema = z.object({
 	genres: z.array(genre).nullable(),
@@ -165,16 +192,6 @@ export const showDetailsCommonSchema = z.object({
 		.enum(['Rumored', 'Planned', 'In Production', 'Post Production', 'Released', 'Canceled'])
 		.nullable(),
 	tagline: z.string().nullable(),
-})
-
-export const showBaseSchema = showCommonSchema.extend({
-	original_name: z.string().nullable(),
-	origin_country: z.array(z.string()).nullable(),
-	first_air_date: z
-		.string()
-		.regex(/^$|^(\d{4})-(\d{2})-(\d{2})$/)
-		.nullable(),
-	name: z.string().nullable(),
 })
 
 // Show Details Results
@@ -244,20 +261,22 @@ export const movieDetailsSchema = z.intersection(
 
 // discover result
 export const discoverResultBaseSchema = z.object({ genre_ids: z.array(z.number()).nullable() })
-export const discoverResultSchema = z.intersection(
-	discoverResultBaseSchema,
-	movieBaseSchema.partial(),
-	showBaseSchema.partial()
-)
+export const movieDiscoverBaseSchema = movieBaseSchema.merge(discoverResultBaseSchema)
+
+export const showDiscoverBaseSchema = showBaseSchema.merge(discoverResultBaseSchema)
+
 const createPaginatedResult = <T extends z.ZodTypeAny>(result: T) =>
 	z.object({
 		page: z.number(),
-		results: result.array(),
+		results: z.array(result),
 		total_pages: z.number(),
 		total_results: z.number(),
 	})
 
-export const discoverPaginatedResultSchema = createPaginatedResult(discoverResultSchema)
+const moviePaginatedResultSchema = createPaginatedResult(movieDiscoverBaseSchema)
+const showPaginatedResultSchema = createPaginatedResult(showDiscoverBaseSchema)
+
+export const discoverPaginatedResultSchema = z.union([moviePaginatedResultSchema, showPaginatedResultSchema])
 
 // export as a Type
 export type GetByTmdbIDSchema = z.infer<typeof getByTmdbIDSchema>
