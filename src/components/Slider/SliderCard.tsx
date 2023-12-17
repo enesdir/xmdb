@@ -9,12 +9,17 @@ import { CustomLink } from '@/components/CustomLink'
 import { IconButton } from '@/components/IconButton'
 import { Ribbon } from '@/components/Icons/Ribbon'
 import { RouterOutputs } from '@/trpc/shared'
+import { getTmdbImageURL } from '../../lib/generateTmdbImage'
 
 type SliderCardProps = {
 	show: NonNullable<RouterOutputs['tmdb']['discover']['results']>[0]
 }
 export const SliderCard = ({ show }: SliderCardProps) => {
-	const imageUrl = `https://image.tmdb.org/t/p/w500${show.backdrop_path ?? show.poster_path ?? ''}`
+	const imageUrl = getTmdbImageURL({
+		path: show.poster_path || show.backdrop_path,
+		size: 'sm',
+		category: 'poster',
+	})
 	return (
 		<div className='group/card col-span-1 bg-brand-black2'>
 			<div className='flex w-full flex-col gap-2'>
@@ -37,7 +42,8 @@ export const SliderCard = ({ show }: SliderCardProps) => {
 					<div className='relative h-[17rem] w-full'>
 						<BlurImage
 							src={imageUrl}
-							alt={`Card Image ${show.original_title ?? show.title}`}
+							// @ts-expect-error: do better types
+							alt={`Card Image ${show.original_title ?? show.title ?? show.name ?? show.original_name}`}
 							fill
 							loading='lazy'
 							sizes='100vw, (min-width: 480px) 68vw, (min-width: 600px) 52vw, (min-width: 1024px) 32vw, (min-width: 1280px) 32vw'
@@ -60,7 +66,8 @@ export const SliderCard = ({ show }: SliderCardProps) => {
 				</div>
 
 				<CustomLink href='#' variant='poster'>
-					<span> {show.original_title ?? show.title ?? 'Title'}</span>
+					{/* @ts-expect-error: do better types */}
+					<span> {show.original_title ?? show.title ?? show.name ?? show.original_name ?? 'Title'}</span>
 				</CustomLink>
 				<div className='px-2 pt-2'>
 					<Button variant='secondary' icon={<HiOutlinePlus />} fill>
