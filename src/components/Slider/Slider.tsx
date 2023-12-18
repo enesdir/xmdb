@@ -72,16 +72,15 @@ export const Slider = ({ data }: SliderProps) => {
 			>
 				<RightArrow className='rotate-180 overflow-hidden align-baseline' />
 			</button>
-			<div className='px-3.5'>
-				<div
-					ref={sliderRef}
-					className='relative z-0 grid h-full w-full snap-mandatory auto-cols-[12rem] grid-flow-col gap-4 overflow-y-hidden overflow-x-scroll overscroll-x-contain scroll-smooth whitespace-nowrap scrollbar-none'
-				>
-					{data!.map((item) => (
-						<SliderCard key={item.id} show={item} />
-					))}
-				</div>
+			<div
+				ref={sliderRef}
+				className='relative z-0 grid h-full w-full snap-mandatory auto-cols-[12rem] grid-flow-col gap-4 overflow-y-hidden overflow-x-scroll overscroll-x-contain scroll-smooth scrollbar-none'
+			>
+				{data!.map((item) => (
+					<SliderCard key={item.id} show={item} />
+				))}
 			</div>
+
 			<button
 				onClick={handleNextClick}
 				className={cn(

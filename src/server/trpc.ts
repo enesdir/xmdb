@@ -41,7 +41,8 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
 				...(isPrismaError(error.cause) && {
 					target: error.cause.meta?.target[0],
 				}),
-				zodError: error.cause instanceof ZodError ? error.cause.flatten() : null,
+				zodError:
+					error.code === 'BAD_REQUEST' && error.cause instanceof ZodError ? error.cause.flatten() : null,
 			},
 		}
 	},

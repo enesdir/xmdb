@@ -1,11 +1,11 @@
 import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
 
+import { createImage } from '@/lib/cloudinary/cloudinaryService'
 import { mapPrismaShowToShow } from '@/server/modules/shows/showsMapper'
 import { createShowSchema } from '@/server/modules/shows/showsSchemas'
 import { createShow } from '@/server/modules/shows/showsService'
 import { createJsonResponse, protectRoute } from '@/utils/route'
-import { createImage } from '~/src/lib/cloudinary/cloudinaryService'
 
 export const POST = async (request: Request) => {
 	const [err, session] = await protectRoute()

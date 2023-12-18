@@ -150,9 +150,7 @@ export const seasonSchema = z.object({
 })
 
 const detailsWithCreditsSchema = z.object({
-	credits: z
-		.object({ cast: z.array(movieDetailsCrew).nullable(), crew: z.array(movieDetailsCrew).nullable() })
-		.nullable(),
+	credits: z.object({ cast: z.array(movieDetailsCrew).nullish(), crew: z.array(movieDetailsCrew).nullish() }),
 })
 
 const detailsWithExternalIDSchema = z.object({
@@ -189,7 +187,16 @@ export const showDetailsCommonSchema = z.object({
 	production_countries: z.array(productionCountry).nullish(),
 	spoken_languages: z.array(spokenLanguage).nullable(),
 	status: z
-		.enum(['Rumored', 'Planned', 'In Production', 'Post Production', 'Released', 'Canceled'])
+		.enum([
+			'Rumored',
+			'Planned',
+			'In Production',
+			'Post Production',
+			'Released',
+			'Canceled',
+			'Ended',
+			'Returning Series',
+		])
 		.nullable(),
 	tagline: z.string().nullable(),
 })
@@ -225,11 +232,10 @@ export const showDetailsBaseSchema = showDetailsCommonSchema.merge(
 )
 
 // ShowDetailsResults
-export const showDetailsSchema = z.intersection(
-	showDetailsBaseSchema,
-	detailsWithCreditsSchema,
-	detailsWithExternalIDSchema
-)
+export const showDetailsSchema = showDetailsBaseSchema
+	.merge(showDetailsBaseSchema)
+	.merge(detailsWithCreditsSchema)
+	.merge(detailsWithExternalIDSchema)
 
 export const movieBaseSchema = showCommonSchema.extend({
 	original_title: z.string().nullable(),

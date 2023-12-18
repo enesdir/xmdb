@@ -46,7 +46,7 @@ export const Modal = ({
 	}
 	return (
 		<Transition as={Fragment} show={isOpen} appear>
-			<Dialog as='div' onClose={() => closeModal()} className='relative z-10'>
+			<Dialog as='div' onClose={() => closeModal()} className='relative z-40'>
 				<Transition.Child
 					as={Fragment}
 					enter='ease-out duration-100'

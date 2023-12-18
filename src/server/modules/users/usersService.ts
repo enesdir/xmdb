@@ -1,6 +1,5 @@
-import bcrypt from 'bcryptjs'
-
 import { prisma } from '@/server/prisma'
+import { comparePassword, hashPassword } from '@/server/utils/passwordUtils'
 import { createUserSelect, generateUsername } from './usersUtils'
 
 import type { User } from 'next-auth'
@@ -17,7 +16,7 @@ export const createUser = async ({
 	password: string
 }) =>
 	prisma.user.create({
-		data: { username, name, email, password: await bcrypt.hash(password, 10) },
+		data: { username, name, email, password: await hashPassword(password) },
 		select: createUserSelect(),
 	})
 
@@ -55,7 +54,7 @@ export const getUserByCredentials = async ({
 		select: createUserSelect(),
 	})
 
-	if (!user?.password || !(await bcrypt.compareSync(password, user.password))) {
+	if (!user?.password || !(await comparePassword(password, user.password))) {
 		return null
 	}
 

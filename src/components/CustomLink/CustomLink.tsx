@@ -16,17 +16,17 @@ type Variant = 'classic' | 'modern' | 'button' | 'title' | 'poster'
 
 const variants: Record<Variant, string> = {
 	classic:
-		'space-x-1 text-[#0066c0] hover:cursor-pointer hover:text-[#c45500] hover:underline focus:outline-4 focus:-outline-offset-2 active:scale-95',
+		'inline-flex space-x-1 text-[#0066c0] hover:cursor-pointer hover:text-[#c45500] hover:underline focus:outline-4 focus:-outline-offset-2 active:scale-95',
 	modern:
 		'relative m-0 inline-block cursor-pointer border-none text-center no-underline p-2 text-white/95 hover:bg-none hover:underline',
 	button:
-		'truncate border-none text-white shadow-none hover:bg-brand-black4 px-4 py-2 text-sm font-extrabold rounded-md w-fit',
+		'inline-flex truncate border-none text-white shadow-none hover:bg-brand-black4 px-4 py-2 text-sm font-extrabold rounded-md w-fit',
 	title: 'inline-block no-underline hover:cursor-pointer text-inherit',
 	poster:
-		'relative m-0 inline-block cursor-pointer border-none no-underline px-2 text-white/95 hover:bg-none hover:underline h-10 line-clamp-2 text-base',
+		'relative m-0 cursor-pointer border-none no-underline px-2 text-white/95 hover:bg-none hover:underline h-12 line-clamp-2 text-base text-ellipsis',
 }
 
-const commonClass = 'inline-flex items-center'
+const commonClass = 'items-center'
 type CustomLinkProps<T> = {
 	href: InternalLink<T> | ExternalLink
 	hasExternalIcon?: boolean

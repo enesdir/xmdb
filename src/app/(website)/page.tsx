@@ -3,6 +3,7 @@ import { PageContainer } from '@/components/Containers/PageContainer'
 import { SectionContainer } from '@/components/Containers/SectionContainer'
 import { Slider } from '@/components/Slider/Slider'
 import { SectionTitle } from '@/components/Title/SectionTitle'
+import { Advert } from '@/features/advert'
 import { server } from '@/trpc/server'
 
 import type { Metadata } from 'next'
@@ -17,11 +18,7 @@ export default async function WebsiteRootPage() {
 	return (
 		<MainWrapper variant='black'>
 			<SectionContainer variant='primary'>
-				<div className='flex items-center justify-center'>
-					<div className='w-60 rounded-sm bg-white p-3 md:w-80'>
-						<p className='items-center text-black'>Website Ad</p>
-					</div>
-				</div>
+				<Advert />
 			</SectionContainer>
 
 			<PageContainer center>
