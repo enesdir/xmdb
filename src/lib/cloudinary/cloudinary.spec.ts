@@ -6,9 +6,9 @@ describe('cloudinary', () => {
 	describe.each([{ publicId: 'foobar123', secret: 'secret', timestamp: '1687364529' }])(
 		'createSignature',
 		({ publicId, secret, timestamp }) => {
-			it('should create a basic signature', () => {
+			it('should create a basic signature', async () => {
 				expect(
-					createSignature({
+					await createSignature({
 						publicId,
 						secret,
 						timestamp,
@@ -16,9 +16,9 @@ describe('cloudinary', () => {
 				).toBe('c00c89e7ba2cbc6ca2b57e875f16d12e5e4782bc')
 			})
 
-			it('should create a signature with folder', () => {
+			it('should create a signature with folder', async () => {
 				expect(
-					createSignature({
+					await createSignature({
 						publicId,
 						secret,
 						timestamp,
@@ -27,9 +27,9 @@ describe('cloudinary', () => {
 				).toBe('8e8c9196827e046984ce0b445db9b83abf7ea31b')
 			})
 
-			it('should create a signature with eager', () => {
+			it('should create a signature with eager', async () => {
 				expect(
-					createSignature({
+					await createSignature({
 						publicId,
 						secret,
 						timestamp,
@@ -38,9 +38,9 @@ describe('cloudinary', () => {
 				).toBe('feab893ec66d2c58d6a43c7786fb7f0906761d45')
 			})
 
-			it('should create a signature with eager and folder', () => {
+			it('should create a signature with eager and folder', async () => {
 				expect(
-					createSignature({
+					await createSignature({
 						publicId,
 						secret,
 						timestamp,
