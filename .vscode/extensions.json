@@ -2,6 +2,7 @@
 	"recommendations": [
 		"esbenp.prettier-vscode",
 		"dbaeumer.vscode-eslint",
+		"foxundermoon.shell-format",
 		"yzhang.markdown-all-in-one",
 		"bradlc.vscode-tailwindcss",
 		"prisma.prisma"
